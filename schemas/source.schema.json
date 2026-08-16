@@ -8,10 +8,7 @@
   "properties": {
     "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
     "updated": {"type": "string", "format": "date"},
-    "sources": {
-      "type": "array",
-      "items": {"$ref": "#/$defs/source"}
-    }
+    "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}}
   },
   "$defs": {
     "nullableUri": {
@@ -36,15 +33,11 @@
           "enum": [
             "journal", "journal_collection", "publisher_platform", "institutional_repository",
             "subject_repository", "government_repository", "preprint_server", "aggregator",
-            "directory", "digital_library"
+            "directory", "digital_library", "proceedings_platform", "proceedings_series",
+            "review_platform"
           ]
         },
-        "subjects": {
-          "type": "array",
-          "minItems": 1,
-          "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1}
-        },
+        "subjects": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
         "oa_scope": {"enum": ["full", "mixed", "metadata_only", "unknown"]},
         "peer_review_scope": {"enum": ["peer_reviewed", "mixed", "not_peer_reviewed", "not_applicable", "unknown"]},
         "publication_state": {"enum": ["published", "preprint", "mixed", "not_applicable"]},
@@ -55,28 +48,16 @@
             {"type": "null"}
           ]
         },
-        "members": {
-          "type": "array",
-          "minItems": 1,
-          "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1}
-        },
+        "members": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
         "access_roles": {
-          "type": "array",
-          "minItems": 1,
-          "uniqueItems": true,
+          "type": "array", "minItems": 1, "uniqueItems": true,
           "items": {"enum": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor", "repository_copy"]}
         },
         "machine_access": {
-          "type": "object",
-          "additionalProperties": false,
+          "type": "object", "additionalProperties": false,
           "required": ["formats", "feed_url", "api_url", "oai_pmh_url", "bulk_metadata_url"],
           "properties": {
-            "formats": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {"enum": ["html", "pdf", "xml", "json", "csv", "rdf"]}
-            },
+            "formats": {"type": "array", "uniqueItems": true, "items": {"enum": ["html", "pdf", "xml", "json", "csv", "rdf"]}},
             "feed_url": {"$ref": "#/$defs/nullableUri"},
             "api_url": {"$ref": "#/$defs/nullableUri"},
             "oai_pmh_url": {"$ref": "#/$defs/nullableUri"},
@@ -84,8 +65,7 @@
           }
         },
         "transition": {
-          "type": "object",
-          "additionalProperties": false,
+          "type": "object", "additionalProperties": false,
           "required": ["effective", "from", "to", "evidence_url"],
           "properties": {
             "effective": {"type": "string", "minLength": 4},
@@ -96,8 +76,7 @@
         },
         "status": {"enum": ["active", "inactive", "migrating", "unknown"]},
         "verification": {
-          "type": "object",
-          "additionalProperties": false,
+          "type": "object", "additionalProperties": false,
           "required": ["status", "checked", "evidence_url"],
           "properties": {
             "status": {"enum": ["verified", "partial", "needs_review"]},

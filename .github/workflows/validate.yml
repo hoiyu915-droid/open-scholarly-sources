@@ -16,5 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Validate canonical registry
+      - name: Validate base registry
         run: python3 scripts/validate_registry.py
+
+      - name: Validate source shards and bilingual coverage
+        run: python3 scripts/validate_extensions.py
