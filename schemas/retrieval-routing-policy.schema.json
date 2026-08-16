@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/retrieval-routing-policy.schema.json",
+  "title": "Open Scholarly Sources retrieval routing policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "policy_version",
+    "method",
+    "enforcement_scope",
+    "repository_guarantee",
+    "runtime_enforcement",
+    "constraints",
+    "modes",
+    "requirements",
+    "default_query_envelope",
+    "deterministic_query_signals",
+    "semantic_hints",
+    "lanes",
+    "route_order",
+    "coverage_contract",
+    "resolution",
+    "admissibility_classes",
+    "promotion",
+    "trace_required_fields",
+    "reference_implementation"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "policy_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "method": {"const": "registry_first_monotonic_fallback_v1"},
+    "enforcement_scope": {"const": "consumer"},
+    "repository_guarantee": {"const": "policy_publication_versioning_reference_implementation"},
+    "runtime_enforcement": {"const": false},
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "uncertainty_may_widen_routes",
+        "uncertainty_may_upgrade_evidence",
+        "uncertainty_may_close_required_lane",
+        "llm_may_set_verified",
+        "public_ocean_may_bypass_resolution",
+        "research_runtime_may_promote_registry"
+      ],
+      "properties": {
+        "uncertainty_may_widen_routes": {"const": true},
+        "uncertainty_may_upgrade_evidence": {"const": false},
+        "uncertainty_may_close_required_lane": {"const": false},
+        "llm_may_set_verified": {"const": false},
+        "public_ocean_may_bypass_resolution": {"const": false},
+        "research_runtime_may_promote_registry": {"const": false}
+      }
+    },
+    "modes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lite", "verified"],
+      "properties": {
+        "lite": {"$ref": "#/$defs/mode"},
+        "verified": {"$ref": "#/$defs/mode"}
+      }
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/requirement"}
+    },
+    "default_query_envelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "requirements", "freshness"],
+      "properties": {
+        "mode": {"enum": ["lite", "verified"]},
+        "requirements": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/requirement"}},
+        "freshness": {"type": "string", "minLength": 1}
+      }
+    },
+    "deterministic_query_signals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["precision_target", "recall_target", "effect", "signals"],
+      "properties": {
+        "precision_target": {"const": "high"},
+        "recall_target": {"const": "intentionally_low"},
+        "effect": {"const": "widen_only"},
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["tokens", "add_requirements"],
+            "properties": {
+              "tokens": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+              "add_requirements": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/requirement"}}
+            }
+          }
+        }
+      }
+    },
+    "semantic_hints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["producer", "trusted_for", "forbidden_for", "note"],
+      "properties": {
+        "producer": {"const": "llm_or_other_nondeterministic_classifier"},
+        "trusted_for": {"type": "array", "contains": {"const": "widen"}},
+        "forbidden_for": {"type": "array", "contains": {"const": "verify_evidence"}},
+        "note": {"type": "string", "minLength": 1}
+      }
+    },
+    "lanes": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/lane"}
+    },
+    "route_order": {
+      "const": ["registry_direct", "registry_discovery", "public_ocean"]
+    },
+    "coverage_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["terminal_attempt_states", "registered_routes_exhausted_when", "coverage_unmet_when", "public_ocean_allowed_when"],
+      "properties": {
+        "terminal_attempt_states": {"const": ["success_with_candidates", "success_empty", "failed_after_policy_budget", "not_applicable"]},
+        "registered_routes_exhausted_when": {"type": "string", "minLength": 1},
+        "coverage_unmet_when": {"type": "string", "minLength": 1},
+        "public_ocean_allowed_when": {"const": ["registered_routes_exhausted", "coverage_unmet"]}
+      }
+    },
+    "resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statuses", "attestation_classes", "accepted_resolvers", "public_ocean_default", "new_source_peer_review_default", "note"],
+      "properties": {
+        "statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "attestation_classes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "accepted_resolvers": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}},
+        "public_ocean_default": {"const": "untrusted_until_resolved"},
+        "new_source_peer_review_default": {"const": "unknown"},
+        "note": {"type": "string", "minLength": 1}
+      }
+    },
+    "admissibility_classes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime_maximum_state", "canonical_admission_requires_separate_process", "observation_count_is_truth_evidence", "evidence_quorum_principle"],
+      "properties": {
+        "runtime_maximum_state": {"const": "registry_candidate"},
+        "canonical_admission_requires_separate_process": {"const": true},
+        "observation_count_is_truth_evidence": {"const": false},
+        "evidence_quorum_principle": {"const": "independent_resolver_families_not_repeated_sessions"}
+      }
+    },
+    "trace_required_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "reference_implementation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "scope", "network_resolver", "limitations"],
+      "properties": {
+        "path": {"const": "reference_consumer/route.py"},
+        "scope": {"const": "formal_evidence_candidate_gate_v0_1"},
+        "network_resolver": {"const": "crossref"},
+        "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  },
+  "$defs": {
+    "requirement": {
+      "enum": [
+        "formal_evidence",
+        "frontier_research",
+        "frontier_challenge",
+        "evidence_synthesis",
+        "guideline",
+        "integrity_check",
+        "preregistration",
+        "fulltext_recovery",
+        "historical_archive",
+        "broad_discovery"
+      ]
+    },
+    "mode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "resolver_classes", "claim_boundary"],
+      "properties": {
+        "description": {"type": "string", "minLength": 1},
+        "resolver_classes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "claim_boundary": {"type": "string", "minLength": 1}
+      }
+    },
+    "lane": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["default_companion_lanes", "admissibility_requires"],
+      "properties": {
+        "preferred_tiers": {"type": "array", "uniqueItems": true, "items": {"enum": ["R1", "R2", "F1", "F2", "D1", "A1"]}},
+        "preferred_archetypes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "default_companion_lanes": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/requirement"}},
+        "admissibility_requires": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "registry_source_scope_requires": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "anyOf": [
+        {"required": ["preferred_tiers"]},
+        {"required": ["preferred_archetypes"]}
+      ]
+    }
+  }
+}
