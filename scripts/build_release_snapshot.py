@@ -98,7 +98,7 @@ def stamp_homepage(site: Path, identity: dict) -> None:
         '<div class="notice" id="release-identity"><strong>Release identity / 發布識別：</strong> '
         f'<code>{identity["release_id"]}</code> · '
         f'<a href="./release-manifest.json">manifest</a> · '
-        f'<a href="./releases/{identity["release_id"]}/release-manifest.json">immutable snapshot</a>. '
+        f'<a href="{identity["manifest_url"]}">immutable snapshot</a>. '
         'Mutable latest URLs may briefly return an older release through intermediary caches; '
         'compare this release ID with the repository main ref when freshness matters. '
         '可變 latest URL 可能因中介快取短暫回傳舊版；需要最新狀態時請核對 release ID 與 main ref。</div>\n  '
@@ -231,6 +231,30 @@ def stage_snapshot(
             f"{immutable_base}/{name}",
             mutable_url,
         )
+
+    # Preserve a self-contained historical mini-site. Relative fetches and links in
+    # the rendered homepage must resolve inside the commit-addressed release.
+    index_alias = snapshot / "index.html"
+    shutil.copy2(homepage, index_alias)
+    files["index.html"] = file_meta(
+        index_alias,
+        identity["immutable_base"],
+        identity["mutable_base"],
+    )
+
+    for dirname in ("data", "sources", "profiles"):
+        source_root = site / dirname
+        if not source_root.is_dir():
+            raise SystemExit(f"release runtime directory missing: {dirname}")
+        destination_root = snapshot / dirname
+        shutil.copytree(source_root, destination_root)
+        for path in sorted(p for p in destination_root.rglob("*") if p.is_file()):
+            rel = path.relative_to(snapshot).as_posix()
+            files[rel] = file_meta(
+                path,
+                f"{immutable_base}/{rel}",
+                f"{identity['mutable_base']}{rel}",
+            )
 
     schema_dir = snapshot / "schemas"
     schema_dir.mkdir()
