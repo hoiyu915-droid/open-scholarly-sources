@@ -1,0 +1,54 @@
+{
+  "schema_version": "0.1.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "openreview", "name": "OpenReview", "organization": "OpenReview", "source_type": "review_platform",
+      "subjects": ["artificial intelligence", "machine learning", "deep learning", "large language models"], "oa_scope": "mixed", "peer_review_scope": "mixed", "publication_state": "mixed",
+      "canonical_url": "https://openreview.net/", "parent_id": null, "access_roles": ["discovery", "metadata", "abstract", "fulltext"],
+      "machine_access": {"formats": ["html", "pdf", "json"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://openreview.net/about"},
+      "notes": "Open publishing and peer-review infrastructure used by conferences and journals. Openness, review visibility and publication state vary by venue and submission, so accepted status must be verified at the record level."
+    },
+    {
+      "id": "iclr", "name": "International Conference on Learning Representations (ICLR)", "organization": "ICLR / OpenReview", "source_type": "proceedings_series",
+      "subjects": ["machine learning", "deep learning", "large language models", "foundation models", "generative ai"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://openreview.net/group?id=ICLR.cc", "parent_id": "openreview", "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf", "json"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://openreview.net/group?id=ICLR.cc"},
+      "notes": "Major peer-reviewed machine-learning conference hosted on OpenReview; accepted papers and review histories are openly accessible."
+    },
+    {
+      "id": "tmlr", "name": "Transactions on Machine Learning Research (TMLR)", "organization": "TMLR / JMLR", "source_type": "journal",
+      "subjects": ["machine learning", "deep learning", "large language models", "foundation models"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://jmlr.org/tmlr/", "parent_id": "openreview", "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://jmlr.org/tmlr/"},
+      "notes": "Rolling peer-reviewed machine-learning journal emphasizing technical correctness; review and publication workflows use OpenReview."
+    },
+    {
+      "id": "pmlr", "name": "Proceedings of Machine Learning Research (PMLR)", "organization": "ML Research Press / JMLR", "source_type": "proceedings_platform",
+      "subjects": ["machine learning", "artificial intelligence", "deep learning"], "oa_scope": "full", "peer_review_scope": "mixed", "publication_state": "published",
+      "canonical_url": "https://proceedings.mlr.press/", "parent_id": null, "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://proceedings.mlr.press/"},
+      "notes": "Open proceedings series for machine-learning conferences and workshops. Review processes are venue-specific, so review scope is conservative at the platform level."
+    },
+    {
+      "id": "jmlr", "name": "Journal of Machine Learning Research (JMLR)", "organization": "Journal of Machine Learning Research", "source_type": "journal",
+      "subjects": ["machine learning", "artificial intelligence", "deep learning"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://jmlr.org/", "parent_id": null, "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://jmlr.org/"},
+      "notes": "Peer-reviewed machine-learning journal whose official site states that all published papers are freely available online."
+    },
+    {
+      "id": "neurips-proceedings", "name": "NeurIPS Proceedings", "organization": "Neural Information Processing Systems Foundation", "source_type": "proceedings_platform",
+      "subjects": ["machine learning", "deep learning", "large language models", "foundation models", "generative ai", "multimodal models", "alignment and safety"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://proceedings.neurips.cc/", "parent_id": null, "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://proceedings.neurips.cc/"},
+      "notes": "Official open proceedings archive for NeurIPS, a major peer-reviewed machine-learning and AI conference."
+    }
+  ]
+}
