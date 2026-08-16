@@ -22,12 +22,18 @@ jobs:
       - name: Validate source shards, access policies and bilingual coverage
         run: python3 scripts/validate_extensions.py
 
-      - name: Build machine, LLM and source-profile indexes
+      - name: Build machine, LLM, profile and static homepage indexes
         run: |
           rm -rf "$RUNNER_TEMP/open-scholarly-sources-site"
           mkdir -p "$RUNNER_TEMP/open-scholarly-sources-site"
+          cp docs/index.html "$RUNNER_TEMP/open-scholarly-sources-site/index.html"
+          mkdir -p "$RUNNER_TEMP/open-scholarly-sources-site/data"
+          cp data/*.json "$RUNNER_TEMP/open-scholarly-sources-site/data/"
           python3 scripts/build_machine_index.py --output "$RUNNER_TEMP/open-scholarly-sources-site"
           python3 scripts/build_source_profiles.py --output "$RUNNER_TEMP/open-scholarly-sources-site"
+          python3 scripts/build_static_homepage.py --site "$RUNNER_TEMP/open-scholarly-sources-site"
           test -s "$RUNNER_TEMP/open-scholarly-sources-site/source-profiles.json"
           test -s "$RUNNER_TEMP/open-scholarly-sources-site/source-profiles.ndjson"
           test -s "$RUNNER_TEMP/open-scholarly-sources-site/profiles/index.html"
+          grep -q "Static source index / 無 JavaScript 來源索引" "$RUNNER_TEMP/open-scholarly-sources-site/index.html"
+          ! grep -q "<!-- STATIC_FALLBACK -->" "$RUNNER_TEMP/open-scholarly-sources-site/index.html"
