@@ -73,7 +73,7 @@ def archetypes(s,sc,t):
     if len(vers)>1 or "mixed" in vers or {"repository_copy","canonical_vor"}<=roles: a.add("version_bridge")
     if subs&METHODS: a.add("methods_workshop")
     if s["status"]=="active" and frontierish and subs&CLINICAL: a.add("clinical_early_warning")
-    if subs&POLICY and (frontierish or any(x in nn for x in ("working paper","discussion paper"))): a.add("policy_signal")
+    if subs&POLICY and any(x in nn for x in ("working paper","discussion paper")): a.add("policy_signal")
     if s["status"]=="active" and s.get("parent_id")=="osf-preprints": a.add("community_hub")
     if {"multidisciplinary","interdisciplinary science"}&subs: a.add("cross_disciplinary_hub")
     if not a: a.add("formal_anchor" if sc["academic_rigor"]>=3 else "discovery_infrastructure")
