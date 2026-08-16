@@ -131,6 +131,12 @@
     Subscribe to Open 只承認資料中明列的 <code>open_years</code>。
   </div>
 
+  <!-- DEPLOY-TIME TEMPLATE NOTICE:
+       This repository file is a template, not the final Pages HTML.
+       scripts/build_static_homepage.py replaces STATIC_FALLBACK during CI/Pages build
+       with one static row per registered source. The exact rendered homepage is then
+       preserved in each immutable release as /releases/<sha>/rendered-homepage.html.
+  -->
   <!-- STATIC_FALLBACK -->
 
   <section class="stats" aria-label="Registry statistics">
@@ -160,7 +166,7 @@
     <select id="oa"><option value="">All OA scopes / 全部 OA</option></select>
     <select id="peer"><option value="">All review scopes / 全部審查狀態</option></select>
   </section>
-  <div id="result-line" class="result-line">Loading registry… / 載入中…</div>
+  <div id="result-line" class="result-line">Loading interactive registry… / 載入中…</div>
   <div class="pager" id="pager"><button type="button" id="prev-page">← Prev</button><span id="page-line">Page —</span><button type="button" id="next-page">Next →</button></div>
 
   <div class="table-wrap">

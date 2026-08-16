@@ -10,6 +10,14 @@ Open Scholarly Sources distinguishes **build/deployment truth** from **what one 
 
 A stale edge observation does not rewrite the identity of the successfully built release.
 
+## Template versus deployed HTML
+
+`docs/index.html` in the Git repository is intentionally a **build template**. It contains the `STATIC_FALLBACK` insertion marker and the JavaScript table shell, so inspecting that template alone does not prove or disprove what Pages serves.
+
+During CI/Pages build, `scripts/build_static_homepage.py` replaces the marker with one static HTML row per registered source. The release finalizer then stamps the release identity. The exact rendered result is preserved as `/releases/<sha>/rendered-homepage.html`, while the generated static source directory is preserved as `/releases/<sha>/rendered-source-index.html`. Their SHA-256 digests are recorded in that release's manifest.
+
+Release validation fails unless the rendered homepage contains the static fallback heading and exactly one `./sources/<id>.html` link for every registered source.
+
 ## Mutable latest endpoints
 
 These are convenient latest-release URLs:

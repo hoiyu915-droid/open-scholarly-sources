@@ -49,6 +49,9 @@ jobs:
           test -s "$site/release-manifest.json"
           test -s "$site/releases/index.json"
           test -s "$site/releases/$GITHUB_SHA/release-manifest.json"
+          test -s "$site/releases/$GITHUB_SHA/rendered-homepage.html"
+          test -s "$site/releases/$GITHUB_SHA/rendered-source-index.html"
+          cmp "$site/index.html" "$site/releases/$GITHUB_SHA/rendered-homepage.html"
           grep -q "Static source index / 無 JavaScript 來源索引" "$site/index.html"
           ! grep -q "<!-- STATIC_FALLBACK -->" "$site/index.html"
           grep -q "$GITHUB_SHA" "$site/index.html"
@@ -62,7 +65,7 @@ jobs:
             --release-date "$release_date"
 
           python3 - "$site" "$GITHUB_SHA" <<'PY'
-          import hashlib, json, sys
+          import hashlib, json, re, sys
           from pathlib import Path
           site=Path(sys.argv[1]); sha=sys.argv[2]
           manifest=json.loads((site/'release-manifest.json').read_text())
@@ -75,9 +78,16 @@ jobs:
           assert history['current_release_id']==sha
           assert manifest['source_count']==len(registry['sources'])
           assert manifest['profile_schema_version']==profiles['schema_version']
+          assert 'rendered-homepage.html' in manifest['files']
+          assert 'rendered-source-index.html' in manifest['files']
           snapshot=site/'releases'/sha
+          page=(snapshot/'rendered-homepage.html').read_text(encoding='utf-8')
+          source_ids=set(re.findall(r'href="\./sources/([a-z0-9-]+)\.html"', page))
+          assert len(source_ids)==manifest['source_count'], (len(source_ids), manifest['source_count'])
+          assert 'Static source index / 無 JavaScript 來源索引' in page
+          assert '<!-- STATIC_FALLBACK -->' not in page
           for name, meta in manifest['files'].items():
               data=(snapshot/name).read_bytes()
               assert hashlib.sha256(data).hexdigest()==meta['sha256'], name
-          print('Release contract assertions OK')
+          print('Release and rendered-homepage evidence assertions OK')
           PY

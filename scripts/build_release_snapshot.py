@@ -204,6 +204,34 @@ def stage_snapshot(
             f"{identity['mutable_base']}{name}",
         )
 
+    # Preserve exact rendered human/crawler surfaces as immutable evidence.
+    # docs/index.html in the repository is only a build template; these files
+    # are copied after static fallback injection and release stamping.
+    homepage = site / "index.html"
+    source_index = site / "sources" / "index.html"
+    if not homepage.is_file() or not source_index.is_file():
+        raise SystemExit("rendered homepage/source index missing before release snapshot")
+    homepage_text = homepage.read_text(encoding="utf-8")
+    if "Static source index / 無 JavaScript 來源索引" not in homepage_text:
+        raise SystemExit("rendered homepage lacks static fallback heading")
+    source_links = set(re.findall(r'href="\./sources/([a-z0-9-]+)\.html"', homepage_text))
+    if len(source_links) != source_count:
+        raise SystemExit(
+            f"rendered homepage static source-link count mismatch: {len(source_links)} != {source_count}"
+        )
+    evidence_specs = (
+        (homepage, "rendered-homepage.html", identity["mutable_base"]),
+        (source_index, "rendered-source-index.html", identity["mutable_base"] + "sources/"),
+    )
+    for source, name, mutable_url in evidence_specs:
+        destination = snapshot / name
+        shutil.copy2(source, destination)
+        files[name] = file_meta(
+            destination,
+            f"{immutable_base}/{name}",
+            mutable_url,
+        )
+
     schema_dir = snapshot / "schemas"
     schema_dir.mkdir()
     for name in SCHEMA_FILES:
