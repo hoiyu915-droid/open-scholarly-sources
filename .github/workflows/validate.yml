@@ -43,15 +43,22 @@ jobs:
             --commit-sha "$GITHUB_SHA" \
             --release-date "$release_date"
 
+          snapshot="$site/releases/$GITHUB_SHA"
           test -s "$site/source-profiles.json"
           test -s "$site/source-profiles.ndjson"
           test -s "$site/profiles/index.html"
           test -s "$site/release-manifest.json"
           test -s "$site/releases/index.json"
-          test -s "$site/releases/$GITHUB_SHA/release-manifest.json"
-          test -s "$site/releases/$GITHUB_SHA/rendered-homepage.html"
-          test -s "$site/releases/$GITHUB_SHA/rendered-source-index.html"
-          cmp "$site/index.html" "$site/releases/$GITHUB_SHA/rendered-homepage.html"
+          test -s "$snapshot/release-manifest.json"
+          test -s "$snapshot/rendered-homepage.html"
+          test -s "$snapshot/rendered-source-index.html"
+          test -s "$snapshot/index.html"
+          test -s "$snapshot/data/registry-manifest.json"
+          test -s "$snapshot/data/source-profile-rules.json"
+          test -s "$snapshot/sources/index.html"
+          test -s "$snapshot/profiles/index.html"
+          cmp "$site/index.html" "$snapshot/rendered-homepage.html"
+          cmp "$site/index.html" "$snapshot/index.html"
           grep -q "Static source index / 無 JavaScript 來源索引" "$site/index.html"
           ! grep -q "<!-- STATIC_FALLBACK -->" "$site/index.html"
           grep -q "$GITHUB_SHA" "$site/index.html"
@@ -84,10 +91,20 @@ jobs:
           page=(snapshot/'rendered-homepage.html').read_text(encoding='utf-8')
           source_ids=set(re.findall(r'href="\./sources/([a-z0-9-]+)\.html"', page))
           assert len(source_ids)==manifest['source_count'], (len(source_ids), manifest['source_count'])
+          assert (snapshot/'index.html').read_bytes()==(snapshot/'rendered-homepage.html').read_bytes()
+          for sid in source_ids:
+              assert (snapshot/'sources'/f'{sid}.html').is_file(), sid
+          bootstrap=json.loads((snapshot/'data'/'registry-manifest.json').read_text())
+          assert (snapshot/'data'/'source-profile-rules.json').is_file()
+          for filename in bootstrap.get('translation_shards', []):
+              assert (snapshot/'data'/filename).is_file(), filename
+          assert (snapshot/'profiles'/'index.html').is_file()
+          for required in ('index.html','data/registry-manifest.json','data/source-profile-rules.json','sources/index.html','profiles/index.html'):
+              assert required in manifest['files'], required
           assert 'Static source index / 無 JavaScript 來源索引' in page
           assert '<!-- STATIC_FALLBACK -->' not in page
           for name, meta in manifest['files'].items():
               data=(snapshot/name).read_bytes()
               assert hashlib.sha256(data).hexdigest()==meta['sha256'], name
-          print('Release and rendered-homepage evidence assertions OK')
+          print(f'Release self-contained assertions OK: files={len(manifest["files"])} sources={len(source_ids)}')
           PY
