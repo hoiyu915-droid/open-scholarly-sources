@@ -65,6 +65,8 @@ Every deployment therefore stamps the public machine outputs with a full Git com
 
 The immutable snapshots are persisted on the dedicated `release-snapshots` branch **only after the Pages deployment succeeds**. Reusing an existing release SHA with different bytes is a release failure.
 
+The repository copy of `docs/index.html` is only a build template; each immutable release preserves the exact rendered homepage and generated static source index for independent crawler-facing verification.
+
 When freshness matters, compare `commit_sha` from the fetched release manifest with the repository `main` ref. If they differ, the fetched mutable endpoint is stale; use the commit-addressed immutable snapshot or retry through a fresh path. See [RELEASE_CONSISTENCY.md](RELEASE_CONSISTENCY.md).
 
 ## Validate and build locally / 本機驗證與建置
