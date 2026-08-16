@@ -36,6 +36,12 @@ jobs:
       - name: Validate source shards, access policies and bilingual coverage
         run: python3 scripts/validate_extensions.py
 
+      - name: Validate retrieval routing policy invariants
+        run: python3 scripts/validate_routing_policy.py
+
+      - name: Run reference-consumer conformance tests
+        run: python3 -m unittest -v tests.test_reference_consumer
+
       - name: Stage Pages site and immutable release snapshot
         run: |
           set -euo pipefail
@@ -47,6 +53,7 @@ jobs:
           python3 scripts/build_machine_index.py --output site
           python3 scripts/build_source_profiles.py --output site
           python3 scripts/build_static_homepage.py --site site
+          python3 scripts/publish_routing_policy.py --output site
 
           release_date="$(git show -s --format=%cI "$GITHUB_SHA")"
           python3 scripts/build_release_snapshot.py \
@@ -61,13 +68,19 @@ jobs:
           ! grep -q "<!-- STATIC_FALLBACK -->" site/index.html
           grep -q "$GITHUB_SHA" site/index.html
           grep -q "Release identity: $GITHUB_SHA" site/llms.txt
+          grep -q "Routing policy:" site/llms.txt
+          test -s site/retrieval-routing-policy.json
           test -s "$snapshot/release-manifest.json"
+          test -s "$snapshot/retrieval-routing-policy.json"
+          test -s "$snapshot/schemas/retrieval-routing-policy.schema.json"
           test -s "$snapshot/index.html"
           test -s "$snapshot/data/registry-manifest.json"
           test -s "$snapshot/data/source-profile-rules.json"
+          test -s "$snapshot/data/retrieval-routing-policy.json"
           test -s "$snapshot/sources/index.html"
           test -s "$snapshot/profiles/index.html"
           cmp site/index.html "$snapshot/index.html"
+          cmp site/retrieval-routing-policy.json "$snapshot/retrieval-routing-policy.json"
           test -s site/release-manifest.json
           test -s site/releases/index.json
           touch site/.nojekyll
@@ -126,6 +139,8 @@ jobs:
           incoming_release="incoming/$release"
           archive_release="archive/releases/$release"
           test -s "$incoming_release/release-manifest.json"
+          test -s "$incoming_release/retrieval-routing-policy.json"
+          test -s "$incoming_release/schemas/retrieval-routing-policy.schema.json"
           test -s "$incoming_release/index.html"
           test -s "$incoming_release/data/registry-manifest.json"
           test -s "$incoming_release/sources/index.html"
