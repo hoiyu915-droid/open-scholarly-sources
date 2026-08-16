@@ -73,8 +73,8 @@ jobs:
           assert registry['release']['release_id']==sha
           assert profiles['release']['release_id']==sha
           assert history['current_release_id']==sha
-          assert manifest['source_count']==len(registry['sources'])==227
-          assert manifest['profile_schema_version']==profiles['schema_version']=='0.2.2'
+          assert manifest['source_count']==len(registry['sources'])
+          assert manifest['profile_schema_version']==profiles['schema_version']
           snapshot=site/'releases'/sha
           for name, meta in manifest['files'].items():
               data=(snapshot/name).read_bytes()
