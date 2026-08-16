@@ -5,7 +5,10 @@ on:
     branches:
       - feat/cross-disciplinary-llm-index
     paths:
-      - bootstrap/update.tar.gz
+      - bootstrap/update.tar.xz.b64.aa
+      - bootstrap/update.tar.xz.b64.ab
+      - bootstrap/update.tar.xz.b64.ac
+      - bootstrap/update.tar.xz.b64.ad
       - .github/workflows/bootstrap-cross-disciplinary.yml
 
 permissions:
@@ -20,10 +23,22 @@ jobs:
         with:
           ref: feat/cross-disciplinary-llm-index
 
-      - name: Apply verified bundle
+      - name: Reassemble and apply verified bundle
         run: |
-          tar -xzf bootstrap/update.tar.gz -C .
+          cat \
+            bootstrap/update.tar.xz.b64.aa \
+            bootstrap/update.tar.xz.b64.ab \
+            bootstrap/update.tar.xz.b64.ac \
+            bootstrap/update.tar.xz.b64.ad \
+            | base64 --decode > bootstrap/update.tar.xz
+          echo "f67c6221261a6928e43fff8fce309bdb3c88026efaa0daa78d89ba337d9bf707  bootstrap/update.tar.xz" | sha256sum --check -
+          tar -xJf bootstrap/update.tar.xz -C .
           rm -f bootstrap/update.tar.gz
+          rm -f bootstrap/update.tar.xz
+          rm -f bootstrap/update.tar.xz.b64.aa
+          rm -f bootstrap/update.tar.xz.b64.ab
+          rm -f bootstrap/update.tar.xz.b64.ac
+          rm -f bootstrap/update.tar.xz.b64.ad
           rmdir bootstrap
           rm -f .github/workflows/bootstrap-cross-disciplinary.yml
 
@@ -41,6 +56,10 @@ jobs:
           git add -- \
             .github/workflows/bootstrap-cross-disciplinary.yml \
             bootstrap/update.tar.gz \
+            bootstrap/update.tar.xz.b64.aa \
+            bootstrap/update.tar.xz.b64.ab \
+            bootstrap/update.tar.xz.b64.ac \
+            bootstrap/update.tar.xz.b64.ad \
             .github/workflows/pages.yml \
             .github/workflows/validate.yml \
             CONTRIBUTING.md \
