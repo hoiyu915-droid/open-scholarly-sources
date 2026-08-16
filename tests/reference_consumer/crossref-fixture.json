@@ -1,0 +1,18 @@
+{
+  "records": {
+    "10.5555/oss-tacl-known": {
+      "DOI": "10.5555/oss-tacl-known",
+      "type": "journal-article",
+      "title": ["Known formal-evidence fixture"],
+      "container-title": ["Transactions of the Association for Computational Linguistics"],
+      "publisher": "Fixture Publisher"
+    },
+    "10.5555/oss-unknown-journal": {
+      "DOI": "10.5555/oss-unknown-journal",
+      "type": "journal-article",
+      "title": ["Unknown-source fixture"],
+      "container-title": ["Journal of Unregistered Results"],
+      "publisher": "Fixture Publisher"
+    }
+  }
+}

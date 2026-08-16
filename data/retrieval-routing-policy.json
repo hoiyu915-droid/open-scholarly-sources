@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0.0",
+  "policy_version": "1.0.0",
+  "method": "registry_first_monotonic_fallback_v1",
+  "enforcement_scope": "consumer",
+  "repository_guarantee": "policy_publication_versioning_reference_implementation",
+  "runtime_enforcement": false,
+  "constraints": {
+    "uncertainty_may_widen_routes": true,
+    "uncertainty_may_upgrade_evidence": false,
+    "uncertainty_may_close_required_lane": false,
+    "llm_may_set_verified": false,
+    "public_ocean_may_bypass_resolution": false,
+    "research_runtime_may_promote_registry": false
+  },
+  "modes": {
+    "lite": {
+      "description": "Reuse pinned registry verification where possible; new public-ocean sources remain discovery-only unless the lite resolver set can establish the required attestations.",
+      "resolver_classes": ["registry", "crossref"],
+      "claim_boundary": "reduced_verification_never_increases_admissibility"
+    },
+    "verified": {
+      "description": "Run the full resolver set required by the evidence lane and preserve resolver responses or digests in the trace.",
+      "resolver_classes": ["registry", "crossref", "doaj", "unpaywall", "publisher", "disciplinary_authority"],
+      "claim_boundary": "admissibility_requires_all_lane_attestations"
+    }
+  },
+  "requirements": [
+    "formal_evidence",
+    "frontier_research",
+    "frontier_challenge",
+    "evidence_synthesis",
+    "guideline",
+    "integrity_check",
+    "preregistration",
+    "fulltext_recovery",
+    "historical_archive",
+    "broad_discovery"
+  ],
+  "default_query_envelope": {
+    "mode": "lite",
+    "requirements": ["formal_evidence"],
+    "freshness": "unspecified"
+  },
+  "deterministic_query_signals": {
+    "precision_target": "high",
+    "recall_target": "intentionally_low",
+    "effect": "widen_only",
+    "signals": [
+      {"tokens": ["latest", "newest", "recent", "最新", "最近"], "add_requirements": ["frontier_challenge"]},
+      {"tokens": ["preprint", "預印本"], "add_requirements": ["frontier_research"]},
+      {"tokens": ["guideline", "guidelines", "指引", "指南"], "add_requirements": ["guideline"]},
+      {"tokens": ["retracted", "retraction", "withdrawn", "撤稿", "撤回"], "add_requirements": ["integrity_check"]},
+      {"tokens": ["preregistered", "preregistration", "trial registry", "預註冊", "試驗註冊"], "add_requirements": ["preregistration"]},
+      {"tokens": ["systematic review", "meta-analysis", "系統性回顧", "統合分析"], "add_requirements": ["evidence_synthesis"]}
+    ]
+  },
+  "semantic_hints": {
+    "producer": "llm_or_other_nondeterministic_classifier",
+    "trusted_for": ["widen", "reprioritize"],
+    "forbidden_for": ["exclude_lane", "verify_evidence", "promote_registry_source"],
+    "note": "Semantic hints are optional recall helpers. They are not authoritative intent classification."
+  },
+  "lanes": {
+    "formal_evidence": {
+      "preferred_tiers": ["R1", "R2"],
+      "default_companion_lanes": ["frontier_challenge"],
+      "admissibility_requires": ["document_identity", "registry_source_scope"],
+      "registry_source_scope_requires": ["verified_source", "peer_reviewed", "published", "canonical_vor"]
+    },
+    "frontier_research": {
+      "preferred_tiers": ["F1", "F2"],
+      "default_companion_lanes": ["formal_evidence"],
+      "admissibility_requires": ["document_identity", "publication_state"]
+    },
+    "frontier_challenge": {
+      "preferred_tiers": ["F1"],
+      "default_companion_lanes": [],
+      "admissibility_requires": ["document_identity", "publication_state"]
+    },
+    "evidence_synthesis": {
+      "preferred_archetypes": ["evidence_synthesis_anchor", "formal_anchor"],
+      "default_companion_lanes": ["formal_evidence"],
+      "admissibility_requires": ["document_identity", "registry_source_scope"]
+    },
+    "guideline": {
+      "preferred_archetypes": ["guideline_authority"],
+      "default_companion_lanes": [],
+      "admissibility_requires": ["document_identity", "registry_source_scope"]
+    },
+    "integrity_check": {
+      "preferred_archetypes": ["research_integrity_watch", "preregistration_registry", "trial_registry"],
+      "default_companion_lanes": ["formal_evidence"],
+      "admissibility_requires": ["document_identity"]
+    },
+    "preregistration": {
+      "preferred_archetypes": ["preregistration_registry", "trial_registry"],
+      "default_companion_lanes": ["formal_evidence"],
+      "admissibility_requires": ["document_identity"]
+    },
+    "fulltext_recovery": {
+      "preferred_archetypes": ["oa_resolver", "version_bridge", "archive_backbone"],
+      "default_companion_lanes": [],
+      "admissibility_requires": ["document_identity", "version"]
+    },
+    "historical_archive": {
+      "preferred_tiers": ["A1"],
+      "default_companion_lanes": [],
+      "admissibility_requires": ["document_identity"]
+    },
+    "broad_discovery": {
+      "preferred_tiers": ["D1"],
+      "default_companion_lanes": ["formal_evidence", "frontier_challenge"],
+      "admissibility_requires": ["document_identity"]
+    }
+  },
+  "route_order": ["registry_direct", "registry_discovery", "public_ocean"],
+  "coverage_contract": {
+    "terminal_attempt_states": ["success_with_candidates", "success_empty", "failed_after_policy_budget", "not_applicable"],
+    "registered_routes_exhausted_when": "all_planned_registered_routes_for_required_lanes_are_terminal",
+    "coverage_unmet_when": "any_required_lane_has_fewer_admissible_documents_than_its_minimum",
+    "public_ocean_allowed_when": ["registered_routes_exhausted", "coverage_unmet"]
+  },
+  "resolution": {
+    "statuses": ["verified", "partial", "unknown", "failed", "not_applicable"],
+    "attestation_classes": ["document_identity", "container_identity", "publication_state", "peer_review_scope", "version", "oa_access", "registry_source_scope"],
+    "accepted_resolvers": {
+      "document_identity": ["crossref", "registry", "disciplinary_authority"],
+      "container_identity": ["crossref", "registry", "publisher", "disciplinary_authority"],
+      "publication_state": ["crossref", "registry", "publisher", "disciplinary_authority"],
+      "peer_review_scope": ["registry", "doaj", "human_reviewed_admission"],
+      "version": ["registry", "publisher", "unpaywall", "disciplinary_authority"],
+      "oa_access": ["registry", "doaj", "unpaywall", "publisher"],
+      "registry_source_scope": ["registry"]
+    },
+    "public_ocean_default": "untrusted_until_resolved",
+    "new_source_peer_review_default": "unknown",
+    "note": "A newly discovered source is expected to remain discovery_only when formal peer-review scope cannot be established by an accepted resolver or a previously verified registry record. This is intentional conservative behavior, not a retrieval failure."
+  },
+  "admissibility_classes": ["formal_evidence", "frontier_evidence", "repository_copy", "discovery_only", "unresolved"],
+  "promotion": {
+    "runtime_maximum_state": "registry_candidate",
+    "canonical_admission_requires_separate_process": true,
+    "observation_count_is_truth_evidence": false,
+    "evidence_quorum_principle": "independent_resolver_families_not_repeated_sessions"
+  },
+  "trace_required_fields": [
+    "registry_release_id",
+    "routing_policy_version",
+    "routing_policy_sha256",
+    "source_profile_rule_version",
+    "query_envelope",
+    "route_attempts",
+    "fallback_depth",
+    "resolution_attestations"
+  ],
+  "reference_implementation": {
+    "path": "reference_consumer/route.py",
+    "scope": "formal_evidence_candidate_gate_v0_1",
+    "network_resolver": "crossref",
+    "limitations": [
+      "does_not_classify_natural_language_intent",
+      "does_not_auto_infer_peer_review_from_publisher_prose",
+      "does_not_auto_promote_registry_sources",
+      "does_not_implement_full_source_specific_discovery"
+    ]
+  }
+}

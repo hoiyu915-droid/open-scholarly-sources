@@ -19,12 +19,14 @@ SNAPSHOT_FILES = (
     "registry.jsonld",
     "source-profiles.json",
     "source-profiles.ndjson",
+    "retrieval-routing-policy.json",
     "llms.txt",
     "llms-full.txt",
 )
 SCHEMA_FILES = (
     "source.schema.json",
     "source-profile.schema.json",
+    "retrieval-routing-policy.schema.json",
     "release-manifest.schema.json",
 )
 
@@ -62,7 +64,7 @@ def release_identity(
 ):
     immutable_base = f"{base_url}/releases/{release_id}"
     return {
-        "schema_version": "1.0.0",
+        "schema_version": "2.0.0",
         "release_id": release_id,
         "commit_sha": commit_sha,
         "release_date": release_date,
@@ -136,6 +138,7 @@ def inject_identity(site: Path, identity: dict) -> tuple[int, str, str]:
         f"Immutable snapshot: {identity['immutable_base']}\n"
         f"Release manifest: {identity['manifest_url']}\n"
         f"Release history: {identity['mutable_base']}releases/index.json\n"
+        f"Routing policy: {identity['mutable_base']}retrieval-routing-policy.json\n"
         "Freshness note: mutable endpoints may be temporarily stale because of intermediary caching or propagation. "
         "Compare the release identity with the repository main ref when freshness matters.\n"
     )
@@ -189,6 +192,16 @@ def stage_snapshot(
         if existing.get("release_id") != release_id or existing.get("commit_sha") != identity["commit_sha"]:
             raise SystemExit(f"immutable release conflict: {release_id}")
         return existing
+
+    routing_policy_path = site / "retrieval-routing-policy.json"
+    if not routing_policy_path.is_file():
+        raise SystemExit("routing policy missing before release snapshot")
+    routing_policy = read_json(routing_policy_path)
+    routing_policy_version = routing_policy.get("policy_version")
+    routing_policy_method = routing_policy.get("method")
+    routing_policy_schema_version = routing_policy.get("schema_version")
+    if not all((routing_policy_version, routing_policy_method, routing_policy_schema_version)):
+        raise SystemExit("routing policy identity incomplete before release snapshot")
 
     snapshot.mkdir(parents=True)
     files = {}
@@ -277,12 +290,16 @@ def stage_snapshot(
         "source_count": source_count,
         "profile_schema_version": profile_schema,
         "profile_method": profile_method,
+        "routing_policy_version": routing_policy_version,
+        "routing_policy_method": routing_policy_method,
+        "routing_policy_schema_version": routing_policy_schema_version,
         "files": files,
         "consistency_contract": {
             "mutable_endpoints": "latest deployed convenience URLs; intermediary caches may temporarily return an older release",
             "immutable_endpoints": "content for this release ID must not change; compare SHA-256 digests before trusting a conflicting copy",
             "freshness_check": "compare commit_sha with repository_main_ref_api when current-main freshness matters",
             "ndjson_identity": "pair registry.ndjson or source-profiles.ndjson with this manifest; NDJSON remains one record per line",
+            "routing_policy_identity": "pair retrieval-routing-policy.json with this manifest; verify its version, method and SHA-256 before claiming routing-policy compliance",
         },
     }
     write_json(snapshot / "release-manifest.json", manifest)
@@ -307,6 +324,9 @@ def update_release_index(site: Path, manifest: dict) -> None:
         "source_count": manifest["source_count"],
         "profile_schema_version": manifest["profile_schema_version"],
         "profile_method": manifest["profile_method"],
+        "routing_policy_version": manifest["routing_policy_version"],
+        "routing_policy_method": manifest["routing_policy_method"],
+        "routing_policy_schema_version": manifest["routing_policy_schema_version"],
         "manifest_url": manifest["manifest_url"],
         "immutable_base": manifest["immutable_base"],
     }
@@ -314,7 +334,7 @@ def update_release_index(site: Path, manifest: dict) -> None:
     write_json(
         index_path,
         {
-            "schema_version": "1.0.0",
+            "schema_version": "1.1.0",
             "current_release_id": release_id,
             "releases": ordered,
         },
@@ -337,6 +357,15 @@ def verify_manifest(site: Path, manifest: dict) -> None:
     profile_release = read_json(site / "source-profiles.json")["release"]["release_id"]
     if registry_release != manifest["release_id"] or profile_release != manifest["release_id"]:
         raise SystemExit("mutable machine output release identity mismatch")
+
+    routing_policy = read_json(site / "retrieval-routing-policy.json")
+    if routing_policy.get("policy_version") != manifest.get("routing_policy_version"):
+        raise SystemExit("mutable routing policy version mismatch")
+    if routing_policy.get("method") != manifest.get("routing_policy_method"):
+        raise SystemExit("mutable routing policy method mismatch")
+    if routing_policy.get("schema_version") != manifest.get("routing_policy_schema_version"):
+        raise SystemExit("mutable routing policy schema mismatch")
+
     homepage = (site / "index.html").read_text(encoding="utf-8")
     if manifest["release_id"] not in homepage or "release-manifest.json" not in homepage:
         raise SystemExit("homepage release identity missing")
@@ -372,7 +401,8 @@ def build(
 
     print(
         f"Release snapshot OK: release={release_id}, sources={source_count}, "
-        f"profile_rules={profile_schema}, files={len(manifest['files'])}"
+        f"profile_rules={profile_schema}, routing={manifest['routing_policy_version']}, "
+        f"files={len(manifest['files'])}"
     )
 
 

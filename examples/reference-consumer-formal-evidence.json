@@ -1,0 +1,26 @@
+{
+  "registry_release_id": "0000000000000000000000000000000000000000",
+  "query_envelope": {
+    "mode": "lite",
+    "requirements": ["formal_evidence"],
+    "freshness": "unspecified"
+  },
+  "route_attempts": [
+    {
+      "lane": "formal_evidence",
+      "source_id": "tacl",
+      "attempt_status": "success_with_candidates",
+      "query_digest": "replace-with-your-query-digest"
+    }
+  ],
+  "required_minimums": {
+    "formal_evidence": 1
+  },
+  "candidates": [
+    {
+      "doi": "10.xxxx/replace-with-real-doi",
+      "source_hint": "tacl",
+      "route": "registry_direct"
+    }
+  ]
+}
