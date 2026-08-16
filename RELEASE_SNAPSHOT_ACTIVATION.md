@@ -1,1 +1,0 @@
-Immutable Pages snapshots become durable from the first deployment that includes RELEASE_CONSISTENCY.md. Earlier Pages deployments remain recoverable from Git history and Actions artifacts but are not guaranteed to exist under /releases/<sha>/.
