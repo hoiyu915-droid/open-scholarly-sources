@@ -3,7 +3,8 @@
 
 Open Scholarly Sources defaults to source navigation only. This module is the
 reference entry point for the optional verification route. It refuses to run
-unless the caller supplies `verification.enabled=true`.
+unless the caller supplies `verification.enabled=true` and records that the
+verification was explicitly requested by the user.
 
 The implementation currently demonstrates the lite formal-evidence candidate
 gate with Crossref document identity plus pinned-registry source-scope facts.
@@ -14,7 +15,11 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from reference_consumer.route import (
     CrossrefResolver,
@@ -41,6 +46,8 @@ def execute(payload: dict, resolver: CrossrefResolver) -> dict:
         raise SystemExit(
             "verification is opt-in; set verification.enabled=true only after explicit user request"
         )
+    if verification.get("requested_by") != "user":
+        raise SystemExit("verification must record requested_by=user; the LLM may not self-activate it")
     profile = verification.get("profile")
     if profile not in policy["verification_profiles"]:
         raise SystemExit("verification.profile is not allowed by routing policy")
@@ -74,11 +81,7 @@ def execute(payload: dict, resolver: CrossrefResolver) -> dict:
     registered_routes_exhausted = bool(route_attempts) and all(
         attempt.get("attempt_status") in TERMINAL_ATTEMPT_STATES for attempt in route_attempts
     )
-    public_ocean_allowed = (
-        verification.get("enabled") is True
-        and registered_routes_exhausted
-        and coverage_unmet
-    )
+    public_ocean_allowed = registered_routes_exhausted and coverage_unmet
 
     attestations = [
         attestation
