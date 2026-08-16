@@ -33,18 +33,14 @@ flowchart LR
     R --> M[Match subject / access role / source profile]
     M --> S[Select a few best registered sources]
     S --> O[Output where to dig + why + canonical URL]
-
     M -->|no good registered match| G[Report registry coverage gap]
-
     O -. no automatic resolution .-> X[STOP]
     G -. no automatic public ocean .-> X
 ```
 
-### Default output contract
-
 Aim for roughly **5 sources**, never more than **8** unless the user asks for a broader list.
 
-For each selected source, return only useful navigation information:
+For each selected source, return useful navigation information only:
 
 ```text
 source name
@@ -71,7 +67,7 @@ Open Scholarly Sources suggests these places to dig:
 - PubMed / Europe PMC — biomedical discovery and linked article metadata
 - PubMed Central — OA full-text recovery when an article is archived there
 - relevant registered life-health journals / portfolios
-- Cross-disciplinary discovery infrastructure if useful
+- cross-disciplinary discovery infrastructure if useful
 
 Then search those sources for creatine + cognition / sleep deprivation / brain / neurological terms.
 ```
@@ -103,7 +99,7 @@ check these papers formally
 
 An LLM may **not** self-activate verification because a topic looks medical, important, controversial or high quality. A host application may impose its own safety/compliance requirements, but that is outside the Open Scholarly Sources default contract.
 
-When verification is explicitly enabled, the caller must carry an explicit activation object, for example:
+When verification is explicitly enabled, the caller must carry an activation object:
 
 ```json
 {
@@ -115,7 +111,7 @@ When verification is explicitly enabled, the caller must carry an explicit activ
 }
 ```
 
-No activation object → no reference verification run.
+No explicit user activation → no reference verification run.
 
 ## Optional verification flow / 按需認證流程
 
@@ -123,15 +119,16 @@ No activation object → no reference verification run.
 flowchart TD
     U[Explicit user verification request] --> V[verification.enabled = true]
     V --> P[Choose lite or verified profile]
-    P --> R1[Registry-first evidence routes]
+    P --> PLAN[Declare planned_registered_routes]
+    PLAN --> R1[Run registered routes]
     R1 --> G1[Resolution gate]
     G1 --> C1[Coverage evaluation]
     C1 -->|satisfied| A[Admissible evidence set]
-    C1 -->|unmet| R2[Registered discovery / archive routes]
+    C1 -->|unmet| R2[Continue remaining planned registered routes]
     R2 --> G2[Resolution gate]
     G2 --> C2[Coverage evaluation]
     C2 -->|satisfied| A
-    C2 -->|registered routes exhausted AND coverage unmet| O[PUBLIC OCEAN]
+    C2 -->|EVERY planned route terminal AND coverage unmet| O[PUBLIC OCEAN]
     O --> X[Untrusted candidate]
     X --> G3[Same resolution gate]
     G3 -->|requirements satisfied| A
@@ -139,17 +136,42 @@ flowchart TD
     G3 -->|identity unresolved| N[unresolved]
 ```
 
-Within this optional verification route, the original safety invariant remains:
+Within this optional verification route:
 
 > **Uncertainty may widen the search, but may never upgrade evidence or close a required lane.**
 
 不確定性可以讓認證搜尋變寬，但不能讓證據升級，也不能關閉 required lane。
 
+## Route exhaustion must be plan-complete
+
+`registered_routes_exhausted` is not allowed to mean「目前有回報的 attempts 剛好都 terminal」。That creates a loophole where omitted routes silently disappear and public ocean opens too early.
+
+Verification must first declare:
+
+```json
+{
+  "planned_registered_routes": [
+    {"route_id": "formal:tacl", "lane": "formal_evidence", "source_id": "tacl"},
+    {"route_id": "formal:second", "lane": "formal_evidence", "source_id": "second-source"}
+  ]
+}
+```
+
+Every attempt carries the same stable `route_id`. Exhaustion becomes true only when **every planned route has exactly one terminal attempt**.
+
+```text
+registered_routes_exhausted
+=
+every planned_registered_route has one terminal attempt
+```
+
+A missing attempt keeps exhaustion false. An attempt for a route that was never planned is rejected by the reference consumer.
+
 ## Verification profiles
 
 ### `lite`
 
-Explicit opt-in only. Reuses pinned registry source facts and currently demonstrates minimal Crossref document-identity resolution.
+Explicit opt-in only. Reuses pinned registry source facts and demonstrates minimal Crossref document-identity resolution.
 
 ```text
 resolver classes: registry + Crossref
@@ -178,7 +200,7 @@ When verification is enabled:
 
 - Crossref DOI resolution can establish document-identity metadata; it does **not** prove peer review.
 - `journal-article` is not a peer-review attestation.
-- A pinned registry record may provide source-level facts that were already verified by this project.
+- A pinned registry record may provide source-level facts already verified by this project.
 - A new source whose peer-review scope cannot be established may remain `discovery_only`.
 - Publisher-policy prose requiring human or LLM interpretation is candidate evidence, not automatic `verified` status.
 - Public-ocean candidates cannot bypass the same resolution gate.
@@ -196,6 +218,8 @@ verification_enabled
 AND registered_routes_exhausted
 AND coverage_unmet
 ```
+
+`registered_routes_exhausted` additionally requires complete planned-route accounting as described above.
 
 Default source navigation never opens public ocean by itself. If no suitable registered source exists, report a registry coverage gap instead.
 
@@ -247,7 +271,7 @@ OA biomedical papers found successfully
 
 That behavior is acceptable **only when the user explicitly requested verification**. It is a bug if it happens during ordinary literature discovery.
 
-Therefore consumers should treat this as a regression invariant:
+Consumers should treat this as a regression invariant:
 
 ```text
 ordinary find/recommend/search request
@@ -260,7 +284,7 @@ explicit verify/audit request
 
 ## Version and reproducibility
 
-Routing policy identity is included in the release manifest and immutable release snapshot. A consumer that performs verification and claims policy compliance should preserve the verification trace fields defined by the pinned policy.
+Routing policy identity is included in the release manifest and immutable release snapshot. A consumer that performs verification and claims policy compliance should preserve the verification trace fields defined by the pinned policy, including `planned_registered_routes` and `route_attempts`.
 
 Default source navigation does not need a resolution trace. It should still identify the registry release when exact reproducibility matters.
 
