@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.2.0",
+  "schema_version": "0.3.0",
   "updated": "2026-08-16",
   "source_shards": [
     "sources.json",
@@ -14,12 +14,14 @@
     "sources.preprints-osf.json",
     "sources.preprints-community.json",
     "sources.preprints-repositories.json",
-    "sources.working-papers.json"
+    "sources.working-papers.json",
+    "sources.integrity-discovery.json"
   ],
   "translation_shards": [
     "i18n.zh-TW.json",
     "i18n.zh-TW.cross-disciplinary.json",
     "i18n.zh-TW.preprints.json",
-    "i18n.zh-TW.working-papers.json"
+    "i18n.zh-TW.working-papers.json",
+    "i18n.zh-TW.integrity-discovery.json"
   ]
 }
