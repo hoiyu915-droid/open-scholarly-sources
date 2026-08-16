@@ -1,0 +1,1319 @@
+{
+  "schema_version": "0.2.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "apsa-preprints",
+      "name": "APSA Preprints",
+      "organization": "American Political Science Association / Cambridge University Press",
+      "source_type": "preprint_server",
+      "subjects": [
+        "political science",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://preprints.apsanet.org/engage/apsa/public-dashboard",
+      "parent_id": "cambridge-open-engage",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://apsanet.org/publications/apsa-preprints/"
+      },
+      "notes": "Open pre-publication platform for political science and related fields. Submissions are not peer reviewed and early outputs can be revised; formal publications may later be linked.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Free to submit and access; rapid dissemination for working papers and other early political-science outputs."
+      }
+    },
+    {
+      "id": "authorea",
+      "name": "Authorea",
+      "organization": "Wiley",
+      "source_type": "publisher_platform",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.authorea.com/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://authors.wiley.com/author-resources/Journal-Authors/Prepare/authorea.html"
+      },
+      "notes": "Open research authoring and preprint platform. Wiley's Under Review workflow posts screened manuscripts before peer review, assigns a DOI, tracks status and links accepted work to the final VOR.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Preprints are permanent in Wiley Under Review; journal submission status does not equal peer-review acceptance."
+      }
+    },
+    {
+      "id": "beilstein-archives",
+      "name": "Beilstein Archives",
+      "organization": "Beilstein-Institut",
+      "source_type": "preprint_server",
+      "subjects": [
+        "chemistry",
+        "materials science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.beilstein-archives.org/xiv/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.beilstein-archives.org/xiv/policy"
+      },
+      "notes": "Open preprint archive tied to Beilstein journal submission workflows. Posted preprints are permanent and use a licence equivalent to CC BY 4.0; later peer-reviewed versions can be linked.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Currently intended for manuscripts submitted to participating Beilstein journals; archive posting itself is not peer review."
+      }
+    },
+    {
+      "id": "biorxiv",
+      "name": "bioRxiv",
+      "organization": "Cold Spring Harbor Laboratory",
+      "source_type": "preprint_server",
+      "subjects": [
+        "life sciences",
+        "biology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.biorxiv.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://api.medrxiv.org/",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.biorxiv.org/about-biorxiv"
+      },
+      "notes": "Life-science preprint server. Manuscripts are screened before posting but are not peer reviewed; versions and links to later journal publications are exposed.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Frontier discovery source; screening is not peer review. API exposes version, licence, category and published-article linkage."
+      }
+    },
+    {
+      "id": "cambridge-open-engage",
+      "name": "Cambridge Open Engage",
+      "organization": "Cambridge University Press & Assessment",
+      "source_type": "publisher_platform",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "mixed",
+      "canonical_url": "https://www.cambridge.org/engage/coe/public-dashboard",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://www.cambridge.org/engage/coe/public-api/v1/items",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.cambridge.org/engage/coe/public-api/documentation"
+      },
+      "notes": "Open early-research platform for preprints, working papers, posters, data and other outputs. Content receives basic checks but is not peer reviewed; revised versions can be posted.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Platform-level entity; use child communities such as APSA Preprints when disciplinary filtering matters."
+      }
+    },
+    {
+      "id": "cell-press-sneak-peek",
+      "name": "Cell Press Sneak Peek",
+      "organization": "Cell Press / Elsevier / SSRN",
+      "source_type": "preprint_server",
+      "subjects": [
+        "life sciences",
+        "biology",
+        "medicine"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.ssrn.com/index.cfm/en/cell-press-sneak-peek/",
+      "parent_id": "ssrn",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/cell-press-sneak-peek/"
+      },
+      "notes": "SSRN First Look collection for manuscripts under review at Cell Press journals. Posting represents an initial submitted manuscript, not an accepted Cell Press publication.",
+      "access_policy": {
+        "model": "mixed",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "partial",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Publisher-linked under-review preprints; access may require registration and reuse terms are restrictive. Do not treat as accepted or peer-reviewed Cell Press articles."
+      }
+    },
+    {
+      "id": "chemrxiv",
+      "name": "ChemRxiv",
+      "organization": "ACS / CCS / CSJ / GDCh / RSC",
+      "source_type": "preprint_server",
+      "subjects": [
+        "chemistry"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://chemrxiv.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://connect.acspubs.org/chemrxiv-migration-FAQ"
+      },
+      "notes": "Chemistry preprint service. Submissions are screened by PhD chemists for scope and basic suitability, not peer reviewed; versioning is supported.",
+      "transition": {
+        "effective": "2026-01-21",
+        "from": "Cambridge Open Engage",
+        "to": "Wiley Research Exchange Preprints",
+        "evidence_url": "https://connect.acspubs.org/chemrxiv-migration-FAQ"
+      },
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Current platform is Wiley Research Exchange Preprints; prior ChemRxiv DOIs and backfile remain accessible."
+      }
+    },
+    {
+      "id": "cryptology-eprint",
+      "name": "Cryptology ePrint Archive",
+      "organization": "International Association for Cryptologic Research",
+      "source_type": "preprint_server",
+      "subjects": [
+        "cybersecurity",
+        "computer science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://eprint.iacr.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://eprint.iacr.org/"
+      },
+      "notes": "Rapid cryptology research archive operated by IACR. Reports are author-posted and are not refereed beyond scope/minimum-condition checks; authors can revise or withdraw reports.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "High-value frontier cryptography source; archive posting is not IACR publication acceptance."
+      }
+    },
+    {
+      "id": "doapr",
+      "name": "Directory of Open Access Preprint Repositories (DOAPR)",
+      "organization": "CCSD and Confederation of Open Access Repositories (COAR)",
+      "source_type": "directory",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "metadata_only",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://doapr.coar-repositories.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata"
+      ],
+      "machine_access": {
+        "formats": [
+          "html"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/"
+      },
+      "notes": "Curated directory of preprint repositories, jointly managed by CCSD and COAR. Useful as a discovery registry for finding repository-level preprint infrastructure.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "not_applicable",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "not_applicable",
+        "notes": "Directory metadata only; follow repository entries to the underlying scholarly source."
+      }
+    },
+    {
+      "id": "eartharxiv",
+      "name": "EarthArXiv",
+      "organization": "EarthArXiv community / California Digital Library",
+      "source_type": "preprint_server",
+      "subjects": [
+        "geoscience",
+        "earth science",
+        "climate science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://eartharxiv.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://eartharxiv.org/repository/about/"
+      },
+      "notes": "Community-driven Earth and planetary science preprint service. Submissions receive basic moderation and DOI assignment; the server does not evaluate scientific quality.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Screening is scope/format moderation rather than peer review; versions remain early research until a VOR is verified."
+      }
+    },
+    {
+      "id": "easychair-preprints",
+      "name": "EasyChair Preprints",
+      "organization": "EasyChair Ltd",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://easychair.org/publications/preprints",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://easychair.org/publications/preprints"
+      },
+      "notes": "General preprint service integrated with EasyChair conference infrastructure. The service is active in 2026 and allows preprints to be created directly or from conference submissions.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Open preprint publishing route; licence wording varies across EasyChair pages, so reuse terms should be verified per record."
+      }
+    },
+    {
+      "id": "eccc",
+      "name": "Electronic Colloquium on Computational Complexity",
+      "organization": "Weizmann Institute of Science",
+      "source_type": "subject_repository",
+      "subjects": [
+        "computer science",
+        "algorithms",
+        "mathematics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://eccc.weizmann.ac.il/eccc/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://eccc.weizmann.ac.il/eccc/"
+      },
+      "notes": "Long-running electronic technical-report repository for computational complexity, designed for rapid circulation of research results.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Technical reports are early research outputs; verify later conference/journal versions separately."
+      }
+    },
+    {
+      "id": "ess-open-archive",
+      "name": "ESS Open Archive",
+      "organization": "AGU / Wiley / partner scientific societies",
+      "source_type": "preprint_server",
+      "subjects": [
+        "earth system science",
+        "geoscience",
+        "climate science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://essopenarchive.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://essopenarchive.org/"
+      },
+      "notes": "Earth and space science open archive for preprints and other early research outputs, presentations and society material; formerly ESSOAr.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Early-output archive; content type and peer-review status must be classified per record."
+      }
+    },
+    {
+      "id": "hal",
+      "name": "HAL",
+      "organization": "Centre pour la Communication Scientifique Directe (CNRS)",
+      "source_type": "subject_repository",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://hal.science/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://about.hal.science/en/"
+      },
+      "notes": "French multidisciplinary open archive for published and unpublished research, including preprints and author manuscripts; version and embargo state vary by deposit.",
+      "access_policy": {
+        "model": "mixed",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "HAL is a strong legal repository route; classify preprint/postprint/VOR at record level."
+      }
+    },
+    {
+      "id": "jmir-preprints",
+      "name": "JMIR Preprints",
+      "organization": "JMIR Publications",
+      "source_type": "preprint_server",
+      "subjects": [
+        "medicine",
+        "public health",
+        "health policy"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://preprints.jmir.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://support.jmir.org/hc/en-us/articles/115001350367-JMIR-Preprints"
+      },
+      "notes": "Preprint server for pre-publication/pre-peer-review manuscripts and ahead-of-print accepted manuscripts. Records can show submission, acceptance and later publication state.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript"
+        ],
+        "license_scope": "unknown",
+        "notes": "Do not treat all JMIR Preprints records as unreviewed: accepted/ahead-of-print state must be read from the record."
+      }
+    },
+    {
+      "id": "medrxiv",
+      "name": "medRxiv",
+      "organization": "Cold Spring Harbor Laboratory / BMJ / Yale University",
+      "source_type": "preprint_server",
+      "subjects": [
+        "medicine",
+        "clinical medicine",
+        "public health"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.medrxiv.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://api.medrxiv.org/",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://api.medrxiv.org/"
+      },
+      "notes": "Health-science preprint server with screening before posting. The official API exposes versions, licences, categories and links to published articles.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Health claims remain pre-peer-review unless a later published version is separately verified."
+      }
+    },
+    {
+      "id": "preprints-org",
+      "name": "Preprints.org",
+      "organization": "Preprints.org",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.preprints.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.preprints.org/about"
+      },
+      "notes": "Multidisciplinary preprint platform. Content is not peer reviewed; submissions receive Crossref DOIs, later versions receive version DOIs, and all preprints use CC BY 4.0.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Permanent, citable early research with editorial screening but no peer review."
+      }
+    },
+    {
+      "id": "preprints-with-the-lancet",
+      "name": "Preprints with The Lancet",
+      "organization": "The Lancet / Elsevier / SSRN",
+      "source_type": "preprint_server",
+      "subjects": [
+        "medicine",
+        "clinical medicine",
+        "public health"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.ssrn.com/index.cfm/en/the-lancet/",
+      "parent_id": "ssrn",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/preprints-with-the-lancet/"
+      },
+      "notes": "Lancet-branded SSRN First Look area for early manuscripts. Items are preprints and are not Lancet publications merely because they appear in the collection.",
+      "access_policy": {
+        "model": "mixed",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "partial",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Publisher-linked preprint collection; verify journal-review status separately and do not infer Lancet acceptance."
+      }
+    },
+    {
+      "id": "research-square",
+      "name": "Research Square",
+      "organization": "Research Square",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary",
+        "life sciences",
+        "medicine"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.researchsquare.com/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://support.researchsquare.com/support/solutions/articles/6000271843-how-do-i-submit-a-preprint-"
+      },
+      "notes": "Multidisciplinary preprint platform. Direct submissions are prescreened before public posting; posted preprints receive a DOI and are intended to remain public.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Prescreening checks posting requirements rather than scholarly peer review; versions and journal-linked workflows can differ by submission route."
+      }
+    },
+    {
+      "id": "sage-advance",
+      "name": "Advance: a Sage preprints community",
+      "organization": "Sage",
+      "source_type": "preprint_server",
+      "subjects": [
+        "humanities",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://advance.sagepub.com/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://us.sagepub.com/en-us/nam/advance-a-sage-preprints-community-0"
+      },
+      "notes": "Humanities and social-sciences preprint community. Sage states that accepted preprints receive a DOI, are moderated before posting, and are freely available.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Moderation precedes posting but is not peer review; DOI assignment supports persistent citation."
+      }
+    },
+    {
+      "id": "scielo-preprints",
+      "name": "SciELO Preprints",
+      "organization": "SciELO",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary",
+        "life sciences",
+        "social sciences",
+        "humanities"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://preprints.scielo.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://preprints.scielo.org/index.php/scielo/index"
+      },
+      "notes": "Multilingual preprint server spanning agricultural, biological, health, exact/earth, human, applied social, engineering and language/arts fields.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "SciELO defines its preprints as manuscripts not yet evaluated by a scientific journal or evaluated but still in publication process."
+      }
+    },
+    {
+      "id": "sportrxiv",
+      "name": "SportRxiv",
+      "organization": "Society for Transparency, Openness, and Replication in Kinesiology / University of Ottawa",
+      "source_type": "preprint_server",
+      "subjects": [
+        "sports science",
+        "medicine",
+        "public health"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://sportrxiv.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://sportrxiv.org/index.php/server/terms-of-service"
+      },
+      "notes": "Community-led open preprint server for sport, exercise, performance and health research. Supports versions; withdrawal retains metadata/DOI tombstones; licences are author-selected.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "No author or reader fees. Preprints and accepted manuscripts must retain explicit version state; withdrawal does not erase the scholarly record."
+      }
+    },
+    {
+      "id": "ssrn",
+      "name": "SSRN",
+      "organization": "Elsevier",
+      "source_type": "subject_repository",
+      "subjects": [
+        "social sciences",
+        "economics",
+        "law"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://www.ssrn.com/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.ssrn.com/index.cfm/en/first-look/"
+      },
+      "notes": "Large early-stage research and working-paper network spanning social sciences and other fields. Many SSRN networks are open-access preprint routes, but some downloads can be fee-restricted, so access must be checked per record.",
+      "access_policy": {
+        "model": "mixed",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Do not infer free full text or peer-review status from SSRN presence alone."
+      }
+    },
+    {
+      "id": "techrxiv",
+      "name": "TechRxiv",
+      "organization": "IEEE",
+      "source_type": "preprint_server",
+      "subjects": [
+        "engineering",
+        "computer science",
+        "electrical engineering"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.techrxiv.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://open.ieee.org/about/"
+      },
+      "notes": "Free public preprint server for unpublished research in electrical engineering, computer science and related technology fields before formal peer review and publication.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Use for early engineering/technology discovery; do not infer IEEE peer review from hosting."
+      }
+    },
+    {
+      "id": "wikijournal-preprints",
+      "name": "WikiJournal Preprints",
+      "organization": "WikiJournal Publishing Group / Wikimedia community",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "preprint",
+      "canonical_url": "https://en.wikiversity.org/wiki/WikiJournal_Preprints",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://en.wikiversity.org/wiki/WikiJournal_Preprints"
+      },
+      "notes": "Open, editable preprint server feeding WikiJournal public peer-review workflows. Preprints can also be submitted to other compatible journals.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "review_material"
+        ],
+        "license_scope": "uniform_open",
+        "notes": "Public review can follow posting; publication state must distinguish the editable preprint from any later stable reviewed WikiJournal article."
+      }
+    },
+    {
+      "id": "zenodo",
+      "name": "Zenodo",
+      "organization": "CERN / OpenAIRE",
+      "source_type": "digital_library",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://zenodo.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://zenodo.org/api/records",
+        "oai_pmh_url": "https://zenodo.org/oai2d",
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://about.zenodo.org/"
+      },
+      "notes": "General-purpose research repository supporting preprints among many research-output types. Every upload receives a DOI, but records can be open, restricted or closed.",
+      "access_policy": {
+        "model": "mixed",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Useful fallback/frontier repository, but access and publication state are record-level properties."
+      }
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "locale": "zh-TW",
+  "updated": "2026-08-16",
+  "taxonomy": {
+    "subjects": {
+      "algorithms": "演算法",
+      "applied mathematics": "應用數學",
+      "archaeology": "考古學",
+      "art history": "藝術史",
+      "astronomy": "天文學",
+      "astroparticle physics": "天文粒子物理",
+      "astrophysics": "天體物理學",
+      "atmospheric science": "大氣科學",
+      "biogeosciences": "生物地球科學",
+      "biography": "傳記研究",
+      "bioinformatics": "生物資訊學",
+      "cancer research": "癌症研究",
+      "cell biology": "細胞生物學",
+      "chemistry": "化學",
+      "climate science": "氣候科學",
+      "clinical medicine": "臨床醫學",
+      "cognitive science": "認知科學",
+      "computational biology": "計算生物學",
+      "computational modeling": "計算建模",
+      "computer networks": "電腦網路",
+      "cosmology": "宇宙學",
+      "cryosphere": "冰凍圈",
+      "cultural studies": "文化研究",
+      "cybersecurity": "資通安全",
+      "data science": "資料科學",
+      "demography": "人口學",
+      "earth system science": "地球系統科學",
+      "economic theory": "經濟理論",
+      "energy science": "能源科學",
+      "engineering": "工程學",
+      "game theory": "賽局理論",
+      "genomics": "基因體學",
+      "geophysics": "地球物理學",
+      "geoscience": "地球科學",
+      "global health": "全球衛生",
+      "health policy": "衛生政策",
+      "high energy physics": "高能物理",
+      "history": "歷史學",
+      "history of science": "科學史",
+      "human-computer interaction": "人機互動",
+      "hydrology": "水文學",
+      "information systems": "資訊系統",
+      "instrumentation": "儀器與量測",
+      "interdisciplinary science": "跨領域科學",
+      "law": "法律",
+      "legal studies": "法學研究",
+      "life sciences": "生命科學",
+      "literature": "文學",
+      "molecular biology": "分子生物學",
+      "molecular medicine": "分子醫學",
+      "neuroscience": "神經科學",
+      "nuclear physics": "核物理",
+      "ocean science": "海洋科學",
+      "particle physics": "粒子物理",
+      "philosophy of mind": "心靈哲學",
+      "physical sciences": "物理科學",
+      "political science": "政治學",
+      "population studies": "人口研究",
+      "psychology": "心理學",
+      "public health": "公共衛生",
+      "scientific data": "科學資料",
+      "scientific software": "科學軟體",
+      "seismology": "地震學",
+      "software engineering": "軟體工程"
+    },
+    "oa_models": {
+      "gold": "Gold OA／作者端或協議資助",
+      "diamond": "Diamond OA／作者與讀者皆不收費",
+      "subscribe_to_open": "Subscribe to Open／訂閱支持逐年開放",
+      "platform_transition": "平台轉型 OA",
+      "repository": "典藏庫",
+      "fully_open_platform": "全 OA 出版平台",
+      "consortium_funded": "聯盟資助 OA",
+      "free_to_read_archive": "免費閱讀歷史檔案",
+      "mixed": "混合模式",
+      "unknown": "未知模式"
+    },
+    "backfile_scopes": {
+      "full": "完整回溯檔案",
+      "mixed": "回溯狀態混合",
+      "partial": "部分回溯檔案",
+      "unknown": "未知",
+      "not_applicable": "不適用"
+    },
+    "version_scopes": {
+      "version_of_record": "正式出版版本",
+      "accepted_manuscript": "作者接受稿",
+      "preprint": "預印本",
+      "conference_proceeding": "會議論文正式版本",
+      "review_material": "同儕審查資料",
+      "mixed": "多種版本"
+    },
+    "license_scopes": {
+      "uniform_cc_by": "統一 CC BY",
+      "uniform_open": "統一開放授權",
+      "mixed": "授權混合",
+      "unknown": "未知",
+      "not_applicable": "不適用"
+    }
+  },
+  "sources": {
+    "royal-society-publishing": {
+      "name": "英國皇家學會出版群",
+      "summary": "整合 2026 年 Subscribe to Open、既有 Gold OA 與 Diamond OA 期刊；歷史內容與授權仍須依刊物和年份判定。"
+    },
+    "royal-society-proceedings-a": {
+      "name": "英國皇家學會會報 A",
+      "summary": "物理、數學與工程科學期刊；2026 年文章透過 Subscribe to Open 以 CC BY 開放。"
+    },
+    "royal-society-proceedings-b": {
+      "name": "英國皇家學會會報 B",
+      "summary": "廣領域生物科學期刊；2026 年文章透過 Subscribe to Open 以 CC BY 開放。"
+    },
+    "royal-society-philosophical-transactions-a": {
+      "name": "英國皇家學會哲學會刊 A",
+      "summary": "聚焦物理、數學與工程科學主題專輯；2026 年文章透過 Subscribe to Open 開放。"
+    },
+    "royal-society-philosophical-transactions-b": {
+      "name": "英國皇家學會哲學會刊 B",
+      "summary": "聚焦生物科學主題專輯；2026 年文章透過 Subscribe to Open 開放。"
+    },
+    "royal-society-interface": {
+      "name": "英國皇家學會介面期刊",
+      "summary": "連接物理、數學、工程與生命科學的跨領域期刊；2026 年內容採 Subscribe to Open。"
+    },
+    "royal-society-biology-letters": {
+      "name": "Biology Letters 生物學快報",
+      "summary": "快速出版的生物科學期刊；2026 年內容採 Subscribe to Open。"
+    },
+    "royal-society-interface-focus": {
+      "name": "Interface Focus 介面焦點",
+      "summary": "物理與生命科學交界的主題專輯期刊；2026 年內容採 Subscribe to Open。"
+    },
+    "royal-society-notes-and-records": {
+      "name": "Notes and Records 科學史期刊",
+      "summary": "英國皇家學會的同儕審查科學史期刊；2026 年內容採 Subscribe to Open。"
+    },
+    "royal-society-open-biology": {
+      "name": "Open Biology 開放生物學",
+      "summary": "涵蓋細胞與分子生物學的既有 Gold OA 期刊。"
+    },
+    "royal-society-open-science": {
+      "name": "Royal Society Open Science 皇家學會開放科學",
+      "summary": "橫跨科學、工程與數學的廣領域 Gold OA 期刊。"
+    },
+    "royal-society-biographical-memoirs": {
+      "name": "皇家學會院士傳記",
+      "summary": "出版皇家學會院士學術傳記的 Diamond OA 期刊。"
+    },
+    "acm-digital-library": {
+      "name": "ACM 數位圖書館",
+      "summary": "ACM 自 2026 年起將期刊、雜誌與主辦會議論文集全面轉為 OA；較早內容及第三方內容仍須逐筆確認。"
+    },
+    "nature-communications": {
+      "name": "Nature Communications 自然通訊",
+      "summary": "Nature Portfolio 的高選擇性廣領域全 OA 期刊。"
+    },
+    "pnas-nexus": {
+      "name": "PNAS Nexus",
+      "summary": "美國國家科學院旗下、橫跨科學工程與醫學的全 OA 跨領域期刊。"
+    },
+    "science-advances": {
+      "name": "Science Advances 科學進展",
+      "summary": "AAAS 出版的高選擇性跨學科全 OA 期刊。"
+    },
+    "open-library-of-humanities": {
+      "name": "Open Library of Humanities 開放人文圖書館",
+      "summary": "由圖書館聯盟資助、作者與讀者皆不收費的學術主導 Diamond OA 人文出版平台。"
+    },
+    "royal-astronomical-society-journals": {
+      "name": "英國皇家天文學會期刊群",
+      "summary": "自 2024 年起現行期刊全面 OA，完整歷史檔案可免費閱讀；2024 年前文章仍保留原授權。"
+    },
+    "mnras": {
+      "name": "皇家天文學會月報",
+      "summary": "天文與天體物理核心期刊；2024 年起新文全 OA，歷史檔案免費閱讀。"
+    },
+    "mnras-letters-archive": {
+      "name": "MNRAS Letters 歷史檔案",
+      "summary": "獨立刊名已結束，新 Letters 併入 MNRAS；此來源保留舊卷期與版本對齊用途。"
+    },
+    "geophysical-journal-international": {
+      "name": "Geophysical Journal International 國際地球物理期刊",
+      "summary": "固體地球物理核心期刊；2024 年起全 OA，歷史檔案免費閱讀。"
+    },
+    "ras-techniques-and-instruments": {
+      "name": "RAS Techniques and Instruments 技術與儀器",
+      "summary": "聚焦天文與地球物理的資料科學、軟體與儀器方法，全 OA。"
+    },
+    "copernicus-publications": {
+      "name": "Copernicus Publications 哥白尼出版群",
+      "summary": "非營利全 OA 地球系統與地球科學出版平台，許多期刊採公開討論與互動式同儕審查。"
+    },
+    "atmospheric-chemistry-and-physics": {
+      "name": "Atmospheric Chemistry and Physics 大氣化學與物理",
+      "summary": "採公開討論模式的大氣化學、物理與氣候研究全 OA 期刊。"
+    },
+    "biogeosciences-copernicus": {
+      "name": "Biogeosciences 生物地球科學",
+      "summary": "研究生物、化學與物理過程如何共同形塑地球系統的全 OA 期刊。"
+    },
+    "earth-system-science-data": {
+      "name": "Earth System Science Data 地球系統科學資料",
+      "summary": "專門同儕審查地球系統資料集與資料產品的高影響力全 OA 期刊。"
+    },
+    "geoscientific-model-development": {
+      "name": "Geoscientific Model Development 地球科學模型發展",
+      "summary": "聚焦地球科學模型開發、評估與文件化的全 OA 期刊。"
+    },
+    "hydrology-and-earth-system-sciences": {
+      "name": "Hydrology and Earth System Sciences 水文與地球系統科學",
+      "summary": "研究水文系統及其與地球系統交互作用的全 OA 期刊。"
+    },
+    "the-cryosphere": {
+      "name": "The Cryosphere 冰凍圈",
+      "summary": "涵蓋雪、冰川、海冰、永凍土與氣候交互作用的全 OA 期刊。"
+    },
+    "scoap3": {
+      "name": "SCOAP³ 高能物理開放聯盟",
+      "summary": "由 CERN 主導的聯盟資助 OA 計畫與典藏庫；僅符合計畫資格的文章可繼承 OA 身分。"
+    },
+    "journal-of-high-energy-physics": {
+      "name": "Journal of High Energy Physics 高能物理期刊",
+      "summary": "SCOAP³ 參與期刊之一；必須逐篇確認是否由計畫涵蓋。"
+    },
+    "journal-of-cosmology-and-astroparticle-physics": {
+      "name": "Journal of Cosmology and Astroparticle Physics 宇宙學與天文粒子物理期刊",
+      "summary": "SCOAP³ 參與期刊之一；必須逐篇確認計畫涵蓋狀態。"
+    },
+    "physical-review-d-scoap3": {
+      "name": "Physical Review D 的 SCOAP³ 文章",
+      "summary": "只代表 PRD 中符合 SCOAP³ 資格並獲資助的文章，不代表全刊 OA。"
+    },
+    "physical-review-letters-scoap3": {
+      "name": "Physical Review Letters 的 SCOAP³ 文章",
+      "summary": "只代表 PRL 中符合 SCOAP³ 資格並獲資助的文章，不代表全刊 OA。"
+    },
+    "nuclear-physics-b-scoap3": {
+      "name": "Nuclear Physics B 的 SCOAP³ 文章",
+      "summary": "SCOAP³ 涵蓋的核物理與高能物理文章入口；須逐篇確認。"
+    },
+    "physics-letters-b-scoap3": {
+      "name": "Physics Letters B 的 SCOAP³ 文章",
+      "summary": "SCOAP³ 涵蓋的核物理與粒子物理文章入口；須逐篇確認。"
+    },
+    "physical-review-x": {
+      "name": "Physical Review X",
+      "summary": "APS 的高選擇性全 OA 物理旗艦期刊，聚焦重大與跨領域突破。"
+    },
+    "scipost-physics": {
+      "name": "SciPost Physics",
+      "summary": "社群營運、無 APC、公開審查的高選擇性 Diamond OA 物理期刊。"
+    },
+    "acs-central-science": {
+      "name": "ACS Central Science 美國化學學會中央科學",
+      "summary": "ACS 的 Diamond OA 旗艦期刊，收錄化學及鄰近領域的重要研究。"
+    },
+    "chemical-science": {
+      "name": "Chemical Science 化學科學",
+      "summary": "英國皇家化學學會的全 OA 旗艦期刊，涵蓋整個化學科學。"
+    },
+    "pubmed-central": {
+      "name": "PubMed Central 全文典藏庫",
+      "summary": "NIH／NLM 的永久免費全文庫，混合正式期刊版本、作者接受稿與部分預印本；版本與再利用授權需逐筆辨識。"
+    },
+    "europe-pmc": {
+      "name": "Europe PMC 歐洲生醫文獻平台",
+      "summary": "整合摘要、全文、預印本、計畫、資料連結與審查資訊的生醫發現平台；全文並非每筆都有。"
+    },
+    "nar-journals": {
+      "name": "NAR 期刊群",
+      "summary": "涵蓋核酸、基因體、生物資訊、癌症與分子醫學的全 OA 期刊系列。"
+    },
+    "nucleic-acids-research": {
+      "name": "Nucleic Acids Research 核酸研究",
+      "summary": "歷史悠久的全 OA 核酸、基因體與生物資訊期刊，含資料庫與網站伺服器專刊。"
+    },
+    "nar-genomics-and-bioinformatics": {
+      "name": "NAR Genomics and Bioinformatics 基因體與生物資訊",
+      "summary": "聚焦基因體與生物資訊方法、資源及應用的全 OA 期刊。"
+    },
+    "nar-cancer": {
+      "name": "NAR Cancer",
+      "summary": "連接核酸生物學、基因體學與癌症研究的全 OA 期刊。"
+    },
+    "nar-molecular-medicine": {
+      "name": "NAR Molecular Medicine 分子醫學",
+      "summary": "聚焦分子機制與轉譯醫學的全 OA 期刊。"
+    },
+    "jama-network-open": {
+      "name": "JAMA Network Open",
+      "summary": "採 JAMA Network 編輯、同儕審查與統計審查標準的全 OA 綜合醫學期刊。"
+    },
+    "plos-medicine": {
+      "name": "PLOS Medicine 醫學",
+      "summary": "聚焦臨床、公共衛生、政策與全球健康影響的高選擇性全 OA 醫學期刊。"
+    },
+    "forum-of-mathematics": {
+      "name": "Forum of Mathematics 數學論壇",
+      "summary": "劍橋全 OA 數學雙刊系列，包括廣泛重要成果的 Pi 與專門領域強研究的 Sigma。"
+    },
+    "forum-of-mathematics-pi": {
+      "name": "Forum of Mathematics, Pi",
+      "summary": "收錄對整體數學具有廣泛重要性的高選擇性全 OA 期刊。"
+    },
+    "forum-of-mathematics-sigma": {
+      "name": "Forum of Mathematics, Sigma",
+      "summary": "涵蓋各數學專門領域高品質研究的全 OA 期刊。"
+    },
+    "theoretical-economics": {
+      "name": "Theoretical Economics 理論經濟學",
+      "summary": "Econometric Society 的領先經濟理論全 OA 專門期刊。"
+    },
+    "demography": {
+      "name": "Demography 人口學",
+      "summary": "Population Association of America 旗艦期刊；只有已達標年份（目前為 2026 卷）可標為 Subscribe to Open。"
+    },
+    "open-mind": {
+      "name": "Open Mind 開放心智",
+      "summary": "MIT Press 的 Diamond OA 認知科學期刊，橫跨心理、神經、語言、決策與計算模型。"
+    },
+    "journal-of-legal-analysis": {
+      "name": "Journal of Legal Analysis 法律分析期刊",
+      "summary": "哈佛法學院與 OUP 合作的同儕審查全 OA 綜合法學期刊。"
+    }
+  }
+}

@@ -1,0 +1,1226 @@
+{
+  "schema_version": "0.2.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "royal-astronomical-society-journals",
+      "name": "Royal Astronomical Society Journals",
+      "organization": "Royal Astronomical Society / Oxford University Press",
+      "source_type": "journal_collection",
+      "subjects": [
+        "astronomy",
+        "astrophysics",
+        "cosmology",
+        "geophysics",
+        "instrumentation"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.ras.ac.uk/journals",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.ras.ac.uk/news-and-press/news/royal-astronomical-society-announces-all-journals-publish-open-access-2024"
+      },
+      "notes": "RAS research journals became fully OA in January 2024. The complete historical archive is free to read, while pre-2024 licence terms remain unchanged.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": "2024-01-01",
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Current articles are OA; historical articles are free to read under their original licences."
+      },
+      "members": [
+        "Monthly Notices of the Royal Astronomical Society",
+        "MNRAS Letters archive",
+        "Geophysical Journal International",
+        "RAS Techniques and Instruments"
+      ]
+    },
+    {
+      "id": "mnras",
+      "name": "Monthly Notices of the Royal Astronomical Society",
+      "organization": "Royal Astronomical Society / Oxford University Press",
+      "source_type": "journal",
+      "subjects": [
+        "astronomy",
+        "astrophysics",
+        "cosmology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/mnras",
+      "parent_id": "royal-astronomical-society-journals",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.ras.ac.uk/news-and-press/news/royal-astronomical-society-announces-all-journals-publish-open-access-2024"
+      },
+      "notes": "Leading astronomy and astrophysics journal; fully OA for new content from 2024, with the historical archive free to read.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": "2024-01-01",
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Pre-2024 articles retain original licences although they are free to read."
+      }
+    },
+    {
+      "id": "mnras-letters-archive",
+      "name": "Monthly Notices of the Royal Astronomical Society: Letters archive",
+      "organization": "Royal Astronomical Society / Oxford University Press",
+      "source_type": "journal",
+      "subjects": [
+        "astronomy",
+        "astrophysics",
+        "cosmology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/mnrasL/",
+      "parent_id": "royal-astronomical-society-journals",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "inactive",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.ras.ac.uk/news-and-press/news/royal-astronomical-society-announces-all-journals-publish-open-access-2024"
+      },
+      "notes": "Historical MNRAS Letters route. The standalone title closed and new Letters are now an article type within MNRAS; the archive remains openly readable.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": "2024-01-01",
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Inactive as a standalone title; preserve for archive discovery and version resolution."
+      }
+    },
+    {
+      "id": "geophysical-journal-international",
+      "name": "Geophysical Journal International",
+      "organization": "Royal Astronomical Society / Oxford University Press",
+      "source_type": "journal",
+      "subjects": [
+        "geophysics",
+        "earth science",
+        "seismology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/gji",
+      "parent_id": "royal-astronomical-society-journals",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.ras.ac.uk/news-and-press/news/royal-astronomical-society-announces-all-journals-publish-open-access-2024"
+      },
+      "notes": "Leading solid-Earth geophysics journal; fully OA from 2024 with the historical archive free to read.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": "2024-01-01",
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Pre-2024 articles retain original licences although they are free to read."
+      }
+    },
+    {
+      "id": "ras-techniques-and-instruments",
+      "name": "RAS Techniques and Instruments",
+      "organization": "Royal Astronomical Society / Oxford University Press",
+      "source_type": "journal",
+      "subjects": [
+        "astronomy",
+        "geophysics",
+        "instrumentation",
+        "data science",
+        "scientific software"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/rasti",
+      "parent_id": "royal-astronomical-society-journals",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://academic.oup.com/rasti/pages/About"
+      },
+      "notes": "Fully OA journal for data science, software and instrumentation in astrophysics and geophysics.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Born-open RAS journal; APC and waiver policies apply."
+      }
+    },
+    {
+      "id": "copernicus-publications",
+      "name": "Copernicus Publications",
+      "organization": "Copernicus Gesellschaft mbH",
+      "source_type": "publisher_platform",
+      "subjects": [
+        "earth science",
+        "atmospheric science",
+        "climate science",
+        "ocean science",
+        "geoscience",
+        "environmental science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://publications.copernicus.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://publications.copernicus.org/open-access_journals/"
+      },
+      "notes": "Non-profit fully OA publisher with a major Earth-system and geoscience portfolio, machine-readable article formats and open peer-review workflows in many titles.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Registered journals are fully OA; peer-review workflow varies by title."
+      }
+    },
+    {
+      "id": "atmospheric-chemistry-and-physics",
+      "name": "Atmospheric Chemistry and Physics",
+      "organization": "Copernicus Publications",
+      "source_type": "journal",
+      "subjects": [
+        "atmospheric science",
+        "climate science",
+        "chemistry"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://acp.copernicus.org/",
+      "parent_id": "copernicus-publications",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://acp.copernicus.org/about/journal.html"
+      },
+      "notes": "Atmospheric chemistry and physics journal using the Copernicus open-discussion model.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Fully OA under Copernicus journal policies; many titles use public discussion papers and interactive review."
+      }
+    },
+    {
+      "id": "biogeosciences-copernicus",
+      "name": "Biogeosciences",
+      "organization": "Copernicus Publications",
+      "source_type": "journal",
+      "subjects": [
+        "biogeosciences",
+        "ecology",
+        "earth system science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://bg.copernicus.org/",
+      "parent_id": "copernicus-publications",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://bg.copernicus.org/about/journal.html"
+      },
+      "notes": "Journal connecting biological, chemical and physical processes across the Earth system.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Fully OA under Copernicus journal policies; many titles use public discussion papers and interactive review."
+      }
+    },
+    {
+      "id": "earth-system-science-data",
+      "name": "Earth System Science Data",
+      "organization": "Copernicus Publications",
+      "source_type": "journal",
+      "subjects": [
+        "earth system science",
+        "scientific data",
+        "climate science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://essd.copernicus.org/",
+      "parent_id": "copernicus-publications",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://essd.copernicus.org/about/journal.html"
+      },
+      "notes": "High-impact OA journal dedicated to peer-reviewed Earth-system datasets and data products.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Fully OA under Copernicus journal policies; many titles use public discussion papers and interactive review."
+      }
+    },
+    {
+      "id": "geoscientific-model-development",
+      "name": "Geoscientific Model Development",
+      "organization": "Copernicus Publications",
+      "source_type": "journal",
+      "subjects": [
+        "geoscience",
+        "computational modeling",
+        "earth system science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://gmd.copernicus.org/",
+      "parent_id": "copernicus-publications",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://gmd.copernicus.org/about/journal.html"
+      },
+      "notes": "OA journal for development, evaluation and documentation of geoscientific models.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Fully OA under Copernicus journal policies; many titles use public discussion papers and interactive review."
+      }
+    },
+    {
+      "id": "hydrology-and-earth-system-sciences",
+      "name": "Hydrology and Earth System Sciences",
+      "organization": "Copernicus Publications",
+      "source_type": "journal",
+      "subjects": [
+        "hydrology",
+        "earth system science",
+        "climate science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://hess.copernicus.org/",
+      "parent_id": "copernicus-publications",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://hess.copernicus.org/about/journal.html"
+      },
+      "notes": "OA journal covering hydrological systems and their interactions with the Earth system.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Fully OA under Copernicus journal policies; many titles use public discussion papers and interactive review."
+      }
+    },
+    {
+      "id": "the-cryosphere",
+      "name": "The Cryosphere",
+      "organization": "Copernicus Publications",
+      "source_type": "journal",
+      "subjects": [
+        "cryosphere",
+        "climate science",
+        "earth science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://tc.copernicus.org/",
+      "parent_id": "copernicus-publications",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://tc.copernicus.org/about/journal.html"
+      },
+      "notes": "OA journal covering snow, ice, glaciers, permafrost and the cryosphere's Earth-system interactions.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Fully OA under Copernicus journal policies; many titles use public discussion papers and interactive review."
+      }
+    },
+    {
+      "id": "scoap3",
+      "name": "SCOAP³",
+      "organization": "CERN and the SCOAP³ consortium",
+      "source_type": "subject_repository",
+      "subjects": [
+        "high energy physics",
+        "particle physics",
+        "nuclear physics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://repo.scoap3.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://scoap3.org/scoap3-extended-for-innovative-phase/"
+      },
+      "notes": "Consortium-funded OA programme and repository for eligible high-energy-physics articles. Repository articles are openly accessible; journal coverage is contract- and article-dependent.",
+      "access_policy": {
+        "model": "consortium_funded",
+        "effective_from": null,
+        "open_years": [
+          "2025",
+          "2026",
+          "2027"
+        ],
+        "backfile_scope": "partial",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "SCOAP³ funds eligible articles in participating journals; do not infer that every article in a participating title is covered."
+      }
+    },
+    {
+      "id": "journal-of-high-energy-physics",
+      "name": "Journal of High Energy Physics",
+      "organization": "Springer Nature",
+      "source_type": "journal",
+      "subjects": [
+        "high energy physics",
+        "particle physics"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://link.springer.com/journal/13130",
+      "parent_id": "scoap3",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://scoap3.org/scoap3-extended-for-innovative-phase/"
+      },
+      "notes": "Participating journal route for SCOAP³-funded articles. Coverage must be verified per article and programme phase.",
+      "access_policy": {
+        "model": "consortium_funded",
+        "effective_from": null,
+        "open_years": [
+          "2025",
+          "2026",
+          "2027"
+        ],
+        "backfile_scope": "partial",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Only SCOAP³-eligible/funded articles should inherit OA status."
+      }
+    },
+    {
+      "id": "journal-of-cosmology-and-astroparticle-physics",
+      "name": "Journal of Cosmology and Astroparticle Physics",
+      "organization": "IOP Publishing",
+      "source_type": "journal",
+      "subjects": [
+        "cosmology",
+        "astroparticle physics",
+        "high energy physics"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://iopscience.iop.org/journal/1475-7516",
+      "parent_id": "scoap3",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://scoap3.org/scoap3-extended-for-innovative-phase/"
+      },
+      "notes": "Participating journal route for SCOAP³-funded articles. Coverage must be verified per article and programme phase.",
+      "access_policy": {
+        "model": "consortium_funded",
+        "effective_from": null,
+        "open_years": [
+          "2025",
+          "2026",
+          "2027"
+        ],
+        "backfile_scope": "partial",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Only SCOAP³-eligible/funded articles should inherit OA status."
+      }
+    },
+    {
+      "id": "physical-review-d-scoap3",
+      "name": "Physical Review D — SCOAP³-covered articles",
+      "organization": "American Physical Society",
+      "source_type": "journal",
+      "subjects": [
+        "high energy physics",
+        "particle physics",
+        "cosmology"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://journals.aps.org/prd/",
+      "parent_id": "scoap3",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://scoap3.org/scoap3-extended-for-innovative-phase/"
+      },
+      "notes": "Participating journal route for SCOAP³-funded articles. Coverage must be verified per article and programme phase.",
+      "access_policy": {
+        "model": "consortium_funded",
+        "effective_from": null,
+        "open_years": [
+          "2025",
+          "2026",
+          "2027"
+        ],
+        "backfile_scope": "partial",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Only SCOAP³-eligible/funded articles should inherit OA status."
+      }
+    },
+    {
+      "id": "physical-review-letters-scoap3",
+      "name": "Physical Review Letters — SCOAP³-covered articles",
+      "organization": "American Physical Society",
+      "source_type": "journal",
+      "subjects": [
+        "physics",
+        "high energy physics"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://journals.aps.org/prl/",
+      "parent_id": "scoap3",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://scoap3.org/scoap3-extended-for-innovative-phase/"
+      },
+      "notes": "Participating journal route for SCOAP³-funded articles. Coverage must be verified per article and programme phase.",
+      "access_policy": {
+        "model": "consortium_funded",
+        "effective_from": null,
+        "open_years": [
+          "2025",
+          "2026",
+          "2027"
+        ],
+        "backfile_scope": "partial",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Only SCOAP³-eligible/funded articles should inherit OA status."
+      }
+    },
+    {
+      "id": "nuclear-physics-b-scoap3",
+      "name": "Nuclear Physics B — SCOAP³-covered articles",
+      "organization": "Elsevier",
+      "source_type": "journal",
+      "subjects": [
+        "nuclear physics",
+        "high energy physics",
+        "particle physics"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.sciencedirect.com/journal/nuclear-physics-b",
+      "parent_id": "scoap3",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://scoap3.org/scoap3-extended-for-innovative-phase/"
+      },
+      "notes": "Participating journal route for SCOAP³-funded articles. Coverage must be verified per article and programme phase.",
+      "access_policy": {
+        "model": "consortium_funded",
+        "effective_from": null,
+        "open_years": [
+          "2025",
+          "2026",
+          "2027"
+        ],
+        "backfile_scope": "partial",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Only SCOAP³-eligible/funded articles should inherit OA status."
+      }
+    },
+    {
+      "id": "physics-letters-b-scoap3",
+      "name": "Physics Letters B — SCOAP³-covered articles",
+      "organization": "Elsevier",
+      "source_type": "journal",
+      "subjects": [
+        "nuclear physics",
+        "high energy physics",
+        "particle physics"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.sciencedirect.com/journal/physics-letters-b",
+      "parent_id": "scoap3",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://scoap3.org/scoap3-extended-for-innovative-phase/"
+      },
+      "notes": "Participating journal route for SCOAP³-funded articles. Coverage must be verified per article and programme phase.",
+      "access_policy": {
+        "model": "consortium_funded",
+        "effective_from": null,
+        "open_years": [
+          "2025",
+          "2026",
+          "2027"
+        ],
+        "backfile_scope": "partial",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Only SCOAP³-eligible/funded articles should inherit OA status."
+      }
+    },
+    {
+      "id": "physical-review-x",
+      "name": "Physical Review X",
+      "organization": "American Physical Society",
+      "source_type": "journal",
+      "subjects": [
+        "physics",
+        "interdisciplinary science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://journals.aps.org/prx/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://journals.aps.org/prx/"
+      },
+      "notes": "Highly selective fully OA physics journal for major advances across and beyond physics.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": "Fully OA; APS publication charges and waiver policies apply."
+      }
+    },
+    {
+      "id": "scipost-physics",
+      "name": "SciPost Physics",
+      "organization": "SciPost Foundation",
+      "source_type": "journal",
+      "subjects": [
+        "physics",
+        "mathematics",
+        "interdisciplinary science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://scipost.org/SciPostPhys/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://scipost.org/SciPostPhys/about"
+      },
+      "notes": "Selective community-run diamond OA physics journal with public peer-review records and no author-facing APC.",
+      "access_policy": {
+        "model": "diamond",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record",
+          "review_material"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Community-funded and openly reviewed."
+      }
+    },
+    {
+      "id": "acs-central-science",
+      "name": "ACS Central Science",
+      "organization": "American Chemical Society",
+      "source_type": "journal",
+      "subjects": [
+        "chemistry",
+        "materials science",
+        "molecular biology",
+        "energy science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://pubs.acs.org/journal/acscii",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://pubs.acs.org/journal/acscii"
+      },
+      "notes": "ACS flagship diamond OA journal for broad, high-impact research across chemistry and adjacent sciences.",
+      "access_policy": {
+        "model": "diamond",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": "No author-facing APC for standard publication."
+      }
+    },
+    {
+      "id": "chemical-science",
+      "name": "Chemical Science",
+      "organization": "Royal Society of Chemistry",
+      "source_type": "journal",
+      "subjects": [
+        "chemistry",
+        "materials science",
+        "molecular biology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://pubs.rsc.org/en/journals/journalissues/sc",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.rsc.org/publishing/journals/chemical-science"
+      },
+      "notes": "Royal Society of Chemistry flagship fully OA journal for exceptional research across the chemical sciences.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": "2026-07-01",
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": "Fully OA; current author-charge policy applies to submissions under the publisher's 2026 model."
+      }
+    }
+  ]
+}
