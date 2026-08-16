@@ -37,6 +37,9 @@ jobs:
           cp schemas/*.json site/schemas/
           python3 scripts/build_machine_index.py --output site
           python3 scripts/build_source_profiles.py --output site
+          python3 scripts/build_static_homepage.py --site site
+          grep -q "Static source index / 無 JavaScript 來源索引" site/index.html
+          ! grep -q "<!-- STATIC_FALLBACK -->" site/index.html
           touch site/.nojekyll
 
       - name: Configure Pages
