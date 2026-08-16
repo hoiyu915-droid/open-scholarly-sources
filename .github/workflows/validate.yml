@@ -5,6 +5,7 @@ on:
   push:
     branches-ignore:
       - main
+      - release-snapshots
 
 permissions:
   contents: read
@@ -22,18 +23,61 @@ jobs:
       - name: Validate source shards, access policies and bilingual coverage
         run: python3 scripts/validate_extensions.py
 
-      - name: Build machine, LLM, profile and static homepage indexes
+      - name: Build machine, LLM, profile, homepage and release indexes
         run: |
-          rm -rf "$RUNNER_TEMP/open-scholarly-sources-site"
-          mkdir -p "$RUNNER_TEMP/open-scholarly-sources-site"
-          cp docs/index.html "$RUNNER_TEMP/open-scholarly-sources-site/index.html"
-          mkdir -p "$RUNNER_TEMP/open-scholarly-sources-site/data"
-          cp data/*.json "$RUNNER_TEMP/open-scholarly-sources-site/data/"
-          python3 scripts/build_machine_index.py --output "$RUNNER_TEMP/open-scholarly-sources-site"
-          python3 scripts/build_source_profiles.py --output "$RUNNER_TEMP/open-scholarly-sources-site"
-          python3 scripts/build_static_homepage.py --site "$RUNNER_TEMP/open-scholarly-sources-site"
-          test -s "$RUNNER_TEMP/open-scholarly-sources-site/source-profiles.json"
-          test -s "$RUNNER_TEMP/open-scholarly-sources-site/source-profiles.ndjson"
-          test -s "$RUNNER_TEMP/open-scholarly-sources-site/profiles/index.html"
-          grep -q "Static source index / 無 JavaScript 來源索引" "$RUNNER_TEMP/open-scholarly-sources-site/index.html"
-          ! grep -q "<!-- STATIC_FALLBACK -->" "$RUNNER_TEMP/open-scholarly-sources-site/index.html"
+          set -euo pipefail
+          site="$RUNNER_TEMP/open-scholarly-sources-site"
+          rm -rf "$site"
+          mkdir -p "$site/data" "$site/schemas"
+          cp docs/index.html "$site/index.html"
+          cp data/*.json "$site/data/"
+          cp schemas/*.json "$site/schemas/"
+          python3 scripts/build_machine_index.py --output "$site"
+          python3 scripts/build_source_profiles.py --output "$site"
+          python3 scripts/build_static_homepage.py --site "$site"
+
+          release_date="$(git show -s --format=%cI "$GITHUB_SHA")"
+          python3 scripts/build_release_snapshot.py \
+            --site "$site" \
+            --release-id "$GITHUB_SHA" \
+            --commit-sha "$GITHUB_SHA" \
+            --release-date "$release_date"
+
+          test -s "$site/source-profiles.json"
+          test -s "$site/source-profiles.ndjson"
+          test -s "$site/profiles/index.html"
+          test -s "$site/release-manifest.json"
+          test -s "$site/releases/index.json"
+          test -s "$site/releases/$GITHUB_SHA/release-manifest.json"
+          grep -q "Static source index / 無 JavaScript 來源索引" "$site/index.html"
+          ! grep -q "<!-- STATIC_FALLBACK -->" "$site/index.html"
+          grep -q "$GITHUB_SHA" "$site/index.html"
+          grep -q "Release identity: $GITHUB_SHA" "$site/llms.txt"
+
+          # Re-running the release finalizer for the same SHA must be idempotent.
+          python3 scripts/build_release_snapshot.py \
+            --site "$site" \
+            --release-id "$GITHUB_SHA" \
+            --commit-sha "$GITHUB_SHA" \
+            --release-date "$release_date"
+
+          python3 - "$site" "$GITHUB_SHA" <<'PY'
+          import hashlib, json, sys
+          from pathlib import Path
+          site=Path(sys.argv[1]); sha=sys.argv[2]
+          manifest=json.loads((site/'release-manifest.json').read_text())
+          registry=json.loads((site/'registry.json').read_text())
+          profiles=json.loads((site/'source-profiles.json').read_text())
+          history=json.loads((site/'releases/index.json').read_text())
+          assert manifest['release_id']==sha==manifest['commit_sha']
+          assert registry['release']['release_id']==sha
+          assert profiles['release']['release_id']==sha
+          assert history['current_release_id']==sha
+          assert manifest['source_count']==len(registry['sources'])==227
+          assert manifest['profile_schema_version']==profiles['schema_version']=='0.2.2'
+          snapshot=site/'releases'/sha
+          for name, meta in manifest['files'].items():
+              data=(snapshot/name).read_bytes()
+              assert hashlib.sha256(data).hexdigest()==meta['sha256'], name
+          print('Release contract assertions OK')
+          PY
