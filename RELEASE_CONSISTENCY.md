@@ -59,6 +59,12 @@ The release manifest records the commit identity, source count, profile-rule ver
 
 A release directory is append-only by identity. If a future deployment tries to reuse an existing commit SHA with different bytes, the archive step fails instead of overwriting the old release.
 
+## Self-contained release browsing
+
+Each new immutable release is also a self-contained historical mini-site. `/releases/<sha>/` contains an `index.html`, the exact rendered homepage, the data files used by its JavaScript, generated source pages, the profile page and schemas. Relative `./data/...`, `./sources/...` and `./profiles/...` URLs therefore resolve within the same release instead of returning 404.
+
+The release manifest hashes these runtime files as well as the primary machine outputs. Historical releases created before this contract are not rewritten; immutability takes precedence over retroactive repair.
+
 ## Durable history
 
 Pages artifacts are rebuilt from scratch, so old versioned directories would disappear unless they were carried forward. Successfully deployed snapshots are therefore persisted on the dedicated `release-snapshots` branch. A later Pages build imports that archive before adding its new release.

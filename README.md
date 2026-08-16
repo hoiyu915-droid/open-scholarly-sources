@@ -67,6 +67,8 @@ The immutable snapshots are persisted on the dedicated `release-snapshots` branc
 
 The repository copy of `docs/index.html` is only a build template; each immutable release preserves the exact rendered homepage and generated static source index for independent crawler-facing verification.
 
+New immutable releases are self-contained historical mini-sites: open `/releases/<sha>/` to browse the rendered homepage, its local data dependencies, source pages and profiles without falling back to mutable root paths.
+
 When freshness matters, compare `commit_sha` from the fetched release manifest with the repository `main` ref. If they differ, the fetched mutable endpoint is stale; use the commit-addressed immutable snapshot or retry through a fresh path. See [RELEASE_CONSISTENCY.md](RELEASE_CONSISTENCY.md).
 
 ## Validate and build locally / 本機驗證與建置
