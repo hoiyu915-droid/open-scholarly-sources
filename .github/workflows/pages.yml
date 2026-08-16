@@ -34,8 +34,9 @@ jobs:
           mkdir -p site/data site/schemas
           cp docs/index.html site/index.html
           cp data/*.json site/data/
-          cp schemas/source.schema.json site/schemas/source.schema.json
+          cp schemas/*.json site/schemas/
           python3 scripts/build_machine_index.py --output site
+          python3 scripts/build_source_profiles.py --output site
           touch site/.nojekyll
 
       - name: Configure Pages
