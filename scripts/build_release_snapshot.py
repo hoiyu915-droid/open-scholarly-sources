@@ -22,7 +22,11 @@ SNAPSHOT_FILES = (
     "llms.txt",
     "llms-full.txt",
 )
-SCHEMA_FILES = ("source.schema.json", "source-profile.schema.json")
+SCHEMA_FILES = (
+    "source.schema.json",
+    "source-profile.schema.json",
+    "release-manifest.schema.json",
+)
 
 
 def read_json(path: Path):
@@ -71,6 +75,43 @@ def release_identity(
     }
 
 
+def stamp_homepage(site: Path, identity: dict) -> None:
+    path = site / "index.html"
+    if not path.is_file():
+        raise SystemExit("homepage missing before release stamping")
+    text = path.read_text(encoding="utf-8")
+
+    meta = (
+        f'  <meta name="oss-release-id" content="{identity["release_id"]}">\n'
+        f'  <link rel="alternate" type="application/json" href="./release-manifest.json" title="Release manifest">\n'
+    )
+    if 'name="oss-release-id"' not in text:
+        text = text.replace("</head>", meta + "</head>", 1)
+
+    link = '<a href="./release-manifest.json">Release manifest / 發布識別</a>'
+    if link not in text:
+        marker = '<a href="./llms.txt">llms.txt</a>'
+        if marker in text:
+            text = text.replace(marker, marker + "\n    " + link, 1)
+
+    notice = (
+        '<div class="notice" id="release-identity"><strong>Release identity / 發布識別：</strong> '
+        f'<code>{identity["release_id"]}</code> · '
+        f'<a href="./release-manifest.json">manifest</a> · '
+        f'<a href="./releases/{identity["release_id"]}/release-manifest.json">immutable snapshot</a>. '
+        'Mutable latest URLs may briefly return an older release through intermediary caches; '
+        'compare this release ID with the repository main ref when freshness matters. '
+        '可變 latest URL 可能因中介快取短暫回傳舊版；需要最新狀態時請核對 release ID 與 main ref。</div>\n  '
+    )
+    if 'id="release-identity"' not in text:
+        marker = '<main class="wrap">\n  '
+        if marker not in text:
+            raise SystemExit("homepage main marker missing")
+        text = text.replace(marker, marker + notice, 1)
+
+    path.write_text(text, encoding="utf-8")
+
+
 def inject_identity(site: Path, identity: dict) -> tuple[int, str, str]:
     registry_path = site / "registry.json"
     profiles_path = site / "source-profiles.json"
@@ -105,6 +146,8 @@ def inject_identity(site: Path, identity: dict) -> tuple[int, str, str]:
             first, separator, rest = text.partition("\n")
             text = first + "\n\n" + banner + ("\n" + rest if separator else "")
             path.write_text(text, encoding="utf-8")
+
+    stamp_homepage(site, identity)
 
     # NDJSON intentionally remains one source record per line. Pair it with
     # release-manifest.json or use its commit-addressed immutable URL.
@@ -177,6 +220,7 @@ def stage_snapshot(
         )
 
     manifest = {
+        "$schema": f"{immutable_base}/schemas/release-manifest.schema.json",
         **identity,
         "source_count": source_count,
         "profile_schema_version": profile_schema,
@@ -241,6 +285,9 @@ def verify_manifest(site: Path, manifest: dict) -> None:
     profile_release = read_json(site / "source-profiles.json")["release"]["release_id"]
     if registry_release != manifest["release_id"] or profile_release != manifest["release_id"]:
         raise SystemExit("mutable machine output release identity mismatch")
+    homepage = (site / "index.html").read_text(encoding="utf-8")
+    if manifest["release_id"] not in homepage or "release-manifest.json" not in homepage:
+        raise SystemExit("homepage release identity missing")
 
 
 def build(
