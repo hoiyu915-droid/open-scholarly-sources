@@ -1,0 +1,315 @@
+{
+  "locale": "zh-TW",
+  "updated": "2026-08-16",
+  "taxonomy": {
+    "subjects": {
+      "education": "教育研究",
+      "sports science": "運動科學",
+      "philosophy": "哲學",
+      "criminology": "犯罪學",
+      "anthropology": "人類學",
+      "library and information science": "圖書資訊學",
+      "asian studies": "亞洲研究",
+      "classical studies": "古典學",
+      "mitochondrial physiology": "粒線體生理學"
+    }
+  },
+  "sources": {
+    "africarxiv": {
+      "name": "AfricArXiv 非洲研究典藏",
+      "summary": "由社群推動的非洲研究開放典藏，支援預印本及其他學術輸出，是追蹤非洲區域研究的重要入口。"
+    },
+    "agrirxiv": {
+      "name": "agriRxiv 農業預印本",
+      "summary": "CABI 的免費農業科學預印本來源，涵蓋農業、植物與食品等領域的未出版研究。"
+    },
+    "apsa-preprints": {
+      "name": "APSA Preprints 政治學預印本",
+      "summary": "美國政治學會與 Cambridge 合作的政治學早期研究平台；免費、未經同儕審查，並支援修訂與後續出版連結。"
+    },
+    "arpha-preprints": {
+      "name": "ARPHA Preprints",
+      "summary": "Pensoft／ARPHA 期刊投稿流程中的 opt-in 預印本服務，可在正式 peer review 前公開投稿稿件。"
+    },
+    "art-dok": {
+      "name": "ART-Dok 藝術與設計學術典藏",
+      "summary": "海德堡大學圖書館的藝術、攝影與設計全文庫，可收預印本、後印本及其他學術著作。"
+    },
+    "authorea": {
+      "name": "Authorea 開放研究與預印本",
+      "summary": "Wiley 的開放研究／預印本平台；Under Review 可在期刊正式審查前公開 DOI 預印本並追蹤後續出版狀態。"
+    },
+    "beilstein-archives": {
+      "name": "Beilstein Archives 化學預印本",
+      "summary": "與 Beilstein 期刊投稿流程整合的化學／奈米研究預印本典藏；永久保留並採等同 CC BY 4.0 的授權。"
+    },
+    "bepress-legal-repository": {
+      "name": "bepress 法律學術典藏庫",
+      "summary": "法律領域的工作論文與預印本典藏來源；公開全文不代表已經過同行審查。"
+    },
+    "biohackrxiv": {
+      "name": "BioHackrXiv",
+      "summary": "BioHackathon 與生物資訊研究成果的預印本入口，運行於 OSF 社群預印本基礎設施。"
+    },
+    "biorxiv": {
+      "name": "bioRxiv 生命科學預印本",
+      "summary": "生命科學核心預印本伺服器；刊登前會做基本篩查，但不是同儕審查，並保留版本與後續正式出版連結。"
+    },
+    "bodoarxiv": {
+      "name": "BodoArXiv 中世紀研究典藏",
+      "summary": "中世紀研究的開放預印本／論文典藏服務，運行於 OSF。"
+    },
+    "cambridge-open-engage": {
+      "name": "Cambridge Open Engage 早期研究平台",
+      "summary": "劍橋的早期開放研究平台，收預印本、工作論文、海報與其他研究輸出；內容做基本檢查但不是同儕審查。"
+    },
+    "cell-press-sneak-peek": {
+      "name": "Cell Press Sneak Peek",
+      "summary": "SSRN First Look 中的 Cell Press 在審稿件預印本區；只能視為初始投稿版本，不能當作 Cell Press 已接受或已同行審查論文。"
+    },
+    "cern-document-server": {
+      "name": "CERN 文件伺服器",
+      "summary": "CERN 的研究與圖書館典藏系統，包含大量物理預印本、報告、論文與學位研究；版本狀態需依紀錄判定。"
+    },
+    "chemrxiv": {
+      "name": "ChemRxiv 化學預印本",
+      "summary": "化學及相關領域的預印本服務；由化學博士進行範圍與基本適切性篩查，2026 年已轉至 Wiley Research Exchange Preprints。"
+    },
+    "chinaxiv": {
+      "name": "ChinaXiv 中國科學院預印本平台",
+      "summary": "中國科學院的預印本交流平台；會做初步政治與學術檢查，但不是嚴格同儕審查，亦可收部分已出版成果。"
+    },
+    "cop-preprints": {
+      "name": "CoP 靜脈疾病預印本",
+      "summary": "College of Phlebology 維護的靜脈疾病預印本服務，適合追蹤臨床與血管研究的早期成果。"
+    },
+    "crimrxiv": {
+      "name": "CrimRxiv 犯罪學開放典藏",
+      "summary": "全球犯罪學開放研究樞紐，設有預印本與工作論文專區；全庫同時包含其他出版狀態的研究。"
+    },
+    "crossasia-repository": {
+      "name": "CrossAsia 亞洲研究典藏庫",
+      "summary": "海德堡大學圖書館的亞洲研究全文平台，可保存預印本、後印本、專書、章節與學位研究。"
+    },
+    "cryptology-eprint": {
+      "name": "IACR Cryptology ePrint 密碼學預印本",
+      "summary": "密碼學與密碼協定的重要快速研究來源；只做範圍與最低條件檢查，不等於 IACR 正式審查出版。"
+    },
+    "doapr": {
+      "name": "DOAPR 開放預印本典藏庫名錄",
+      "summary": "由 CCSD 與 COAR 共同維護的預印本典藏庫名錄；本身是發現與中繼資料入口，不是論文全文來源。"
+    },
+    "e-lis": {
+      "name": "E-LIS 圖書資訊學開放典藏庫",
+      "summary": "國際圖書資訊學 OA 典藏庫，包含預印本、作者接受稿及其他研究輸出，並支援 OAI-PMH。"
+    },
+    "earth-prints": {
+      "name": "Earth-prints 地球科學典藏庫",
+      "summary": "INGV 維護的大氣、冰凍圈、水文與固體地球研究典藏庫，包含稿件、論文、學位研究與會議資料，部分內容可能受限。"
+    },
+    "eartharxiv": {
+      "name": "EarthArXiv 地球科學預印本",
+      "summary": "地球與行星科學的社群預印本平台；有基本 moderation 與 DOI，但不評估科學品質。"
+    },
+    "easychair-preprints": {
+      "name": "EasyChair Preprints",
+      "summary": "EasyChair 的跨領域預印本服務，可直接投稿或由會議投稿建立預印本；屬早期公開版本，不等於會議或期刊正式接受。"
+    },
+    "eccc": {
+      "name": "ECCC 計算複雜度技術報告",
+      "summary": "計算複雜度理論的老牌快速技術報告典藏；適合追蹤正式會議與期刊之前的理論成果。"
+    },
+    "ecsarxiv": {
+      "name": "ECSarXiv 電化學預印本",
+      "summary": "電化學、固態科學與相關材料研究的免費預印本服務。"
+    },
+    "edarxiv": {
+      "name": "EdArXiv 教育研究預印本",
+      "summary": "教育研究社群的預印本平台，提供正式出版前的早期研究與工作論文入口。"
+    },
+    "engrxiv": {
+      "name": "engrXiv 工程預印本典藏",
+      "summary": "非營利工程 e-print 伺服器，收工作論文、預印本與相關研究輸出；moderation 不代表研究品質背書。"
+    },
+    "eric": {
+      "name": "ERIC 教育研究資料庫",
+      "summary": "美國教育科學研究所的教育研究索引與全文來源，包含報告、working papers 與正式出版研究；需按文件類型判斷證據狀態。"
+    },
+    "ess-open-archive": {
+      "name": "ESS Open Archive 地球與太空科學",
+      "summary": "地球與太空科學的早期研究典藏，收預印本、簡報與學會資料；前身為 ESSOAr。"
+    },
+    "figshare": {
+      "name": "Figshare 研究成果典藏平台",
+      "summary": "通用研究成果典藏平台，可存放可引用的預印本、資料、圖表、軟體等；平台存在不代表內容經過同行審查。"
+    },
+    "focus-archive": {
+      "name": "FocUS Archive 聚焦超音波預印本",
+      "summary": "聚焦超音波研究社群的預印本服務，位於醫學與工程交界。"
+    },
+    "frenxiv": {
+      "name": "Frenxiv 法國多學科預印本",
+      "summary": "法國多學科預印本服務；目前網站仍可公開瀏覽與投稿，但 provider 治理狀態應定期重新驗證。"
+    },
+    "hal": {
+      "name": "HAL 法國開放研究典藏",
+      "summary": "法國大型跨學科開放典藏，收已出版與未出版研究、preprint 與 author manuscript；版本及 embargo 需逐筆判定。"
+    },
+    "indiarxiv": {
+      "name": "IndiaRxiv 印度預印本",
+      "summary": "印度跨學科預印本伺服器，使用 Open Preprint Systems；投稿會 moderation，並明確區分預印本與同儕審查出版。"
+    },
+    "jmir-preprints": {
+      "name": "JMIR Preprints 數位健康預印本",
+      "summary": "收錄預審前稿件與 ahead-of-print 已接受稿；必須讀取 record 狀態，不能把全部內容一概視為未審稿。"
+    },
+    "jxiv": {
+      "name": "Jxiv 日本 JST 預印本",
+      "summary": "JST 經營的日英雙語全學科預印本伺服器；有 DOI、基本倫理與格式篩查，可修訂且所有版本永久保留。"
+    },
+    "law-archive": {
+      "name": "Law Archive 法學預印本",
+      "summary": "法律與法學研究的開放預印本典藏，適合追蹤正式 law journal 之前的早期研究。"
+    },
+    "lingbuzz": {
+      "name": "LingBuzz 語言學論文典藏",
+      "summary": "語言學專門的開放文章典藏與社群空間，包含預印本以及其他已出版／未出版版本。"
+    },
+    "lse-research-online": {
+      "name": "LSE Research Online",
+      "summary": "倫敦政經學院的社會科學研究典藏庫，包含大量工作論文與文章版本，適合作為經濟與政策研究的前沿補路。"
+    },
+    "marxiv": {
+      "name": "MarXiv 海洋科學研究典藏",
+      "summary": "以 Zenodo community 運作的海洋與海洋氣候研究典藏，可作預印本與其他稿件版本的開放入口。"
+    },
+    "mediarxiv": {
+      "name": "MediArXiv 媒體與傳播預印本",
+      "summary": "媒體、電影與傳播研究的開放預印本典藏。"
+    },
+    "medrxiv": {
+      "name": "medRxiv 醫學與健康預印本",
+      "summary": "醫學、臨床與公共衛生的高時效預印本來源；官方 API 可讀版本、授權、分類與後續正式出版資訊。"
+    },
+    "metaarxiv": {
+      "name": "MetaArXiv 透明度與再現性研究",
+      "summary": "聚焦研究透明度、可重現性與方法學的跨領域預印本典藏，由 BITSS 維護。"
+    },
+    "mindrxiv": {
+      "name": "MindRxiv 心智與冥想研究典藏",
+      "summary": "心智、心理與 contemplative practices 的開放研究庫，可包含 working paper、preprint、正式論文、資料與程式碼。"
+    },
+    "mit-dspace": {
+      "name": "MIT DSpace 機構典藏庫",
+      "summary": "MIT 的研究典藏庫，涵蓋技術報告、working papers、作者稿、論文與學位研究；並非所有項目都屬預印本或完整 OA。"
+    },
+    "mitofit-preprints": {
+      "name": "MitoFit 粒線體研究預印本",
+      "summary": "聚焦粒線體生理與生物能學的小型專門預印本服務；有事前範圍與倫理檢查，但不取代期刊同行審查。"
+    },
+    "mp-arc": {
+      "name": "mp_arc 數學物理預印本典藏",
+      "summary": "歷史悠久的數學物理預印本庫；官方已停止 2023 年後的新投稿，但既有內容仍永久公開，因此標為唯讀歷史來源。"
+    },
+    "newaddictionsx": {
+      "name": "NewAddictionsX 新興成癮預印本",
+      "summary": "新型與新興成癮研究的免費預印本服務，涵蓋心理、公共衛生與臨床議題。"
+    },
+    "open-anthropology-research-repository": {
+      "name": "OARR 開放人類學研究典藏",
+      "summary": "美國人類學會管理的開放典藏，收人類學預印本、教學資料、會議論文與海報；可透過 OAI-PMH 擷取。"
+    },
+    "organic-eprints": {
+      "name": "Organic Eprints 有機農業研究典藏",
+      "summary": "有機食品與農業研究的國際 OA 典藏庫，收錄早期稿件與正式出版研究，需逐筆辨識版本。"
+    },
+    "osf-preprints": {
+      "name": "OSF Preprints 基礎設施",
+      "summary": "OSF 的預印本基礎設施與發現網路；一般型伺服器已暫停新投稿，但既有紀錄持續託管，社群型 provider 仍在運作。"
+    },
+    "paleorxiv": {
+      "name": "PaleorXiv 古生物學預印本",
+      "summary": "古生物學預印本典藏，適合追蹤地球科學與演化研究的早期成果。"
+    },
+    "philarchive": {
+      "name": "PhilArchive 哲學開放典藏",
+      "summary": "大型非營利哲學 e-print 典藏，包含預印本與其他學術版本；版本與審查狀態需逐筆辨識。"
+    },
+    "philsci-archive": {
+      "name": "PhilSci-Archive 科學哲學預印本",
+      "summary": "Philosophy of Science Association 的官方預印本典藏，聚焦科學哲學的未正式出版研究。"
+    },
+    "preprints-org": {
+      "name": "Preprints.org 多學科預印本",
+      "summary": "跨全學科的預印本平台；內容未經同儕審查，採 CC BY 4.0，並以 Crossref DOI 管理各版本。"
+    },
+    "preprints-ru": {
+      "name": "Preprints.ru",
+      "summary": "俄語區跨領域預印本平台，DOAPR 目前列為開放；由於直接站點偶有不可達，登錄狀態保守標為部分驗證。"
+    },
+    "preprints-with-the-lancet": {
+      "name": "Preprints with The Lancet",
+      "summary": "The Lancet 與 SSRN 的早期稿件區；出現在此處不代表是 Lancet 正式出版品或已通過同行審查。"
+    },
+    "propylaeumdok": {
+      "name": "PropylaeumDok 古典與考古研究典藏",
+      "summary": "古典研究與考古學的開放全文典藏庫，包含預印本及多種學術出版類型。"
+    },
+    "psyarxiv": {
+      "name": "PsyArXiv 心理科學預印本",
+      "summary": "心理科學的免費預印本服務；適合追蹤正式期刊尚未消化的早期研究。"
+    },
+    "research-square": {
+      "name": "Research Square 預印本平台",
+      "summary": "跨學科預印本平台；公開前由編務團隊預篩，刊出後取得 DOI 並作為永久公開研究紀錄。"
+    },
+    "rinarxiv": {
+      "name": "RINarXiv 印尼預印本典藏",
+      "summary": "印尼多學科預印本來源；DOAPR 仍列為開放，但網址沿用舊 LIPI 網域，因此營運與治理連續性需定期複核。"
+    },
+    "rutgers-optimality-archive": {
+      "name": "Rutgers Optimality Archive",
+      "summary": "Optimality Theory 與相關語言學研究的歷史預印本庫；目前網站仍可讀取，但可見最新投稿停在 2022，故新鮮度需保守解讀。"
+    },
+    "sage-advance": {
+      "name": "Sage Advance 預印本社群",
+      "summary": "Sage 的人文與社會科學預印本平台；投稿經基本審核後公開並取得 DOI，但不等於同儕審查。"
+    },
+    "scielo-preprints": {
+      "name": "SciELO Preprints",
+      "summary": "涵蓋生命、健康、工程、社會科學與人文等領域的多語預印本平台，對拉丁美洲研究尤其重要。"
+    },
+    "sciencepaper-online": {
+      "name": "中國科技論文在線",
+      "summary": "中國跨學科研究稿件與預印本平台，可快速公開全文並支援版本更新；平台另有可選審查，需逐筆確認是否已審查。"
+    },
+    "socarxiv": {
+      "name": "SocArXiv 社會科學預印本",
+      "summary": "OSF 上的社會科學開放預印本服務；投稿前有社群 moderation，版本可獲 Crossref DOI。"
+    },
+    "sportrxiv": {
+      "name": "SportRxiv 運動科學預印本",
+      "summary": "運動、運動生理、表現與健康研究的社群預印本平台；支援版本與撤稿 tombstone，授權由作者選擇。"
+    },
+    "ssoar": {
+      "name": "SSOAR 社會科學開放典藏庫",
+      "summary": "GESIS 的社會科學全文典藏庫，可存 preprint、postprint 與出版社版本；未經先前審查的首次出版會明確標示非同儕審查。"
+    },
+    "ssrn": {
+      "name": "SSRN 工作論文與預印本網路",
+      "summary": "大型跨社科早期研究網路，含預印本、工作論文與其他研究輸出；部分紀錄可能限制免費下載，因此需逐筆查 access。"
+    },
+    "techrxiv": {
+      "name": "TechRxiv 工程科技預印本",
+      "summary": "IEEE 提供的工程、電機、電腦科學與相關科技預印本入口，內容在正式審查與出版前公開。"
+    },
+    "wikijournal-preprints": {
+      "name": "WikiJournal 預印本",
+      "summary": "WikiJournal 的公開可編輯預印本與公開同行審查入口；必須把預印本狀態與後續穩定的已審查期刊版本分開。"
+    },
+    "zenodo": {
+      "name": "Zenodo 通用研究典藏庫",
+      "summary": "CERN／OpenAIRE 的通用研究典藏，可存放預印本並取得 DOI；但紀錄可設為公開、限制或關閉，需逐筆判定。"
+    }
+  }
+}

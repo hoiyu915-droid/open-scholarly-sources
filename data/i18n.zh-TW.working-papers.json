@@ -1,0 +1,55 @@
+{
+  "locale": "zh-TW",
+  "updated": "2026-08-16",
+  "taxonomy": {},
+  "sources": {
+    "agecon-search": {
+      "name": "AgEcon Search 農業與應用經濟學典藏",
+      "summary": "免費全文收錄農業、資源、能源與環境經濟學的工作論文、會議論文及期刊文章，版本狀態需逐筆判定。"
+    },
+    "bank-of-england-staff-working-papers": {
+      "name": "英格蘭銀行 Staff Working Papers",
+      "summary": "英格蘭銀行研究人員的新經濟與金融工作論文系列，提供公開文章頁與 PDF。"
+    },
+    "bis-working-papers": {
+      "name": "BIS Working Papers",
+      "summary": "國際清算銀行經濟學工作論文系列，公開 BIS、央行及學術合作者的早期研究全文。"
+    },
+    "ecb-working-paper-series": {
+      "name": "歐洲央行 Working Paper Series",
+      "summary": "ECB 的經濟研究工作論文系列，官方明確稱為 work in progress，適合追蹤政策與總體研究前沿。"
+    },
+    "econstor": {
+      "name": "EconStor 經濟學開放典藏庫",
+      "summary": "ZBW 維護的經濟與商學 OA 典藏庫，工作論文量大，也包含綠色 OA 與正式出版資料。"
+    },
+    "federal-reserve-feds": {
+      "name": "美國聯準會 FEDS 工作論文",
+      "summary": "聯準會理事會的經濟與金融工作論文系列；官方明示研究多屬初步結果，目的是促進討論與批評。"
+    },
+    "federal-reserve-ifdp": {
+      "name": "美國聯準會 IFDP 國際金融工作論文",
+      "summary": "聯準會國際金融部門的工作論文系列，聚焦國際總體、貿易、全球金融與資本流動，提供 DOI 與完整 PDF。"
+    },
+    "imf-working-papers": {
+      "name": "IMF Working Papers",
+      "summary": "國際貨幣基金的進行中研究工作論文，用於徵求評論與促進辯論，提供可下載全文。"
+    },
+    "iza-discussion-papers": {
+      "name": "IZA Discussion Papers 勞動經濟工作論文",
+      "summary": "大型勞動經濟學 discussion paper 系列，在正式期刊出版前快速公開新研究，全文可免費下載。"
+    },
+    "mpra": {
+      "name": "MPRA 經濟學工作論文典藏",
+      "summary": "慕尼黑大學圖書館的經濟學工作論文／預印本典藏，與 RePEc 整合並可免費取得全文。"
+    },
+    "repec": {
+      "name": "RePEc 經濟學研究論文網路",
+      "summary": "大型經濟學書目與工作論文網路，特別適合發現各機構 working-paper series；全文仍回各原始典藏庫取得。"
+    },
+    "world-bank-prwp": {
+      "name": "世界銀行 Policy Research Working Papers",
+      "summary": "世界銀行用來快速傳播進行中發展研究與交換想法的工作論文系列。"
+    }
+  }
+}

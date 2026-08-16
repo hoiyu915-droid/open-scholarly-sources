@@ -9,10 +9,17 @@
     "sources.cross-disciplinary.json",
     "sources.physical-earth.json",
     "sources.life-health.json",
-    "sources.social-humanities.json"
+    "sources.social-humanities.json",
+    "sources.preprints-major.json",
+    "sources.preprints-osf.json",
+    "sources.preprints-community.json",
+    "sources.preprints-repositories.json",
+    "sources.working-papers.json"
   ],
   "translation_shards": [
     "i18n.zh-TW.json",
-    "i18n.zh-TW.cross-disciplinary.json"
+    "i18n.zh-TW.cross-disciplinary.json",
+    "i18n.zh-TW.preprints.json",
+    "i18n.zh-TW.working-papers.json"
   ]
 }
