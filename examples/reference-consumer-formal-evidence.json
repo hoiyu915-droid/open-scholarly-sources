@@ -1,12 +1,24 @@
 {
   "registry_release_id": "0000000000000000000000000000000000000000",
+  "verification": {
+    "enabled": true,
+    "profile": "lite",
+    "requested_by": "user"
+  },
   "query_envelope": {
-    "mode": "lite",
     "requirements": ["formal_evidence"],
     "freshness": "unspecified"
   },
+  "planned_registered_routes": [
+    {
+      "route_id": "formal:tacl",
+      "lane": "formal_evidence",
+      "source_id": "tacl"
+    }
+  ],
   "route_attempts": [
     {
+      "route_id": "formal:tacl",
       "lane": "formal_evidence",
       "source_id": "tacl",
       "attempt_status": "success_with_candidates",

@@ -37,36 +37,45 @@ This is a registry, not a prestige ranking. Inclusion does not endorse every art
 
 Newer records can carry an `access_policy` object describing OA model, verified effective dates/years, backfile scope, version scope and licence scope. Source-use profiles are generated separately from canonical source facts; see [SOURCE_PROFILES.md](SOURCE_PROFILES.md).
 
-## Retrieval routing / 檢索路由
+## Default LLM use: source navigation / 預設只做來源導航
 
-The registry now publishes a versioned **registry-first, monotonic-fallback** routing policy for LLMs and research agents. Read [RETRIEVAL_ROUTING.md](RETRIEVAL_ROUTING.md) before implementing a consumer.
+**Open Scholarly Sources is a map of where to dig for literature.**
 
-Core rule:
+For ordinary requests such as「找這個題目的文獻」「用 OA repo 找來源」「有哪些期刊可以挖」，an LLM should read the pinned registry, select a small number of relevant registered sources, and tell the user where to search and why.
 
-> Uncertainty may widen the search, but may never upgrade evidence or close a required lane.
-
-The intended route is:
+Default behavior is deliberately lightweight:
 
 ```text
-registered direct sources
-→ registered discovery/archive infrastructure
-→ public ocean only if registered routes are exhausted and required coverage is still unmet
-→ every public-ocean candidate returns through the same resolution gate
+research topic
+→ Open Scholarly Sources registry
+→ choose roughly 5 relevant registered sources (maximum 8 by default)
+→ point the user to those sources and explain why they are useful
+→ stop
 ```
 
-A downloadable PDF is not automatically evidence. Crossref DOI resolution does not by itself prove peer-review status. New public-ocean sources normally remain `discovery_only` until the required source-scope attestations are established by accepted resolvers or a previously verified registry record.
+By default the repo policy does **not** require Crossref, DOAJ, Unpaywall, document-resolution attestations, admissibility judgments or public-ocean fallback. A missing journal-level registry record must not cause ordinary literature discovery to collapse into `discovery_only` results.
 
-The repository publishes the contract and a minimal executable reference consumer, but it does **not** enforce arbitrary external agent runtimes (`runtime_enforcement=false`). Consumers claiming policy compliance should preserve the trace fields defined by `data/retrieval-routing-policy.json`.
+See [RETRIEVAL_ROUTING.md](RETRIEVAL_ROUTING.md) and [AGENTS.md](AGENTS.md).
 
-Reference implementation:
+## Verification is optional and user-activated / 認證按需啟動
+
+The stricter resolution/admissibility route remains available, but it is **off by default** and must not be self-activated by an LLM.
+
+It starts only after an explicit request such as「核實這些文獻」「驗證來源」「啟動認證路由」「做 source audit」。When enabled, the registry-first monotonic safety rule still applies:
+
+> Uncertainty may widen the verification search, but may never upgrade evidence or close a required lane.
+
+The reference verification entry point is:
 
 ```bash
 python3 scripts/validate_routing_policy.py
 python3 -m unittest -v tests.test_reference_consumer
-python3 reference_consumer/route.py --input <structured-input.json>
+python3 reference_consumer/verify.py --input examples/reference-consumer-formal-evidence.json
 ```
 
-The v0.1 reference consumer deliberately covers only the formal-evidence candidate gate with Crossref document-identity resolution and pinned-registry source-scope checks. It does not classify natural-language intent, infer peer review from publisher prose, implement every source-specific search endpoint or promote sources into the canonical registry.
+`reference_consumer/route.py` contains lower-level resolver/gate primitives; it is not the default literature-discovery workflow.
+
+The repository publishes the contract and reference implementation, but does **not** enforce arbitrary external agent runtimes (`runtime_enforcement=false`).
 
 ## Machine outputs / 機器輸出
 
@@ -76,7 +85,7 @@ Every Pages deployment generates:
 - `/registry.ndjson` — one source record per line
 - `/registry.jsonld` — Schema.org catalog
 - `/source-profiles.json` and `/source-profiles.ndjson`
-- `/retrieval-routing-policy.json` — versioned routing contract for willing consumers
+- `/retrieval-routing-policy.json` — versioned source-navigation / optional-verification contract
 - `/llms.txt` and `/llms-full.txt`
 - `/sources/<id>.html` and `/sources/index.html`
 - `/profiles/`

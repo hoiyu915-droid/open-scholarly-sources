@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+"""Explicit opt-in verification reference consumer.
+
+Open Scholarly Sources defaults to source navigation only. This module is the
+reference entry point for the optional verification route. It refuses to run
+unless the caller supplies `verification.enabled=true` and records that the
+verification was explicitly requested by the user.
+
+The implementation currently demonstrates the lite formal-evidence candidate
+gate with Crossref document identity plus pinned-registry source-scope facts.
+It is deliberately not the default literature-discovery path.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from reference_consumer.route import (
+    CrossrefResolver,
+    FixtureCrossrefResolver,
+    POLICY_PATH,
+    PROFILE_RULES_PATH,
+    RELEASE_ID_RE,
+    TERMINAL_ATTEMPT_STATES,
+    load_json,
+    load_registry,
+    resolve_candidate,
+    sha256_bytes,
+)
+
+
+def _index_planned_routes(planned_routes: list[dict]) -> dict[str, dict]:
+    indexed: dict[str, dict] = {}
+    for route in planned_routes:
+        route_id = route.get("route_id")
+        if not isinstance(route_id, str) or not route_id.strip():
+            raise SystemExit(f"planned registered route missing route_id: {route}")
+        if route_id in indexed:
+            raise SystemExit(f"duplicate planned registered route_id: {route_id}")
+        indexed[route_id] = route
+    return indexed
+
+
+def _index_attempts(route_attempts: list[dict], planned: dict[str, dict]) -> dict[str, dict]:
+    indexed: dict[str, dict] = {}
+    for attempt in route_attempts:
+        route_id = attempt.get("route_id")
+        if not isinstance(route_id, str) or not route_id.strip():
+            raise SystemExit(f"route attempt missing route_id: {attempt}")
+        if route_id not in planned:
+            raise SystemExit(f"route attempt was not declared in planned_registered_routes: {route_id}")
+        if route_id in indexed:
+            raise SystemExit(f"duplicate route attempt for route_id: {route_id}")
+        if attempt.get("attempt_status") not in TERMINAL_ATTEMPT_STATES:
+            raise SystemExit(f"non-terminal or invalid attempt state: {attempt}")
+        indexed[route_id] = attempt
+    return indexed
+
+
+def execute(payload: dict, resolver: CrossrefResolver) -> dict:
+    policy = load_json(POLICY_PATH)
+    policy_bytes = POLICY_PATH.read_bytes()
+    profile_rules = load_json(PROFILE_RULES_PATH)
+    manifest, registry = load_registry()
+
+    verification = payload.get("verification")
+    if not isinstance(verification, dict) or verification.get("enabled") is not True:
+        raise SystemExit(
+            "verification is opt-in; set verification.enabled=true only after explicit user request"
+        )
+    if verification.get("requested_by") != "user":
+        raise SystemExit("verification must record requested_by=user; the LLM may not self-activate it")
+    profile = verification.get("profile")
+    if profile not in policy["verification_profiles"]:
+        raise SystemExit("verification.profile is not allowed by routing policy")
+    if profile != "lite":
+        raise SystemExit("reference consumer v0.2 currently implements the lite verification profile only")
+
+    release_id = payload.get("registry_release_id")
+    if not isinstance(release_id, str) or RELEASE_ID_RE.fullmatch(release_id) is None:
+        raise SystemExit("registry_release_id must be a full 40-character lowercase hex commit SHA")
+
+    query_envelope = payload.get("query_envelope", {})
+    requirements = query_envelope.get("requirements")
+    if not isinstance(requirements, list) or not requirements:
+        raise SystemExit("query_envelope.requirements must be a non-empty list")
+    unknown_requirements = sorted(set(requirements) - set(policy["verification_requirements"]))
+    if unknown_requirements:
+        raise SystemExit(f"unknown verification requirements: {unknown_requirements}")
+    if "formal_evidence" not in requirements:
+        raise SystemExit("reference consumer v0.2 requires formal_evidence")
+
+    planned_routes_raw = payload.get("planned_registered_routes", [])
+    if not isinstance(planned_routes_raw, list):
+        raise SystemExit("planned_registered_routes must be a list")
+    route_attempts = payload.get("route_attempts", [])
+    if not isinstance(route_attempts, list):
+        raise SystemExit("route_attempts must be a list")
+    planned_routes = _index_planned_routes(planned_routes_raw)
+    attempts = _index_attempts(route_attempts, planned_routes)
+
+    results = [resolve_candidate(candidate, registry, resolver) for candidate in payload.get("candidates", [])]
+    formal_count = sum(result["admissibility"] == "formal_evidence" for result in results)
+    minimums = payload.get("required_minimums", {"formal_evidence": 1})
+    formal_minimum = int(minimums.get("formal_evidence", 1))
+    coverage_unmet = formal_count < formal_minimum
+    registered_routes_exhausted = bool(planned_routes) and set(planned_routes) == set(attempts)
+    public_ocean_allowed = registered_routes_exhausted and coverage_unmet
+
+    attestations = [
+        attestation
+        for result in results
+        for attestation in result["resolution_attestations"]
+    ]
+    fallback_depth = max((result["fallback_depth"] for result in results), default=0)
+
+    return {
+        "reference_consumer_version": "0.2.0",
+        "registry_release_id": release_id,
+        "registry_data_version": manifest["schema_version"],
+        "routing_policy_version": policy["policy_version"],
+        "routing_policy_method": policy["method"],
+        "routing_policy_sha256": sha256_bytes(policy_bytes),
+        "source_profile_rule_version": profile_rules["schema_version"],
+        "verification": verification,
+        "query_envelope": query_envelope,
+        "planned_registered_routes": planned_routes_raw,
+        "route_attempts": route_attempts,
+        "fallback_depth": fallback_depth,
+        "results": results,
+        "resolution_attestations": attestations,
+        "coverage": {
+            "formal_evidence_admissible": formal_count,
+            "formal_evidence_minimum": formal_minimum,
+            "coverage_unmet": coverage_unmet,
+            "registered_routes_exhausted": registered_routes_exhausted,
+            "public_ocean_allowed": public_ocean_allowed,
+        },
+        "limitations": policy["reference_implementation"]["limitations"],
+    }
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--input", type=Path, required=True, help="Explicit verification request/candidate JSON")
+    parser.add_argument("--output", type=Path, help="Write trace JSON to this path; stdout if omitted")
+    parser.add_argument("--crossref-fixture", type=Path, help="Deterministic Crossref fixture for tests")
+    args = parser.parse_args()
+
+    payload = load_json(args.input)
+    resolver: CrossrefResolver
+    if args.crossref_fixture:
+        resolver = FixtureCrossrefResolver(args.crossref_fixture)
+    else:
+        resolver = CrossrefResolver()
+    trace = execute(payload, resolver)
+    rendered = json.dumps(trace, ensure_ascii=False, indent=2) + "\n"
+    if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(rendered, encoding="utf-8")
+    else:
+        print(rendered, end="")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

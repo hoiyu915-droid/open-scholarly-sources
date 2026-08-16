@@ -4,7 +4,8 @@ from __future__ import annotations
 import unittest
 from pathlib import Path
 
-from reference_consumer.route import FixtureCrossrefResolver, execute
+from reference_consumer.route import FixtureCrossrefResolver
+from reference_consumer.verify import execute
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = ROOT / "tests" / "reference_consumer" / "crossref-fixture.json"
@@ -12,15 +13,28 @@ RELEASE = "0" * 40
 
 
 def payload(candidates, attempt_status="success_with_candidates", minimum=1):
+    route_id = "formal:tacl"
     return {
         "registry_release_id": RELEASE,
+        "verification": {
+            "enabled": True,
+            "profile": "lite",
+            "requested_by": "user"
+        },
         "query_envelope": {
-            "mode": "lite",
             "requirements": ["formal_evidence"],
             "freshness": "unspecified"
         },
+        "planned_registered_routes": [
+            {
+                "route_id": route_id,
+                "lane": "formal_evidence",
+                "source_id": "tacl"
+            }
+        ],
         "route_attempts": [
             {
+                "route_id": route_id,
                 "lane": "formal_evidence",
                 "source_id": "tacl",
                 "attempt_status": attempt_status,
@@ -35,6 +49,24 @@ def payload(candidates, attempt_status="success_with_candidates", minimum=1):
 class ReferenceConsumerTests(unittest.TestCase):
     def setUp(self):
         self.resolver = FixtureCrossrefResolver(FIXTURE)
+
+    def test_verification_must_be_explicitly_enabled(self):
+        request = payload([])
+        request.pop("verification")
+        with self.assertRaises(SystemExit):
+            execute(request, self.resolver)
+
+    def test_disabled_verification_is_rejected(self):
+        request = payload([])
+        request["verification"]["enabled"] = False
+        with self.assertRaises(SystemExit):
+            execute(request, self.resolver)
+
+    def test_llm_may_not_self_activate_verification(self):
+        request = payload([])
+        request["verification"]["requested_by"] = "llm"
+        with self.assertRaises(SystemExit):
+            execute(request, self.resolver)
 
     def test_known_verified_registry_journal_is_formal_admissible(self):
         trace = execute(
@@ -51,6 +83,9 @@ class ReferenceConsumerTests(unittest.TestCase):
         self.assertEqual(trace["results"][0]["source_id"], "tacl")
         self.assertFalse(trace["coverage"]["coverage_unmet"])
         self.assertFalse(trace["coverage"]["public_ocean_allowed"])
+        self.assertTrue(trace["verification"]["enabled"])
+        self.assertEqual(trace["verification"]["requested_by"], "user")
+        self.assertEqual(trace["reference_consumer_version"], "0.2.0")
         self.assertEqual(len(trace["routing_policy_sha256"]), 64)
 
     def test_unknown_journal_with_valid_doi_remains_discovery_only(self):
@@ -83,12 +118,32 @@ class ReferenceConsumerTests(unittest.TestCase):
         self.assertTrue(trace["coverage"]["coverage_unmet"])
         self.assertTrue(trace["coverage"]["public_ocean_allowed"])
 
-    def test_success_empty_registered_route_opens_public_ocean_when_coverage_unmet(self):
+    def test_success_empty_registered_route_opens_public_ocean_only_inside_verification(self):
         trace = execute(payload([], attempt_status="success_empty"), self.resolver)
         self.assertEqual(trace["coverage"]["formal_evidence_admissible"], 0)
         self.assertTrue(trace["coverage"]["registered_routes_exhausted"])
         self.assertTrue(trace["coverage"]["coverage_unmet"])
         self.assertTrue(trace["coverage"]["public_ocean_allowed"])
+
+    def test_incomplete_planned_route_accounting_does_not_open_public_ocean(self):
+        request = payload([], attempt_status="success_empty")
+        request["planned_registered_routes"].append(
+            {
+                "route_id": "formal:second-source",
+                "lane": "formal_evidence",
+                "source_id": "second-source"
+            }
+        )
+        trace = execute(request, self.resolver)
+        self.assertFalse(trace["coverage"]["registered_routes_exhausted"])
+        self.assertTrue(trace["coverage"]["coverage_unmet"])
+        self.assertFalse(trace["coverage"]["public_ocean_allowed"])
+
+    def test_unplanned_attempt_is_rejected(self):
+        bad = payload([])
+        bad["route_attempts"][0]["route_id"] = "formal:not-planned"
+        with self.assertRaises(SystemExit):
+            execute(bad, self.resolver)
 
     def test_nonterminal_attempt_is_rejected(self):
         bad = payload([])

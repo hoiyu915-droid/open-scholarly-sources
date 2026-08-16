@@ -1,21 +1,15 @@
 #!/usr/bin/env python3
-"""Minimal executable reference consumer for the routing contract.
+"""Low-level resolver/gate primitives for optional verification.
 
-Scope v0.1:
-- structured formal_evidence input only;
-- candidate DOI resolution through Crossref;
-- deterministic binding to a pinned registry source by normalized container title;
-- registry source-scope attestation;
-- admissibility, coverage, and public-ocean eligibility verdicts.
+This module is NOT the default Open Scholarly Sources workflow and is not the
+reference verification entry point. Ordinary literature discovery should use
+the registry only for source navigation.
 
-This module intentionally does not classify natural-language intent, infer peer
-review from publisher prose, resolve OA/version state beyond registry facts, or
-promote new sources into the canonical registry.
+For explicit user-requested verification, invoke `reference_consumer/verify.py`.
 """
 
 from __future__ import annotations
 
-import argparse
 import hashlib
 import json
 import re
@@ -94,7 +88,7 @@ class CrossrefResolver:
             url,
             headers={
                 "Accept": "application/json",
-                "User-Agent": "open-scholarly-sources-reference-consumer/0.1 (+https://github.com/hoiyu915-droid/open-scholarly-sources)",
+                "User-Agent": "open-scholarly-sources-reference-consumer/0.2 (+https://github.com/hoiyu915-droid/open-scholarly-sources)",
             },
         )
         observed_at = utc_now()
@@ -309,95 +303,11 @@ def resolve_candidate(candidate: dict, registry: dict[str, dict], resolver: Cros
     }
 
 
-def execute(payload: dict, resolver: CrossrefResolver) -> dict:
-    policy = load_json(POLICY_PATH)
-    policy_bytes = POLICY_PATH.read_bytes()
-    profile_rules = load_json(PROFILE_RULES_PATH)
-    manifest, registry = load_registry()
-
-    release_id = payload.get("registry_release_id")
-    if not isinstance(release_id, str) or RELEASE_ID_RE.fullmatch(release_id) is None:
-        raise SystemExit("registry_release_id must be a full 40-character lowercase hex commit SHA")
-
-    query_envelope = payload.get("query_envelope", {})
-    if query_envelope.get("mode") not in policy["modes"]:
-        raise SystemExit("query_envelope.mode is not allowed by routing policy")
-    requirements = query_envelope.get("requirements")
-    if not isinstance(requirements, list) or not requirements:
-        raise SystemExit("query_envelope.requirements must be a non-empty list")
-    unknown_requirements = sorted(set(requirements) - set(policy["requirements"]))
-    if unknown_requirements:
-        raise SystemExit(f"unknown requirements: {unknown_requirements}")
-    if "formal_evidence" not in requirements:
-        raise SystemExit("reference consumer v0.1 requires formal_evidence")
-
-    route_attempts = payload.get("route_attempts", [])
-    for attempt in route_attempts:
-        if attempt.get("attempt_status") not in TERMINAL_ATTEMPT_STATES:
-            raise SystemExit(f"non-terminal or invalid attempt state: {attempt}")
-
-    results = [resolve_candidate(candidate, registry, resolver) for candidate in payload.get("candidates", [])]
-    formal_count = sum(result["admissibility"] == "formal_evidence" for result in results)
-    minimums = payload.get("required_minimums", {"formal_evidence": 1})
-    formal_minimum = int(minimums.get("formal_evidence", 1))
-    coverage_unmet = formal_count < formal_minimum
-    registered_routes_exhausted = bool(route_attempts) and all(
-        attempt.get("attempt_status") in TERMINAL_ATTEMPT_STATES for attempt in route_attempts
-    )
-    public_ocean_allowed = registered_routes_exhausted and coverage_unmet
-
-    attestations = [
-        attestation
-        for result in results
-        for attestation in result["resolution_attestations"]
-    ]
-    fallback_depth = max((result["fallback_depth"] for result in results), default=0)
-
-    return {
-        "reference_consumer_version": "0.1.0",
-        "registry_release_id": release_id,
-        "registry_data_version": manifest["schema_version"],
-        "routing_policy_version": policy["policy_version"],
-        "routing_policy_method": policy["method"],
-        "routing_policy_sha256": sha256_bytes(policy_bytes),
-        "source_profile_rule_version": profile_rules["schema_version"],
-        "query_envelope": query_envelope,
-        "route_attempts": route_attempts,
-        "fallback_depth": fallback_depth,
-        "results": results,
-        "resolution_attestations": attestations,
-        "coverage": {
-            "formal_evidence_admissible": formal_count,
-            "formal_evidence_minimum": formal_minimum,
-            "coverage_unmet": coverage_unmet,
-            "registered_routes_exhausted": registered_routes_exhausted,
-            "public_ocean_allowed": public_ocean_allowed,
-        },
-        "limitations": policy["reference_implementation"]["limitations"],
-    }
-
-
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input", type=Path, required=True, help="Structured query/candidate JSON")
-    parser.add_argument("--output", type=Path, help="Write trace JSON to this path; stdout if omitted")
-    parser.add_argument("--crossref-fixture", type=Path, help="Deterministic Crossref fixture for tests")
-    args = parser.parse_args()
-
-    payload = load_json(args.input)
-    resolver: CrossrefResolver
-    if args.crossref_fixture:
-        resolver = FixtureCrossrefResolver(args.crossref_fixture)
-    else:
-        resolver = CrossrefResolver()
-    trace = execute(payload, resolver)
-    rendered = json.dumps(trace, ensure_ascii=False, indent=2) + "\n"
-    if args.output:
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(rendered, encoding="utf-8")
-    else:
-        print(rendered, end="")
-    return 0
+    raise SystemExit(
+        "route.py contains low-level optional-verification primitives only; "
+        "use reference_consumer/verify.py after explicit user verification opt-in"
+    )
 
 
 if __name__ == "__main__":
