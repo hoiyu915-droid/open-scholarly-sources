@@ -53,6 +53,12 @@ class ReferenceConsumerTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             execute(request, self.resolver)
 
+    def test_llm_may_not_self_activate_verification(self):
+        request = payload([])
+        request["verification"]["requested_by"] = "llm"
+        with self.assertRaises(SystemExit):
+            execute(request, self.resolver)
+
     def test_known_verified_registry_journal_is_formal_admissible(self):
         trace = execute(
             payload([
@@ -69,6 +75,7 @@ class ReferenceConsumerTests(unittest.TestCase):
         self.assertFalse(trace["coverage"]["coverage_unmet"])
         self.assertFalse(trace["coverage"]["public_ocean_allowed"])
         self.assertTrue(trace["verification"]["enabled"])
+        self.assertEqual(trace["verification"]["requested_by"], "user")
         self.assertEqual(trace["reference_consumer_version"], "0.2.0")
         self.assertEqual(len(trace["routing_policy_sha256"]), 64)
 
