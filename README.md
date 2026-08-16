@@ -37,6 +37,37 @@ This is a registry, not a prestige ranking. Inclusion does not endorse every art
 
 Newer records can carry an `access_policy` object describing OA model, verified effective dates/years, backfile scope, version scope and licence scope. Source-use profiles are generated separately from canonical source facts; see [SOURCE_PROFILES.md](SOURCE_PROFILES.md).
 
+## Retrieval routing / 檢索路由
+
+The registry now publishes a versioned **registry-first, monotonic-fallback** routing policy for LLMs and research agents. Read [RETRIEVAL_ROUTING.md](RETRIEVAL_ROUTING.md) before implementing a consumer.
+
+Core rule:
+
+> Uncertainty may widen the search, but may never upgrade evidence or close a required lane.
+
+The intended route is:
+
+```text
+registered direct sources
+→ registered discovery/archive infrastructure
+→ public ocean only if registered routes are exhausted and required coverage is still unmet
+→ every public-ocean candidate returns through the same resolution gate
+```
+
+A downloadable PDF is not automatically evidence. Crossref DOI resolution does not by itself prove peer-review status. New public-ocean sources normally remain `discovery_only` until the required source-scope attestations are established by accepted resolvers or a previously verified registry record.
+
+The repository publishes the contract and a minimal executable reference consumer, but it does **not** enforce arbitrary external agent runtimes (`runtime_enforcement=false`). Consumers claiming policy compliance should preserve the trace fields defined by `data/retrieval-routing-policy.json`.
+
+Reference implementation:
+
+```bash
+python3 scripts/validate_routing_policy.py
+python3 -m unittest -v tests.test_reference_consumer
+python3 reference_consumer/route.py --input <structured-input.json>
+```
+
+The v0.1 reference consumer deliberately covers only the formal-evidence candidate gate with Crossref document-identity resolution and pinned-registry source-scope checks. It does not classify natural-language intent, infer peer review from publisher prose, implement every source-specific search endpoint or promote sources into the canonical registry.
+
 ## Machine outputs / 機器輸出
 
 Every Pages deployment generates:
@@ -45,6 +76,7 @@ Every Pages deployment generates:
 - `/registry.ndjson` — one source record per line
 - `/registry.jsonld` — Schema.org catalog
 - `/source-profiles.json` and `/source-profiles.ndjson`
+- `/retrieval-routing-policy.json` — versioned routing contract for willing consumers
 - `/llms.txt` and `/llms-full.txt`
 - `/sources/<id>.html` and `/sources/index.html`
 - `/profiles/`
@@ -54,16 +86,18 @@ These files improve conventional crawling, retrieval and machine parsing, but th
 
 ## Release identity and cache consistency / 發布識別與快取一致性
 
-Mutable Pages URLs such as `/registry.json` and `/llms.txt` are convenience endpoints for the latest deployed release. Intermediary caches or propagation can temporarily return an older release, so a single external fetch is not sufficient proof of the current repository state.
+Mutable Pages URLs such as `/registry.json`, `/retrieval-routing-policy.json` and `/llms.txt` are convenience endpoints for the latest deployed release. Intermediary caches or propagation can temporarily return an older release, so a single external fetch is not sufficient proof of the current repository state.
 
 Every deployment therefore stamps the public machine outputs with a full Git commit identity and creates:
 
 - `/release-manifest.json` — mutable manifest for the release returned by that endpoint
 - `/releases/<full-commit-sha>/...` — immutable machine snapshot
 - `/releases/<full-commit-sha>/release-manifest.json` — SHA-256 digests and release metadata
+- `/releases/<full-commit-sha>/retrieval-routing-policy.json` — immutable routing policy used by that release
+- `/releases/<full-commit-sha>/schemas/retrieval-routing-policy.schema.json`
 - `/releases/index.json` — release history/pointers retained from deployed releases
 
-The immutable snapshots are persisted on the dedicated `release-snapshots` branch **only after the Pages deployment succeeds**. Reusing an existing release SHA with different bytes is a release failure.
+The release manifest records routing-policy version, method and schema version in addition to profile-rule identity. The immutable snapshots are persisted on the dedicated `release-snapshots` branch **only after the Pages deployment succeeds**. Reusing an existing release SHA with different bytes is a release failure.
 
 The repository copy of `docs/index.html` is only a build template; each immutable release preserves the exact rendered homepage and generated static source index for independent crawler-facing verification.
 
@@ -78,6 +112,8 @@ No third-party Python package is required for the core build:
 ```bash
 python3 scripts/validate_registry.py
 python3 scripts/validate_extensions.py
+python3 scripts/validate_routing_policy.py
+python3 -m unittest -v tests.test_reference_consumer
 rm -rf /tmp/open-scholarly-sources-site
 mkdir -p /tmp/open-scholarly-sources-site/data /tmp/open-scholarly-sources-site/schemas
 cp docs/index.html /tmp/open-scholarly-sources-site/index.html
@@ -86,9 +122,10 @@ cp schemas/*.json /tmp/open-scholarly-sources-site/schemas/
 python3 scripts/build_machine_index.py --output /tmp/open-scholarly-sources-site
 python3 scripts/build_source_profiles.py --output /tmp/open-scholarly-sources-site
 python3 scripts/build_static_homepage.py --site /tmp/open-scholarly-sources-site
+python3 scripts/publish_routing_policy.py --output /tmp/open-scholarly-sources-site
 ```
 
-CI additionally builds a commit-addressed release snapshot, verifies its SHA-256 digests, checks the no-JavaScript homepage fallback and ensures release finalization is idempotent for the same commit SHA.
+CI additionally builds a commit-addressed release snapshot, verifies its SHA-256 digests, checks routing-policy identity, checks the no-JavaScript homepage fallback and ensures release finalization is idempotent for the same commit SHA.
 
 ## Contributing / 貢獻
 
