@@ -23,6 +23,12 @@ jobs:
       - name: Validate source shards, access policies and bilingual coverage
         run: python3 scripts/validate_extensions.py
 
+      - name: Validate retrieval routing policy invariants
+        run: python3 scripts/validate_routing_policy.py
+
+      - name: Run reference-consumer conformance tests
+        run: python3 -m unittest -v tests.test_reference_consumer
+
       - name: Build machine, LLM, profile, homepage and release indexes
         run: |
           set -euo pipefail
@@ -35,6 +41,7 @@ jobs:
           python3 scripts/build_machine_index.py --output "$site"
           python3 scripts/build_source_profiles.py --output "$site"
           python3 scripts/build_static_homepage.py --site "$site"
+          python3 scripts/publish_routing_policy.py --output "$site"
 
           release_date="$(git show -s --format=%cI "$GITHUB_SHA")"
           python3 scripts/build_release_snapshot.py \
@@ -46,23 +53,29 @@ jobs:
           snapshot="$site/releases/$GITHUB_SHA"
           test -s "$site/source-profiles.json"
           test -s "$site/source-profiles.ndjson"
+          test -s "$site/retrieval-routing-policy.json"
           test -s "$site/profiles/index.html"
           test -s "$site/release-manifest.json"
           test -s "$site/releases/index.json"
           test -s "$snapshot/release-manifest.json"
+          test -s "$snapshot/retrieval-routing-policy.json"
+          test -s "$snapshot/schemas/retrieval-routing-policy.schema.json"
           test -s "$snapshot/rendered-homepage.html"
           test -s "$snapshot/rendered-source-index.html"
           test -s "$snapshot/index.html"
           test -s "$snapshot/data/registry-manifest.json"
           test -s "$snapshot/data/source-profile-rules.json"
+          test -s "$snapshot/data/retrieval-routing-policy.json"
           test -s "$snapshot/sources/index.html"
           test -s "$snapshot/profiles/index.html"
           cmp "$site/index.html" "$snapshot/rendered-homepage.html"
           cmp "$site/index.html" "$snapshot/index.html"
+          cmp "$site/retrieval-routing-policy.json" "$snapshot/retrieval-routing-policy.json"
           grep -q "Static source index / 無 JavaScript 來源索引" "$site/index.html"
           ! grep -q "<!-- STATIC_FALLBACK -->" "$site/index.html"
           grep -q "$GITHUB_SHA" "$site/index.html"
           grep -q "Release identity: $GITHUB_SHA" "$site/llms.txt"
+          grep -q "Routing policy:" "$site/llms.txt"
 
           # Re-running the release finalizer for the same SHA must be idempotent.
           python3 scripts/build_release_snapshot.py \
@@ -78,13 +91,20 @@ jobs:
           manifest=json.loads((site/'release-manifest.json').read_text())
           registry=json.loads((site/'registry.json').read_text())
           profiles=json.loads((site/'source-profiles.json').read_text())
+          routing=json.loads((site/'retrieval-routing-policy.json').read_text())
           history=json.loads((site/'releases/index.json').read_text())
+          assert manifest['schema_version']=='2.0.0'
           assert manifest['release_id']==sha==manifest['commit_sha']
           assert registry['release']['release_id']==sha
           assert profiles['release']['release_id']==sha
           assert history['current_release_id']==sha
           assert manifest['source_count']==len(registry['sources'])
           assert manifest['profile_schema_version']==profiles['schema_version']
+          assert manifest['routing_policy_version']==routing['policy_version']
+          assert manifest['routing_policy_method']==routing['method']
+          assert manifest['routing_policy_schema_version']==routing['schema_version']
+          assert 'retrieval-routing-policy.json' in manifest['files']
+          assert 'schemas/retrieval-routing-policy.schema.json' in manifest['files']
           assert 'rendered-homepage.html' in manifest['files']
           assert 'rendered-source-index.html' in manifest['files']
           snapshot=site/'releases'/sha
@@ -96,15 +116,28 @@ jobs:
               assert (snapshot/'sources'/f'{sid}.html').is_file(), sid
           bootstrap=json.loads((snapshot/'data'/'registry-manifest.json').read_text())
           assert (snapshot/'data'/'source-profile-rules.json').is_file()
+          assert (snapshot/'data'/'retrieval-routing-policy.json').is_file()
           for filename in bootstrap.get('translation_shards', []):
               assert (snapshot/'data'/filename).is_file(), filename
           assert (snapshot/'profiles'/'index.html').is_file()
-          for required in ('index.html','data/registry-manifest.json','data/source-profile-rules.json','sources/index.html','profiles/index.html'):
+          for required in (
+              'index.html',
+              'retrieval-routing-policy.json',
+              'schemas/retrieval-routing-policy.schema.json',
+              'data/registry-manifest.json',
+              'data/source-profile-rules.json',
+              'data/retrieval-routing-policy.json',
+              'sources/index.html',
+              'profiles/index.html',
+          ):
               assert required in manifest['files'], required
           assert 'Static source index / 無 JavaScript 來源索引' in page
           assert '<!-- STATIC_FALLBACK -->' not in page
           for name, meta in manifest['files'].items():
               data=(snapshot/name).read_bytes()
               assert hashlib.sha256(data).hexdigest()==meta['sha256'], name
-          print(f'Release self-contained assertions OK: files={len(manifest["files"])} sources={len(source_ids)}')
+          print(
+              f'Release self-contained assertions OK: files={len(manifest["files"])} '
+              f'sources={len(source_ids)} routing={manifest["routing_policy_version"]}'
+          )
           PY
