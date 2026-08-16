@@ -192,7 +192,7 @@
     "resolution_attestations"
   ],
   "reference_implementation": {
-    "path": "reference_consumer/route.py",
+    "path": "reference_consumer/verify.py",
     "scope": "explicit_verification_formal_evidence_candidate_gate_v0_2",
     "network_resolver": "crossref",
     "activation_required": true,
