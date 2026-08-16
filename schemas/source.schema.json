@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/source.schema.json",
+  "title": "Open Scholarly Sources Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "updated", "sources"],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "updated": {"type": "string", "format": "date"},
+    "sources": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/source"}
+    }
+  },
+  "$defs": {
+    "nullableUri": {
+      "anyOf": [
+        {"type": "string", "format": "uri", "pattern": "^https://"},
+        {"type": "null"}
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "name", "organization", "source_type", "subjects", "oa_scope",
+        "peer_review_scope", "publication_state", "canonical_url", "parent_id",
+        "access_roles", "machine_access", "status", "verification", "notes"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "name": {"type": "string", "minLength": 1},
+        "organization": {"type": "string", "minLength": 1},
+        "source_type": {
+          "enum": [
+            "journal", "journal_collection", "publisher_platform", "institutional_repository",
+            "subject_repository", "government_repository", "preprint_server", "aggregator",
+            "directory", "digital_library"
+          ]
+        },
+        "subjects": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "oa_scope": {"enum": ["full", "mixed", "metadata_only", "unknown"]},
+        "peer_review_scope": {"enum": ["peer_reviewed", "mixed", "not_peer_reviewed", "not_applicable", "unknown"]},
+        "publication_state": {"enum": ["published", "preprint", "mixed", "not_applicable"]},
+        "canonical_url": {"type": "string", "format": "uri", "pattern": "^https://"},
+        "parent_id": {
+          "anyOf": [
+            {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+            {"type": "null"}
+          ]
+        },
+        "members": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "access_roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor", "repository_copy"]}
+        },
+        "machine_access": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["formats", "feed_url", "api_url", "oai_pmh_url", "bulk_metadata_url"],
+          "properties": {
+            "formats": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"enum": ["html", "pdf", "xml", "json", "csv", "rdf"]}
+            },
+            "feed_url": {"$ref": "#/$defs/nullableUri"},
+            "api_url": {"$ref": "#/$defs/nullableUri"},
+            "oai_pmh_url": {"$ref": "#/$defs/nullableUri"},
+            "bulk_metadata_url": {"$ref": "#/$defs/nullableUri"}
+          }
+        },
+        "transition": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["effective", "from", "to", "evidence_url"],
+          "properties": {
+            "effective": {"type": "string", "minLength": 4},
+            "from": {"type": "string", "minLength": 1},
+            "to": {"type": "string", "minLength": 1},
+            "evidence_url": {"type": "string", "format": "uri", "pattern": "^https://"}
+          }
+        },
+        "status": {"enum": ["active", "inactive", "migrating", "unknown"]},
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "checked", "evidence_url"],
+          "properties": {
+            "status": {"enum": ["verified", "partial", "needs_review"]},
+            "checked": {"type": "string", "format": "date"},
+            "evidence_url": {"type": "string", "format": "uri", "pattern": "^https://"}
+          }
+        },
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}
