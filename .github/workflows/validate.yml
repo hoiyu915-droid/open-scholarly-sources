@@ -8,7 +8,7 @@ on:
       - release-snapshots
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
@@ -16,74 +16,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-
-      - name: Apply rendered homepage evidence hardening
-        if: github.ref == 'refs/heads/fix/rendered-homepage-evidence'
-        shell: bash
-        run: |
-          set -euo pipefail
-          python3 - <<'PY'
-          from pathlib import Path
-
-          changed = False
-
-          p = Path('scripts/build_release_snapshot.py')
-          s = p.read_text(encoding='utf-8')
-          if 'rendered-homepage.html' not in s:
-              old = '''    snapshot.mkdir(parents=True)\n    files = {}\n    for name in SNAPSHOT_FILES:\n        source = site / name\n        if not source.is_file():\n            raise SystemExit(f"missing machine output before release snapshot: {name}")\n        destination = snapshot / name\n        shutil.copy2(source, destination)\n        files[name] = file_meta(\n            destination,\n            f"{immutable_base}/{name}",\n            f"{identity['mutable_base']}{name}",\n        )\n\n    schema_dir = snapshot / "schemas"'''
-              new = '''    snapshot.mkdir(parents=True)\n    files = {}\n    for name in SNAPSHOT_FILES:\n        source = site / name\n        if not source.is_file():\n            raise SystemExit(f"missing machine output before release snapshot: {name}")\n        destination = snapshot / name\n        shutil.copy2(source, destination)\n        files[name] = file_meta(\n            destination,\n            f"{immutable_base}/{name}",\n            f"{identity['mutable_base']}{name}",\n        )\n\n    # Preserve exact rendered human/crawler surfaces as immutable evidence.\n    # docs/index.html in the repository is only a build template; these files\n    # are copied after static fallback injection and release stamping.\n    homepage = site / "index.html"\n    source_index = site / "sources" / "index.html"\n    if not homepage.is_file() or not source_index.is_file():\n        raise SystemExit("rendered homepage/source index missing before release snapshot")\n    homepage_text = homepage.read_text(encoding="utf-8")\n    if "Static source index / 無 JavaScript 來源索引" not in homepage_text:\n        raise SystemExit("rendered homepage lacks static fallback heading")\n    source_links = set(re.findall(r'href="\\./sources/([a-z0-9-]+)\\.html"', homepage_text))\n    if len(source_links) != source_count:\n        raise SystemExit(\n            f"rendered homepage static source-link count mismatch: {len(source_links)} != {source_count}"\n        )\n    evidence_specs = (\n        (homepage, "rendered-homepage.html", identity["mutable_base"]),\n        (source_index, "rendered-source-index.html", identity["mutable_base"] + "sources/"),\n    )\n    for source, name, mutable_url in evidence_specs:\n        destination = snapshot / name\n        shutil.copy2(source, destination)\n        files[name] = file_meta(\n            destination,\n            f"{immutable_base}/{name}",\n            mutable_url,\n        )\n\n    schema_dir = snapshot / "schemas"'''
-              if old not in s:
-                  raise SystemExit('snapshot insertion pattern missing')
-              p.write_text(s.replace(old, new, 1), encoding='utf-8')
-              changed = True
-
-          p = Path('docs/index.html')
-          s = p.read_text(encoding='utf-8')
-          if 'DEPLOY-TIME TEMPLATE NOTICE' not in s:
-              marker = '  <!-- STATIC_FALLBACK -->'
-              notice = '''  <!-- DEPLOY-TIME TEMPLATE NOTICE:\n       This repository file is a template, not the final Pages HTML.\n       scripts/build_static_homepage.py replaces STATIC_FALLBACK during CI/Pages build\n       with one static row per registered source. The exact rendered homepage is then\n       preserved in each immutable release as /releases/<sha>/rendered-homepage.html.\n  -->\n  <!-- STATIC_FALLBACK -->'''
-              if marker not in s:
-                  raise SystemExit('homepage marker missing')
-              s = s.replace(marker, notice, 1)
-              s = s.replace('Loading registry…', 'Loading interactive registry…', 1)
-              p.write_text(s, encoding='utf-8')
-              changed = True
-
-          p = Path('RELEASE_CONSISTENCY.md')
-          s = p.read_text(encoding='utf-8')
-          section = '''## Template versus deployed HTML\n\n`docs/index.html` in the Git repository is intentionally a **build template**. It contains the `STATIC_FALLBACK` insertion marker and the JavaScript table shell, so inspecting that template alone does not prove or disprove what Pages serves.\n\nDuring CI/Pages build, `scripts/build_static_homepage.py` replaces the marker with one static HTML row per registered source. The release finalizer then stamps the release identity. The exact rendered result is preserved as `/releases/<sha>/rendered-homepage.html`, while the generated static source directory is preserved as `/releases/<sha>/rendered-source-index.html`. Their SHA-256 digests are recorded in that release's manifest.\n\nRelease validation fails unless the rendered homepage contains the static fallback heading and exactly one `./sources/<id>.html` link for every registered source.\n\n'''
-          if '## Template versus deployed HTML' not in s:
-              anchor = '## Mutable latest endpoints\n'
-              if anchor not in s:
-                  raise SystemExit('consistency doc anchor missing')
-              p.write_text(s.replace(anchor, section + anchor, 1), encoding='utf-8')
-              changed = True
-
-          p = Path('README.md')
-          s = p.read_text(encoding='utf-8')
-          sentence = 'The repository copy of `docs/index.html` is only a build template; each immutable release preserves the exact rendered homepage and generated static source index for independent crawler-facing verification.'
-          if sentence not in s:
-              anchor = 'The immutable snapshots are persisted on the dedicated `release-snapshots` branch **only after the Pages deployment succeeds**. Reusing an existing release SHA with different bytes is a release failure.\n'
-              if anchor not in s:
-                  raise SystemExit('README release anchor missing')
-              p.write_text(s.replace(anchor, anchor + '\n' + sentence + '\n', 1), encoding='utf-8')
-              changed = True
-
-          if changed:
-              print('Rendered homepage evidence hardening applied')
-          else:
-              print('Rendered homepage evidence hardening already present')
-          PY
-
-          if ! git diff --quiet -- scripts/build_release_snapshot.py docs/index.html RELEASE_CONSISTENCY.md README.md; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add scripts/build_release_snapshot.py docs/index.html RELEASE_CONSISTENCY.md README.md
-            git commit -m "fix: preserve rendered homepage evidence"
-            git push origin HEAD:fix/rendered-homepage-evidence
-          fi
 
       - name: Validate base registry
         run: python3 scripts/validate_registry.py
@@ -125,6 +57,7 @@ jobs:
           grep -q "$GITHUB_SHA" "$site/index.html"
           grep -q "Release identity: $GITHUB_SHA" "$site/llms.txt"
 
+          # Re-running the release finalizer for the same SHA must be idempotent.
           python3 scripts/build_release_snapshot.py \
             --site "$site" \
             --release-id "$GITHUB_SHA" \
@@ -149,7 +82,7 @@ jobs:
           assert 'rendered-source-index.html' in manifest['files']
           snapshot=site/'releases'/sha
           page=(snapshot/'rendered-homepage.html').read_text(encoding='utf-8')
-          source_ids=set(re.findall(r'href="\\./sources/([a-z0-9-]+)\\.html"', page))
+          source_ids=set(re.findall(r'href="\./sources/([a-z0-9-]+)\.html"', page))
           assert len(source_ids)==manifest['source_count'], (len(source_ids), manifest['source_count'])
           assert 'Static source index / 無 JavaScript 來源索引' in page
           assert '<!-- STATIC_FALLBACK -->' not in page
