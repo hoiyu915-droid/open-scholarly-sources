@@ -35,6 +35,34 @@ from reference_consumer.route import (
 )
 
 
+def _index_planned_routes(planned_routes: list[dict]) -> dict[str, dict]:
+    indexed: dict[str, dict] = {}
+    for route in planned_routes:
+        route_id = route.get("route_id")
+        if not isinstance(route_id, str) or not route_id.strip():
+            raise SystemExit(f"planned registered route missing route_id: {route}")
+        if route_id in indexed:
+            raise SystemExit(f"duplicate planned registered route_id: {route_id}")
+        indexed[route_id] = route
+    return indexed
+
+
+def _index_attempts(route_attempts: list[dict], planned: dict[str, dict]) -> dict[str, dict]:
+    indexed: dict[str, dict] = {}
+    for attempt in route_attempts:
+        route_id = attempt.get("route_id")
+        if not isinstance(route_id, str) or not route_id.strip():
+            raise SystemExit(f"route attempt missing route_id: {attempt}")
+        if route_id not in planned:
+            raise SystemExit(f"route attempt was not declared in planned_registered_routes: {route_id}")
+        if route_id in indexed:
+            raise SystemExit(f"duplicate route attempt for route_id: {route_id}")
+        if attempt.get("attempt_status") not in TERMINAL_ATTEMPT_STATES:
+            raise SystemExit(f"non-terminal or invalid attempt state: {attempt}")
+        indexed[route_id] = attempt
+    return indexed
+
+
 def execute(payload: dict, resolver: CrossrefResolver) -> dict:
     policy = load_json(POLICY_PATH)
     policy_bytes = POLICY_PATH.read_bytes()
@@ -68,19 +96,21 @@ def execute(payload: dict, resolver: CrossrefResolver) -> dict:
     if "formal_evidence" not in requirements:
         raise SystemExit("reference consumer v0.2 requires formal_evidence")
 
+    planned_routes_raw = payload.get("planned_registered_routes", [])
+    if not isinstance(planned_routes_raw, list):
+        raise SystemExit("planned_registered_routes must be a list")
     route_attempts = payload.get("route_attempts", [])
-    for attempt in route_attempts:
-        if attempt.get("attempt_status") not in TERMINAL_ATTEMPT_STATES:
-            raise SystemExit(f"non-terminal or invalid attempt state: {attempt}")
+    if not isinstance(route_attempts, list):
+        raise SystemExit("route_attempts must be a list")
+    planned_routes = _index_planned_routes(planned_routes_raw)
+    attempts = _index_attempts(route_attempts, planned_routes)
 
     results = [resolve_candidate(candidate, registry, resolver) for candidate in payload.get("candidates", [])]
     formal_count = sum(result["admissibility"] == "formal_evidence" for result in results)
     minimums = payload.get("required_minimums", {"formal_evidence": 1})
     formal_minimum = int(minimums.get("formal_evidence", 1))
     coverage_unmet = formal_count < formal_minimum
-    registered_routes_exhausted = bool(route_attempts) and all(
-        attempt.get("attempt_status") in TERMINAL_ATTEMPT_STATES for attempt in route_attempts
-    )
+    registered_routes_exhausted = bool(planned_routes) and set(planned_routes) == set(attempts)
     public_ocean_allowed = registered_routes_exhausted and coverage_unmet
 
     attestations = [
@@ -100,6 +130,7 @@ def execute(payload: dict, resolver: CrossrefResolver) -> dict:
         "source_profile_rule_version": profile_rules["schema_version"],
         "verification": verification,
         "query_envelope": query_envelope,
+        "planned_registered_routes": planned_routes_raw,
         "route_attempts": route_attempts,
         "fallback_depth": fallback_depth,
         "results": results,
