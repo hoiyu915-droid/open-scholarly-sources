@@ -1,0 +1,197 @@
+# Open Scholarly Sources
+
+Release identity: 31202ac0e5397d9f533efa950ecc6848f462273b
+Repository commit: https://github.com/hoiyu915-droid/open-scholarly-sources/commit/31202ac0e5397d9f533efa950ecc6848f462273b
+Immutable snapshot: https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/
+Release manifest: https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/release-manifest.json
+Release history: https://hoiyu915-droid.github.io/open-scholarly-sources/releases/index.json
+Freshness note: mutable endpoints may be temporarily stale because of intermediary caching or propagation. Compare the release identity with the repository main ref when freshness matters.
+
+
+> Evidence-backed bilingual registry of open scholarly journals, proceedings, platforms, repositories, directories, aggregators and preprint sources.
+> 具證據、英繁中對照的開放學術來源登錄表。
+
+Updated: 2026-08-16
+Registered source entities: 227
+
+## Preferred machine-readable resources
+- [Consolidated registry JSON](https://hoiyu915-droid.github.io/open-scholarly-sources/registry.json): all source records with zh-TW translations embedded.
+- [NDJSON](https://hoiyu915-droid.github.io/open-scholarly-sources/registry.ndjson): one complete source record per line.
+- [JSON-LD catalog](https://hoiyu915-droid.github.io/open-scholarly-sources/registry.jsonld): Schema.org DataCatalog/Dataset representation.
+- [Full LLM text](https://hoiyu915-droid.github.io/open-scholarly-sources/llms-full.txt): complete bilingual source descriptions and access semantics.
+- [Registry manifest](https://hoiyu915-droid.github.io/open-scholarly-sources/data/registry-manifest.json): canonical shard list.
+- [Source schema](https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/source.schema.json): field contract.
+
+## Human-readable resources
+- [Searchable bilingual registry](https://hoiyu915-droid.github.io/open-scholarly-sources/)
+- [Per-source HTML index](https://hoiyu915-droid.github.io/open-scholarly-sources/sources/)
+
+## Interpretation rules
+- `oa_scope=full` means registered content is intended to be openly accessible; it does not guarantee a single reuse licence.
+- `oa_scope=mixed` requires title/article/year-level verification.
+- `publication_state`, `peer_review_scope`, `version_scope`, and `license_scope` are separate claims.
+- Subscribe-to-Open records list only verified `open_years`; do not project those years forward.
+- Repository records may mix versions of record, accepted manuscripts and preprints.
+
+## Subject coverage
+- Taiwan studies
+- agriculture
+- ai agents
+- algorithms
+- alignment and safety
+- anthropology
+- applied mathematics
+- archaeology
+- art history
+- artificial intelligence
+- asian studies
+- astronomy
+- astroparticle physics
+- astrophysics
+- atmospheric science
+- bibliometrics
+- biodiversity
+- biogeosciences
+- biography
+- bioinformatics
+- biology
+- botany
+- cancer research
+- cell biology
+- chemistry
+- classical studies
+- climate science
+- clinical guidelines
+- clinical medicine
+- clinical trials
+- cognitive science
+- computational biology
+- computational linguistics
+- computational modeling
+- computer networks
+- computer science
+- computer vision
+- conservation
+- cosmology
+- criminology
+- crop science
+- cryosphere
+- cultural studies
+- cybersecurity
+- data science
+- deep learning
+- demography
+- dietetics
+- earth science
+- earth system science
+- ecology
+- economic theory
+- economics
+- education
+- electrical engineering
+- energy science
+- engineering
+- environmental science
+- evaluation and benchmarking
+- evidence synthesis
+- evolution
+- evolutionary biology
+- food science
+- forest ecology
+- forest management
+- forestry
+- foundation models
+- game theory
+- generative ai
+- genomics
+- geophysics
+- geoscience
+- global challenges
+- global health
+- health policy
+- high energy physics
+- history
+- history of science
+- horticulture
+- human dimensions
+- human-computer interaction
+- humanities
+- hydrology
+- information systems
+- instrumentation
+- interdisciplinary science
+- language modeling
+- large language models
+- law
+- legal studies
+- library and information science
+- life sciences
+- linguistics
+- literature
+- machine learning
+- materials science
+- mathematics
+- media studies
+- medicine
+- methods
+- mitochondrial physiology
+- molecular biology
+- molecular medicine
+- multi-agent systems
+- multidisciplinary
+- multimodal models
+- natural history
+- natural language processing
+- natural resource management
+- neuroscience
+- nuclear physics
+- nutrition
+- nutritional epidemiology
+- ocean science
+- open access
+- open peer review
+- open science
+- particle physics
+- philosophy
+- philosophy of mind
+- physical sciences
+- physics
+- plant biology
+- plant evolution
+- plant science
+- political science
+- population studies
+- preregistration
+- psychology
+- public health
+- public policy
+- quantitative biology
+- regional medicine
+- research data
+- research discovery
+- research integrity
+- scholarly communication
+- scientific data
+- scientific software
+- seismology
+- silviculture
+- social sciences
+- software engineering
+- speech
+- sports science
+- statistics
+- sustainability
+- systematic reviews
+- taxonomy
+- theses and dissertations
+- tree biology
+- wildfire
+- wood science
+- zoology
+
+## Source-use profiles / 來源分級與性格
+- [Profiles JSON](https://hoiyu915-droid.github.io/open-scholarly-sources/source-profiles.json)
+- [Profiles NDJSON](https://hoiyu915-droid.github.io/open-scholarly-sources/source-profiles.ndjson)
+- [Browsable profiles](https://hoiyu915-droid.github.io/open-scholarly-sources/profiles/)
+- Profiles are deterministic routing heuristics with per-source provenance: rule version, source verification evidence/date, automatic result, and explicit override state.
+- They are not prestige or article-quality rankings; high `noise_risk` means more filtering.

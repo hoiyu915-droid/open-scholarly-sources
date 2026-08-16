@@ -1,0 +1,96 @@
+{
+  "$schema": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/schemas/release-manifest.schema.json",
+  "schema_version": "1.0.0",
+  "release_id": "31202ac0e5397d9f533efa950ecc6848f462273b",
+  "commit_sha": "31202ac0e5397d9f533efa950ecc6848f462273b",
+  "release_date": "2026-08-17T00:07:04+08:00",
+  "commit_url": "https://github.com/hoiyu915-droid/open-scholarly-sources/commit/31202ac0e5397d9f533efa950ecc6848f462273b",
+  "repository_main_ref_api": "https://api.github.com/repos/hoiyu915-droid/open-scholarly-sources/git/ref/heads/main",
+  "mutable_base": "https://hoiyu915-droid.github.io/open-scholarly-sources/",
+  "immutable_base": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/",
+  "manifest_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/release-manifest.json",
+  "mutable_manifest_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/release-manifest.json",
+  "source_count": 227,
+  "profile_schema_version": "0.2.2",
+  "profile_method": "deterministic_source_use_profile_v2_2",
+  "files": {
+    "registry.json": {
+      "sha256": "6351d65ebcdbddc7212aa51d6ae5fdcd549312abcd484d9cca7ae165147ac828",
+      "bytes": 933924,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/registry.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/registry.json"
+    },
+    "registry.ndjson": {
+      "sha256": "cab7f239b57d9b406698b785e9b85eceac9279795f13f8c21852163fb7e9e2a4",
+      "bytes": 639913,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/registry.ndjson",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/registry.ndjson"
+    },
+    "registry.jsonld": {
+      "sha256": "01b1afcc0aec1d4e63a7694f67855a31e55cc494b8af77834d7a90c770d1ee42",
+      "bytes": 213415,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/registry.jsonld",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/registry.jsonld"
+    },
+    "source-profiles.json": {
+      "sha256": "d4d683c25dde07d7e62b38fbd312cdf648d679f39eabed0f5adf6cb0c7dc5173",
+      "bytes": 450497,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/source-profiles.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/source-profiles.json"
+    },
+    "source-profiles.ndjson": {
+      "sha256": "8a5067b6bd6d7df8da064a6d2920b6f7468ebb8e14efe2aee39bc26b55f706f9",
+      "bytes": 311280,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/source-profiles.ndjson",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/source-profiles.ndjson"
+    },
+    "llms.txt": {
+      "sha256": "5781f56c3555cd5c9d944527642115a051a82fa7ef1a2b151e6597d368b29a9f",
+      "bytes": 5923,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/llms.txt",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/llms.txt"
+    },
+    "llms-full.txt": {
+      "sha256": "e9708dfcfd2e41b72934a3419462df718aadb3015a5399864c7c0dd2653ca166",
+      "bytes": 439537,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/llms-full.txt",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/llms-full.txt"
+    },
+    "rendered-homepage.html": {
+      "sha256": "63b850f457b4a4a1df68f93d7ff4c6315d095f38f0dde3a1e866f7f39e1b9e36",
+      "bytes": 119436,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/rendered-homepage.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/"
+    },
+    "rendered-source-index.html": {
+      "sha256": "ff1cf2fe46f18b858bf114874e48eae5dc9bd5c2d3e1e086b08fced77c8b44f7",
+      "bytes": 23600,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/rendered-source-index.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/"
+    },
+    "schemas/source.schema.json": {
+      "sha256": "2dfa61e6bd7c2b163a9df873f2f9e6cd19adfde465bb13579c7cb307e2d27d7c",
+      "bytes": 8617,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/schemas/source.schema.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/source.schema.json"
+    },
+    "schemas/source-profile.schema.json": {
+      "sha256": "6ac61561d1d5970a894a3604c316cf6e0d22a38ef020e4ae8439a4802e663df2",
+      "bytes": 4257,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/schemas/source-profile.schema.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/source-profile.schema.json"
+    },
+    "schemas/release-manifest.schema.json": {
+      "sha256": "3444fa3cf272bd61b683b770a83ea98edf27f2609c426319aeab2d157908e332",
+      "bytes": 2719,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/31202ac0e5397d9f533efa950ecc6848f462273b/schemas/release-manifest.schema.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/release-manifest.schema.json"
+    }
+  },
+  "consistency_contract": {
+    "mutable_endpoints": "latest deployed convenience URLs; intermediary caches may temporarily return an older release",
+    "immutable_endpoints": "content for this release ID must not change; compare SHA-256 digests before trusting a conflicting copy",
+    "freshness_check": "compare commit_sha with repository_main_ref_api when current-main freshness matters",
+    "ndjson_identity": "pair registry.ndjson or source-profiles.ndjson with this manifest; NDJSON remains one record per line"
+  }
+}
