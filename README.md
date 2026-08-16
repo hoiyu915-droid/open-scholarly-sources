@@ -1,112 +1,90 @@
 # Open Scholarly Sources｜開放學術來源
 
-A public, versioned, bilingual registry of scholarly sources useful for open-literature discovery, lawful full-text retrieval and machine-assisted research.
+A public, versioned, bilingual registry of scholarly sources for evidence discovery, lawful full-text retrieval, research-integrity checks and machine-assisted research.
 
-這是一份公開、可版本追蹤、英繁中對照的學術來源登錄表，用來支援開放文獻發現、正式版本辨識、合法全文取得，以及搜尋引擎與 LLM 的結構化檢索。
+這是一份公開、可版本追蹤、英繁中對照的學術來源登錄表，用來支援文獻發現、正式版本辨識、合法全文取得、預註冊／撤稿查證，以及搜尋引擎與 LLM 的結構化檢索。
 
 **Browse / 瀏覽：** https://hoiyu915-droid.github.io/open-scholarly-sources/
 
-The registry deliberately separates journals, proceedings, publisher/review platforms, repositories, preprint servers, directories, aggregators and digital libraries. It does not collapse access into `OA: true`: OA scope, verified open years, backfile coverage, publication version, licence scope, peer review and publication state are separate claims.
+The registry deliberately separates journals, proceedings, review platforms, repositories, preprint servers, trial/preregistration registries, directories, aggregators and digital libraries. It does not collapse access into `OA: true`: OA scope, verified open years, backfile coverage, publication version, licence scope, peer review and publication state are separate claims.
 
-本專案不把「現在可讀」「全刊 OA」「某一年 S2O」「作者接受稿」「正式出版版本」「可自由再利用」混成同一件事。
+本專案不把「現在可讀」「全刊 OA」「某一年 S2O」「作者接受稿」「正式出版版本」「預印本」「可自由再利用」混成同一件事。
 
 ## Current coverage / 目前規模
 
-The current registry contains **115 source entities** across:
+The current canonical registry contains **227 source entities** across 14 source shards, with **227/227 Traditional Chinese display/search coverage**.
 
-- AI, machine learning, NLP and LLM publication routes
+Coverage includes:
+
+- AI, machine learning, NLP, LLMs, proceedings and preprint routes
 - multidisciplinary flagships and scholarly-society portfolios
-- physics, astronomy, high-energy physics and chemistry
-- Earth system, atmosphere, climate, hydrology and geoscience
-- biology, genomics, molecular medicine, clinical medicine and public health
-- mathematics, economics, demography, cognitive science, law and humanities
-- plant science, ecology and forestry
-- repositories, directories, aggregators and historical digital libraries
+- physics, astronomy, chemistry, Earth/climate and engineering
+- biology, genomics, medicine, public health, nutrition and nutritional epidemiology
+- mathematics, economics, political science, law, psychology, humanities and social science
+- plant science, ecology, forestry, sport/exercise and research data
+- preprint and working-paper infrastructure
+- trial/preregistration services such as ClinicalTrials.gov, WHO ICTRP, PROSPERO and OSF Registries
+- evidence-synthesis and guideline routes such as Cochrane and WHO guideline services
+- research-integrity routes such as Retraction Watch data via Crossref
+- discovery graphs and OA resolvers such as OpenAlex, CORE, Semantic Scholar, Lens and Unpaywall
+- regional/non-English and thesis discovery including Global Index Medicus and NDLTD Taiwan
 
-This is a registry, not a ranking. Inclusion does not endorse every article, editorial decision or publisher practice.
+This is a registry, not a prestige ranking. Inclusion does not endorse every article, editorial decision or publisher practice.
 
 ## Canonical data / 核心資料
 
-`data/registry-manifest.json` is the canonical entry point. It lists every source shard and translation shard.
+`data/registry-manifest.json` is the canonical entry point. It lists every source shard and translation shard. Machine consumers can union every `sources` array by stable `id`, then merge the translation shards. English source names remain canonical; Traditional Chinese names and summaries are a display/search layer and never overwrite evidence-bearing source records.
 
-```text
-data/
-├── registry-manifest.json
-├── sources.json
-├── sources.ai-nlp.json
-├── sources.ai-ml.json
-├── sources.ai-arxiv.json
-├── sources.cross-disciplinary.json
-├── sources.physical-earth.json
-├── sources.life-health.json
-├── sources.social-humanities.json
-├── i18n.zh-TW.json
-└── i18n.zh-TW.cross-disciplinary.json
-```
+Newer records can carry an `access_policy` object describing OA model, verified effective dates/years, backfile scope, version scope and licence scope. Source-use profiles are generated separately from canonical source facts; see [SOURCE_PROFILES.md](SOURCE_PROFILES.md).
 
-Machine consumers should read the manifest, union every `sources` array by stable `id`, then merge every translation shard. English names remain canonical; Traditional Chinese names and summaries are a display/search layer and never overwrite evidence-bearing source records.
+## Machine outputs / 機器輸出
 
-## Access semantics / 存取語義
-
-`oa_scope` remains conservative:
-
-| Value | Meaning / 意義 |
-| --- | --- |
-| `full` | Registered content is intended to be openly accessible; licence and version may still vary.／登錄內容可公開取得，但授權與版本可能不同。 |
-| `mixed` | Access varies by journal, article, year, item, embargo or platform component.／依刊物、文章、年份或平台元件而異。 |
-| `metadata_only` | Discovery/metadata route, not a canonical full-text host.／發現與中繼資料來源，本身不是全文主機。 |
-| `unknown` | Not yet resolved.／尚未判定。 |
-
-Newer records can also carry an `access_policy` object:
-
-- `model` — gold, diamond, Subscribe to Open, repository, consortium-funded, platform transition, etc.
-- `effective_from` — verified effective date or year
-- `open_years` — only years confirmed open; especially important for S2O
-- `backfile_scope` — full, mixed, partial, unknown or not applicable
-- `version_scope` — version of record, accepted manuscript, preprint, review material, etc.
-- `license_scope` — uniform CC BY, another uniform open licence, mixed or unknown
-
-A source can be free to read without granting uniform reuse rights. A repository may contain VORs, accepted manuscripts and preprints together. These distinctions are release data, not hidden crawler assumptions.
-
-## LLM and search discoverability / LLM 與搜尋索引
-
-Every Pages deployment generates the following from the same canonical manifest:
+Every Pages deployment generates:
 
 - `/registry.json` — consolidated bilingual registry
-- `/registry.ndjson` — one complete source record per line
-- `/registry.jsonld` — Schema.org `DataCatalog` / `Dataset`
-- `/llms.txt` — concise machine discovery guide
-- `/llms-full.txt` — complete bilingual text representation
-- `/sources/<id>.html` — stable static page for every source
-- `/sources/index.html` — static source directory
+- `/registry.ndjson` — one source record per line
+- `/registry.jsonld` — Schema.org catalog
+- `/source-profiles.json` and `/source-profiles.ndjson`
+- `/llms.txt` and `/llms-full.txt`
+- `/sources/<id>.html` and `/sources/index.html`
+- `/profiles/`
 - `/sitemap.xml` and `/robots.txt`
 
-These files materially improve conventional crawling, retrieval and machine parsing, but they do **not** guarantee ingestion by any particular search engine or LLM provider.
+These files improve conventional crawling, retrieval and machine parsing, but they do **not** guarantee ingestion by any particular search engine or LLM provider.
 
-## Source families / 主要來源群
+## Release identity and cache consistency / 發布識別與快取一致性
 
-The registry now includes, among others:
+Mutable Pages URLs such as `/registry.json` and `/llms.txt` are convenience endpoints for the latest deployed release. Intermediary caches or propagation can temporarily return an older release, so a single external fetch is not sufficient proof of the current repository state.
 
-- Royal Society Publishing, ACM Digital Library, Royal Astronomical Society journals, Copernicus Publications and SCOAP³
-- Nature Communications, PNAS Nexus, Science Advances, Physical Review X, SciPost Physics, ACS Central Science and Chemical Science
-- PubMed Central, Europe PMC, NAR Journals, JAMA Network Open and PLOS Medicine
-- Forum of Mathematics Pi/Sigma, Theoretical Economics, Demography, Open Mind and Journal of Legal Analysis
-- Open Library of Humanities
-- ACL Anthology, OpenReview, ICLR, TMLR, PMLR, JMLR, NeurIPS Proceedings and arXiv AI/ML/NLP projections
-- the original university, plant, biology, ecology and forestry sources
+Every deployment therefore stamps the public machine outputs with a full Git commit identity and creates:
+
+- `/release-manifest.json` — mutable manifest for the release returned by that endpoint
+- `/releases/<full-commit-sha>/...` — immutable machine snapshot
+- `/releases/<full-commit-sha>/release-manifest.json` — SHA-256 digests and release metadata
+- `/releases/index.json` — release history/pointers retained from deployed releases
+
+The immutable snapshots are persisted on the dedicated `release-snapshots` branch **only after the Pages deployment succeeds**. Reusing an existing release SHA with different bytes is a release failure.
+
+When freshness matters, compare `commit_sha` from the fetched release manifest with the repository `main` ref. If they differ, the fetched mutable endpoint is stale; use the commit-addressed immutable snapshot or retry through a fresh path. See [RELEASE_CONSISTENCY.md](RELEASE_CONSISTENCY.md).
 
 ## Validate and build locally / 本機驗證與建置
 
-No third-party Python package is required:
+No third-party Python package is required for the core build:
 
 ```bash
 python3 scripts/validate_registry.py
 python3 scripts/validate_extensions.py
 rm -rf /tmp/open-scholarly-sources-site
+mkdir -p /tmp/open-scholarly-sources-site/data /tmp/open-scholarly-sources-site/schemas
+cp docs/index.html /tmp/open-scholarly-sources-site/index.html
+cp data/*.json /tmp/open-scholarly-sources-site/data/
+cp schemas/*.json /tmp/open-scholarly-sources-site/schemas/
 python3 scripts/build_machine_index.py --output /tmp/open-scholarly-sources-site
+python3 scripts/build_source_profiles.py --output /tmp/open-scholarly-sources-site
+python3 scripts/build_static_homepage.py --site /tmp/open-scholarly-sources-site
 ```
 
-CI checks the original base registry, every manifest shard, cross-shard ID uniqueness, parent references, access-policy semantics, exact zh-TW coverage and the complete machine-index build.
+CI additionally builds a commit-addressed release snapshot, verifies its SHA-256 digests, checks the no-JavaScript homepage fallback and ensures release finalization is idempotent for the same commit SHA.
 
 ## Contributing / 貢獻
 

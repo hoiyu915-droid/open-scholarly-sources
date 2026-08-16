@@ -7,9 +7,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
+  actions: read
 
 concurrency:
   group: pages
@@ -22,14 +23,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Checkout immutable release archive
+        uses: actions/checkout@v6
+        with:
+          ref: release-snapshots
+          path: .release-archive
+          fetch-depth: 1
+
       - name: Validate base registry
         run: python3 scripts/validate_registry.py
 
       - name: Validate source shards, access policies and bilingual coverage
         run: python3 scripts/validate_extensions.py
 
-      - name: Stage Pages site
+      - name: Stage Pages site and immutable release snapshot
         run: |
+          set -euo pipefail
           rm -rf site
           mkdir -p site/data site/schemas
           cp docs/index.html site/index.html
@@ -38,9 +47,33 @@ jobs:
           python3 scripts/build_machine_index.py --output site
           python3 scripts/build_source_profiles.py --output site
           python3 scripts/build_static_homepage.py --site site
+
+          release_date="$(git show -s --format=%cI "$GITHUB_SHA")"
+          python3 scripts/build_release_snapshot.py \
+            --site site \
+            --archive-root .release-archive/releases \
+            --release-id "$GITHUB_SHA" \
+            --commit-sha "$GITHUB_SHA" \
+            --release-date "$release_date"
+
           grep -q "Static source index / 無 JavaScript 來源索引" site/index.html
           ! grep -q "<!-- STATIC_FALLBACK -->" site/index.html
+          grep -q "$GITHUB_SHA" site/index.html
+          grep -q "Release identity: $GITHUB_SHA" site/llms.txt
+          test -s "site/releases/$GITHUB_SHA/release-manifest.json"
+          test -s site/release-manifest.json
+          test -s site/releases/index.json
           touch site/.nojekyll
+
+      - name: Upload immutable snapshot for post-deploy archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-snapshot-${{ github.sha }}
+          path: |
+            site/releases/${{ github.sha }}
+            site/releases/index.json
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Configure Pages
         uses: actions/configure-pages@v6
@@ -60,3 +93,48 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  archive:
+    name: Persist immutable release
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Checkout release archive branch
+        uses: actions/checkout@v6
+        with:
+          ref: release-snapshots
+          path: archive
+          fetch-depth: 1
+
+      - name: Download deployed release snapshot
+        uses: actions/download-artifact@v4
+        with:
+          name: release-snapshot-${{ github.sha }}
+          path: incoming
+
+      - name: Verify immutability and persist deployed release
+        run: |
+          set -euo pipefail
+          release="$GITHUB_SHA"
+          incoming_release="incoming/$release"
+          archive_release="archive/releases/$release"
+          test -s "$incoming_release/release-manifest.json"
+          test -s incoming/index.json
+          mkdir -p archive/releases
+
+          if [ -d "$archive_release" ]; then
+            diff -qr "$incoming_release" "$archive_release"
+          else
+            cp -a "$incoming_release" "$archive_release"
+          fi
+          cp incoming/index.json archive/releases/index.json
+
+          git -C archive config user.name "github-actions[bot]"
+          git -C archive config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C archive add releases
+          if git -C archive diff --cached --quiet; then
+            echo "Release $release already archived with identical content."
+            exit 0
+          fi
+          git -C archive commit -m "archive: immutable release $release"
+          git -C archive push origin HEAD:release-snapshots
