@@ -9,8 +9,16 @@
     "requirements": ["formal_evidence"],
     "freshness": "unspecified"
   },
+  "planned_registered_routes": [
+    {
+      "route_id": "formal:tacl",
+      "lane": "formal_evidence",
+      "source_id": "tacl"
+    }
+  ],
   "route_attempts": [
     {
+      "route_id": "formal:tacl",
       "lane": "formal_evidence",
       "source_id": "tacl",
       "attempt_status": "success_with_candidates",
