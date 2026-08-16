@@ -17,23 +17,21 @@ jobs:
           ref: fix/self-contained-release-snapshot
           fetch-depth: 0
 
-      - name: Make immutable release browsable and self-contained
+      - name: Patch non-workflow release files
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
 
-          # 1) Snapshot a browsable historical mini-site, not only evidence files.
           p = Path('scripts/build_release_snapshot.py')
           s = p.read_text(encoding='utf-8')
           anchor = '    schema_dir = snapshot / "schemas"\n'
-          block = '''    # Preserve a self-contained historical mini-site. Relative fetches and links in\n    # the rendered homepage must resolve inside the commit-addressed release rather\n    # than falling through to /releases/<sha>/data or /sources paths that do not exist.\n    index_alias = snapshot / "index.html"\n    shutil.copy2(homepage, index_alias)\n    files["index.html"] = file_meta(\n        index_alias,\n        identity["immutable_base"],\n        identity["mutable_base"],\n    )\n\n    for dirname in ("data", "sources", "profiles"):\n        source_root = site / dirname\n        if not source_root.is_dir():\n            raise SystemExit(f"release runtime directory missing: {dirname}")\n        destination_root = snapshot / dirname\n        shutil.copytree(source_root, destination_root)\n        for path in sorted(p for p in destination_root.rglob("*") if p.is_file()):\n            rel = path.relative_to(snapshot).as_posix()\n            files[rel] = file_meta(\n                path,\n                f"{immutable_base}/{rel}",\n                f"{identity['mutable_base']}{rel}",\n            )\n\n'''
+          block = '''    # Preserve a self-contained historical mini-site. Relative fetches and links in\n    # the rendered homepage must resolve inside the commit-addressed release.\n    index_alias = snapshot / "index.html"\n    shutil.copy2(homepage, index_alias)\n    files["index.html"] = file_meta(\n        index_alias,\n        identity["immutable_base"],\n        identity["mutable_base"],\n    )\n\n    for dirname in ("data", "sources", "profiles"):\n        source_root = site / dirname\n        if not source_root.is_dir():\n            raise SystemExit(f"release runtime directory missing: {dirname}")\n        destination_root = snapshot / dirname\n        shutil.copytree(source_root, destination_root)\n        for path in sorted(p for p in destination_root.rglob("*") if p.is_file()):\n            rel = path.relative_to(snapshot).as_posix()\n            files[rel] = file_meta(\n                path,\n                f"{immutable_base}/{rel}",\n                f"{identity['mutable_base']}{rel}",\n            )\n\n'''
           if 'self-contained historical mini-site' not in s:
               if anchor not in s:
                   raise SystemExit('snapshot schema anchor missing')
               s = s.replace(anchor, block + anchor, 1)
-
           old = 'f\'<a href="./releases/{identity["release_id"]}/release-manifest.json">immutable snapshot</a>. \'\n'
           new = 'f\'<a href="{identity["manifest_url"]}">immutable snapshot</a>. \'\n'
           if old in s:
@@ -42,44 +40,13 @@ jobs:
               raise SystemExit('immutable homepage link pattern missing')
           p.write_text(s, encoding='utf-8')
 
-          # 2) Strengthen branch/PR validation: every dependency that caused the mobile 404
-          # must exist inside the release, and every static source link must have a target.
-          p = Path('.github/workflows/validate.yml')
-          s = p.read_text(encoding='utf-8')
-          needle = '''          test -s "$site/releases/$GITHUB_SHA/rendered-source-index.html"\n          cmp "$site/index.html" "$site/releases/$GITHUB_SHA/rendered-homepage.html"\n'''
-          replacement = '''          test -s "$site/releases/$GITHUB_SHA/rendered-source-index.html"\n          test -s "$site/releases/$GITHUB_SHA/index.html"\n          test -s "$site/releases/$GITHUB_SHA/data/registry-manifest.json"\n          test -s "$site/releases/$GITHUB_SHA/data/source-profile-rules.json"\n          test -s "$site/releases/$GITHUB_SHA/sources/index.html"\n          test -s "$site/releases/$GITHUB_SHA/profiles/index.html"\n          cmp "$site/index.html" "$site/releases/$GITHUB_SHA/rendered-homepage.html"\n          cmp "$site/index.html" "$site/releases/$GITHUB_SHA/index.html"\n'''
-          if 'data/registry-manifest.json' not in s:
-              if needle not in s:
-                  raise SystemExit('validate shell test anchor missing')
-              s = s.replace(needle, replacement, 1)
-
-          needle = '''          assert len(source_ids)==manifest['source_count'], (len(source_ids), manifest['source_count'])\n          assert 'Static source index / 無 JavaScript 來源索引' in page\n'''
-          replacement = '''          assert len(source_ids)==manifest['source_count'], (len(source_ids), manifest['source_count'])\n          assert (snapshot/'index.html').read_bytes()==(snapshot/'rendered-homepage.html').read_bytes()\n          for sid in source_ids:\n              assert (snapshot/'sources'/f'{sid}.html').is_file(), sid\n          bootstrap=json.loads((snapshot/'data'/'registry-manifest.json').read_text())\n          assert (snapshot/'data'/'source-profile-rules.json').is_file()\n          for filename in bootstrap.get('translation_shards', []):\n              assert (snapshot/'data'/filename).is_file(), filename\n          assert (snapshot/'profiles'/'index.html').is_file()\n          for required in ('index.html','data/registry-manifest.json','data/source-profile-rules.json','sources/index.html','profiles/index.html'):\n              assert required in manifest['files'], required\n          assert 'Static source index / 無 JavaScript 來源索引' in page\n'''
-          if "for sid in source_ids" not in s:
-              if needle not in s:
-                  raise SystemExit('validate Python assertion anchor missing')
-              s = s.replace(needle, replacement, 1)
-          p.write_text(s, encoding='utf-8')
-
-          # 3) Production Pages build must gate on the same self-contained runtime files.
-          p = Path('.github/workflows/pages.yml')
-          s = p.read_text(encoding='utf-8')
-          needle = '''          test -s "site/releases/$GITHUB_SHA/release-manifest.json"\n          test -s site/release-manifest.json\n'''
-          replacement = '''          test -s "site/releases/$GITHUB_SHA/release-manifest.json"\n          test -s "site/releases/$GITHUB_SHA/index.html"\n          test -s "site/releases/$GITHUB_SHA/data/registry-manifest.json"\n          test -s "site/releases/$GITHUB_SHA/data/source-profile-rules.json"\n          test -s "site/releases/$GITHUB_SHA/sources/index.html"\n          test -s "site/releases/$GITHUB_SHA/profiles/index.html"\n          test -s site/release-manifest.json\n'''
-          if 'site/releases/$GITHUB_SHA/data/registry-manifest.json' not in s:
-              if needle not in s:
-                  raise SystemExit('Pages release assertion anchor missing')
-              s = s.replace(needle, replacement, 1)
-          p.write_text(s, encoding='utf-8')
-
-          # 4) Document the browsing contract explicitly.
           p = Path('RELEASE_CONSISTENCY.md')
           s = p.read_text(encoding='utf-8')
           anchor = '## Durable history\n'
           section = '''## Self-contained release browsing\n\nEach new immutable release is also a self-contained historical mini-site. `/releases/<sha>/` contains an `index.html`, the exact rendered homepage, the data files used by its JavaScript, generated source pages, the profile page and schemas. Relative `./data/...`, `./sources/...` and `./profiles/...` URLs therefore resolve within the same release instead of returning 404.\n\nThe release manifest hashes these runtime files as well as the primary machine outputs. Historical releases created before this contract are not rewritten; immutability takes precedence over retroactive repair.\n\n'''
           if '## Self-contained release browsing' not in s:
               if anchor not in s:
-                  raise SystemExit('release consistency durable-history anchor missing')
+                  raise SystemExit('release consistency anchor missing')
               s = s.replace(anchor, section + anchor, 1)
           p.write_text(s, encoding='utf-8')
 
@@ -97,7 +64,6 @@ jobs:
           python3 -m py_compile scripts/build_release_snapshot.py
           python3 scripts/validate_registry.py
           python3 scripts/validate_extensions.py
-
           site="$RUNNER_TEMP/self-contained-release-site"
           rm -rf "$site" && mkdir -p "$site/data" "$site/schemas"
           cp docs/index.html "$site/index.html"
@@ -109,32 +75,28 @@ jobs:
           sha="$(git rev-parse HEAD)"
           date="$(git show -s --format=%cI HEAD)"
           python3 scripts/build_release_snapshot.py --site "$site" --release-id "$sha" --commit-sha "$sha" --release-date "$date"
-
           python3 - "$site" "$sha" <<'PY'
-          import hashlib, json, re, sys
+          import hashlib,json,re,sys
           from pathlib import Path
-          site=Path(sys.argv[1]); sha=sys.argv[2]; snap=site/'releases'/sha
+          site=Path(sys.argv[1]);sha=sys.argv[2];snap=site/'releases'/sha
           manifest=json.loads((snap/'release-manifest.json').read_text())
           page=(snap/'index.html').read_text(encoding='utf-8')
-          ids=set(re.findall(r'href="\./sources/([a-z0-9-]+)\.html"', page))
+          ids=set(re.findall(r'href="\./sources/([a-z0-9-]+)\.html"',page))
           assert len(ids)==manifest['source_count']==227
-          for sid in ids:
-              assert (snap/'sources'/f'{sid}.html').is_file(), sid
+          for sid in ids: assert (snap/'sources'/f'{sid}.html').is_file(),sid
           boot=json.loads((snap/'data'/'registry-manifest.json').read_text())
           assert (snap/'data'/'source-profile-rules.json').is_file()
-          for name in boot['translation_shards']:
-              assert (snap/'data'/name).is_file(), name
+          for name in boot['translation_shards']: assert (snap/'data'/name).is_file(),name
           assert (snap/'profiles'/'index.html').is_file()
           assert (snap/'index.html').read_bytes()==(snap/'rendered-homepage.html').read_bytes()
-          for name, meta in manifest['files'].items():
-              data=(snap/name).read_bytes()
-              assert hashlib.sha256(data).hexdigest()==meta['sha256'], name
+          for name,meta in manifest['files'].items():
+              assert hashlib.sha256((snap/name).read_bytes()).hexdigest()==meta['sha256'],name
           print(f'Self-contained release assertions OK: files={len(manifest["files"])} sources={len(ids)}')
           PY
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/build_release_snapshot.py .github/workflows/validate.yml .github/workflows/pages.yml README.md RELEASE_CONSISTENCY.md
+          git add scripts/build_release_snapshot.py README.md RELEASE_CONSISTENCY.md
           if git diff --cached --quiet; then
             echo "Patch already applied."
           else
