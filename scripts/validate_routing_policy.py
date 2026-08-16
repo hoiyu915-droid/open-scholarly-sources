@@ -25,26 +25,13 @@ def main() -> int:
     schema = load(SCHEMA_PATH)
 
     required_top = {
-        "schema_version",
-        "policy_version",
-        "method",
-        "enforcement_scope",
-        "repository_guarantee",
-        "runtime_enforcement",
-        "default_behavior",
-        "navigation",
-        "verification_activation",
-        "verification_profiles",
-        "verification_constraints",
-        "verification_requirements",
-        "verification_lanes",
-        "verification_route_order",
-        "coverage_contract",
-        "resolution",
-        "admissibility_classes",
-        "promotion",
-        "verification_trace_required_fields",
-        "reference_implementation",
+        "schema_version", "policy_version", "method", "enforcement_scope",
+        "repository_guarantee", "runtime_enforcement", "default_behavior",
+        "navigation", "verification_activation", "verification_profiles",
+        "verification_constraints", "verification_requirements",
+        "verification_lanes", "verification_route_order", "coverage_contract",
+        "resolution", "admissibility_classes", "promotion",
+        "verification_trace_required_fields", "reference_implementation",
     }
     require(required_top == set(policy), f"routing policy top-level keys drifted: {sorted(set(policy) ^ required_top)}")
     require(policy["schema_version"] == "2.0.0", "unexpected routing policy schema_version")
@@ -59,12 +46,8 @@ def main() -> int:
     require(default["public_ocean_enabled"] is False, "public ocean must be disabled by default")
     forbidden = set(default["forbidden_default_actions"])
     for action in (
-        "resolve_documents",
-        "query_crossref",
-        "query_doaj",
-        "query_unpaywall",
-        "judge_document_admissibility",
-        "emit_resolution_attestations",
+        "resolve_documents", "query_crossref", "query_doaj", "query_unpaywall",
+        "judge_document_admissibility", "emit_resolution_attestations",
         "open_public_ocean",
     ):
         require(action in forbidden, f"default source navigation must forbid {action}")
@@ -104,6 +87,11 @@ def main() -> int:
 
     require(policy["verification_route_order"] == ["registry_direct", "registry_discovery", "public_ocean"], "verification route order must remain registry-first")
     coverage = policy["coverage_contract"]
+    require(coverage["planned_route_accounting_required"] is True, "verification fallback must account for every planned registered route")
+    require(
+        coverage["registered_routes_exhausted_when"] == "every_planned_registered_route_has_one_terminal_attempt",
+        "registered route exhaustion must be computed from the declared route plan",
+    )
     require(
         coverage["public_ocean_allowed_when"] == ["verification_enabled", "registered_routes_exhausted", "coverage_unmet"],
         "public ocean must require explicit verification plus exhaustion and unmet coverage",
@@ -127,18 +115,14 @@ def main() -> int:
 
     trace = set(policy["verification_trace_required_fields"])
     for name in (
-        "registry_release_id",
-        "routing_policy_version",
-        "routing_policy_sha256",
-        "verification",
-        "query_envelope",
-        "route_attempts",
-        "fallback_depth",
-        "resolution_attestations",
+        "registry_release_id", "routing_policy_version", "routing_policy_sha256",
+        "verification", "query_envelope", "planned_registered_routes",
+        "route_attempts", "fallback_depth", "resolution_attestations",
     ):
         require(name in trace, f"verification trace contract missing {name}")
 
     reference = policy["reference_implementation"]
+    require(reference["path"] == "reference_consumer/verify.py", "verification reference entry point drifted")
     require(reference["activation_required"] is True, "reference consumer must require explicit verification activation")
     require(reference["scope"] == "explicit_verification_formal_evidence_candidate_gate_v0_2", "reference consumer scope drifted")
 
