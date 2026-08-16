@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "current_release_id": "b628b615df9691c4573ae2bd506eaf0224f72960",
+  "current_release_id": "9be2799d267633318b55067bcaa91f36bbe92f2b",
   "releases": [
     {
       "release_id": "63d29d13647cb04ed37a1e209322730020258831",
@@ -44,6 +44,19 @@
       "routing_policy_schema_version": "1.0.0",
       "manifest_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/b628b615df9691c4573ae2bd506eaf0224f72960/release-manifest.json",
       "immutable_base": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/b628b615df9691c4573ae2bd506eaf0224f72960/"
+    },
+    {
+      "release_id": "9be2799d267633318b55067bcaa91f36bbe92f2b",
+      "commit_sha": "9be2799d267633318b55067bcaa91f36bbe92f2b",
+      "release_date": "2026-08-17T01:09:13+08:00",
+      "source_count": 227,
+      "profile_schema_version": "0.2.2",
+      "profile_method": "deterministic_source_use_profile_v2_2",
+      "routing_policy_version": "2.0.0",
+      "routing_policy_method": "registry_source_navigation_opt_in_verification_v2",
+      "routing_policy_schema_version": "2.0.0",
+      "manifest_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/9be2799d267633318b55067bcaa91f36bbe92f2b/release-manifest.json",
+      "immutable_base": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/9be2799d267633318b55067bcaa91f36bbe92f2b/"
     }
   ]
 }

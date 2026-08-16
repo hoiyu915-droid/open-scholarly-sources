@@ -1,0 +1,760 @@
+{
+  "schema_version": "0.2.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "biohackrxiv",
+      "name": "BioHackrXiv",
+      "organization": "BioHackrXiv / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "bioinformatics",
+        "data science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/biohackrxiv/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Preprint service for BioHackathon research outputs. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "bodoarxiv",
+      "name": "BodoArXiv",
+      "organization": "BodoArXiv / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "humanities",
+        "history"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/bodoarxiv/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Open repository for medieval studies. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "cop-preprints",
+      "name": "CoP Preprints",
+      "organization": "College of Phlebology / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "clinical medicine",
+        "medicine"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/coppreprints/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Preprint service for venous diseases maintained by the College of Phlebology. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "ecsarxiv",
+      "name": "ECSarXiv",
+      "organization": "ECSarXiv / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "chemistry",
+        "materials science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/ecsarxiv/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Preprint service for electrochemistry and solid-state science and technology. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "edarxiv",
+      "name": "EdArXiv",
+      "organization": "EdArXiv / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "education",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/edarxiv/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Preprint server for the education research community. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "focus-archive",
+      "name": "FocUS Archive",
+      "organization": "FocUS Archive / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "medicine",
+        "engineering"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/focusarchive/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Preprint service for the focused-ultrasound research community. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "law-archive",
+      "name": "Law Archive",
+      "organization": "Law Archive / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "law",
+        "legal studies"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/lawarchive/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Open archive for legal scholarship. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "mediarxiv",
+      "name": "MediArXiv",
+      "organization": "MediArXiv / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "media studies",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/mediarxiv/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Open archive for media, film and communication studies. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "metaarxiv",
+      "name": "MetaArXiv",
+      "organization": "BITSS / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary",
+        "methods",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/metaarxiv/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Interdisciplinary archive focused on research transparency and reproducibility. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "mindrxiv",
+      "name": "MindRxiv",
+      "organization": "Mind & Life Institute",
+      "source_type": "subject_repository",
+      "subjects": [
+        "psychology",
+        "cognitive science",
+        "philosophy of mind"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://mindrxiv.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/mindrxiv/"
+      },
+      "notes": "Open archive for research on mind and contemplative practices, accepting working papers, preprints, published papers, data and code; DOI and versioning are supported.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community repository; preprints are not peer reviewed by the repository and may coexist with published versions."
+      }
+    },
+    {
+      "id": "newaddictionsx",
+      "name": "NewAddictionsX",
+      "organization": "ISSED / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "psychology",
+        "public health",
+        "medicine"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/newaddictionsx/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Preprint service for new and emerging addictions. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "osf-preprints",
+      "name": "OSF Preprints",
+      "organization": "Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://osf.io/preprints/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://api.osf.io/v2/preprints/",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/687-osf-preprints-suspension"
+      },
+      "notes": "OSF preprint infrastructure and discovery network. New submissions to the generalist OSF Preprints server have been suspended since 2025-08-25, while community-run providers remain active and existing generalist records remain hosted and revisable.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Treat this as shared infrastructure plus legacy generalist records; use child provider entities for active disciplinary submission routes."
+      }
+    },
+    {
+      "id": "paleorxiv",
+      "name": "PaleorXiv",
+      "organization": "PaleorXiv / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "geoscience",
+        "biology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/paleorxiv/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Preprint archive for paleontology. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "psyarxiv",
+      "name": "PsyArXiv",
+      "organization": "PsyArXiv / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "psychology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/psyarxiv/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Free preprint service for the psychological sciences. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    },
+    {
+      "id": "socarxiv",
+      "name": "SocArXiv",
+      "organization": "SocArXiv / Center for Open Science",
+      "source_type": "preprint_server",
+      "subjects": [
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/socarxiv/",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/686-preprint-services"
+      },
+      "notes": "Open archive of the social sciences. OSF community-run providers use moderation before public posting; OSF supports versioned Crossref DOIs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Community-run OSF provider. Moderation is a posting gate, not peer review; licence is record-specific."
+      }
+    }
+  ]
+}

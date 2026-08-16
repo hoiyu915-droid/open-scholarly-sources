@@ -1,0 +1,486 @@
+{
+  "schema_version": "0.2.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "pubmed-central",
+      "name": "PubMed Central (PMC)",
+      "organization": "U.S. National Library of Medicine / NIH",
+      "source_type": "subject_repository",
+      "subjects": [
+        "medicine",
+        "biology",
+        "public health",
+        "life sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://pmc.ncbi.nlm.nih.gov/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": "https://pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/",
+        "bulk_metadata_url": "https://ftp.ncbi.nlm.nih.gov/pub/pmc/"
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://pmc.ncbi.nlm.nih.gov/about/intro/"
+      },
+      "notes": "Permanent free full-text archive containing journal versions, author manuscripts and selected preprints. Version and reuse licence must be resolved per record.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record",
+          "accepted_manuscript",
+          "preprint",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Free full text does not imply uniform reuse rights or a uniform publication version."
+      }
+    },
+    {
+      "id": "europe-pmc",
+      "name": "Europe PMC",
+      "organization": "EMBL-EBI / Europe PMC funders",
+      "source_type": "subject_repository",
+      "subjects": [
+        "medicine",
+        "biology",
+        "public health",
+        "life sciences"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://europepmc.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://europepmc.org/about"
+      },
+      "notes": "Biomedical discovery platform integrating abstracts, full text, preprints, grants, data links and review-related metadata. Full-text availability varies by record.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record",
+          "accepted_manuscript",
+          "preprint",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "The index is broader than its OA full-text subset; verify full text and version per record."
+      }
+    },
+    {
+      "id": "nar-journals",
+      "name": "NAR Journals",
+      "organization": "Oxford University Press",
+      "source_type": "journal_collection",
+      "subjects": [
+        "molecular biology",
+        "genomics",
+        "bioinformatics",
+        "cancer research",
+        "medicine"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/nar/pages/nar-journals",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://academic.oup.com/NAR/pages/why-publish"
+      },
+      "notes": "Fully OA NAR journal family covering nucleic acids, genomics, bioinformatics, cancer and molecular medicine.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": "All listed NAR family journals are fully OA; APC and waiver policies vary by title."
+      },
+      "members": [
+        "Nucleic Acids Research",
+        "NAR Genomics and Bioinformatics",
+        "NAR Cancer",
+        "NAR Molecular Medicine"
+      ]
+    },
+    {
+      "id": "nucleic-acids-research",
+      "name": "Nucleic Acids Research",
+      "organization": "Oxford University Press",
+      "source_type": "journal",
+      "subjects": [
+        "molecular biology",
+        "genomics",
+        "bioinformatics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/nar",
+      "parent_id": "nar-journals",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://academic.oup.com/NAR/pages/why-publish"
+      },
+      "notes": "Long-running fully OA journal covering nucleic acids, genomics, molecular biology and major database/web-server resources.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": "Fully OA; includes annual Database and Web Server issues."
+      }
+    },
+    {
+      "id": "nar-genomics-and-bioinformatics",
+      "name": "NAR Genomics and Bioinformatics",
+      "organization": "Oxford University Press",
+      "source_type": "journal",
+      "subjects": [
+        "genomics",
+        "bioinformatics",
+        "computational biology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/nargab",
+      "parent_id": "nar-journals",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://academic.oup.com/nargab/pages/About"
+      },
+      "notes": "Fully OA journal for genomics and bioinformatics methods, resources and applications.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": ""
+      }
+    },
+    {
+      "id": "nar-cancer",
+      "name": "NAR Cancer",
+      "organization": "Oxford University Press",
+      "source_type": "journal",
+      "subjects": [
+        "cancer research",
+        "molecular biology",
+        "genomics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/narcancer",
+      "parent_id": "nar-journals",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://academic.oup.com/narcancer/pages/About"
+      },
+      "notes": "Fully OA journal connecting nucleic-acid biology, genomics and cancer research.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": ""
+      }
+    },
+    {
+      "id": "nar-molecular-medicine",
+      "name": "NAR Molecular Medicine",
+      "organization": "Oxford University Press",
+      "source_type": "journal",
+      "subjects": [
+        "molecular medicine",
+        "genomics",
+        "medicine"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/narmolmed",
+      "parent_id": "nar-journals",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://academic.oup.com/narmolmed/pages/About"
+      },
+      "notes": "Fully OA journal for molecular mechanisms and translational medicine.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": ""
+      }
+    },
+    {
+      "id": "jama-network-open",
+      "name": "JAMA Network Open",
+      "organization": "American Medical Association",
+      "source_type": "journal",
+      "subjects": [
+        "medicine",
+        "clinical medicine",
+        "public health",
+        "health policy"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://jamanetwork.com/journals/jamanetworkopen",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://jamanetwork.com/journals/jamanetworkopen/pages/for-authors"
+      },
+      "notes": "Fully OA general medical journal using JAMA Network editorial, peer-review and statistical-review standards.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": "Fully OA; author charges, waivers and licence options follow AMA policy."
+      }
+    },
+    {
+      "id": "plos-medicine",
+      "name": "PLOS Medicine",
+      "organization": "Public Library of Science (PLOS)",
+      "source_type": "journal",
+      "subjects": [
+        "medicine",
+        "public health",
+        "global health",
+        "health policy"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://journals.plos.org/plosmedicine/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://journals.plos.org/plosmedicine/s/journal-information"
+      },
+      "notes": "Highly selective fully OA medical journal focused on research with clinical, public-health or policy significance.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "PLOS articles are openly licensed; publication fees and assistance policies apply."
+      }
+    }
+  ]
+}
