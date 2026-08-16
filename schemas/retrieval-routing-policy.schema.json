@@ -175,7 +175,7 @@
       "additionalProperties": false,
       "required": ["path", "scope", "network_resolver", "activation_required", "limitations"],
       "properties": {
-        "path": {"const": "reference_consumer/route.py"},
+        "path": {"const": "reference_consumer/verify.py"},
         "scope": {"const": "explicit_verification_formal_evidence_candidate_gate_v0_2"},
         "network_resolver": {"const": "crossref"},
         "activation_required": {"const": true},
