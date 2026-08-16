@@ -3,67 +3,84 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Open Scholarly Sources｜開放學術來源：可人工閱讀、可機器讀取的開放學術來源登錄表。">
+  <meta name="description" content="Open Scholarly Sources｜開放學術來源：具證據、英繁中對照、可人工閱讀與機器索引的開放學術來源登錄表。">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <title>Open Scholarly Sources｜開放學術來源</title>
+  <link rel="canonical" href="https://hoiyu915-droid.github.io/open-scholarly-sources/">
+  <link rel="alternate" type="application/json" href="./registry.json" title="Consolidated registry JSON">
+  <link rel="alternate" type="application/ld+json" href="./registry.jsonld" title="Schema.org catalog">
+  <link rel="alternate" type="text/plain" href="./llms.txt" title="LLM discovery file">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"DataCatalog",
+    "@id":"https://hoiyu915-droid.github.io/open-scholarly-sources/#catalog",
+    "name":"Open Scholarly Sources",
+    "alternateName":"開放學術來源",
+    "description":"Bilingual evidence-backed registry of open scholarly journals, proceedings, platforms and repositories.",
+    "url":"https://hoiyu915-droid.github.io/open-scholarly-sources/",
+    "inLanguage":["en","zh-Hant"],
+    "license":"https://www.apache.org/licenses/LICENSE-2.0",
+    "distribution":[
+      {"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://hoiyu915-droid.github.io/open-scholarly-sources/registry.json"},
+      {"@type":"DataDownload","encodingFormat":"application/x-ndjson","contentUrl":"https://hoiyu915-droid.github.io/open-scholarly-sources/registry.ndjson"},
+      {"@type":"DataDownload","encodingFormat":"application/ld+json","contentUrl":"https://hoiyu915-droid.github.io/open-scholarly-sources/registry.jsonld"}
+    ]
+  }
+  </script>
   <style>
     :root {
       color-scheme: light dark;
-      --bg: #f6f7f5; --panel: #fff; --text: #18201d; --muted: #66706b;
-      --line: #dce2de; --accent: #176b51; --accent-soft: #e4f3ed;
-      --mixed: #9a5b08; --mixed-soft: #fff0d8; --meta: #5b52a3; --meta-soft: #eeecff;
-      --shadow: 0 12px 34px rgba(18,35,28,.07);
+      --bg:#f6f7f5;--panel:#fff;--text:#18201d;--muted:#66706b;--line:#dce2de;
+      --accent:#176b51;--accent-soft:#e4f3ed;--mixed:#9a5b08;--mixed-soft:#fff0d8;
+      --meta:#5b52a3;--meta-soft:#eeecff;--shadow:0 12px 34px rgba(18,35,28,.07);
     }
-    @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme:dark) {
       :root {
-        --bg: #0f1412; --panel: #151c19; --text: #e8eee9; --muted: #a7b2ac;
-        --line: #2b3832; --accent: #6dd2ad; --accent-soft: #163e31;
-        --mixed: #f0ba68; --mixed-soft: #432f13; --meta: #beb7ff; --meta-soft: #302b54; --shadow: none;
+        --bg:#0f1412;--panel:#151c19;--text:#e8eee9;--muted:#a7b2ac;--line:#2b3832;
+        --accent:#6dd2ad;--accent-soft:#163e31;--mixed:#f0ba68;--mixed-soft:#432f13;
+        --meta:#beb7ff;--meta-soft:#302b54;--shadow:none;
       }
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif; }
-    a { color: var(--accent); }
-    .wrap { width: min(1500px, calc(100% - 32px)); margin: 0 auto; }
-    header { padding: 56px 0 28px; }
-    .eyebrow { color: var(--accent); font-weight: 760; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
-    h1 { margin: 8px 0 6px; font-size: clamp(34px,6vw,64px); line-height: .98; letter-spacing: -.045em; }
-    .zh-title { margin: 0 0 12px; color: var(--muted); font-size: clamp(20px,3vw,30px); font-weight: 700; }
-    .lede { max-width: 920px; margin: 0; color: var(--muted); font-size: 17px; }
-    .lede + .lede { margin-top: 5px; }
-    .links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 20px; }
-    .links a { font-weight: 650; text-decoration: none; }
-    .notice { margin: 20px 0 24px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: var(--muted); }
-    .notice strong { color: var(--text); }
-    .stats { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 0 0 18px; }
-    .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; box-shadow: var(--shadow); }
-    .stat b { display: block; font-size: 26px; line-height: 1.1; }
-    .stat span { color: var(--muted); font-size: 12px; }
-    .controls { display: grid; grid-template-columns: minmax(280px,2fr) repeat(4,minmax(155px,1fr)); gap: 10px; padding: 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px 14px 0 0; }
-    input,select { width: 100%; border: 1px solid var(--line); border-radius: 9px; padding: 10px 11px; background: var(--bg); color: var(--text); font: inherit; }
-    input:focus,select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-    .result-line { padding: 10px 14px; color: var(--muted); border: 1px solid var(--line); border-top: 0; background: var(--panel); }
-    .table-wrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-top: 0; border-radius: 0 0 14px 14px; margin-bottom: 50px; }
-    table { border-collapse: collapse; width: 100%; min-width: 1180px; }
-    th,td { text-align: left; vertical-align: top; padding: 13px 14px; border-bottom: 1px solid var(--line); }
-    th { position: sticky; top: 0; z-index: 1; background: var(--panel); color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
-    tbody tr:last-child td { border-bottom: 0; }
-    tbody tr:hover { background: color-mix(in srgb,var(--accent-soft) 40%,transparent); }
-    .source-name { font-weight: 780; font-size: 15px; text-decoration: none; }
-    .source-zh { font-weight: 680; font-size: 13px; margin-top: 2px; }
-    .org,.notes,.verify,.translation { color: var(--muted); font-size: 12px; margin-top: 3px; }
-    .notes { max-width: 500px; }
-    .translation { border-left: 2px solid var(--line); padding-left: 8px; margin-top: 6px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 5px; }
-    .tag,.badge { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 2px 7px; font-size: 11px; white-space: nowrap; }
-    .badge.full { color: var(--accent); background: var(--accent-soft); border-color: transparent; font-weight: 700; }
-    .badge.mixed { color: var(--mixed); background: var(--mixed-soft); border-color: transparent; font-weight: 700; }
-    .badge.metadata_only { color: var(--meta); background: var(--meta-soft); border-color: transparent; font-weight: 700; }
-    .machine { color: var(--muted); font-size: 12px; margin-top: 4px; }
-    .members { margin-top: 7px; color: var(--muted); font-size: 11px; }
-    .error { margin: 30px 0; padding: 18px; border: 1px solid #c44; border-radius: 12px; }
-    footer { color: var(--muted); border-top: 1px solid var(--line); padding: 24px 0 42px; font-size: 12px; }
-    @media (max-width:980px) { .stats { grid-template-columns: repeat(2,minmax(0,1fr)); } .controls { grid-template-columns: 1fr 1fr; } .controls input { grid-column: 1/-1; } }
-    @media (max-width:600px) { .wrap { width: min(100% - 20px,1500px); } header { padding-top: 34px; } .controls { grid-template-columns: 1fr; } .controls input { grid-column: auto; } .stats { gap: 8px; } .stat { padding: 13px; } }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+      font:15px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
+    a{color:var(--accent)} .wrap{width:min(1580px,calc(100% - 32px));margin:0 auto}
+    header{padding:56px 0 28px}.eyebrow{color:var(--accent);font-weight:760;letter-spacing:.08em;
+      text-transform:uppercase;font-size:12px}h1{margin:8px 0 6px;font-size:clamp(34px,6vw,64px);
+      line-height:.98;letter-spacing:-.045em}.zh-title{margin:0 0 12px;color:var(--muted);
+      font-size:clamp(20px,3vw,30px);font-weight:700}.lede{max-width:980px;margin:0;color:var(--muted);font-size:17px}
+    .lede+.lede{margin-top:5px}.links{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+    .links a{font-weight:650;text-decoration:none}.notice{margin:20px 0 24px;padding:14px 16px;
+      border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--muted)}
+    .notice strong{color:var(--text)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;margin:0 0 18px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+      padding:16px;box-shadow:var(--shadow)}.stat b{display:block;font-size:26px;line-height:1.1}
+    .stat span{color:var(--muted);font-size:12px}.controls{display:grid;
+      grid-template-columns:minmax(280px,2fr) repeat(5,minmax(145px,1fr));gap:10px;padding:14px;
+      background:var(--panel);border:1px solid var(--line);border-radius:14px 14px 0 0}
+    input,select{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 11px;
+      background:var(--bg);color:var(--text);font:inherit}input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+    .result-line{padding:10px 14px;color:var(--muted);border:1px solid var(--line);border-top:0;background:var(--panel)}
+    .table-wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-top:0;
+      border-radius:0 0 14px 14px;margin-bottom:50px}table{border-collapse:collapse;width:100%;min-width:1460px}
+    th,td{text-align:left;vertical-align:top;padding:13px 14px;border-bottom:1px solid var(--line)}
+    th{position:sticky;top:0;z-index:1;background:var(--panel);color:var(--muted);font-size:11px;
+      text-transform:uppercase;letter-spacing:.05em}tbody tr:last-child td{border-bottom:0}
+    tbody tr:hover{background:color-mix(in srgb,var(--accent-soft) 40%,transparent)}
+    .source-name{font-weight:780;font-size:15px;text-decoration:none}.source-zh{font-weight:680;font-size:13px;margin-top:2px}
+    .org,.notes,.verify,.translation,.policy-note{color:var(--muted);font-size:12px;margin-top:3px}
+    .notes{max-width:470px}.translation{border-left:2px solid var(--line);padding-left:8px;margin-top:6px}
+    .tags{display:flex;flex-wrap:wrap;gap:5px}.tag,.badge{display:inline-block;border:1px solid var(--line);
+      border-radius:999px;padding:2px 7px;font-size:11px;white-space:nowrap}.badge.full{color:var(--accent);
+      background:var(--accent-soft);border-color:transparent;font-weight:700}.badge.mixed{color:var(--mixed);
+      background:var(--mixed-soft);border-color:transparent;font-weight:700}.badge.metadata_only{color:var(--meta);
+      background:var(--meta-soft);border-color:transparent;font-weight:700}.machine{color:var(--muted);font-size:12px;margin-top:4px}
+    .members{margin-top:7px;color:var(--muted);font-size:11px}.external{font-size:11px;margin-top:5px}
+    .error{margin:30px 0;padding:18px;border:1px solid #c44;border-radius:12px}
+    footer{color:var(--muted);border-top:1px solid var(--line);padding:24px 0 42px;font-size:12px}
+    @media(max-width:1100px){.controls{grid-template-columns:1fr 1fr 1fr}.controls input{grid-column:1/-1}}
+    @media(max-width:700px){.wrap{width:min(100% - 20px,1580px)}header{padding-top:34px}.controls{grid-template-columns:1fr}
+      .controls input{grid-column:auto}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.stat{padding:13px}}
   </style>
 </head>
 <body>
@@ -71,162 +88,178 @@
     <div class="eyebrow">Open-source scholarly registry · 開放學術來源登錄表</div>
     <h1>Open Scholarly Sources</h1>
     <div class="zh-title">開放學術來源</div>
-    <p class="lede">A human-readable and machine-readable registry of scholarly journals, proceedings, platforms, repositories, directories, aggregators and preprint sources — with access semantics kept explicit.</p>
-    <p class="lede">可人工閱讀、也可機器讀取的學術來源登錄表；期刊、會議論文集、平台、典藏庫、名錄、聚合器與預印本分開描述，不把不同存取狀態粗暴壓成「OA = 是」。</p>
+    <p class="lede">A bilingual, evidence-backed registry of scholarly journals, proceedings, platforms, repositories, directories, aggregators and preprint sources — designed for both people and machine retrieval.</p>
+    <p class="lede">具證據、英繁中對照、可供人閱讀也可供搜尋引擎與 LLM 擷取的學術來源登錄表；OA 年份、回溯檔案、文件版本與授權範圍分開記錄。</p>
     <div class="links">
-      <a href="./data/registry-manifest.json">Registry manifest / 登錄清單</a>
-      <a href="./data/sources.json">Base sources / 基礎來源</a>
-      <a href="./data/sources.ai-nlp.json">AI · NLP · LLM</a>
-      <a href="./data/i18n.zh-TW.json">繁中資料</a>
+      <a href="./registry.json">Consolidated JSON / 合併 JSON</a>
+      <a href="./registry.ndjson">NDJSON</a>
+      <a href="./registry.jsonld">JSON-LD</a>
+      <a href="./llms.txt">llms.txt</a>
+      <a href="./llms-full.txt">LLM full index / 完整索引</a>
+      <a href="./sources/">Static source pages / 靜態來源頁</a>
+      <a href="./data/registry-manifest.json">Manifest</a>
       <a href="./schemas/source.schema.json">Schema</a>
       <a href="https://github.com/hoiyu915-droid/open-scholarly-sources">GitHub</a>
     </div>
   </header>
 
   <main class="wrap">
-    <div class="notice"><strong>OA semantics / OA 語義：</strong> <em>full</em> 表示該來源登錄的學術內容原則上公開；<em>mixed</em> 表示依期刊、文章、年份或平台元件而異；<em>metadata only</em> 只代表可用於發現與中繼資料。收錄不等於背書，也不能取代逐篇全文與正式版本驗證。</div>
+    <div class="notice"><strong>OA semantics / OA 語義：</strong>
+      <em>full</em> 是可公開取得的範圍，不保證所有年代、版本與授權一致；
+      <em>mixed</em> 必須依期刊、文章或年份驗證。Subscribe to Open 只承認資料中明列的
+      <code>open_years</code>，典藏庫則可能同時含正式版本、作者接受稿與預印本。</div>
 
     <section class="stats" aria-label="Registry statistics">
       <div class="stat"><b id="stat-total">—</b><span>registered sources / 登錄來源</span></div>
       <div class="stat"><b id="stat-full">—</b><span>full OA sources / 完整 OA</span></div>
       <div class="stat"><b id="stat-publications">—</b><span>journals + proceedings / 期刊與論文集</span></div>
-      <div class="stat"><b id="stat-machine">—</b><span>machine endpoints / 機器端點</span></div>
+      <div class="stat"><b id="stat-policy">—</b><span>explicit access policies / 明確存取政策</span></div>
     </section>
 
     <section class="controls" aria-label="Filters">
-      <input id="search" type="search" placeholder="Search / 搜尋：LLM、大型語言模型、forestry、林業…" autocomplete="off">
+      <input id="search" type="search" placeholder="Search / 搜尋：LLM、森林、化學、人口學、PubMed…" autocomplete="off">
       <select id="subject"><option value="">All subjects / 全部領域</option></select>
       <select id="type"><option value="">All source types / 全部類型</option></select>
       <select id="oa"><option value="">All OA scopes / 全部 OA</option></select>
       <select id="peer"><option value="">All review scopes / 全部審查狀態</option></select>
+      <select id="model"><option value="">All OA models / 全部 OA 模式</option></select>
     </section>
     <div id="result-line" class="result-line">Loading registry… / 載入中…</div>
 
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr>
-            <th>Source / 來源</th><th>Subjects / 領域</th><th>Type / 類型</th><th>OA / 審查</th>
-            <th>Access roles / 存取角色</th><th>Machine access / 機器存取</th><th>Verification / 驗證</th>
-          </tr>
-        </thead>
+        <thead><tr>
+          <th>Source / 來源</th><th>Subjects / 領域</th><th>Type / 類型</th><th>OA / 審查</th>
+          <th>Access policy / 存取政策</th><th>Access roles / 存取角色</th>
+          <th>Machine access / 機器存取</th><th>Verification / 驗證</th>
+        </tr></thead>
         <tbody id="rows"></tbody>
       </table>
     </div>
     <div id="error" class="error" hidden></div>
   </main>
 
-  <footer class="wrap">Data is versioned in Git and loaded from a manifest of canonical source shards. Verification dates and evidence URLs remain attached to each source, while Traditional Chinese display text lives in a separate translation layer. ／ 資料以 Git 版本化；來源資料與繁中顯示層分離，避免翻譯覆蓋正式來源名稱與證據。</footer>
+  <footer class="wrap">Canonical records are versioned in Git. Static source pages, JSON, NDJSON, JSON-LD, sitemap and LLM text files are generated from the same manifest during deployment. ／ 所有機器索引與靜態頁都從同一份 canonical manifest 生成，不另養一份會腐爛的資料。</footer>
 
-  <script>
-    const $ = (id) => document.getElementById(id);
-    const state = { sources: [], i18n: { taxonomy: {}, sources: {} } };
-    const esc = (value) => String(value ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
-    const plainLabel = (value) => String(value ?? "").replaceAll("_"," ");
-
-    function zhSource(source) { return state.i18n.sources?.[source.id] || {}; }
-    function tax(group, value) { return state.i18n.taxonomy?.[group]?.[value] || ""; }
-    function bilingual(group, value) {
-      const en = plainLabel(value), zh = tax(group, value);
-      return zh ? `${en} / ${zh}` : en;
+<script>
+const $=id=>document.getElementById(id);
+const state={sources:[],i18n:{taxonomy:{},sources:{}}};
+const esc=value=>String(value??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+const plain=value=>String(value??"").replaceAll("_"," ");
+function zhSource(source){return state.i18n.sources?.[source.id]||{}}
+function tax(group,value){return state.i18n.taxonomy?.[group]?.[value]||""}
+function bilingual(group,value){const en=plain(value),zh=tax(group,value);return zh?`${en} / ${zh}`:en}
+function mergeI18n(shards){
+  const merged={taxonomy:{},sources:{}};
+  for(const shard of shards){
+    for(const [group,mapping] of Object.entries(shard.taxonomy||{})){
+      merged.taxonomy[group]={...(merged.taxonomy[group]||{}),...mapping};
     }
-    function optionize(select, values, group) {
-      [...new Set(values)].filter(Boolean).sort((a,b) => a.localeCompare(b)).forEach((value) => {
-        const option = document.createElement("option");
-        option.value = value;
-        option.textContent = bilingual(group, value);
-        select.appendChild(option);
-      });
-    }
-    function hasMachineEndpoint(source) {
-      const m = source.machine_access || {};
-      return Boolean(m.feed_url || m.api_url || m.oai_pmh_url || m.bulk_metadata_url);
-    }
-    function renderStats() {
-      const s = state.sources;
-      $("stat-total").textContent = s.length;
-      $("stat-full").textContent = s.filter(x => x.oa_scope === "full").length;
-      $("stat-publications").textContent = s.filter(x => ["journal","journal_collection","proceedings_platform","proceedings_series"].includes(x.source_type)).length;
-      $("stat-machine").textContent = s.filter(hasMachineEndpoint).length;
-    }
-    function machineHTML(source) {
-      const m = source.machine_access || {};
-      const formats = (m.formats || []).map(x => `<span class="tag">${esc(x.toUpperCase())}</span>`).join(" ");
-      const endpoints = [["feed",m.feed_url],["API",m.api_url],["OAI-PMH",m.oai_pmh_url],["bulk",m.bulk_metadata_url]]
-        .filter(([,url]) => url).map(([name,url]) => `<a href="${esc(url)}">${esc(name)}</a>`).join(" · ");
-      return `<div class="tags">${formats}</div>${endpoints ? `<div class="machine">${endpoints}</div>` : ""}`;
-    }
-    function rowHTML(source) {
-      const zh = zhSource(source);
-      const members = source.members?.length ? `<div class="members"><strong>${source.members.length} members / 成員：</strong> ${source.members.map(esc).join(" · ")}</div>` : "";
-      const transition = source.transition ? `<div class="members"><strong>Migration / 出版遷移：</strong> ${esc(source.transition.from)} → ${esc(source.transition.to)} (${esc(source.transition.effective)})</div>` : "";
-      const subjects = source.subjects.map(x => `<span class="tag">${esc(bilingual("subjects",x))}</span>`).join("");
-      const roles = source.access_roles.map(x => `<span class="tag">${esc(bilingual("access_roles",x))}</span>`).join("");
-      return `<tr>
-        <td>
-          <a class="source-name" href="${esc(source.canonical_url)}">${esc(source.name)}</a>
-          ${zh.name ? `<div class="source-zh">${esc(zh.name)}</div>` : ""}
-          <div class="org">${esc(source.organization)}</div>
-          <div class="notes">${esc(source.notes)}</div>
-          ${zh.summary ? `<div class="translation">${esc(zh.summary)}</div>` : ""}
-          ${members}${transition}
-        </td>
-        <td><div class="tags">${subjects}</div></td>
-        <td><span class="tag">${esc(bilingual("source_types",source.source_type))}</span><div class="verify">${esc(bilingual("publication_states",source.publication_state))}</div></td>
-        <td><span class="badge ${esc(source.oa_scope)}">${esc(bilingual("oa_scopes",source.oa_scope))}</span><div class="verify">${esc(bilingual("peer_review_scopes",source.peer_review_scope))}</div></td>
-        <td><div class="tags">${roles}</div></td>
-        <td>${machineHTML(source)}</td>
-        <td><a href="${esc(source.verification.evidence_url)}">${esc(bilingual("verification_status",source.verification.status))}</a><div class="verify">checked / 驗證 ${esc(source.verification.checked)}</div></td>
-      </tr>`;
-    }
-    function searchText(source) {
-      const zh = zhSource(source);
-      const zhSubjects = (source.subjects || []).map(x => tax("subjects",x));
-      return [source.id,source.name,source.organization,source.notes,zh.name,zh.summary,
-        ...(source.subjects || []),...zhSubjects,source.source_type,tax("source_types",source.source_type),...(source.members || [])]
-        .filter(Boolean).join(" ").toLowerCase();
-    }
-    function applyFilters() {
-      const q = $("search").value.trim().toLowerCase();
-      const subject = $("subject").value, type = $("type").value, oa = $("oa").value, peer = $("peer").value;
-      const filtered = state.sources.filter(source => (!q || searchText(source).includes(q))
-        && (!subject || source.subjects.includes(subject)) && (!type || source.source_type === type)
-        && (!oa || source.oa_scope === oa) && (!peer || source.peer_review_scope === peer))
-        .sort((a,b) => a.name.localeCompare(b.name));
-      $("rows").innerHTML = filtered.map(rowHTML).join("");
-      $("result-line").textContent = `${filtered.length} of ${state.sources.length} sources / 顯示 ${filtered.length}／${state.sources.length} 個來源`;
-    }
-    async function fetchJSON(path) {
-      const response = await fetch(path,{cache:"no-store"});
-      if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
-      return response.json();
-    }
-    async function boot() {
-      try {
-        const manifest = await fetchJSON("./data/registry-manifest.json");
-        if (!Array.isArray(manifest.source_shards)) throw new Error("Manifest has no source_shards array");
-        const [translation, ...registries] = await Promise.all([
-          fetchJSON(`./data/${manifest.translations}`),
-          ...manifest.source_shards.map(file => fetchJSON(`./data/${file}`))
-        ]);
-        state.i18n = translation;
-        state.sources = registries.flatMap(r => Array.isArray(r.sources) ? r.sources : []);
-        const ids = state.sources.map(s => s.id);
-        if (new Set(ids).size !== ids.length) throw new Error("Duplicate source IDs across registry shards");
-        renderStats();
-        optionize($("subject"),state.sources.flatMap(x => x.subjects || []),"subjects");
-        optionize($("type"),state.sources.map(x => x.source_type),"source_types");
-        optionize($("oa"),state.sources.map(x => x.oa_scope),"oa_scopes");
-        optionize($("peer"),state.sources.map(x => x.peer_review_scope),"peer_review_scopes");
-        ["search","subject","type","oa","peer"].forEach(id => $(id).addEventListener(id === "search" ? "input" : "change",applyFilters));
-        applyFilters();
-      } catch (error) {
-        $("result-line").textContent = "Registry failed to load / 登錄表載入失敗";
-        $("error").hidden = false;
-        $("error").textContent = `Could not load registry: ${error.message}`;
-      }
-    }
-    boot();
-  </script>
+    Object.assign(merged.sources,shard.sources||{});
+  }
+  return merged;
+}
+function optionize(select,values,group){
+  [...new Set(values)].filter(Boolean).sort((a,b)=>a.localeCompare(b)).forEach(value=>{
+    const option=document.createElement("option");option.value=value;option.textContent=bilingual(group,value);select.appendChild(option);
+  });
+}
+function hasMachineEndpoint(source){const m=source.machine_access||{};return Boolean(m.feed_url||m.api_url||m.oai_pmh_url||m.bulk_metadata_url)}
+function renderStats(){
+  const s=state.sources;$("stat-total").textContent=s.length;$("stat-full").textContent=s.filter(x=>x.oa_scope==="full").length;
+  $("stat-publications").textContent=s.filter(x=>["journal","journal_collection","proceedings_platform","proceedings_series"].includes(x.source_type)).length;
+  $("stat-policy").textContent=s.filter(x=>x.access_policy).length;
+}
+function machineHTML(source){
+  const m=source.machine_access||{};
+  const formats=(m.formats||[]).map(x=>`<span class="tag">${esc(x.toUpperCase())}</span>`).join(" ");
+  const endpoints=[["feed",m.feed_url],["API",m.api_url],["OAI-PMH",m.oai_pmh_url],["bulk",m.bulk_metadata_url]]
+    .filter(([,url])=>url).map(([name,url])=>`<a href="${esc(url)}">${esc(name)}</a>`).join(" · ");
+  return `<div class="tags">${formats}</div>${endpoints?`<div class="machine">${endpoints}</div>`:""}`;
+}
+function policyHTML(source){
+  const p=source.access_policy;if(!p)return `<span class="verify">legacy record / 尚未結構化</span>`;
+  const years=(p.open_years||[]).join(", ")||"—";
+  const versions=(p.version_scope||[]).map(v=>bilingual("version_scopes",v)).join(" · ");
+  return `<div><span class="tag">${esc(bilingual("oa_models",p.model))}</span></div>
+    <div class="verify">effective / 生效：${esc(p.effective_from||"—")}</div>
+    <div class="verify">open years / 開放年份：${esc(years)}</div>
+    <div class="verify">backfile / 回溯：${esc(bilingual("backfile_scopes",p.backfile_scope))}</div>
+    <div class="verify">versions / 版本：${esc(versions)}</div>
+    <div class="verify">licence / 授權：${esc(bilingual("license_scopes",p.license_scope))}</div>
+    ${p.notes?`<div class="policy-note">${esc(p.notes)}</div>`:""}`;
+}
+function rowHTML(source){
+  const zh=zhSource(source);
+  const members=source.members?.length?`<div class="members"><strong>${source.members.length} members / 成員：</strong> ${source.members.map(esc).join(" · ")}</div>`:"";
+  const transition=source.transition?`<div class="members"><strong>Migration / 出版遷移：</strong> ${esc(source.transition.from)} → ${esc(source.transition.to)} (${esc(source.transition.effective)})</div>`:"";
+  const subjects=source.subjects.map(x=>`<span class="tag">${esc(bilingual("subjects",x))}</span>`).join("");
+  const roles=source.access_roles.map(x=>`<span class="tag">${esc(bilingual("access_roles",x))}</span>`).join("");
+  return `<tr>
+    <td>
+      <a class="source-name" href="./sources/${esc(source.id)}.html">${esc(source.name)}</a>
+      ${zh.name?`<div class="source-zh">${esc(zh.name)}</div>`:""}
+      <div class="org">${esc(source.organization)}</div>
+      <div class="notes">${esc(source.notes)}</div>
+      ${zh.summary?`<div class="translation">${esc(zh.summary)}</div>`:""}
+      <div class="external"><a href="${esc(source.canonical_url)}">canonical / 正式來源 ↗</a></div>
+      ${members}${transition}
+    </td>
+    <td><div class="tags">${subjects}</div></td>
+    <td><span class="tag">${esc(bilingual("source_types",source.source_type))}</span><div class="verify">${esc(bilingual("publication_states",source.publication_state))}</div><div class="verify">status: ${esc(source.status)}</div></td>
+    <td><span class="badge ${esc(source.oa_scope)}">${esc(bilingual("oa_scopes",source.oa_scope))}</span><div class="verify">${esc(bilingual("peer_review_scopes",source.peer_review_scope))}</div></td>
+    <td>${policyHTML(source)}</td>
+    <td><div class="tags">${roles}</div></td>
+    <td>${machineHTML(source)}</td>
+    <td><a href="${esc(source.verification.evidence_url)}">${esc(bilingual("verification_status",source.verification.status))}</a><div class="verify">checked / 驗證 ${esc(source.verification.checked)}</div></td>
+  </tr>`;
+}
+function searchText(source){
+  const zh=zhSource(source),p=source.access_policy||{};
+  return [source.id,source.name,source.organization,source.notes,zh.name,zh.summary,
+    ...(source.subjects||[]),...(source.subjects||[]).map(x=>tax("subjects",x)),
+    source.source_type,tax("source_types",source.source_type),...(source.members||[]),
+    p.model,tax("oa_models",p.model),p.notes,...(p.open_years||[]),...(p.version_scope||[])]
+    .filter(Boolean).join(" ").toLowerCase();
+}
+function applyFilters(){
+  const q=$("search").value.trim().toLowerCase(),subject=$("subject").value,type=$("type").value,
+    oa=$("oa").value,peer=$("peer").value,model=$("model").value;
+  const filtered=state.sources.filter(source=>(!q||searchText(source).includes(q))
+    &&(!subject||source.subjects.includes(subject))&&(!type||source.source_type===type)
+    &&(!oa||source.oa_scope===oa)&&(!peer||source.peer_review_scope===peer)
+    &&(!model||source.access_policy?.model===model))
+    .sort((a,b)=>a.name.localeCompare(b.name));
+  $("rows").innerHTML=filtered.map(rowHTML).join("");
+  $("result-line").textContent=`${filtered.length} of ${state.sources.length} sources / 顯示 ${filtered.length}／${state.sources.length} 個來源`;
+}
+async function fetchJSON(path){
+  const response=await fetch(path,{cache:"no-store"});if(!response.ok)throw new Error(`${path}: HTTP ${response.status}`);return response.json();
+}
+async function boot(){
+  try{
+    const manifest=await fetchJSON("./data/registry-manifest.json");
+    if(!Array.isArray(manifest.source_shards)||!Array.isArray(manifest.translation_shards))throw new Error("Manifest is missing shard arrays");
+    const [registries,translations]=await Promise.all([
+      Promise.all(manifest.source_shards.map(file=>fetchJSON(`./data/${file}`))),
+      Promise.all(manifest.translation_shards.map(file=>fetchJSON(`./data/${file}`)))
+    ]);
+    state.i18n=mergeI18n(translations);
+    state.sources=registries.flatMap(r=>Array.isArray(r.sources)?r.sources:[]);
+    const ids=state.sources.map(s=>s.id);if(new Set(ids).size!==ids.length)throw new Error("Duplicate source IDs across shards");
+    renderStats();
+    optionize($("subject"),state.sources.flatMap(x=>x.subjects||[]),"subjects");
+    optionize($("type"),state.sources.map(x=>x.source_type),"source_types");
+    optionize($("oa"),state.sources.map(x=>x.oa_scope),"oa_scopes");
+    optionize($("peer"),state.sources.map(x=>x.peer_review_scope),"peer_review_scopes");
+    optionize($("model"),state.sources.map(x=>x.access_policy?.model).filter(Boolean),"oa_models");
+    ["search","subject","type","oa","peer","model"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",applyFilters));
+    applyFilters();
+  }catch(error){
+    $("result-line").textContent="Registry failed to load / 登錄表載入失敗";$("error").hidden=false;$("error").textContent=`Could not load registry: ${error.message}`;
+  }
+}
+boot();
+</script>
 </body>
 </html>
