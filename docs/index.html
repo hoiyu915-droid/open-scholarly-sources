@@ -8,6 +8,7 @@
   <title>Open Scholarly Sources｜開放學術來源</title>
   <link rel="canonical" href="https://hoiyu915-droid.github.io/open-scholarly-sources/">
   <link rel="alternate" type="application/json" href="./registry.json" title="Consolidated registry JSON">
+  <link rel="alternate" type="application/json" href="./source-profiles.json" title="Source-use profiles JSON">
   <link rel="alternate" type="application/ld+json" href="./registry.jsonld" title="Schema.org catalog">
   <link rel="alternate" type="text/plain" href="./llms.txt" title="LLM discovery file">
   <script type="application/ld+json">
@@ -17,162 +18,193 @@
     "@id":"https://hoiyu915-droid.github.io/open-scholarly-sources/#catalog",
     "name":"Open Scholarly Sources",
     "alternateName":"開放學術來源",
-    "description":"Bilingual evidence-backed registry of open scholarly journals, proceedings, platforms and repositories.",
+    "description":"Bilingual evidence-backed registry of open scholarly journals, proceedings, platforms, repositories and frontier sources.",
     "url":"https://hoiyu915-droid.github.io/open-scholarly-sources/",
     "inLanguage":["en","zh-Hant"],
     "license":"https://www.apache.org/licenses/LICENSE-2.0",
     "distribution":[
       {"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://hoiyu915-droid.github.io/open-scholarly-sources/registry.json"},
       {"@type":"DataDownload","encodingFormat":"application/x-ndjson","contentUrl":"https://hoiyu915-droid.github.io/open-scholarly-sources/registry.ndjson"},
-      {"@type":"DataDownload","encodingFormat":"application/ld+json","contentUrl":"https://hoiyu915-droid.github.io/open-scholarly-sources/registry.jsonld"}
+      {"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://hoiyu915-droid.github.io/open-scholarly-sources/source-profiles.json"}
     ]
   }
   </script>
   <style>
-    :root {
-      color-scheme: light dark;
+    :root{
+      color-scheme:light dark;
       --bg:#f6f7f5;--panel:#fff;--text:#18201d;--muted:#66706b;--line:#dce2de;
       --accent:#176b51;--accent-soft:#e4f3ed;--mixed:#9a5b08;--mixed-soft:#fff0d8;
       --meta:#5b52a3;--meta-soft:#eeecff;--shadow:0 12px 34px rgba(18,35,28,.07);
+      --r1:#315d9b;--r1-soft:#e9f0fb;--f1:#a34a13;--f1-soft:#fff0e6;--d1:#6f4aaa;--d1-soft:#f2ecff;
+      --a1:#49655a;--a1-soft:#eaf1ed;--f2:#8a6522;--f2-soft:#fff5dd;--r2:#39765f;--r2-soft:#e6f4ee;
     }
-    @media (prefers-color-scheme:dark) {
-      :root {
+    @media(prefers-color-scheme:dark){
+      :root{
         --bg:#0f1412;--panel:#151c19;--text:#e8eee9;--muted:#a7b2ac;--line:#2b3832;
         --accent:#6dd2ad;--accent-soft:#163e31;--mixed:#f0ba68;--mixed-soft:#432f13;
         --meta:#beb7ff;--meta-soft:#302b54;--shadow:none;
+        --r1:#a8c8ff;--r1-soft:#1d304e;--f1:#ffba8c;--f1-soft:#4a2b19;--d1:#d1b9ff;--d1-soft:#362754;
+        --a1:#acd0bf;--a1-soft:#25382f;--f2:#f0cf82;--f2-soft:#453817;--r2:#96d8bd;--r2-soft:#1f3c31;
       }
     }
-    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
-      font:15px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
-    a{color:var(--accent)} .wrap{width:min(1580px,calc(100% - 32px));margin:0 auto}
-    header{padding:56px 0 28px}.eyebrow{color:var(--accent);font-weight:760;letter-spacing:.08em;
-      text-transform:uppercase;font-size:12px}h1{margin:8px 0 6px;font-size:clamp(34px,6vw,64px);
-      line-height:.98;letter-spacing:-.045em}.zh-title{margin:0 0 12px;color:var(--muted);
-      font-size:clamp(20px,3vw,30px);font-weight:700}.lede{max-width:980px;margin:0;color:var(--muted);font-size:17px}
-    .lede+.lede{margin-top:5px}.links{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
-    .links a{font-weight:650;text-decoration:none}.notice{margin:20px 0 24px;padding:14px 16px;
-      border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--muted)}
-    .notice strong{color:var(--text)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:12px;margin:0 0 18px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
-      padding:16px;box-shadow:var(--shadow)}.stat b{display:block;font-size:26px;line-height:1.1}
-    .stat span{color:var(--muted);font-size:12px}.controls{display:grid;
-      grid-template-columns:minmax(280px,2fr) repeat(5,minmax(145px,1fr));gap:10px;padding:14px;
-      background:var(--panel);border:1px solid var(--line);border-radius:14px 14px 0 0}
-    input,select{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 11px;
-      background:var(--bg);color:var(--text);font:inherit}input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
+    a{color:var(--accent)}
+    .wrap{width:min(1680px,calc(100% - 32px));margin:0 auto}
+    header{padding:56px 0 28px}
+    .eyebrow{color:var(--accent);font-weight:760;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+    h1{margin:8px 0 6px;font-size:clamp(34px,6vw,64px);line-height:.98;letter-spacing:-.045em}
+    .zh-title{margin:0 0 12px;color:var(--muted);font-size:clamp(20px,3vw,30px);font-weight:700}
+    .lede{max-width:1050px;margin:0;color:var(--muted);font-size:17px}.lede+.lede{margin-top:5px}
+    .links{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}.links a{font-weight:650;text-decoration:none}
+    .notice{margin:16px 0;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--muted)}
+    .notice strong{color:var(--text)}
+    .stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:18px 0}
+    .stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px;box-shadow:var(--shadow)}
+    .stat b{display:block;font-size:25px;line-height:1.1}.stat span{color:var(--muted);font-size:11px}
+    .quick{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+    button,input,select{border:1px solid var(--line);border-radius:9px;padding:10px 11px;background:var(--bg);color:var(--text);font:inherit}
+    button{cursor:pointer}.quick button{padding:7px 10px;font-size:12px;font-weight:700}.quick button.active{outline:2px solid var(--accent);outline-offset:1px}
+    input,select{width:100%}input:focus,select:focus,button:focus{outline:2px solid var(--accent);outline-offset:1px}
+    .controls{display:grid;grid-template-columns:minmax(280px,2fr) repeat(6,minmax(135px,1fr));gap:9px;padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px 14px 0 0}
     .result-line{padding:10px 14px;color:var(--muted);border:1px solid var(--line);border-top:0;background:var(--panel)}
-    .table-wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-top:0;
-      border-radius:0 0 14px 14px;margin-bottom:50px}table{border-collapse:collapse;width:100%;min-width:1460px}
-    th,td{text-align:left;vertical-align:top;padding:13px 14px;border-bottom:1px solid var(--line)}
-    th{position:sticky;top:0;z-index:1;background:var(--panel);color:var(--muted);font-size:11px;
-      text-transform:uppercase;letter-spacing:.05em}tbody tr:last-child td{border-bottom:0}
-    tbody tr:hover{background:color-mix(in srgb,var(--accent-soft) 40%,transparent)}
+    .table-wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px;margin-bottom:50px}
+    table{border-collapse:collapse;width:100%;min-width:1740px}
+    th,td{text-align:left;vertical-align:top;padding:12px 13px;border-bottom:1px solid var(--line)}
+    th{position:sticky;top:0;z-index:1;background:var(--panel);color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+    tbody tr:last-child td{border-bottom:0}tbody tr:hover{background:color-mix(in srgb,var(--accent-soft) 40%,transparent)}
     .source-name{font-weight:780;font-size:15px;text-decoration:none}.source-zh{font-weight:680;font-size:13px;margin-top:2px}
-    .org,.notes,.verify,.translation,.policy-note{color:var(--muted);font-size:12px;margin-top:3px}
-    .notes{max-width:470px}.translation{border-left:2px solid var(--line);padding-left:8px;margin-top:6px}
-    .tags{display:flex;flex-wrap:wrap;gap:5px}.tag,.badge{display:inline-block;border:1px solid var(--line);
-      border-radius:999px;padding:2px 7px;font-size:11px;white-space:nowrap}.badge.full{color:var(--accent);
-      background:var(--accent-soft);border-color:transparent;font-weight:700}.badge.mixed{color:var(--mixed);
-      background:var(--mixed-soft);border-color:transparent;font-weight:700}.badge.metadata_only{color:var(--meta);
-      background:var(--meta-soft);border-color:transparent;font-weight:700}.machine{color:var(--muted);font-size:12px;margin-top:4px}
-    .members{margin-top:7px;color:var(--muted);font-size:11px}.external{font-size:11px;margin-top:5px}
+    .org,.notes,.verify,.translation,.policy-note,.character,.scoreline{color:var(--muted);font-size:12px;margin-top:3px}
+    .notes{max-width:430px}.translation{border-left:2px solid var(--line);padding-left:8px;margin-top:6px}
+    .tags{display:flex;flex-wrap:wrap;gap:5px}.tag,.badge,.arch{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 7px;font-size:11px;white-space:nowrap}
+    .badge.full{color:var(--accent);background:var(--accent-soft);border-color:transparent;font-weight:700}
+    .badge.mixed{color:var(--mixed);background:var(--mixed-soft);border-color:transparent;font-weight:700}
+    .badge.metadata_only{color:var(--meta);background:var(--meta-soft);border-color:transparent;font-weight:700}
+    .tier{display:inline-block;min-width:38px;text-align:center;border-radius:8px;padding:4px 7px;font-weight:850;font-size:13px}
+    .tier.R1{color:var(--r1);background:var(--r1-soft)}.tier.R2{color:var(--r2);background:var(--r2-soft)}
+    .tier.F1{color:var(--f1);background:var(--f1-soft)}.tier.F2{color:var(--f2);background:var(--f2-soft)}
+    .tier.D1{color:var(--d1);background:var(--d1-soft)}.tier.A1{color:var(--a1);background:var(--a1-soft)}
+    .profile-link{font-size:11px;font-weight:700;margin-left:5px}
+    details{margin-top:5px}summary{cursor:pointer;color:var(--muted);font-size:11px}.scores{display:grid;grid-template-columns:1fr auto;gap:2px 8px;font-size:11px;color:var(--muted);margin-top:5px}
+    .machine{color:var(--muted);font-size:12px;margin-top:4px}.members{margin-top:7px;color:var(--muted);font-size:11px}.external{font-size:11px;margin-top:5px}
     .error{margin:30px 0;padding:18px;border:1px solid #c44;border-radius:12px}
     footer{color:var(--muted);border-top:1px solid var(--line);padding:24px 0 42px;font-size:12px}
-    @media(max-width:1100px){.controls{grid-template-columns:1fr 1fr 1fr}.controls input{grid-column:1/-1}}
-    @media(max-width:700px){.wrap{width:min(100% - 20px,1580px)}header{padding-top:34px}.controls{grid-template-columns:1fr}
-      .controls input{grid-column:auto}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.stat{padding:13px}}
+    @media(max-width:1300px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.controls{grid-template-columns:1fr 1fr 1fr}.controls input{grid-column:1/-1}}
+    @media(max-width:700px){.wrap{width:min(100% - 20px,1680px)}header{padding-top:34px}.controls{grid-template-columns:1fr}.controls input{grid-column:auto}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.stat{padding:13px}}
   </style>
 </head>
 <body>
-  <header class="wrap">
-    <div class="eyebrow">Open-source scholarly registry · 開放學術來源登錄表</div>
-    <h1>Open Scholarly Sources</h1>
-    <div class="zh-title">開放學術來源</div>
-    <p class="lede">A bilingual, evidence-backed registry of scholarly journals, proceedings, platforms, repositories, directories, aggregators and preprint sources — designed for both people and machine retrieval.</p>
-    <p class="lede">具證據、英繁中對照、可供人閱讀也可供搜尋引擎與 LLM 擷取的學術來源登錄表；OA 年份、回溯檔案、文件版本與授權範圍分開記錄。</p>
-    <div class="links">
-      <a href="./registry.json">Consolidated JSON / 合併 JSON</a>
-      <a href="./registry.ndjson">NDJSON</a>
-      <a href="./registry.jsonld">JSON-LD</a>
-      <a href="./llms.txt">llms.txt</a>
-      <a href="./llms-full.txt">LLM full index / 完整索引</a>
-      <a href="./sources/">Static source pages / 靜態來源頁</a>
-      <a href="./data/registry-manifest.json">Manifest</a>
-      <a href="./schemas/source.schema.json">Schema</a>
-      <a href="https://github.com/hoiyu915-droid/open-scholarly-sources">GitHub</a>
-    </div>
-  </header>
+<header class="wrap">
+  <div class="eyebrow">Open-source scholarly registry · 開放學術來源登錄表</div>
+  <h1>Open Scholarly Sources</h1>
+  <div class="zh-title">開放學術來源</div>
+  <p class="lede">A bilingual, evidence-backed scholarly source map for people, search engines and research agents — now with explicit source-use tiers and archetypes.</p>
+  <p class="lede">英繁中對照的學術來源地圖；除了 OA、版本與審查狀態，也直接顯示 R1／F1 等用途 tier 與來源「性格」，方便人與 LLM 選對入口。</p>
+  <div class="links">
+    <a href="./registry.json">Consolidated JSON / 合併 JSON</a>
+    <a href="./source-profiles.json">Source profiles JSON / 來源剖面</a>
+    <a href="./profiles/">Profiles / 分級與性格</a>
+    <a href="./registry.ndjson">NDJSON</a>
+    <a href="./registry.jsonld">JSON-LD</a>
+    <a href="./llms.txt">llms.txt</a>
+    <a href="./llms-full.txt">LLM full index / 完整索引</a>
+    <a href="./sources/">Static source pages / 靜態來源頁</a>
+    <a href="./data/registry-manifest.json">Manifest</a>
+    <a href="./schemas/source.schema.json">Schema</a>
+    <a href="https://github.com/hoiyu915-droid/open-scholarly-sources">GitHub</a>
+  </div>
+</header>
 
-  <main class="wrap">
-    <div class="notice"><strong>OA semantics / OA 語義：</strong>
-      <em>full</em> 是可公開取得的範圍，不保證所有年代、版本與授權一致；
-      <em>mixed</em> 必須依期刊、文章或年份驗證。Subscribe to Open 只承認資料中明列的
-      <code>open_years</code>，典藏庫則可能同時含正式版本、作者接受稿與預印本。</div>
+<main class="wrap">
+  <div class="notice"><strong>Tier semantics / 分級語義：</strong>
+    <b>R1/R2</b> 是正式研究出版路線，<b>F1/F2</b> 是前沿／探索路線，<b>D1</b> 是發現基礎設施，<b>A1</b> 是典藏骨架。
+    Tier 是「怎麼用」的 routing label，不是聲望排行榜；F1 並不低於 R1。高 <code>noise_risk</code> 代表需要更多過濾，不代表來源差。
+  </div>
+  <div class="notice"><strong>OA semantics / OA 語義：</strong>
+    <em>full</em> 是可公開取得的範圍，不保證所有年代、版本與授權一致；<em>mixed</em> 必須依期刊、文章或年份驗證。
+    Subscribe to Open 只承認資料中明列的 <code>open_years</code>。
+  </div>
 
-    <section class="stats" aria-label="Registry statistics">
-      <div class="stat"><b id="stat-total">—</b><span>registered sources / 登錄來源</span></div>
-      <div class="stat"><b id="stat-full">—</b><span>full OA sources / 完整 OA</span></div>
-      <div class="stat"><b id="stat-publications">—</b><span>journals + proceedings / 期刊與論文集</span></div>
-      <div class="stat"><b id="stat-policy">—</b><span>explicit access policies / 明確存取政策</span></div>
-    </section>
+  <section class="stats" aria-label="Registry statistics">
+    <div class="stat"><b id="stat-total">—</b><span>registered sources / 登錄來源</span></div>
+    <div class="stat"><b id="stat-r1">—</b><span>R1 formal core / 正式核心</span></div>
+    <div class="stat"><b id="stat-f1">—</b><span>F1 frontier primary / 前沿主力</span></div>
+    <div class="stat"><b id="stat-d1">—</b><span>D1 discovery / 發現基礎設施</span></div>
+    <div class="stat"><b id="stat-a1">—</b><span>A1 archive / 典藏骨架</span></div>
+    <div class="stat"><b id="stat-full">—</b><span>full OA / 完整 OA</span></div>
+  </section>
 
-    <section class="controls" aria-label="Filters">
-      <input id="search" type="search" placeholder="Search / 搜尋：LLM、森林、化學、人口學、PubMed…" autocomplete="off">
-      <select id="subject"><option value="">All subjects / 全部領域</option></select>
-      <select id="type"><option value="">All source types / 全部類型</option></select>
-      <select id="oa"><option value="">All OA scopes / 全部 OA</option></select>
-      <select id="peer"><option value="">All review scopes / 全部審查狀態</option></select>
-      <select id="model"><option value="">All OA models / 全部 OA 模式</option></select>
-    </section>
-    <div id="result-line" class="result-line">Loading registry… / 載入中…</div>
+  <div class="quick" aria-label="Quick tier filters">
+    <button type="button" data-tier="">All / 全部</button>
+    <button type="button" data-tier="R1">R1 · formal core / 正式核心</button>
+    <button type="button" data-tier="F1">F1 · frontier primary / 前沿主力</button>
+    <button type="button" data-tier="F2">F2 · exploratory / 探索前沿</button>
+    <button type="button" data-tier="D1">D1 · discovery / 發現</button>
+    <button type="button" data-tier="A1">A1 · archive / 典藏</button>
+  </div>
 
-    <div class="table-wrap">
-      <table>
-        <thead><tr>
-          <th>Source / 來源</th><th>Subjects / 領域</th><th>Type / 類型</th><th>OA / 審查</th>
-          <th>Access policy / 存取政策</th><th>Access roles / 存取角色</th>
-          <th>Machine access / 機器存取</th><th>Verification / 驗證</th>
-        </tr></thead>
-        <tbody id="rows"></tbody>
-      </table>
-    </div>
-    <div id="error" class="error" hidden></div>
-  </main>
+  <section class="controls" aria-label="Filters">
+    <input id="search" type="search" placeholder="Search / 搜尋：F1、前沿偵察兵、LLM、森林、medRxiv…" autocomplete="off">
+    <select id="tier"><option value="">All tiers / 全部 tier</option></select>
+    <select id="archetype"><option value="">All archetypes / 全部性格</option></select>
+    <select id="subject"><option value="">All subjects / 全部領域</option></select>
+    <select id="type"><option value="">All source types / 全部類型</option></select>
+    <select id="oa"><option value="">All OA scopes / 全部 OA</option></select>
+    <select id="peer"><option value="">All review scopes / 全部審查狀態</option></select>
+  </section>
+  <div id="result-line" class="result-line">Loading registry… / 載入中…</div>
 
-  <footer class="wrap">Canonical records are versioned in Git. Static source pages, JSON, NDJSON, JSON-LD, sitemap and LLM text files are generated from the same manifest during deployment. ／ 所有機器索引與靜態頁都從同一份 canonical manifest 生成，不另養一份會腐爛的資料。</footer>
+  <div class="table-wrap">
+    <table>
+      <thead><tr>
+        <th>Source / 來源</th><th>Profile / 分級與性格</th><th>Subjects / 領域</th><th>Type / 類型</th>
+        <th>OA / 審查</th><th>Access policy / 存取政策</th><th>Access roles / 存取角色</th>
+        <th>Machine access / 機器存取</th><th>Verification / 驗證</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <div id="error" class="error" hidden></div>
+</main>
+
+<footer class="wrap">Canonical source facts remain separate from the derived source-use profile layer. Registry JSON, source profiles, static pages, sitemap and LLM text are generated together during deployment. ／ 來源事實與用途剖面分層保存，但部署時一起生成給人與機器使用。</footer>
 
 <script>
 const $=id=>document.getElementById(id);
-const state={sources:[],i18n:{taxonomy:{},sources:{}}};
+const state={sources:[],taxonomy:{},rules:{tiers:{},archetypes:{}}};
 const esc=value=>String(value??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
 const plain=value=>String(value??"").replaceAll("_"," ");
-function zhSource(source){return state.i18n.sources?.[source.id]||{}}
-function tax(group,value){return state.i18n.taxonomy?.[group]?.[value]||""}
+function tax(group,value){return state.taxonomy?.[group]?.[value]||""}
 function bilingual(group,value){const en=plain(value),zh=tax(group,value);return zh?`${en} / ${zh}`:en}
-function mergeI18n(shards){
-  const merged={taxonomy:{},sources:{}};
-  for(const shard of shards){
-    for(const [group,mapping] of Object.entries(shard.taxonomy||{})){
-      merged.taxonomy[group]={...(merged.taxonomy[group]||{}),...mapping};
-    }
-    Object.assign(merged.sources,shard.sources||{});
-  }
-  return merged;
+function zhSource(source){return source.translation?.["zh-TW"]||{}}
+function profile(source){return source.source_profile||{}}
+function ruleLabel(group,key){
+  const x=state.rules?.[group]?.[key];
+  if(!x)return plain(key);
+  return `${x.en||plain(key)} / ${x["zh-TW"]||""}`;
 }
-function optionize(select,values,group){
-  [...new Set(values)].filter(Boolean).sort((a,b)=>a.localeCompare(b)).forEach(value=>{
-    const option=document.createElement("option");option.value=value;option.textContent=bilingual(group,value);select.appendChild(option);
+function mergeTaxonomy(shards){
+  const out={};
+  for(const shard of shards)for(const [group,mapping] of Object.entries(shard.taxonomy||{}))out[group]={...(out[group]||{}),...mapping};
+  return out;
+}
+function optionize(select,values,labeler=x=>x){
+  [...new Set(values)].filter(Boolean).sort((a,b)=>String(a).localeCompare(String(b))).forEach(value=>{
+    const option=document.createElement("option");option.value=value;option.textContent=labeler(value);select.appendChild(option);
   });
 }
-function hasMachineEndpoint(source){const m=source.machine_access||{};return Boolean(m.feed_url||m.api_url||m.oai_pmh_url||m.bulk_metadata_url)}
 function renderStats(){
-  const s=state.sources;$("stat-total").textContent=s.length;$("stat-full").textContent=s.filter(x=>x.oa_scope==="full").length;
-  $("stat-publications").textContent=s.filter(x=>["journal","journal_collection","proceedings_platform","proceedings_series"].includes(x.source_type)).length;
-  $("stat-policy").textContent=s.filter(x=>x.access_policy).length;
+  const s=state.sources;
+  $("stat-total").textContent=s.length;
+  $("stat-r1").textContent=s.filter(x=>profile(x).tier==="R1").length;
+  $("stat-f1").textContent=s.filter(x=>profile(x).tier==="F1").length;
+  $("stat-d1").textContent=s.filter(x=>profile(x).tier==="D1").length;
+  $("stat-a1").textContent=s.filter(x=>profile(x).tier==="A1").length;
+  $("stat-full").textContent=s.filter(x=>x.oa_scope==="full").length;
 }
 function machineHTML(source){
   const m=source.machine_access||{};
-  const formats=(m.formats||[]).map(x=>`<span class="tag">${esc(x.toUpperCase())}</span>`).join(" ");
+  const formats=(m.formats||[]).map(x=>`<span class="tag">${esc(x.toUpperCase())}</span>`).join("");
   const endpoints=[["feed",m.feed_url],["API",m.api_url],["OAI-PMH",m.oai_pmh_url],["bulk",m.bulk_metadata_url]]
     .filter(([,url])=>url).map(([name,url])=>`<a href="${esc(url)}">${esc(name)}</a>`).join(" · ");
   return `<div class="tags">${formats}</div>${endpoints?`<div class="machine">${endpoints}</div>`:""}`;
@@ -184,17 +216,28 @@ function policyHTML(source){
   return `<div><span class="tag">${esc(bilingual("oa_models",p.model))}</span></div>
     <div class="verify">effective / 生效：${esc(p.effective_from||"—")}</div>
     <div class="verify">open years / 開放年份：${esc(years)}</div>
-    <div class="verify">backfile / 回溯：${esc(bilingual("backfile_scopes",p.backfile_scope))}</div>
     <div class="verify">versions / 版本：${esc(versions)}</div>
     <div class="verify">licence / 授權：${esc(bilingual("license_scopes",p.license_scope))}</div>
     ${p.notes?`<div class="policy-note">${esc(p.notes)}</div>`:""}`;
 }
+function profileHTML(source){
+  const p=profile(source);
+  if(!p.tier)return `<span class="verify">profile unavailable / 尚無剖面</span>`;
+  const arches=(p.archetypes||[]).map(a=>`<span class="arch">${esc(ruleLabel("archetypes",a))}</span>`).join("");
+  const scores=Object.entries(p.scores||{}).map(([k,v])=>`<span>${esc(plain(k))}</span><b>${esc(v)}/4</b>`).join("");
+  return `<div><span class="tier ${esc(p.tier)}">${esc(p.tier)}</span>
+    <a class="profile-link" href="./profiles/#${esc(source.id)}">${esc(ruleLabel("tiers",p.tier))}</a></div>
+    <div class="character">${esc(p.character?.en||"")}${p.character?.["zh-TW"]?`<br>${esc(p.character["zh-TW"])}`:""}</div>
+    <div class="tags">${arches}</div>
+    <details><summary>8 dimensions / 八軸</summary><div class="scores">${scores}</div></details>
+    <div class="verify">confidence / 信心：${esc(p.confidence||"—")}</div>`;
+}
 function rowHTML(source){
   const zh=zhSource(source);
+  const subjects=(source.subjects||[]).map(x=>`<span class="tag">${esc(bilingual("subjects",x))}</span>`).join("");
+  const roles=(source.access_roles||[]).map(x=>`<span class="tag">${esc(bilingual("access_roles",x))}</span>`).join("");
   const members=source.members?.length?`<div class="members"><strong>${source.members.length} members / 成員：</strong> ${source.members.map(esc).join(" · ")}</div>`:"";
   const transition=source.transition?`<div class="members"><strong>Migration / 出版遷移：</strong> ${esc(source.transition.from)} → ${esc(source.transition.to)} (${esc(source.transition.effective)})</div>`:"";
-  const subjects=source.subjects.map(x=>`<span class="tag">${esc(bilingual("subjects",x))}</span>`).join("");
-  const roles=source.access_roles.map(x=>`<span class="tag">${esc(bilingual("access_roles",x))}</span>`).join("");
   return `<tr>
     <td>
       <a class="source-name" href="./sources/${esc(source.id)}.html">${esc(source.name)}</a>
@@ -205,6 +248,7 @@ function rowHTML(source){
       <div class="external"><a href="${esc(source.canonical_url)}">canonical / 正式來源 ↗</a></div>
       ${members}${transition}
     </td>
+    <td>${profileHTML(source)}</td>
     <td><div class="tags">${subjects}</div></td>
     <td><span class="tag">${esc(bilingual("source_types",source.source_type))}</span><div class="verify">${esc(bilingual("publication_states",source.publication_state))}</div><div class="verify">status: ${esc(source.status)}</div></td>
     <td><span class="badge ${esc(source.oa_scope)}">${esc(bilingual("oa_scopes",source.oa_scope))}</span><div class="verify">${esc(bilingual("peer_review_scopes",source.peer_review_scope))}</div></td>
@@ -215,48 +259,72 @@ function rowHTML(source){
   </tr>`;
 }
 function searchText(source){
-  const zh=zhSource(source),p=source.access_policy||{};
+  const zh=zhSource(source),p=source.access_policy||{},sp=profile(source);
+  const arch=(sp.archetypes||[]).flatMap(a=>[a,ruleLabel("archetypes",a)]);
   return [source.id,source.name,source.organization,source.notes,zh.name,zh.summary,
     ...(source.subjects||[]),...(source.subjects||[]).map(x=>tax("subjects",x)),
     source.source_type,tax("source_types",source.source_type),...(source.members||[]),
-    p.model,tax("oa_models",p.model),p.notes,...(p.open_years||[]),...(p.version_scope||[])]
+    p.model,tax("oa_models",p.model),p.notes,...(p.open_years||[]),...(p.version_scope||[]),
+    sp.tier,ruleLabel("tiers",sp.tier),sp.character?.en,sp.character?.["zh-TW"],...arch,
+    ...Object.keys(sp.scores||{})]
     .filter(Boolean).join(" ").toLowerCase();
 }
+function syncQuick(){
+  const v=$("tier").value;
+  document.querySelectorAll(".quick button").forEach(b=>b.classList.toggle("active",b.dataset.tier===v));
+}
 function applyFilters(){
-  const q=$("search").value.trim().toLowerCase(),subject=$("subject").value,type=$("type").value,
-    oa=$("oa").value,peer=$("peer").value,model=$("model").value;
+  const q=$("search").value.trim().toLowerCase(),tier=$("tier").value,archetype=$("archetype").value,
+    subject=$("subject").value,type=$("type").value,oa=$("oa").value,peer=$("peer").value;
   const filtered=state.sources.filter(source=>(!q||searchText(source).includes(q))
-    &&(!subject||source.subjects.includes(subject))&&(!type||source.source_type===type)
-    &&(!oa||source.oa_scope===oa)&&(!peer||source.peer_review_scope===peer)
-    &&(!model||source.access_policy?.model===model))
-    .sort((a,b)=>a.name.localeCompare(b.name));
+    &&(!tier||profile(source).tier===tier)
+    &&(!archetype||(profile(source).archetypes||[]).includes(archetype))
+    &&(!subject||(source.subjects||[]).includes(subject))
+    &&(!type||source.source_type===type)
+    &&(!oa||source.oa_scope===oa)
+    &&(!peer||source.peer_review_scope===peer))
+    .sort((a,b)=>(profile(a).tier||"Z").localeCompare(profile(b).tier||"Z")||a.name.localeCompare(b.name));
   $("rows").innerHTML=filtered.map(rowHTML).join("");
   $("result-line").textContent=`${filtered.length} of ${state.sources.length} sources / 顯示 ${filtered.length}／${state.sources.length} 個來源`;
+  syncQuick();
 }
 async function fetchJSON(path){
   const response=await fetch(path,{cache:"no-store"});if(!response.ok)throw new Error(`${path}: HTTP ${response.status}`);return response.json();
 }
 async function boot(){
   try{
-    const manifest=await fetchJSON("./data/registry-manifest.json");
-    if(!Array.isArray(manifest.source_shards)||!Array.isArray(manifest.translation_shards))throw new Error("Manifest is missing shard arrays");
-    const [registries,translations]=await Promise.all([
-      Promise.all(manifest.source_shards.map(file=>fetchJSON(`./data/${file}`))),
-      Promise.all(manifest.translation_shards.map(file=>fetchJSON(`./data/${file}`)))
+    const [registry,manifest,rules]=await Promise.all([
+      fetchJSON("./registry.json"),
+      fetchJSON("./data/registry-manifest.json"),
+      fetchJSON("./data/source-profile-rules.json")
     ]);
-    state.i18n=mergeI18n(translations);
-    state.sources=registries.flatMap(r=>Array.isArray(r.sources)?r.sources:[]);
-    const ids=state.sources.map(s=>s.id);if(new Set(ids).size!==ids.length)throw new Error("Duplicate source IDs across shards");
+    const translationShards=await Promise.all((manifest.translation_shards||[]).map(file=>fetchJSON(`./data/${file}`)));
+    state.taxonomy=mergeTaxonomy(translationShards);
+    state.rules=rules;
+    state.sources=Array.isArray(registry.sources)?registry.sources:[];
+    const ids=state.sources.map(s=>s.id);
+    if(!state.sources.length)throw new Error("Consolidated registry is empty");
+    if(new Set(ids).size!==ids.length)throw new Error("Duplicate source IDs");
+    if(state.sources.some(s=>!s.source_profile?.tier))throw new Error("Source profiles are missing from consolidated registry");
+
     renderStats();
-    optionize($("subject"),state.sources.flatMap(x=>x.subjects||[]),"subjects");
-    optionize($("type"),state.sources.map(x=>x.source_type),"source_types");
-    optionize($("oa"),state.sources.map(x=>x.oa_scope),"oa_scopes");
-    optionize($("peer"),state.sources.map(x=>x.peer_review_scope),"peer_review_scopes");
-    optionize($("model"),state.sources.map(x=>x.access_policy?.model).filter(Boolean),"oa_models");
-    ["search","subject","type","oa","peer","model"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",applyFilters));
+    optionize($("tier"),state.sources.map(x=>profile(x).tier),x=>ruleLabel("tiers",x));
+    optionize($("archetype"),state.sources.flatMap(x=>profile(x).archetypes||[]),x=>ruleLabel("archetypes",x));
+    optionize($("subject"),state.sources.flatMap(x=>x.subjects||[]),x=>bilingual("subjects",x));
+    optionize($("type"),state.sources.map(x=>x.source_type),x=>bilingual("source_types",x));
+    optionize($("oa"),state.sources.map(x=>x.oa_scope),x=>bilingual("oa_scopes",x));
+    optionize($("peer"),state.sources.map(x=>x.peer_review_scope),x=>bilingual("peer_review_scopes",x));
+
+    const params=new URLSearchParams(location.search);
+    if(params.get("tier")&&[...$("tier").options].some(o=>o.value===params.get("tier")))$("tier").value=params.get("tier");
+    if(params.get("archetype")&&[...$("archetype").options].some(o=>o.value===params.get("archetype")))$("archetype").value=params.get("archetype");
+
+    ["search","tier","archetype","subject","type","oa","peer"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",applyFilters));
+    document.querySelectorAll(".quick button").forEach(button=>button.addEventListener("click",()=>{$("tier").value=button.dataset.tier;applyFilters()}));
     applyFilters();
   }catch(error){
-    $("result-line").textContent="Registry failed to load / 登錄表載入失敗";$("error").hidden=false;$("error").textContent=`Could not load registry: ${error.message}`;
+    $("result-line").textContent="Registry failed to load / 登錄表載入失敗";
+    $("error").hidden=false;$("error").textContent=`Could not load registry: ${error.message}`;
   }
 }
 boot();
