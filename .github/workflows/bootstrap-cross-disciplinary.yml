@@ -30,17 +30,9 @@ jobs:
             bootstrap/update.tar.xz.b64.ab \
             bootstrap/update.tar.xz.b64.ac \
             bootstrap/update.tar.xz.b64.ad \
-            | base64 --decode > bootstrap/update.tar.xz
-          echo "f67c6221261a6928e43fff8fce309bdb3c88026efaa0daa78d89ba337d9bf707  bootstrap/update.tar.xz" | sha256sum --check -
-          tar -xJf bootstrap/update.tar.xz -C .
-          rm -f bootstrap/update.tar.gz
-          rm -f bootstrap/update.tar.xz
-          rm -f bootstrap/update.tar.xz.b64.aa
-          rm -f bootstrap/update.tar.xz.b64.ab
-          rm -f bootstrap/update.tar.xz.b64.ac
-          rm -f bootstrap/update.tar.xz.b64.ad
-          rmdir bootstrap
-          rm -f .github/workflows/bootstrap-cross-disciplinary.yml
+            | base64 --decode > "$RUNNER_TEMP/update.tar.xz"
+          echo "f67c6221261a6928e43fff8fce309bdb3c88026efaa0daa78d89ba337d9bf707  $RUNNER_TEMP/update.tar.xz" | sha256sum --check -
+          tar -xJf "$RUNNER_TEMP/update.tar.xz" -C .
 
       - name: Validate registry and generated indexes
         run: |
@@ -49,19 +41,11 @@ jobs:
           rm -rf "$RUNNER_TEMP/open-scholarly-sources-site"
           python3 scripts/build_machine_index.py --output "$RUNNER_TEMP/open-scholarly-sources-site"
 
-      - name: Commit applied files
+      - name: Commit data, UI, schema and index builders
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -- \
-            .github/workflows/bootstrap-cross-disciplinary.yml \
-            bootstrap/update.tar.gz \
-            bootstrap/update.tar.xz.b64.aa \
-            bootstrap/update.tar.xz.b64.ab \
-            bootstrap/update.tar.xz.b64.ac \
-            bootstrap/update.tar.xz.b64.ad \
-            .github/workflows/pages.yml \
-            .github/workflows/validate.yml \
             CONTRIBUTING.md \
             README.md \
             data/registry-manifest.json \
