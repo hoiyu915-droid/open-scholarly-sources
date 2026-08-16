@@ -13,6 +13,7 @@ RELEASE = "0" * 40
 
 
 def payload(candidates, attempt_status="success_with_candidates", minimum=1):
+    route_id = "formal:tacl"
     return {
         "registry_release_id": RELEASE,
         "verification": {
@@ -24,8 +25,16 @@ def payload(candidates, attempt_status="success_with_candidates", minimum=1):
             "requirements": ["formal_evidence"],
             "freshness": "unspecified"
         },
+        "planned_registered_routes": [
+            {
+                "route_id": route_id,
+                "lane": "formal_evidence",
+                "source_id": "tacl"
+            }
+        ],
         "route_attempts": [
             {
+                "route_id": route_id,
                 "lane": "formal_evidence",
                 "source_id": "tacl",
                 "attempt_status": attempt_status,
@@ -115,6 +124,26 @@ class ReferenceConsumerTests(unittest.TestCase):
         self.assertTrue(trace["coverage"]["registered_routes_exhausted"])
         self.assertTrue(trace["coverage"]["coverage_unmet"])
         self.assertTrue(trace["coverage"]["public_ocean_allowed"])
+
+    def test_incomplete_planned_route_accounting_does_not_open_public_ocean(self):
+        request = payload([], attempt_status="success_empty")
+        request["planned_registered_routes"].append(
+            {
+                "route_id": "formal:second-source",
+                "lane": "formal_evidence",
+                "source_id": "second-source"
+            }
+        )
+        trace = execute(request, self.resolver)
+        self.assertFalse(trace["coverage"]["registered_routes_exhausted"])
+        self.assertTrue(trace["coverage"]["coverage_unmet"])
+        self.assertFalse(trace["coverage"]["public_ocean_allowed"])
+
+    def test_unplanned_attempt_is_rejected(self):
+        bad = payload([])
+        bad["route_attempts"][0]["route_id"] = "formal:not-planned"
+        with self.assertRaises(SystemExit):
+            execute(bad, self.resolver)
 
     def test_nonterminal_attempt_is_rejected(self):
         bad = payload([])
