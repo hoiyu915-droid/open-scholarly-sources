@@ -29,7 +29,7 @@ They track the latest deployed site, but intermediaries may cache an older respo
 
 ## Immutable release endpoints
 
-For each successfully deployed commit `<sha>`:
+For each successfully deployed commit `<sha>` **from activation of this contract onward**:
 
 ```text
 /releases/<sha>/release-manifest.json
@@ -44,6 +44,8 @@ For each successfully deployed commit `<sha>`:
 /releases/<sha>/schemas/source-profile.schema.json
 /releases/<sha>/schemas/release-manifest.schema.json
 ```
+
+Earlier Pages deployments remain recoverable from Git history and retained Actions artifacts where available, but they are not promised under `/releases/<sha>/` retroactively.
 
 The release manifest records the commit identity, source count, profile-rule version/method and SHA-256 digest/byte size for every immutable file.
 
