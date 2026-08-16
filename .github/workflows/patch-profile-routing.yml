@@ -29,32 +29,51 @@ jobs:
 
           p=Path('scripts/build_source_profiles.py')
           s=p.read_text(encoding='utf-8')
-          old='''def score(s):\n    peer,pub,typ=s["peer_review_scope"],s["publication_state"]\n    subs=set(s.get("subjects") or [])'''
-          new='''def score(s):\n    peer,pub,typ=s["peer_review_scope"],s["publication_state"]\n    frontierish=pub=="preprint" or (typ=="subject_repository" and peer=="not_peer_reviewed" and pub=="mixed" and s["status"]=="active")\n    subs=set(s.get("subjects") or [])'''
-          if old not in s: raise SystemExit('score prelude pattern missing')
-          s=s.replace(old,new,1)
-          s=s.replace('''    rigor=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else 2 if peer=="mixed" or pub=="mixed" else 1 if peer=="not_peer_reviewed" and pub=="preprint" else 0''','''    rigor=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else 1 if peer=="not_peer_reviewed" and frontierish else 2 if peer=="mixed" or pub=="mixed" else 0''',1)
-          s=s.replace('''    velocity=4 if pub=="preprint" or typ=="review_platform" else 3 if {"preprint","accepted_manuscript"}&vers else 2 if typ in {"journal","proceedings_series"} else 1 if typ in REPOS|DISC else 2''','''    velocity=4 if frontierish or typ=="review_platform" else 3 if {"preprint","accepted_manuscript"}&vers else 2 if typ in {"journal","proceedings_series"} else 1 if typ in REPOS|DISC else 2''',1)
-          s=s.replace('''    signal=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else (3 if spec>=4 else 2) if peer=="mixed" or pub=="preprint" else 2''','''    signal=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else (3 if spec>=4 else 2) if peer=="mixed" or frontierish else 2''',1)
-          s=s.replace('''    noise=4 if peer=="not_peer_reviewed" and pub=="preprint" else 3 if peer=="mixed" or pub=="mixed" else 2 if typ in DISC or typ=="review_platform" else 1 if peer=="peer_reviewed" else 2''','''    noise=4 if peer=="not_peer_reviewed" and frontierish else 3 if peer=="mixed" or pub=="mixed" else 2 if typ in DISC or typ=="review_platform" else 1 if peer=="peer_reviewed" else 2''',1)
+          def repl(old,new,label):
+              global s
+              if old not in s: raise SystemExit(f'{label} pattern missing')
+              s=s.replace(old,new,1)
 
-          old='''def tier(s,sc):\n    typ,pub=s["source_type"],s["publication_state"]\n    if typ in DISC or typ=="review_platform": return "D1"\n    if typ in REPOS and pub!="preprint": return "A1"\n    if pub=="preprint":\n        return "F1" if s["status"]=="active" and s["verification"]["status"]=="verified" and s.get("parent_id")!="osf-preprints" else "F2"'''
-          new='''def tier(s,sc):\n    typ,pub=s["source_type"],s["publication_state"]\n    frontierish=pub=="preprint" or (typ=="subject_repository" and s["peer_review_scope"]=="not_peer_reviewed" and pub=="mixed" and s["status"]=="active")\n    if typ in DISC or typ=="review_platform": return "D1"\n    if frontierish:\n        return "F1" if s["status"]=="active" and s["verification"]["status"]=="verified" and s.get("parent_id")!="osf-preprints" else "F2"\n    if typ in REPOS: return "A1"'''
-          if old not in s: raise SystemExit('tier pattern missing')
-          s=s.replace(old,new,1)
+          repl(
+              '    peer,pub,typ=s["peer_review_scope"],s["publication_state"],s["source_type"]\n    subs=set(s.get("subjects") or [])',
+              '    peer,pub,typ=s["peer_review_scope"],s["publication_state"],s["source_type"]\n    frontierish=pub=="preprint" or (typ=="subject_repository" and peer=="not_peer_reviewed" and pub=="mixed" and s["status"]=="active")\n    subs=set(s.get("subjects") or [])',
+              'score prelude')
+          repl(
+              '    rigor=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else 2 if peer=="mixed" or pub=="mixed" else 1 if peer=="not_peer_reviewed" and pub=="preprint" else 0',
+              '    rigor=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else 1 if peer=="not_peer_reviewed" and frontierish else 2 if peer=="mixed" or pub=="mixed" else 0',
+              'rigor')
+          repl(
+              '    velocity=4 if pub=="preprint" or typ=="review_platform" else 3 if {"preprint","accepted_manuscript"}&vers else 2 if typ in {"journal","journal_collection","proceedings_series"} else 1 if typ in REPOS|DISC else 2',
+              '    velocity=4 if frontierish or typ=="review_platform" else 3 if {"preprint","accepted_manuscript"}&vers else 2 if typ in {"journal","journal_collection","proceedings_series"} else 1 if typ in REPOS|DISC else 2',
+              'velocity')
+          repl(
+              '    signal=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else (3 if spec>=4 else 2) if peer=="mixed" or pub=="preprint" else 2',
+              '    signal=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else (3 if spec>=4 else 2) if peer=="mixed" or frontierish else 2',
+              'signal')
+          repl(
+              '    noise=4 if peer=="not_peer_reviewed" and pub=="preprint" else 3 if peer=="mixed" or pub=="mixed" else 2 if typ in DISC or typ=="review_platform" else 1 if peer=="peer_reviewed" else 2',
+              '    noise=4 if peer=="not_peer_reviewed" and frontierish else 3 if peer=="mixed" or pub=="mixed" else 2 if typ in DISC or typ=="review_platform" else 1 if peer=="peer_reviewed" else 2',
+              'noise')
 
-          old='''    nn=(s["name"]+" "+s.get("notes","")).casefold()\n    if t=="R1": a.add("formal_anchor")\n    if s["publication_state"]=="preprint": a.add("frontier_scout")'''
-          new='''    nn=(s["name"]+" "+s.get("notes","")).casefold()\n    frontierish=s["publication_state"]=="preprint" or (s["source_type"]=="subject_repository" and s["peer_review_scope"]=="not_peer_reviewed" and s["publication_state"]=="mixed" and s["status"]=="active")\n    if t=="R1": a.add("formal_anchor")\n    if s["status"]=="active" and frontierish: a.add("frontier_scout")'''
-          if old not in s: raise SystemExit('archetype prelude pattern missing')
-          s=s.replace(old,new,1)
-          s=s.replace('''    if s["publication_state"]=="preprint" and subs&CLINICAL: a.add("clinical_early_warning")\n    if subs&POLICY and any(x in nn for x in ("working paper","discussion paper","policy","econom")): a.add("policy_signal")\n    if s.get("parent_id")=="osf-preprints": a.add("community_hub")''','''    if s["status"]=="active" and frontierish and subs&CLINICAL: a.add("clinical_early_warning")\n    if subs&POLICY and (frontierish or any(x in nn for x in ("working paper","discussion paper"))): a.add("policy_signal")\n    if s["status"]=="active" and s.get("parent_id")=="osf-preprints": a.add("community_hub")''',1)
+          repl(
+              '    typ,pub=s["source_type"],s["publication_state"]\n    if typ in DISC or typ=="review_platform": return "D1"\n    if typ in REPOS and pub!="preprint": return "A1"\n    if pub=="preprint":\n        return "F1" if s["status"]=="active" and s["verification"]["status"]=="verified" and s.get("parent_id")!="osf-preprints" else "F2"',
+              '    typ,pub=s["source_type"],s["publication_state"]\n    frontierish=pub=="preprint" or (typ=="subject_repository" and s["peer_review_scope"]=="not_peer_reviewed" and pub=="mixed" and s["status"]=="active")\n    if typ in DISC or typ=="review_platform": return "D1"\n    if frontierish:\n        return "F1" if s["status"]=="active" and s["verification"]["status"]=="verified" and s.get("parent_id")!="osf-preprints" else "F2"\n    if typ in REPOS: return "A1"',
+              'tier')
+
+          repl(
+              '    nn=(s["name"]+" "+s.get("notes","")).casefold()\n    if t=="R1": a.add("formal_anchor")\n    if s["publication_state"]=="preprint": a.add("frontier_scout")',
+              '    nn=(s["name"]+" "+s.get("notes","")).casefold()\n    frontierish=s["publication_state"]=="preprint" or (s["source_type"]=="subject_repository" and s["peer_review_scope"]=="not_peer_reviewed" and s["publication_state"]=="mixed" and s["status"]=="active")\n    if t=="R1": a.add("formal_anchor")\n    if s["status"]=="active" and frontierish: a.add("frontier_scout")',
+              'archetype prelude')
+          repl(
+              '    if s["publication_state"]=="preprint" and subs&CLINICAL: a.add("clinical_early_warning")\n    if subs&POLICY and any(x in nn for x in ("working paper","discussion paper","policy","econom")): a.add("policy_signal")\n    if s.get("parent_id")=="osf-preprints": a.add("community_hub")',
+              '    if s["status"]=="active" and frontierish and subs&CLINICAL: a.add("clinical_early_warning")\n    if subs&POLICY and (frontierish or any(x in nn for x in ("working paper","discussion paper"))): a.add("policy_signal")\n    if s["status"]=="active" and s.get("parent_id")=="osf-preprints": a.add("community_hub")',
+              'active/policy archetypes')
           p.write_text(s,encoding='utf-8')
 
           rp=Path('data/source-profile-rules.json')
           r=json.loads(rp.read_text(encoding='utf-8'))
           r['schema_version']='0.2.1'
           r['method']='deterministic_source_use_profile_v2_1'
-          # NutriXiv is an inactive historical archive; keep no active-frontier personalities.
           n=r['overrides']['nutrixiv']
           n['remove_archetypes']=sorted(set(n.get('remove_archetypes',[]))|{'frontier_scout','clinical_early_warning','community_hub'})
           rp.write_text(json.dumps(r,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
@@ -93,7 +112,9 @@ jobs:
           for sid in ('current-developments-nutrition','plos-medicine','theoretical-economics'):
               assert 'policy_signal' not in prof(sid)['archetypes'], (sid,prof(sid)['archetypes'])
           assert 'policy_signal' in prof('nber-working-papers')['archetypes']
-          assert json.loads((root/'source-profiles.json').read_text())['schema_version']=='0.2.1'
+          payload=json.loads((root/'source-profiles.json').read_text())
+          assert payload['schema_version']=='0.2.1'
+          assert payload['method']=='deterministic_source_use_profile_v2_1'
           print('Routing cleanup assertions OK')
           PY
 
