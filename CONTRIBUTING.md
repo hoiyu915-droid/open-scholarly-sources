@@ -1,59 +1,78 @@
-# Contributing sources｜新增來源
+# Contributing sources｜新增來源規則
 
-The registry is useful only if access claims remain narrower than the evidence. Add sources conservatively.／來源聲稱必須比證據更保守；不確定時就明寫不確定，不要補猜。
+The registry is useful only when its claims remain narrower than the evidence. 嘴可以大，證據不能膨風。
 
-## Before adding a source
+## Before adding a source / 新增前
 
-1. Prefer an official publisher, venue, journal, library, society, government, or repository page as verification evidence.
-2. Decide what the entity actually is: journal, journal collection, proceedings series/platform, publisher/review platform, repository, preprint server, aggregator, directory, or digital library.
-3. Keep `oa_scope` separate from `access_roles`. A mixed platform can expose full text without every item being OA.
-4. Keep `peer_review_scope` separate from `publication_state`. A repository item, OpenReview submission, or preprint must not inherit an accepted journal/conference claim.
-5. Add machine endpoints only when the endpoint itself has been verified. `null` is better than a guessed API, feed, or OAI-PMH URL.
-6. Record the verification date and primary evidence URL.
-7. Use `transition` for announced publisher migrations instead of overwriting the current route early.
+1. Use an official publisher, journal, scholarly society, library, government or repository page as primary evidence.
+2. Identify the entity correctly: journal, journal collection, publisher platform, proceedings platform, review platform, repository, preprint server, aggregator, directory or digital library.
+3. Keep OA scope, peer review, publication state, document version and reuse licence separate.
+4. Add only verified machine endpoints. Use `null` rather than guessing an API, RSS or OAI-PMH URL.
+5. Record an ISO verification date and evidence URL.
+6. Reuse stable lowercase kebab-case IDs; do not casually rename IDs already released.
 
-## OA scope
+## Choose the correct shard / 選擇資料 shard
 
-- `full` — registered scholarly content is intended to be openly accessible.
-- `mixed` — access varies by title, article, year, item, embargo, submission state, or collection state.
-- `metadata_only` — discovery/metadata route rather than a canonical full-text host.
-- `unknown` — unresolved; do not guess.
+Edit the subject-appropriate source file listed in `data/registry-manifest.json`. Create a new shard only when a subject lane is large enough to maintain independently, then add it to `source_shards`.
 
-For Subscribe-to-Open and similar models, use `mixed` unless the entity and relevant time period are unambiguously open.
+Every source also needs a `zh-TW` name and summary. Add these to the relevant file in `translation_shards`. Translation shards are merged at build time; duplicate source IDs are rejected.
 
-## Evidence quality
+## OA scope / OA 範圍
 
-Good evidence includes an official OA policy, venue or journal page, library publishing page, repository documentation, conference proceedings archive, or government documentation. Search-result snippets and third-party directories may locate evidence but should not be the sole verification record when a primary source exists.
+- `full` — registered content is intended to be openly accessible.
+- `mixed` — access varies by title, article, year, item, embargo or component.
+- `metadata_only` — discovery/metadata route, not a hosted full-text source.
+- `unknown` — unresolved.
 
-## Canonical data / 核心資料
+Do not mark an entire platform `full` merely because it contains some OA journals or articles.
 
-Start from:
+## Temporal and version semantics / 年份與版本語義
 
-```text
-data/registry-manifest.json
+Use `access_policy` when access depends on a model, date, year, backfile or document version:
+
+```json
+{
+  "access_policy": {
+    "model": "subscribe_to_open",
+    "effective_from": null,
+    "open_years": ["2026"],
+    "backfile_scope": "mixed",
+    "version_scope": ["version_of_record"],
+    "license_scope": "mixed",
+    "notes": "Only the verified 2026 volume is OA; do not project this status forward."
+  }
+}
 ```
 
-The manifest lists every canonical source shard. Add the source to the most appropriate existing `data/sources*.json` shard. If a genuinely new subject lane needs its own shard, add the new file to `source_shards` in the manifest.
+Rules:
 
-Every source ID must also have a Traditional Chinese display entry in:
+- Subscribe to Open entries must list at least one verified `open_year`.
+- An open year is not a promise about the next year.
+- `free to read` does not imply CC BY or other reusable licensing.
+- Repositories that mix VORs, accepted manuscripts and preprints must say so in `version_scope`.
+- If a journal migrated publishers, use `transition` rather than silently rewriting history.
+- Closed or merged historical routes should remain `status: inactive` when they are still needed for archive discovery.
 
-```text
-data/i18n.zh-TW.json
-```
+## Translation taxonomy / 翻譯分類
 
-Each translation contains a `name` and `summary`. Add translations for any new taxonomy values under the relevant taxonomy group as well. English canonical source names and evidence stay in source records; localization is a display/search layer and must not overwrite them.
+New subject labels and access-policy values need zh-TW taxonomy entries. CI merges all translation shards and requires exact coverage for:
 
-Do not commit generated copies into `docs/data/`. The Pages workflow copies all canonical JSON files and the schema into the deployment artifact.
+- subjects and source types
+- OA, review and publication states
+- access roles and verification states
+- OA models, backfile scopes, version scopes and licence scopes
 
-Run both validators:
+## Validate and build / 驗證與建置
+
+Run all three commands:
 
 ```bash
 python3 scripts/validate_registry.py
 python3 scripts/validate_extensions.py
+rm -rf /tmp/open-scholarly-sources-site
+python3 scripts/build_machine_index.py --output /tmp/open-scholarly-sources-site
 ```
 
-`validate_extensions.py` enforces manifest integrity, cross-shard unique IDs, parent references, source-type semantics, and exact zh-TW source/taxonomy coverage. A passing validator is necessary but factual claims still need evidence.
+Do not commit generated copies of `registry.json`, `llms.txt`, per-source HTML or files under `docs/data/`. The Pages workflow regenerates them from canonical data. Only `docs/index.html` is maintained directly.
 
-## Stable identifiers
-
-Use lowercase kebab-case IDs and do not casually rename an existing ID after publication. Downstream systems may use it as a stable foreign key. If a publisher changes, prefer updating metadata plus `transition` rather than minting a replacement ID for the same entity.
+A passing validator proves structural consistency, not factual truth. Review the evidence before merging.

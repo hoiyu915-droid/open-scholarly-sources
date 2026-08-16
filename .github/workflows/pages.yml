@@ -25,15 +25,18 @@ jobs:
       - name: Validate base registry
         run: python3 scripts/validate_registry.py
 
-      - name: Validate source shards and bilingual coverage
+      - name: Validate source shards, access policies and bilingual coverage
         run: python3 scripts/validate_extensions.py
 
-      - name: Stage generated site data
+      - name: Stage Pages site
         run: |
-          mkdir -p docs/data docs/schemas
-          cp data/*.json docs/data/
-          cp schemas/source.schema.json docs/schemas/source.schema.json
-          touch docs/.nojekyll
+          rm -rf site
+          mkdir -p site/data site/schemas
+          cp docs/index.html site/index.html
+          cp data/*.json site/data/
+          cp schemas/source.schema.json site/schemas/source.schema.json
+          python3 scripts/build_machine_index.py --output site
+          touch site/.nojekyll
 
       - name: Configure Pages
         uses: actions/configure-pages@v6
@@ -41,7 +44,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: docs
+          path: site
 
   deploy:
     environment:
