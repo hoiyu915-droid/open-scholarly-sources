@@ -11,14 +11,7 @@
     "verification_enabled": false,
     "public_ocean_enabled": false,
     "suggested_source_count": {"target": 5, "maximum": 8},
-    "output_fields": [
-      "source_id",
-      "name",
-      "organization",
-      "source_type",
-      "why_this_source",
-      "canonical_url"
-    ],
+    "output_fields": ["source_id", "name", "organization", "source_type", "why_this_source", "canonical_url"],
     "forbidden_default_actions": [
       "resolve_documents",
       "query_crossref",
@@ -32,14 +25,7 @@
   },
   "navigation": {
     "source_of_truth": "pinned_open_scholarly_sources_registry_release",
-    "selection_inputs": [
-      "subjects",
-      "access_roles",
-      "source_profile.tier",
-      "source_profile.archetypes",
-      "source_type",
-      "canonical_url"
-    ],
+    "selection_inputs": ["subjects", "access_roles", "source_profile.tier", "source_profile.archetypes", "source_type", "canonical_url"],
     "llm_semantic_matching_allowed": true,
     "llm_fact_boundary": "may_rank_or_explain_registered_sources_but_may_not_invent_or_upgrade_registry_facts",
     "result_contract": "point_the_user_to_the_best_registered_places_to_dig_for_literature"
@@ -48,21 +34,8 @@
     "enabled_by_default": false,
     "requires": "explicit_user_opt_in",
     "llm_may_self_activate": false,
-    "activation_examples": [
-      "核實這些文獻",
-      "驗證來源",
-      "啟動認證路由",
-      "跑 verification gate",
-      "做 source audit",
-      "check these papers formally"
-    ],
-    "non_activation_examples": [
-      "找這個題目的文獻",
-      "用 OA repo 找來源",
-      "有哪些期刊可以挖",
-      "找最新研究",
-      "recommend sources"
-    ],
+    "activation_examples": ["核實這些文獻", "驗證來源", "啟動認證路由", "跑 verification gate", "做 source audit", "check these papers formally"],
+    "non_activation_examples": ["找這個題目的文獻", "用 OA repo 找來源", "有哪些期刊可以挖", "找最新研究", "recommend sources"],
     "host_policy_note": "A host application may independently impose safety or compliance checks, but Open Scholarly Sources itself does not auto-enable verification."
   },
   "verification_profiles": {
@@ -85,18 +58,7 @@
     "public_ocean_may_bypass_resolution": false,
     "research_runtime_may_promote_registry": false
   },
-  "verification_requirements": [
-    "formal_evidence",
-    "frontier_research",
-    "frontier_challenge",
-    "evidence_synthesis",
-    "guideline",
-    "integrity_check",
-    "preregistration",
-    "fulltext_recovery",
-    "historical_archive",
-    "broad_discovery"
-  ],
+  "verification_requirements": ["formal_evidence", "frontier_research", "frontier_challenge", "evidence_synthesis", "guideline", "integrity_check", "preregistration", "fulltext_recovery", "historical_archive", "broad_discovery"],
   "verification_lanes": {
     "formal_evidence": {
       "preferred_tiers": ["R1", "R2"],
@@ -153,7 +115,8 @@
   "verification_route_order": ["registry_direct", "registry_discovery", "public_ocean"],
   "coverage_contract": {
     "terminal_attempt_states": ["success_with_candidates", "success_empty", "failed_after_policy_budget", "not_applicable"],
-    "registered_routes_exhausted_when": "all_planned_registered_routes_for_required_lanes_are_terminal",
+    "planned_route_accounting_required": true,
+    "registered_routes_exhausted_when": "every_planned_registered_route_has_one_terminal_attempt",
     "coverage_unmet_when": "any_required_lane_has_fewer_admissible_documents_than_its_minimum",
     "public_ocean_allowed_when": ["verification_enabled", "registered_routes_exhausted", "coverage_unmet"]
   },
@@ -187,6 +150,7 @@
     "source_profile_rule_version",
     "verification",
     "query_envelope",
+    "planned_registered_routes",
     "route_attempts",
     "fallback_depth",
     "resolution_attestations"
