@@ -1,0 +1,135 @@
+{
+  "locale": "zh-TW",
+  "updated": "2026-08-16",
+  "taxonomy": {
+    "subjects": {
+      "nutrition": "營養學",
+      "nutritional epidemiology": "營養流行病學",
+      "dietetics": "膳食營養學",
+      "research integrity": "研究誠信",
+      "clinical guidelines": "臨床指引",
+      "evidence synthesis": "實證綜整",
+      "clinical trials": "臨床試驗",
+      "preregistration": "預註冊",
+      "systematic reviews": "系統性回顧",
+      "open peer review": "開放同儕審查",
+      "scholarly communication": "學術傳播",
+      "research data": "研究資料",
+      "theses and dissertations": "博碩士論文",
+      "regional medicine": "區域醫學文獻",
+      "bibliometrics": "書目計量",
+      "research discovery": "學術發現",
+      "public policy": "公共政策",
+      "open science": "開放科學",
+      "Taiwan studies": "臺灣研究",
+      "evolutionary biology": "演化生物學",
+      "open access": "開放存取"
+    }
+  },
+  "sources": {
+    "current-developments-nutrition": {
+      "name": "Current Developments in Nutrition（營養學最新發展）",
+      "summary": "美國營養學會的同行審查全開放營養期刊，涵蓋機制、臨床、族群、政策與研究方法。"
+    },
+    "nutrixiv": {
+      "name": "NutriXiv",
+      "summary": "OSF 上的營養科學歷史預印本服務；目前已停止新投稿，保留作前沿文獻與版本追溯。"
+    },
+    "retraction-watch-crossref": {
+      "name": "Retraction Watch／Crossref 撤稿資料",
+      "summary": "透過 Crossref 正式服務取得 Retraction Watch 的撤稿與更正資料，用於查核論文發表後狀態。"
+    },
+    "pubmed": {
+      "name": "PubMed",
+      "summary": "NLM/NCBI 免費生醫文獻索引入口；以 MEDLINE 為核心並連結 PMC 與出版商全文，但 PubMed 本身不是全文庫。"
+    },
+    "cochrane-library": {
+      "name": "Cochrane Library",
+      "summary": "Cochrane 系統性回顧與相關實證資源集合；摘要廣泛可查，全文開放程度依地區、訂閱與文章 OA 狀態而異。"
+    },
+    "who-guidelines": {
+      "name": "WHO 指引",
+      "summary": "世界衛生組織正式指引入口，提供經 WHO 指引審查程序把關的臨床與公共衛生建議。"
+    },
+    "who-bigg-rec": {
+      "name": "BIGG-REC WHO／PAHO GRADE 建議資料庫",
+      "summary": "集中檢索 WHO／PAHO 以 GRADE 形成的實證建議，適合直接追蹤指引中的 recommendation。"
+    },
+    "who-iris": {
+      "name": "WHO IRIS",
+      "summary": "世界衛生組織出版物與技術文件全文典藏庫，提供多語言長期存取與版本追溯。"
+    },
+    "global-index-medicus": {
+      "name": "Global Index Medicus 全球醫學索引",
+      "summary": "WHO 主導的區域生醫與公共衛生索引，補足低中收入地區及非英語來源。"
+    },
+    "clinicaltrials-gov": {
+      "name": "ClinicalTrials.gov",
+      "summary": "臨床研究註冊與結果資料庫，可追預先設定 outcome、版本歷史與結果登錄，適合查 outcome switching。"
+    },
+    "who-ictrp": {
+      "name": "WHO ICTRP 臨床試驗註冊平台",
+      "summary": "WHO 匯整多個臨床試驗註冊庫並連回原始紀錄的跨國 trial registry 搜尋層。"
+    },
+    "prospero": {
+      "name": "PROSPERO",
+      "summary": "系統性回顧的前瞻註冊庫，可把已發表 review／meta-analysis 與預先登錄的問題、範圍和方法比對。"
+    },
+    "osf-registries": {
+      "name": "OSF Registries",
+      "summary": "跨學科一般研究註冊與預註冊基礎設施，公開 registration 為具時間戳的固定研究紀錄。"
+    },
+    "elife-reviewed-preprints": {
+      "name": "eLife Reviewed Preprints",
+      "summary": "eLife 的 publish-review-curate 路線：預印本經正式同行審查後連同公開 reviews 與 eLife Assessment 發布，可再修訂或定稿為 VOR。"
+    },
+    "f1000research": {
+      "name": "F1000Research",
+      "summary": "先公開發表、再進行透明 post-publication peer review 的研究出版平台，審查狀態與版本公開可追。"
+    },
+    "wellcome-open-research": {
+      "name": "Wellcome Open Research",
+      "summary": "Wellcome 資助研究的開放出版平台，採發表後公開同儕審查與明確版本管理。"
+    },
+    "gates-open-research": {
+      "name": "Gates Open Research",
+      "summary": "Gates 資助研究的透明開放出版路線，保留公開審查與版本狀態。"
+    },
+    "peer-community-in": {
+      "name": "Peer Community In（PCI）",
+      "summary": "以預印本為底層，由獨立學術社群公開審查並推薦的 overlay peer-review 模式。"
+    },
+    "nber-working-papers": {
+      "name": "NBER Working Papers",
+      "summary": "美國經濟學重要 working-paper 樞紐，研究通常在正式同行審查前流通；全文存取並非對所有使用者一致開放。"
+    },
+    "openalex": {
+      "name": "OpenAlex",
+      "summary": "開放學術知識圖譜，涵蓋作品、作者、機構、來源、主題及其關係，特別適合 API 與機器發現。"
+    },
+    "core": {
+      "name": "CORE",
+      "summary": "聚合大量機構典藏與期刊的 OA metadata／全文，提供搜尋與機器 API 存取。"
+    },
+    "semantic-scholar": {
+      "name": "Semantic Scholar",
+      "summary": "Ai2 的學術圖譜與發現服務，提供論文、作者、引用、推薦、向量與資料集 API。"
+    },
+    "lens-scholarly-works": {
+      "name": "Lens Scholarly Works",
+      "summary": "把學術作品、引用關係與專利文獻連結起來的發現圖譜，並提供 Scholarly API。"
+    },
+    "unpaywall": {
+      "name": "Unpaywall",
+      "summary": "以 DOI 為核心判斷與定位合法 OA 版本的服務；用途是找可公開版本，不是評判研究品質。"
+    },
+    "dryad": {
+      "name": "Dryad",
+      "summary": "研究資料典藏平台，提供 DOI 資料集、期刊整合與 API；在生態與生命科學尤其常見。"
+    },
+    "ndltd-taiwan": {
+      "name": "臺灣博碩士論文知識加值系統",
+      "summary": "國家圖書館的臺灣學位論文入口；書目與摘要覆蓋廣，全文依作者授權而定，適合追本土研究原始材料。"
+    }
+  }
+}

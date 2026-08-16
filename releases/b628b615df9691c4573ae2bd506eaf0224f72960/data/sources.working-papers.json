@@ -1,0 +1,607 @@
+{
+  "schema_version": "0.2.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "agecon-search",
+      "name": "AgEcon Search",
+      "organization": "University of Minnesota",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics",
+        "agriculture",
+        "environmental science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://ageconsearch.umn.edu/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://ageconsearch.umn.edu/pages/?page=faq"
+      },
+      "notes": "Free full-text repository for working papers, conference papers and journal articles in agricultural and applied economics, including resource, energy and environmental economics.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "conference_proceeding",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Repository mixes working papers, conference papers and published literature; record-level version classification is required."
+      }
+    },
+    {
+      "id": "bank-of-england-staff-working-papers",
+      "name": "Bank of England Staff Working Papers",
+      "organization": "Bank of England",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.bankofengland.co.uk/working-paper/staff-working-papers",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.bankofengland.co.uk/research"
+      },
+      "notes": "Bank of England staff working-paper series for newly released economic and financial research, with public paper pages and PDFs.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Working papers are frontier institutional research and should remain distinct from later refereed journal publications."
+      }
+    },
+    {
+      "id": "bis-working-papers",
+      "name": "BIS Working Papers",
+      "organization": "Bank for International Settlements",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.bis.org/wpapers/index.htm",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.bis.org/wpapers/index.htm"
+      },
+      "notes": "BIS research working papers by BIS economists and occasional central-bank or academic coauthors, with public full-text papers.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Institutional working-paper series; treat results as working research unless later peer-reviewed publication is identified."
+      }
+    },
+    {
+      "id": "ecb-working-paper-series",
+      "name": "ECB Working Paper Series",
+      "organization": "European Central Bank",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.ecb.europa.eu/press/research-publications/working-papers/html/index.en.html",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.ecb.europa.eu/press/research-publications/working-papers/html/index.en.html"
+      },
+      "notes": "ECB working-paper series disseminating economic research relevant to central-bank tasks; the ECB describes these papers as work in progress.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Use as early policy/economics research; later journal versions require separate resolution."
+      }
+    },
+    {
+      "id": "econstor",
+      "name": "EconStor",
+      "organization": "ZBW – Leibniz Information Centre for Economics",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://www.econstor.eu/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.econstor.eu/"
+      },
+      "notes": "Open-access economics and business repository with large working-paper collections and other scholarly outputs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Strong working-paper and green-OA route; version and licence vary by record."
+      }
+    },
+    {
+      "id": "federal-reserve-feds",
+      "name": "Finance and Economics Discussion Series (FEDS)",
+      "organization": "Board of Governors of the Federal Reserve System",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.federalreserve.gov/econres/feds/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.federalreserve.gov/econres/feds/"
+      },
+      "notes": "Federal Reserve Board staff working-paper series covering economics and finance. The Board explicitly describes the research as often preliminary and circulated for discussion and critical comment.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "High-value policy/economics frontier source; institutional publication does not imply Board endorsement."
+      }
+    },
+    {
+      "id": "federal-reserve-ifdp",
+      "name": "International Finance Discussion Papers (IFDP)",
+      "organization": "Board of Governors of the Federal Reserve System",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.federalreserve.gov/econres/ifdp/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.federalreserve.gov/econres/ifdp/index.htm"
+      },
+      "notes": "Federal Reserve Board staff working papers focused on international macroeconomics, trade, global finance, financial institutions and capital flows; recent papers provide free full PDFs and DOIs.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "IFDPs are preliminary materials circulated to stimulate discussion and critical comment."
+      }
+    },
+    {
+      "id": "imf-working-papers",
+      "name": "IMF Working Papers",
+      "organization": "International Monetary Fund",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.imf.org/en/publications",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.imf.org/en/publications"
+      },
+      "notes": "IMF working papers present in-depth research in progress and are published to elicit comments and encourage debate; current issues provide downloadable full text.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Research-in-progress series; views and claims should not be treated as peer-reviewed journal findings by default."
+      }
+    },
+    {
+      "id": "iza-discussion-papers",
+      "name": "IZA Discussion Papers",
+      "organization": "IZA Institute of Labor Economics / LISER",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.iza.org/publications/dp",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.iza.org/publications/dp"
+      },
+      "notes": "Large labor-economics discussion-paper series that makes new research output accessible before publication in refereed journals; papers are downloadable free of charge.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Pre-refereed working papers circulated for discussion; do not infer journal peer review."
+      }
+    },
+    {
+      "id": "mpra",
+      "name": "Munich Personal RePEc Archive (MPRA)",
+      "organization": "University Library of Munich",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://mpra.ub.uni-muenchen.de/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://mpra.ub.uni-muenchen.de/"
+      },
+      "notes": "Open economics repository for working papers and preprints, integrated with RePEc. Deposits receive editorial approval before appearing and are freely available.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Working-paper/preprint source; later journal publication should be version-resolved separately."
+      }
+    },
+    {
+      "id": "repec",
+      "name": "Research Papers in Economics (RePEc)",
+      "organization": "RePEc volunteer network",
+      "source_type": "aggregator",
+      "subjects": [
+        "economics"
+      ],
+      "oa_scope": "metadata_only",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://repec.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata"
+      ],
+      "machine_access": {
+        "formats": [
+          "html"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://repec.org/"
+      },
+      "notes": "Large public-domain bibliographic network for economics, especially working-paper series. RePEc points users to contributing archives rather than serving as the canonical full-text host for every record.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "not_applicable",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "not_applicable",
+        "notes": "Discovery/index layer for working papers and published economics literature; full-text availability depends on the contributing archive."
+      }
+    },
+    {
+      "id": "world-bank-prwp",
+      "name": "World Bank Policy Research Working Papers",
+      "organization": "World Bank",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.worldbank.org/en/research/brief/world-bank-policy-research-working-papers",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.worldbank.org/en/research/brief/world-bank-policy-research-working-papers"
+      },
+      "notes": "Policy Research Working Paper Series for rapid dissemination of World Bank research in progress and exchange of ideas on development.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Institutional working papers are research in progress, not peer-reviewed journal VORs."
+      }
+    }
+  ]
+}

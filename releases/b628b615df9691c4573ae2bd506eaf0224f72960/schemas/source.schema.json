@@ -1,0 +1,361 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/source.schema.json",
+  "title": "Open Scholarly Sources Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "updated",
+    "sources"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    }
+  },
+  "$defs": {
+    "nullableUri": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "nullableEffective": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9]{4}(?:-[0-9]{2}-[0-9]{2})?$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "organization",
+        "source_type",
+        "subjects",
+        "oa_scope",
+        "peer_review_scope",
+        "publication_state",
+        "canonical_url",
+        "parent_id",
+        "access_roles",
+        "machine_access",
+        "status",
+        "verification",
+        "notes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "organization": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "enum": [
+            "journal",
+            "journal_collection",
+            "publisher_platform",
+            "institutional_repository",
+            "subject_repository",
+            "government_repository",
+            "preprint_server",
+            "aggregator",
+            "directory",
+            "digital_library",
+            "proceedings_platform",
+            "proceedings_series",
+            "review_platform"
+          ]
+        },
+        "subjects": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "oa_scope": {
+          "enum": [
+            "full",
+            "mixed",
+            "metadata_only",
+            "unknown"
+          ]
+        },
+        "peer_review_scope": {
+          "enum": [
+            "peer_reviewed",
+            "mixed",
+            "not_peer_reviewed",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "publication_state": {
+          "enum": [
+            "published",
+            "preprint",
+            "mixed",
+            "not_applicable"
+          ]
+        },
+        "canonical_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "parent_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "members": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "access_roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "discovery",
+              "metadata",
+              "abstract",
+              "fulltext",
+              "canonical_vor",
+              "repository_copy"
+            ]
+          }
+        },
+        "machine_access": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "formats",
+            "feed_url",
+            "api_url",
+            "oai_pmh_url",
+            "bulk_metadata_url"
+          ],
+          "properties": {
+            "formats": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "html",
+                  "pdf",
+                  "xml",
+                  "json",
+                  "csv",
+                  "rdf"
+                ]
+              }
+            },
+            "feed_url": {
+              "$ref": "#/$defs/nullableUri"
+            },
+            "api_url": {
+              "$ref": "#/$defs/nullableUri"
+            },
+            "oai_pmh_url": {
+              "$ref": "#/$defs/nullableUri"
+            },
+            "bulk_metadata_url": {
+              "$ref": "#/$defs/nullableUri"
+            }
+          }
+        },
+        "access_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "model",
+            "effective_from",
+            "open_years",
+            "backfile_scope",
+            "version_scope",
+            "license_scope",
+            "notes"
+          ],
+          "properties": {
+            "model": {
+              "enum": [
+                "gold",
+                "diamond",
+                "subscribe_to_open",
+                "platform_transition",
+                "repository",
+                "fully_open_platform",
+                "consortium_funded",
+                "free_to_read_archive",
+                "mixed",
+                "unknown"
+              ]
+            },
+            "effective_from": {
+              "$ref": "#/$defs/nullableEffective"
+            },
+            "open_years": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^[0-9]{4}$"
+              }
+            },
+            "backfile_scope": {
+              "enum": [
+                "full",
+                "mixed",
+                "partial",
+                "unknown",
+                "not_applicable"
+              ]
+            },
+            "version_scope": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "version_of_record",
+                  "accepted_manuscript",
+                  "preprint",
+                  "conference_proceeding",
+                  "review_material",
+                  "mixed"
+                ]
+              }
+            },
+            "license_scope": {
+              "enum": [
+                "uniform_cc_by",
+                "uniform_open",
+                "mixed",
+                "unknown",
+                "not_applicable"
+              ]
+            },
+            "notes": {
+              "type": "string"
+            }
+          }
+        },
+        "transition": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "effective",
+            "from",
+            "to",
+            "evidence_url"
+          ],
+          "properties": {
+            "effective": {
+              "type": "string",
+              "minLength": 4
+            },
+            "from": {
+              "type": "string",
+              "minLength": 1
+            },
+            "to": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence_url": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://"
+            }
+          }
+        },
+        "status": {
+          "enum": [
+            "active",
+            "inactive",
+            "migrating",
+            "unknown"
+          ]
+        },
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "checked",
+            "evidence_url"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "verified",
+                "partial",
+                "needs_review"
+              ]
+            },
+            "checked": {
+              "type": "string",
+              "format": "date"
+            },
+            "evidence_url": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://"
+            }
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
