@@ -36,16 +36,7 @@
     "default_behavior": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "mode",
-        "purpose",
-        "verification_enabled",
-        "public_ocean_enabled",
-        "suggested_source_count",
-        "output_fields",
-        "forbidden_default_actions",
-        "no_match_behavior"
-      ],
+      "required": ["mode", "purpose", "verification_enabled", "public_ocean_enabled", "suggested_source_count", "output_fields", "forbidden_default_actions", "no_match_behavior"],
       "properties": {
         "mode": {"const": "source_navigation"},
         "purpose": {"const": "recommend_registered_scholarly_sources_for_literature_discovery"},
@@ -102,14 +93,7 @@
     "verification_constraints": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "uncertainty_may_widen_routes",
-        "uncertainty_may_upgrade_evidence",
-        "uncertainty_may_close_required_lane",
-        "llm_may_set_verified",
-        "public_ocean_may_bypass_resolution",
-        "research_runtime_may_promote_registry"
-      ],
+      "required": ["uncertainty_may_widen_routes", "uncertainty_may_upgrade_evidence", "uncertainty_may_close_required_lane", "llm_may_set_verified", "public_ocean_may_bypass_resolution", "research_runtime_may_promote_registry"],
       "properties": {
         "uncertainty_may_widen_routes": {"const": true},
         "uncertainty_may_upgrade_evidence": {"const": false},
@@ -130,16 +114,15 @@
       "minProperties": 1,
       "additionalProperties": {"$ref": "#/$defs/lane"}
     },
-    "verification_route_order": {
-      "const": ["registry_direct", "registry_discovery", "public_ocean"]
-    },
+    "verification_route_order": {"const": ["registry_direct", "registry_discovery", "public_ocean"]},
     "coverage_contract": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["terminal_attempt_states", "registered_routes_exhausted_when", "coverage_unmet_when", "public_ocean_allowed_when"],
+      "required": ["terminal_attempt_states", "planned_route_accounting_required", "registered_routes_exhausted_when", "coverage_unmet_when", "public_ocean_allowed_when"],
       "properties": {
         "terminal_attempt_states": {"const": ["success_with_candidates", "success_empty", "failed_after_policy_budget", "not_applicable"]},
-        "registered_routes_exhausted_when": {"type": "string", "minLength": 1},
+        "planned_route_accounting_required": {"const": true},
+        "registered_routes_exhausted_when": {"const": "every_planned_registered_route_has_one_terminal_attempt"},
         "coverage_unmet_when": {"type": "string", "minLength": 1},
         "public_ocean_allowed_when": {"const": ["verification_enabled", "registered_routes_exhausted", "coverage_unmet"]}
       }
@@ -185,18 +168,7 @@
   },
   "$defs": {
     "requirement": {
-      "enum": [
-        "formal_evidence",
-        "frontier_research",
-        "frontier_challenge",
-        "evidence_synthesis",
-        "guideline",
-        "integrity_check",
-        "preregistration",
-        "fulltext_recovery",
-        "historical_archive",
-        "broad_discovery"
-      ]
+      "enum": ["formal_evidence", "frontier_research", "frontier_challenge", "evidence_synthesis", "guideline", "integrity_check", "preregistration", "fulltext_recovery", "historical_archive", "broad_discovery"]
     },
     "profile": {
       "type": "object",
@@ -219,10 +191,7 @@
         "admissibility_requires": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
         "registry_source_scope_requires": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
       },
-      "anyOf": [
-        {"required": ["preferred_tiers"]},
-        {"required": ["preferred_archetypes"]}
-      ]
+      "anyOf": [{"required": ["preferred_tiers"]}, {"required": ["preferred_archetypes"]}]
     }
   }
 }
