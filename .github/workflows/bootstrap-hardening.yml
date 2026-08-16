@@ -40,6 +40,17 @@ jobs:
           tar -xJf "$RUNNER_TEMP/hardening-nonworkflow.tar.xz" -C .
           rm -f bootstrap/hardening-nonworkflow.b64.*
 
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path=Path('data/i18n.zh-TW.integrity-discovery.json')
+          doc=json.loads(path.read_text(encoding='utf-8'))
+          subjects=doc.setdefault('taxonomy',{}).setdefault('subjects',{})
+          subjects['evolutionary biology']='演化生物學'
+          subjects['open access']='開放存取'
+          path.write_text(json.dumps(doc,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+
           python3 -m py_compile scripts/build_source_profiles.py scripts/build_static_homepage.py
           python3 scripts/validate_registry.py
           python3 scripts/validate_extensions.py
