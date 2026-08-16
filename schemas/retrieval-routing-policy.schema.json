@@ -11,29 +11,95 @@
     "enforcement_scope",
     "repository_guarantee",
     "runtime_enforcement",
-    "constraints",
-    "modes",
-    "requirements",
-    "default_query_envelope",
-    "deterministic_query_signals",
-    "semantic_hints",
-    "lanes",
-    "route_order",
+    "default_behavior",
+    "navigation",
+    "verification_activation",
+    "verification_profiles",
+    "verification_constraints",
+    "verification_requirements",
+    "verification_lanes",
+    "verification_route_order",
     "coverage_contract",
     "resolution",
     "admissibility_classes",
     "promotion",
-    "trace_required_fields",
+    "verification_trace_required_fields",
     "reference_implementation"
   ],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
-    "policy_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
-    "method": {"const": "registry_first_monotonic_fallback_v1"},
+    "schema_version": {"const": "2.0.0"},
+    "policy_version": {"const": "2.0.0"},
+    "method": {"const": "registry_source_navigation_opt_in_verification_v2"},
     "enforcement_scope": {"const": "consumer"},
     "repository_guarantee": {"const": "policy_publication_versioning_reference_implementation"},
     "runtime_enforcement": {"const": false},
-    "constraints": {
+    "default_behavior": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "purpose",
+        "verification_enabled",
+        "public_ocean_enabled",
+        "suggested_source_count",
+        "output_fields",
+        "forbidden_default_actions",
+        "no_match_behavior"
+      ],
+      "properties": {
+        "mode": {"const": "source_navigation"},
+        "purpose": {"const": "recommend_registered_scholarly_sources_for_literature_discovery"},
+        "verification_enabled": {"const": false},
+        "public_ocean_enabled": {"const": false},
+        "suggested_source_count": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["target", "maximum"],
+          "properties": {
+            "target": {"type": "integer", "minimum": 1},
+            "maximum": {"type": "integer", "minimum": 1}
+          }
+        },
+        "output_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "forbidden_default_actions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "no_match_behavior": {"const": "report_registry_coverage_gap_without_auto_verification_or_public_ocean"}
+      }
+    },
+    "navigation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_of_truth", "selection_inputs", "llm_semantic_matching_allowed", "llm_fact_boundary", "result_contract"],
+      "properties": {
+        "source_of_truth": {"const": "pinned_open_scholarly_sources_registry_release"},
+        "selection_inputs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "llm_semantic_matching_allowed": {"const": true},
+        "llm_fact_boundary": {"type": "string", "minLength": 1},
+        "result_contract": {"const": "point_the_user_to_the_best_registered_places_to_dig_for_literature"}
+      }
+    },
+    "verification_activation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled_by_default", "requires", "llm_may_self_activate", "activation_examples", "non_activation_examples", "host_policy_note"],
+      "properties": {
+        "enabled_by_default": {"const": false},
+        "requires": {"const": "explicit_user_opt_in"},
+        "llm_may_self_activate": {"const": false},
+        "activation_examples": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "non_activation_examples": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "host_policy_note": {"type": "string", "minLength": 1}
+      }
+    },
+    "verification_profiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lite", "verified"],
+      "properties": {
+        "lite": {"$ref": "#/$defs/profile"},
+        "verified": {"$ref": "#/$defs/profile"}
+      }
+    },
+    "verification_constraints": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -53,70 +119,18 @@
         "research_runtime_may_promote_registry": {"const": false}
       }
     },
-    "modes": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["lite", "verified"],
-      "properties": {
-        "lite": {"$ref": "#/$defs/mode"},
-        "verified": {"$ref": "#/$defs/mode"}
-      }
-    },
-    "requirements": {
+    "verification_requirements": {
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
       "items": {"$ref": "#/$defs/requirement"}
     },
-    "default_query_envelope": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["mode", "requirements", "freshness"],
-      "properties": {
-        "mode": {"enum": ["lite", "verified"]},
-        "requirements": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/requirement"}},
-        "freshness": {"type": "string", "minLength": 1}
-      }
-    },
-    "deterministic_query_signals": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["precision_target", "recall_target", "effect", "signals"],
-      "properties": {
-        "precision_target": {"const": "high"},
-        "recall_target": {"const": "intentionally_low"},
-        "effect": {"const": "widen_only"},
-        "signals": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["tokens", "add_requirements"],
-            "properties": {
-              "tokens": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-              "add_requirements": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/requirement"}}
-            }
-          }
-        }
-      }
-    },
-    "semantic_hints": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["producer", "trusted_for", "forbidden_for", "note"],
-      "properties": {
-        "producer": {"const": "llm_or_other_nondeterministic_classifier"},
-        "trusted_for": {"type": "array", "contains": {"const": "widen"}},
-        "forbidden_for": {"type": "array", "contains": {"const": "verify_evidence"}},
-        "note": {"type": "string", "minLength": 1}
-      }
-    },
-    "lanes": {
+    "verification_lanes": {
       "type": "object",
       "minProperties": 1,
       "additionalProperties": {"$ref": "#/$defs/lane"}
     },
-    "route_order": {
+    "verification_route_order": {
       "const": ["registry_direct", "registry_discovery", "public_ocean"]
     },
     "coverage_contract": {
@@ -127,7 +141,7 @@
         "terminal_attempt_states": {"const": ["success_with_candidates", "success_empty", "failed_after_policy_budget", "not_applicable"]},
         "registered_routes_exhausted_when": {"type": "string", "minLength": 1},
         "coverage_unmet_when": {"type": "string", "minLength": 1},
-        "public_ocean_allowed_when": {"const": ["registered_routes_exhausted", "coverage_unmet"]}
+        "public_ocean_allowed_when": {"const": ["verification_enabled", "registered_routes_exhausted", "coverage_unmet"]}
       }
     },
     "resolution": {
@@ -135,8 +149,8 @@
       "additionalProperties": false,
       "required": ["statuses", "attestation_classes", "accepted_resolvers", "public_ocean_default", "new_source_peer_review_default", "note"],
       "properties": {
-        "statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
-        "attestation_classes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "attestation_classes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
         "accepted_resolvers": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}},
         "public_ocean_default": {"const": "untrusted_until_resolved"},
         "new_source_peer_review_default": {"const": "unknown"},
@@ -155,15 +169,16 @@
         "evidence_quorum_principle": {"const": "independent_resolver_families_not_repeated_sessions"}
       }
     },
-    "trace_required_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "verification_trace_required_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
     "reference_implementation": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["path", "scope", "network_resolver", "limitations"],
+      "required": ["path", "scope", "network_resolver", "activation_required", "limitations"],
       "properties": {
         "path": {"const": "reference_consumer/route.py"},
-        "scope": {"const": "formal_evidence_candidate_gate_v0_1"},
+        "scope": {"const": "explicit_verification_formal_evidence_candidate_gate_v0_2"},
         "network_resolver": {"const": "crossref"},
+        "activation_required": {"const": true},
         "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
       }
     }
@@ -183,7 +198,7 @@
         "broad_discovery"
       ]
     },
-    "mode": {
+    "profile": {
       "type": "object",
       "additionalProperties": false,
       "required": ["description", "resolver_classes", "claim_boundary"],
