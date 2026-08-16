@@ -11,6 +11,7 @@
   <link rel="alternate" type="application/json" href="./source-profiles.json" title="Source-use profiles JSON">
   <link rel="alternate" type="application/ld+json" href="./registry.jsonld" title="Schema.org catalog">
   <link rel="alternate" type="text/plain" href="./llms.txt" title="LLM discovery file">
+  <script>document.documentElement.classList.add("js")</script>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -87,6 +88,11 @@
     .profile-link{font-size:11px;font-weight:700;margin-left:5px}
     details{margin-top:5px}summary{cursor:pointer;color:var(--muted);font-size:11px}.scores{display:grid;grid-template-columns:1fr auto;gap:2px 8px;font-size:11px;color:var(--muted);margin-top:5px}
     .machine{color:var(--muted);font-size:12px;margin-top:4px}.members{margin-top:7px;color:var(--muted);font-size:11px}.external{font-size:11px;margin-top:5px}
+    .pager{display:flex;gap:8px;align-items:center;justify-content:flex-end;padding:9px 14px;border:1px solid var(--line);border-top:0;background:var(--panel)}
+    .pager button{padding:6px 10px;font-size:12px}.pager span{color:var(--muted);font-size:12px}
+    .static-fallback{margin:18px 0}.static-fallback h2{font-size:18px;margin:0 0 6px}.static-fallback p{color:var(--muted);margin:0 0 10px;font-size:12px}
+    .static-fallback .table-wrap{border-top:1px solid var(--line);border-radius:12px;margin-bottom:18px}.static-fallback table{min-width:900px}.static-fallback td,.static-fallback th{padding:8px 10px}
+    .js .static-fallback{display:none}
     .error{margin:30px 0;padding:18px;border:1px solid #c44;border-radius:12px}
     footer{color:var(--muted);border-top:1px solid var(--line);padding:24px 0 42px;font-size:12px}
     @media(max-width:1300px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.controls{grid-template-columns:1fr 1fr 1fr}.controls input{grid-column:1/-1}}
@@ -125,6 +131,8 @@
     Subscribe to Open 只承認資料中明列的 <code>open_years</code>。
   </div>
 
+  <!-- STATIC_FALLBACK -->
+
   <section class="stats" aria-label="Registry statistics">
     <div class="stat"><b id="stat-total">—</b><span>registered sources / 登錄來源</span></div>
     <div class="stat"><b id="stat-r1">—</b><span>R1 formal core / 正式核心</span></div>
@@ -153,6 +161,7 @@
     <select id="peer"><option value="">All review scopes / 全部審查狀態</option></select>
   </section>
   <div id="result-line" class="result-line">Loading registry… / 載入中…</div>
+  <div class="pager" id="pager"><button type="button" id="prev-page">← Prev</button><span id="page-line">Page —</span><button type="button" id="next-page">Next →</button></div>
 
   <div class="table-wrap">
     <table>
@@ -171,7 +180,7 @@
 
 <script>
 const $=id=>document.getElementById(id);
-const state={sources:[],taxonomy:{},rules:{tiers:{},archetypes:{}}};
+const state={sources:[],taxonomy:{},rules:{tiers:{},archetypes:{}},page:1,pageSize:50,filtered:[]};
 const esc=value=>String(value??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
 const plain=value=>String(value??"").replaceAll("_"," ");
 function tax(group,value){return state.taxonomy?.[group]?.[value]||""}
@@ -230,7 +239,8 @@ function profileHTML(source){
     <div class="character">${esc(p.character?.en||"")}${p.character?.["zh-TW"]?`<br>${esc(p.character["zh-TW"])}`:""}</div>
     <div class="tags">${arches}</div>
     <details><summary>8 dimensions / 八軸</summary><div class="scores">${scores}</div></details>
-    <div class="verify">confidence / 信心：${esc(p.confidence||"—")}</div>`;
+    <div class="verify">confidence / 信心：${esc(p.confidence||"—")}</div>
+    ${p.provenance?`<div class="verify">rules ${esc(p.provenance.rule_version||"—")} · checked ${esc(p.provenance.source_verification?.checked||"—")} · <a href="${esc(p.provenance.source_verification?.evidence_url||"#")}">evidence</a>${p.provenance.override_applied?" · override":""}</div>`:""}`;
 }
 function rowHTML(source){
   const zh=zhSource(source);
@@ -273,10 +283,20 @@ function syncQuick(){
   const v=$("tier").value;
   document.querySelectorAll(".quick button").forEach(b=>b.classList.toggle("active",b.dataset.tier===v));
 }
-function applyFilters(){
+function renderPage(){
+  const total=state.filtered.length,pages=Math.max(1,Math.ceil(total/state.pageSize));
+  if(state.page>pages)state.page=pages;
+  const slice=state.filtered.slice((state.page-1)*state.pageSize,state.page*state.pageSize);
+  $("rows").innerHTML=slice.map(rowHTML).join("");
+  $("result-line").textContent=`${total} of ${state.sources.length} sources / 顯示 ${total}／${state.sources.length} 個來源`;
+  $("page-line").textContent=`Page ${state.page} / ${pages} · ${slice.length} rows`;
+  $("prev-page").disabled=state.page<=1;$("next-page").disabled=state.page>=pages;
+  syncQuick();
+}
+function applyFilters(resetPage=true){
   const q=$("search").value.trim().toLowerCase(),tier=$("tier").value,archetype=$("archetype").value,
     subject=$("subject").value,type=$("type").value,oa=$("oa").value,peer=$("peer").value;
-  const filtered=state.sources.filter(source=>(!q||searchText(source).includes(q))
+  state.filtered=state.sources.filter(source=>(!q||searchText(source).includes(q))
     &&(!tier||profile(source).tier===tier)
     &&(!archetype||(profile(source).archetypes||[]).includes(archetype))
     &&(!subject||(source.subjects||[]).includes(subject))
@@ -284,9 +304,8 @@ function applyFilters(){
     &&(!oa||source.oa_scope===oa)
     &&(!peer||source.peer_review_scope===peer))
     .sort((a,b)=>(profile(a).tier||"Z").localeCompare(profile(b).tier||"Z")||a.name.localeCompare(b.name));
-  $("rows").innerHTML=filtered.map(rowHTML).join("");
-  $("result-line").textContent=`${filtered.length} of ${state.sources.length} sources / 顯示 ${filtered.length}／${state.sources.length} 個來源`;
-  syncQuick();
+  if(resetPage)state.page=1;
+  renderPage();
 }
 async function fetchJSON(path){
   const response=await fetch(path,{cache:"no-store"});if(!response.ok)throw new Error(`${path}: HTTP ${response.status}`);return response.json();
@@ -319,9 +338,11 @@ async function boot(){
     if(params.get("tier")&&[...$("tier").options].some(o=>o.value===params.get("tier")))$("tier").value=params.get("tier");
     if(params.get("archetype")&&[...$("archetype").options].some(o=>o.value===params.get("archetype")))$("archetype").value=params.get("archetype");
 
-    ["search","tier","archetype","subject","type","oa","peer"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",applyFilters));
-    document.querySelectorAll(".quick button").forEach(button=>button.addEventListener("click",()=>{$("tier").value=button.dataset.tier;applyFilters()}));
-    applyFilters();
+    ["search","tier","archetype","subject","type","oa","peer"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",()=>applyFilters(true)));
+    document.querySelectorAll(".quick button").forEach(button=>button.addEventListener("click",()=>{$("tier").value=button.dataset.tier;applyFilters(true)}));
+    $("prev-page").addEventListener("click",()=>{state.page=Math.max(1,state.page-1);renderPage()});
+    $("next-page").addEventListener("click",()=>{state.page++;renderPage()});
+    applyFilters(true);
   }catch(error){
     $("result-line").textContent="Registry failed to load / 登錄表載入失敗";
     $("error").hidden=false;$("error").textContent=`Could not load registry: ${error.message}`;
