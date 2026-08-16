@@ -1,7 +1,11 @@
 {
   "registry_release_id": "0000000000000000000000000000000000000000",
+  "verification": {
+    "enabled": true,
+    "profile": "lite",
+    "requested_by": "user"
+  },
   "query_envelope": {
-    "mode": "lite",
     "requirements": ["formal_evidence"],
     "freshness": "unspecified"
   },
