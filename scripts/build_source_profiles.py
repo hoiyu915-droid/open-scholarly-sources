@@ -29,12 +29,13 @@ def sources():
 
 def score(s):
     peer,pub,typ=s["peer_review_scope"],s["publication_state"],s["source_type"]
+    frontierish=pub=="preprint" or (typ=="subject_repository" and peer=="not_peer_reviewed" and pub=="mixed" and s["status"]=="active")
     subs=set(s.get("subjects") or [])
     spec=1 if {"multidisciplinary","interdisciplinary science"}&subs else 4 if len(subs)<=2 else 3 if len(subs)<=4 else 2 if len(subs)<=8 else 1
-    rigor=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else 2 if peer=="mixed" or pub=="mixed" else 1 if peer=="not_peer_reviewed" and pub=="preprint" else 0
+    rigor=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else 1 if peer=="not_peer_reviewed" and frontierish else 2 if peer=="mixed" or pub=="mixed" else 0
     pol=s.get("access_policy") or {}; vers=set(pol.get("version_scope") or [])
-    velocity=4 if pub=="preprint" or typ=="review_platform" else 3 if {"preprint","accepted_manuscript"}&vers else 2 if typ in {"journal","journal_collection","proceedings_series"} else 1 if typ in REPOS|DISC else 2
-    signal=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else (3 if spec>=4 else 2) if peer=="mixed" or pub=="preprint" else 2
+    velocity=4 if frontierish or typ=="review_platform" else 3 if {"preprint","accepted_manuscript"}&vers else 2 if typ in {"journal","journal_collection","proceedings_series"} else 1 if typ in REPOS|DISC else 2
+    signal=4 if peer=="peer_reviewed" and pub=="published" else 3 if peer=="peer_reviewed" else (3 if spec>=4 else 2) if peer=="mixed" or frontierish else 2
     ma=s.get("machine_access") or {}
     eps=sum(bool(ma.get(k)) for k in ("feed_url","api_url","oai_pmh_url","bulk_metadata_url"))
     sf=len(set(ma.get("formats") or [])&{"xml","json","csv","rdf"})
@@ -42,15 +43,16 @@ def score(s):
     roles=set(s.get("access_roles") or [])
     vclar=4 if pub=="published" and "canonical_vor" in roles else 3 if len(vers)==1 and "mixed" not in vers else 2 if len(vers)>1 or "mixed" in vers or pub=="preprint" else 1
     oa={"full":4,"mixed":2,"metadata_only":1,"unknown":0}.get(s["oa_scope"],0)
-    noise=4 if peer=="not_peer_reviewed" and pub=="preprint" else 3 if peer=="mixed" or pub=="mixed" else 2 if typ in DISC or typ=="review_platform" else 1 if peer=="peer_reviewed" else 2
+    noise=4 if peer=="not_peer_reviewed" and frontierish else 3 if peer=="mixed" or pub=="mixed" else 2 if typ in DISC or typ=="review_platform" else 1 if peer=="peer_reviewed" else 2
     return dict(zip(SCORES,map(clamp,(rigor,velocity,signal,machine,vclar,oa,spec,noise))))
 
 def tier(s,sc):
     typ,pub=s["source_type"],s["publication_state"]
+    frontierish=pub=="preprint" or (typ=="subject_repository" and s["peer_review_scope"]=="not_peer_reviewed" and pub=="mixed" and s["status"]=="active")
     if typ in DISC or typ=="review_platform": return "D1"
-    if typ in REPOS and pub!="preprint": return "A1"
-    if pub=="preprint":
+    if frontierish:
         return "F1" if s["status"]=="active" and s["verification"]["status"]=="verified" and s.get("parent_id")!="osf-preprints" else "F2"
+    if typ in REPOS: return "A1"
     roles=set(s.get("access_roles") or [])
     if pub=="published" and s["peer_review_scope"]=="peer_reviewed" and "canonical_vor" in roles: return "R1"
     if pub in {"published","mixed"} and s["peer_review_scope"] in {"peer_reviewed","mixed"}: return "R2"
@@ -60,8 +62,9 @@ def archetypes(s,sc,t):
     a=set(); subs=set(s.get("subjects") or []); roles=set(s.get("access_roles") or [])
     pol=s.get("access_policy") or {}; vers=set(pol.get("version_scope") or [])
     nn=(s["name"]+" "+s.get("notes","")).casefold()
+    frontierish=s["publication_state"]=="preprint" or (s["source_type"]=="subject_repository" and s["peer_review_scope"]=="not_peer_reviewed" and s["publication_state"]=="mixed" and s["status"]=="active")
     if t=="R1": a.add("formal_anchor")
-    if s["publication_state"]=="preprint": a.add("frontier_scout")
+    if s["status"]=="active" and frontierish: a.add("frontier_scout")
     if sc["specialization"]>=4: a.add("specialist_hunter")
     if sc["specialization"]<=1 and sc["frontier_velocity"]>=3: a.add("broad_firehose")
     if s["source_type"] in REPOS: a.add("archive_backbone")
@@ -69,9 +72,9 @@ def archetypes(s,sc,t):
     if s["source_type"]=="review_platform": a.add("review_observatory")
     if len(vers)>1 or "mixed" in vers or {"repository_copy","canonical_vor"}<=roles: a.add("version_bridge")
     if subs&METHODS: a.add("methods_workshop")
-    if s["publication_state"]=="preprint" and subs&CLINICAL: a.add("clinical_early_warning")
-    if subs&POLICY and any(x in nn for x in ("working paper","discussion paper","policy","econom")): a.add("policy_signal")
-    if s.get("parent_id")=="osf-preprints": a.add("community_hub")
+    if s["status"]=="active" and frontierish and subs&CLINICAL: a.add("clinical_early_warning")
+    if subs&POLICY and (frontierish or any(x in nn for x in ("working paper","discussion paper"))): a.add("policy_signal")
+    if s["status"]=="active" and s.get("parent_id")=="osf-preprints": a.add("community_hub")
     if {"multidisciplinary","interdisciplinary science"}&subs: a.add("cross_disciplinary_hub")
     if not a: a.add("formal_anchor" if sc["academic_rigor"]>=3 else "discovery_infrastructure")
     return sorted(a)
