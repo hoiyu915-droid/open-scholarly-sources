@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "current_release_id": "63d29d13647cb04ed37a1e209322730020258831",
+  "releases": [
+    {
+      "release_id": "63d29d13647cb04ed37a1e209322730020258831",
+      "commit_sha": "63d29d13647cb04ed37a1e209322730020258831",
+      "release_date": "2026-08-16T23:52:00+08:00",
+      "source_count": 227,
+      "profile_schema_version": "0.2.2",
+      "profile_method": "deterministic_source_use_profile_v2_2",
+      "manifest_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/63d29d13647cb04ed37a1e209322730020258831/release-manifest.json",
+      "immutable_base": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/63d29d13647cb04ed37a1e209322730020258831/"
+    }
+  ]
+}
