@@ -1,0 +1,1750 @@
+{
+  "$schema": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/schemas/release-manifest.schema.json",
+  "schema_version": "2.0.0",
+  "release_id": "bd6045baef480a9ac0806c46cf8576d60ec5a397",
+  "commit_sha": "bd6045baef480a9ac0806c46cf8576d60ec5a397",
+  "release_date": "2026-08-17T22:34:20+08:00",
+  "commit_url": "https://github.com/hoiyu915-droid/open-scholarly-sources/commit/bd6045baef480a9ac0806c46cf8576d60ec5a397",
+  "repository_main_ref_api": "https://api.github.com/repos/hoiyu915-droid/open-scholarly-sources/git/ref/heads/main",
+  "mutable_base": "https://hoiyu915-droid.github.io/open-scholarly-sources/",
+  "immutable_base": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/",
+  "manifest_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/release-manifest.json",
+  "mutable_manifest_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/release-manifest.json",
+  "source_count": 244,
+  "profile_schema_version": "0.2.2",
+  "profile_method": "deterministic_source_use_profile_v2_2",
+  "routing_policy_version": "2.0.0",
+  "routing_policy_method": "registry_source_navigation_opt_in_verification_v2",
+  "routing_policy_schema_version": "2.0.0",
+  "files": {
+    "registry.json": {
+      "sha256": "e5d059a88327f9002c50a9e8c6805a9b3bb0fe1fdedb158f499618a90cc2124c",
+      "bytes": 1003352,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/registry.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/registry.json"
+    },
+    "registry.ndjson": {
+      "sha256": "2cffc987f614be0f74732afe78aecb58b0e5c6dff05f2f6ad7a5961243c0fbe6",
+      "bytes": 687536,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/registry.ndjson",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/registry.ndjson"
+    },
+    "registry.jsonld": {
+      "sha256": "469d4b1cc33618697edc11d19ab544c0ca0824724966ab7c09475611def7edf7",
+      "bytes": 230151,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/registry.jsonld",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/registry.jsonld"
+    },
+    "source-profiles.json": {
+      "sha256": "c12a5c70bb1e7f379d90ab53c7dc989c81f823ddd5bd7426a280e791d7ebcad0",
+      "bytes": 481859,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/source-profiles.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/source-profiles.json"
+    },
+    "source-profiles.ndjson": {
+      "sha256": "f128c3e8263130f219307812a594cfa7d7af63f473458460892afe9e4349ba27",
+      "bytes": 333003,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/source-profiles.ndjson",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/source-profiles.ndjson"
+    },
+    "retrieval-routing-policy.json": {
+      "sha256": "2a9f6ed263f130b57ebe79fc391ae4a28b0c34b3a53463748f856a0cf73c0ab3",
+      "bytes": 8517,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/retrieval-routing-policy.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/retrieval-routing-policy.json"
+    },
+    "llms.txt": {
+      "sha256": "61caa16da590d08f3baecb7254bf84c9c668ab290a18f0cfadcff253aea7d7b0",
+      "bytes": 7454,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/llms.txt",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/llms.txt"
+    },
+    "llms-full.txt": {
+      "sha256": "df097d57eafdd1d0d241320035890c45fb2a970d6eb4e16d8e75b2269718fc8e",
+      "bytes": 474422,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/llms-full.txt",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/llms-full.txt"
+    },
+    "rendered-homepage.html": {
+      "sha256": "fad480203eff04b6599787523a2004129d2b66f4c430ec265cff062f6c4b212b",
+      "bytes": 126795,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/rendered-homepage.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/"
+    },
+    "rendered-source-index.html": {
+      "sha256": "eaaa12100917862d29464b9ba7ed934f9e6e8d86bc4559db4183090d3f794a52",
+      "bytes": 25828,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/rendered-source-index.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/"
+    },
+    "index.html": {
+      "sha256": "fad480203eff04b6599787523a2004129d2b66f4c430ec265cff062f6c4b212b",
+      "bytes": 126795,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/"
+    },
+    "data/i18n.zh-TW.cross-disciplinary.json": {
+      "sha256": "330e5d1d1e8018bd25ee286752a5b7b4b4e812da88426190cd3623249b67c2cd",
+      "bytes": 14968,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/i18n.zh-TW.cross-disciplinary.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/i18n.zh-TW.cross-disciplinary.json"
+    },
+    "data/i18n.zh-TW.integrity-discovery.json": {
+      "sha256": "322b5f49f10d4cc8e53c327f45892d67fcc65cf94afa1b08f3306d2ad5a513bb",
+      "bytes": 6338,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/i18n.zh-TW.integrity-discovery.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/i18n.zh-TW.integrity-discovery.json"
+    },
+    "data/i18n.zh-TW.json": {
+      "sha256": "3baac2bff183df82f143588d55f21cdf7fde8abc979439a65d6483be17ee2839",
+      "bytes": 13541,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/i18n.zh-TW.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/i18n.zh-TW.json"
+    },
+    "data/i18n.zh-TW.preprints.json": {
+      "sha256": "e05d134077c149c884c32e31ef1eed24adccfc6d54714a3524f4b0dcf30c68d2",
+      "bytes": 16775,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/i18n.zh-TW.preprints.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/i18n.zh-TW.preprints.json"
+    },
+    "data/i18n.zh-TW.reproductive-health.json": {
+      "sha256": "76fadc7023bc7edae58dde0e843c7dc700494ea289d9987d7972d59c20bfd16f",
+      "bytes": 3968,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/i18n.zh-TW.reproductive-health.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/i18n.zh-TW.reproductive-health.json"
+    },
+    "data/i18n.zh-TW.sexuality-relationships.json": {
+      "sha256": "34b73326e8c5f80acb3ad6218542fa81e23a606742b82b0bc37c55d2395018b3",
+      "bytes": 1262,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/i18n.zh-TW.sexuality-relationships.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/i18n.zh-TW.sexuality-relationships.json"
+    },
+    "data/i18n.zh-TW.working-papers.json": {
+      "sha256": "6eab98b37fff5fc29fe611cb2afc892617a571c640908fa5f770c6d7aae46498",
+      "bytes": 2774,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/i18n.zh-TW.working-papers.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/i18n.zh-TW.working-papers.json"
+    },
+    "data/registry-manifest.json": {
+      "sha256": "1b4e77fdcb69845bdac6e58e13ee5203e742891ce3fdce1f3a99d2f1fd91c8e9",
+      "bytes": 941,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/registry-manifest.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/registry-manifest.json"
+    },
+    "data/retrieval-routing-policy.json": {
+      "sha256": "2a9f6ed263f130b57ebe79fc391ae4a28b0c34b3a53463748f856a0cf73c0ab3",
+      "bytes": 8517,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/retrieval-routing-policy.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/retrieval-routing-policy.json"
+    },
+    "data/source-profile-rules.json": {
+      "sha256": "72e4bd6c9496e34ad30b1ed966f59e0b3fe4f7d0a2b920bfb97eb0c5dcf91a49",
+      "bytes": 10954,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/source-profile-rules.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/source-profile-rules.json"
+    },
+    "data/sources.ai-arxiv.json": {
+      "sha256": "3b2f14c437686005b8963ec526ffefc174602cf7d793e81c8fb155dbf7e88d4e",
+      "bytes": 6010,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.ai-arxiv.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.ai-arxiv.json"
+    },
+    "data/sources.ai-ml.json": {
+      "sha256": "3c82d4f125b6329e661a412c266a743dd615e1ae87d9c7c184771c7cd6ef9899",
+      "bytes": 5843,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.ai-ml.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.ai-ml.json"
+    },
+    "data/sources.ai-nlp.json": {
+      "sha256": "7dddbe4b4e2e4b3c3ab6c31c2070073b23b0f649c7bf8424cee28281b98b1449",
+      "bytes": 10076,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.ai-nlp.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.ai-nlp.json"
+    },
+    "data/sources.cross-disciplinary.json": {
+      "sha256": "aee701bd610fcc75286cecd238bbd59deebd395da64d376bce6bd49456eed352",
+      "bytes": 27654,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.cross-disciplinary.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.cross-disciplinary.json"
+    },
+    "data/sources.integrity-discovery.json": {
+      "sha256": "6127043f0c706a57b9dba70ede1e916c7d710f048d66c605cc9c6e8d07a58522",
+      "bytes": 43257,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.integrity-discovery.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.integrity-discovery.json"
+    },
+    "data/sources.json": {
+      "sha256": "05c2fe795c3d1b75f9d2997b254f8e1f79778469a6be9a42c57efc2977f66f55",
+      "bytes": 36289,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.json"
+    },
+    "data/sources.life-health.json": {
+      "sha256": "20e18c1564a8541399d0564bd15f203ba78b66458700013d4c6a6d0f6384f8f5",
+      "bytes": 14024,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.life-health.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.life-health.json"
+    },
+    "data/sources.physical-earth.json": {
+      "sha256": "25e6c89e508894e15393e8043998b5754bf8338833710a086b244fe33d620b44",
+      "bytes": 36956,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.physical-earth.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.physical-earth.json"
+    },
+    "data/sources.preprints-community.json": {
+      "sha256": "de9b4b2531b6d6c989bf162b879c263eb58ea7a3614b7c6c64d721da58ab2008",
+      "bytes": 29846,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.preprints-community.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.preprints-community.json"
+    },
+    "data/sources.preprints-major.json": {
+      "sha256": "c7109ea036dd789ea1c4d8839eaa6486797ffc72761cbaa4676b373802bcfa8e",
+      "bytes": 41372,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.preprints-major.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.preprints-major.json"
+    },
+    "data/sources.preprints-osf.json": {
+      "sha256": "9148deed279c0d894690184da3cdfa8eedde3e7caee17b28dd393409438fd6b9",
+      "bytes": 23600,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.preprints-osf.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.preprints-osf.json"
+    },
+    "data/sources.preprints-repositories.json": {
+      "sha256": "2504f427b1a26701cc018921fc00bc23190a60b18c42152b624d326731b0ed26",
+      "bytes": 22846,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.preprints-repositories.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.preprints-repositories.json"
+    },
+    "data/sources.reproductive-health.json": {
+      "sha256": "a8a7bf7cc7361de4c89dbad1928d958ebec17f9051874157b8454d57009cff50",
+      "bytes": 16716,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.reproductive-health.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.reproductive-health.json"
+    },
+    "data/sources.sexuality-relationships.json": {
+      "sha256": "c14383aad47a1bd37ca7645fd58ad4d0bd8ac89bf9d86dd6ce917fcd79cc0571",
+      "bytes": 6041,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.sexuality-relationships.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.sexuality-relationships.json"
+    },
+    "data/sources.social-humanities.json": {
+      "sha256": "9617331e47c6b227cd76b4472b6e2d8b6fa89ed972a1a07e4f02a68258a0cfcb",
+      "bytes": 10795,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.social-humanities.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.social-humanities.json"
+    },
+    "data/sources.working-papers.json": {
+      "sha256": "ce4d3c519a070cd64481b37b2a7ffb9ee279ebaa2c96e2bf7a0f759259d04fbd",
+      "bytes": 19130,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/data/sources.working-papers.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/data/sources.working-papers.json"
+    },
+    "sources/aacl.html": {
+      "sha256": "7101da0910defd3344c162b034d8277f0e486a21c81b8e9694f21613bd384086",
+      "bytes": 4704,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/aacl.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/aacl.html"
+    },
+    "sources/acl-anthology.html": {
+      "sha256": "a2d9f7b876c70d96280179199b1616548a7c75151169ff5b4da5cc7bbfb686e8",
+      "bytes": 4814,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/acl-anthology.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/acl-anthology.html"
+    },
+    "sources/acl-findings.html": {
+      "sha256": "ff9a648019bfd63d9afe114f550d53e19cc7e31d0a332efab9d3321a547f6522",
+      "bytes": 4797,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/acl-findings.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/acl-findings.html"
+    },
+    "sources/acl.html": {
+      "sha256": "ca481798205c31e497ed82743f28a0d73beac5f76eb73ac57b1c59d7b7b8b8b7",
+      "bytes": 4640,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/acl.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/acl.html"
+    },
+    "sources/acm-digital-library.html": {
+      "sha256": "9215fa5da2d8252f800980f5747ea1b083be8ea7d1b07da172ee370dc5ea96e9",
+      "bytes": 5504,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/acm-digital-library.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/acm-digital-library.html"
+    },
+    "sources/acs-central-science.html": {
+      "sha256": "5a492c1c5a900a3c654a6a3b534d2e934ae1bad1e9e1d4a83b415a56e20fdd2c",
+      "bytes": 5081,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/acs-central-science.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/acs-central-science.html"
+    },
+    "sources/africarxiv.html": {
+      "sha256": "5cff012621706e4febc7b67c90bbdd54ed12894677bdd26f547d672572e0ff3c",
+      "bytes": 5021,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/africarxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/africarxiv.html"
+    },
+    "sources/agecon-search.html": {
+      "sha256": "74ccd713834abf61c32f1d299f5cb9226718d191dd681592da280a1fafc82777",
+      "bytes": 5346,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/agecon-search.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/agecon-search.html"
+    },
+    "sources/agrirxiv.html": {
+      "sha256": "674039760f0ec719261db737270ef9e006cb548f02a604e61fa6c30bc75d8fc7",
+      "bytes": 4922,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/agrirxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/agrirxiv.html"
+    },
+    "sources/annals-of-forest-science.html": {
+      "sha256": "27d973e3457dbb437ce2da09736feaafe07ddd734e73c6ad60471149fb749408",
+      "bytes": 4584,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/annals-of-forest-science.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/annals-of-forest-science.html"
+    },
+    "sources/aob-plants.html": {
+      "sha256": "bc4039de152e62dda9acecba3398140409fe7ed85c5b49251811304fb99ddbb2",
+      "bytes": 4275,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/aob-plants.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/aob-plants.html"
+    },
+    "sources/applications-in-plant-sciences.html": {
+      "sha256": "b493b81389b66e0db8b009e139352b521ee86e68493d600dd59387f01d933c1a",
+      "bytes": 4578,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/applications-in-plant-sciences.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/applications-in-plant-sciences.html"
+    },
+    "sources/apsa-preprints.html": {
+      "sha256": "3af5e80da48349520617dc8a42a1fb466e35c2fe60242b9eff6b404342186cec",
+      "bytes": 5293,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/apsa-preprints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/apsa-preprints.html"
+    },
+    "sources/arpha-preprints.html": {
+      "sha256": "6de20ee9e51466e4e1bd5dc1fcda34fb266e4fb34b6e0ef5f40aef53cf8b4e91",
+      "bytes": 5038,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/arpha-preprints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/arpha-preprints.html"
+    },
+    "sources/art-dok.html": {
+      "sha256": "d39d9e90430461c5151b8b556d5f681dd4a23641c9736efa1739531c683ba79c",
+      "bytes": 5088,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/art-dok.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/art-dok.html"
+    },
+    "sources/arxiv-cs-ai.html": {
+      "sha256": "d761cb3be59a1edf8f36c5c13e83701e104d54a536fd1e547d856086ba6d4a0d",
+      "bytes": 4625,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/arxiv-cs-ai.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/arxiv-cs-ai.html"
+    },
+    "sources/arxiv-cs-cl.html": {
+      "sha256": "ce464f2f057c9083c02b58315bd5c35b6da897b04b446dbca45a9962ee4f6a6c",
+      "bytes": 4742,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/arxiv-cs-cl.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/arxiv-cs-cl.html"
+    },
+    "sources/arxiv-cs-cv.html": {
+      "sha256": "2472ab5bc7351bb054fade2882ae137266ed0415bd149b40991063642105d133",
+      "bytes": 4658,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/arxiv-cs-cv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/arxiv-cs-cv.html"
+    },
+    "sources/arxiv-cs-lg.html": {
+      "sha256": "a23747c7be071e6d0000b54532b4abbf264d54c71a84edcf394612a2506a8279",
+      "bytes": 4598,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/arxiv-cs-lg.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/arxiv-cs-lg.html"
+    },
+    "sources/arxiv-cs-ma.html": {
+      "sha256": "b763e6071e81d93eae9eb12a7ad885480e46c56eaf6d470fe420abb5a0585a63",
+      "bytes": 4510,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/arxiv-cs-ma.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/arxiv-cs-ma.html"
+    },
+    "sources/arxiv-stat-ml.html": {
+      "sha256": "6756e5b1934456f3ad4422e56fbe6f7fb165caff8aab3a211eb510e6c6a5dc97",
+      "bytes": 4528,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/arxiv-stat-ml.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/arxiv-stat-ml.html"
+    },
+    "sources/arxiv.html": {
+      "sha256": "9ac167cf46939bf4743dc1e7a6944039bf627152536879af3da399a90886ac45",
+      "bytes": 4604,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/arxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/arxiv.html"
+    },
+    "sources/atmospheric-chemistry-and-physics.html": {
+      "sha256": "591bfa25998a8cbcf80586fce3ab81086ad0dba8484210a083406ad980261617",
+      "bytes": 5152,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/atmospheric-chemistry-and-physics.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/atmospheric-chemistry-and-physics.html"
+    },
+    "sources/authorea.html": {
+      "sha256": "13ab5e682bca5cf1382dc2e449593ea2f151495836e2bfead9124acc828092eb",
+      "bytes": 5135,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/authorea.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/authorea.html"
+    },
+    "sources/bank-of-england-staff-working-papers.html": {
+      "sha256": "4b0cc41c2e6fada479cc0d01f289799d02f9f96debd812dae266bf61964da575",
+      "bytes": 5269,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/bank-of-england-staff-working-papers.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/bank-of-england-staff-working-papers.html"
+    },
+    "sources/beilstein-archives.html": {
+      "sha256": "62f1b02207e8dd1de83bd570773b3ab952c0f89740f2bb7bd128b505c3d43c96",
+      "bytes": 5235,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/beilstein-archives.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/beilstein-archives.html"
+    },
+    "sources/bepress-legal-repository.html": {
+      "sha256": "9cf288e211160cc961a92e12e4d6b2bba514d74200714fc7194035f718367a69",
+      "bytes": 5055,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/bepress-legal-repository.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/bepress-legal-repository.html"
+    },
+    "sources/biodiversity-heritage-library.html": {
+      "sha256": "bd11a0d132ba8b1247956718dae642f7625f5a3821766f3d4851d73310182d6d",
+      "bytes": 4687,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/biodiversity-heritage-library.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/biodiversity-heritage-library.html"
+    },
+    "sources/biogeosciences-copernicus.html": {
+      "sha256": "f2d7e6cdf95f5e4116fcf9c4f2a58c9186f0ce494753d5000ad309051ef04465",
+      "bytes": 5019,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/biogeosciences-copernicus.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/biogeosciences-copernicus.html"
+    },
+    "sources/biohackrxiv.html": {
+      "sha256": "aa75259e1d95d9cf78cc230d8930cec7d9bf8be0a3904bf0797bae9bf7aef2ce",
+      "bytes": 5000,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/biohackrxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/biohackrxiv.html"
+    },
+    "sources/bioone-complete.html": {
+      "sha256": "974342483c3198134b8494c5206663e5b27f1ebd100e57f29450ce2dcc8fee33",
+      "bytes": 4552,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/bioone-complete.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/bioone-complete.html"
+    },
+    "sources/biorxiv-plant-biology.html": {
+      "sha256": "c1ef56433da00605933ee39539425c249d747de819334470afa120f7f15b6888",
+      "bytes": 4570,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/biorxiv-plant-biology.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/biorxiv-plant-biology.html"
+    },
+    "sources/biorxiv.html": {
+      "sha256": "32558c76c9a7ebe5c3d459851bfa19af6f819b88e5b5e16f94352793d1211f7c",
+      "bytes": 5050,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/biorxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/biorxiv.html"
+    },
+    "sources/bis-working-papers.html": {
+      "sha256": "6c368eed3ffe4b4235402f21175ca6ec3202aaf8f77194296e33d8beb4ad6932",
+      "bytes": 5047,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/bis-working-papers.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/bis-working-papers.html"
+    },
+    "sources/bmc-plant-biology.html": {
+      "sha256": "c253748d789d2d99357239ab615bfe5e29649caa3903b5d2c83949fd2a1d1e97",
+      "bytes": 4250,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/bmc-plant-biology.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/bmc-plant-biology.html"
+    },
+    "sources/bmc-pregnancy-childbirth.html": {
+      "sha256": "9b2169a9124f4ffa177f9228560de1ef05fc103a8cfc6eebbe7cfafd560aacf1",
+      "bytes": 5272,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/bmc-pregnancy-childbirth.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/bmc-pregnancy-childbirth.html"
+    },
+    "sources/bmc-womens-health.html": {
+      "sha256": "766f2bf21f4aa77995ad2c9fa9c5ede7cef304f5f6f3862b0d2350924d623d7c",
+      "bytes": 5120,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/bmc-womens-health.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/bmc-womens-health.html"
+    },
+    "sources/bodoarxiv.html": {
+      "sha256": "ae113ea0528470e42a8bd083657237902fa61944364b73a83b60c2c9ef055de0",
+      "bytes": 4919,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/bodoarxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/bodoarxiv.html"
+    },
+    "sources/cambridge-core-journals.html": {
+      "sha256": "4603a3fb30ba86891c75b6b00a408613ccc7bb2c5814f589471cd3aa072230b7",
+      "bytes": 4646,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cambridge-core-journals.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cambridge-core-journals.html"
+    },
+    "sources/cambridge-forum.html": {
+      "sha256": "381dea7781296a57b48d9649e70c3f7babdb4c6f6f67022ed7b1a2abe1ac7b9a",
+      "bytes": 4307,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cambridge-forum.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cambridge-forum.html"
+    },
+    "sources/cambridge-materials.html": {
+      "sha256": "707235333698da4f4386908387aac75be4678cae2a434cba5eb1223eddb0aa46",
+      "bytes": 4402,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cambridge-materials.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cambridge-materials.html"
+    },
+    "sources/cambridge-open-engage.html": {
+      "sha256": "cf7c0a4fe75bcd4a25dd893e6dc1388f9a2248a3badae5222e078d3e6b0b057c",
+      "bytes": 5335,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cambridge-open-engage.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cambridge-open-engage.html"
+    },
+    "sources/cambridge-prisms.html": {
+      "sha256": "564001bb98df6c3723396d2b988949538610b8ff60620e838b572e7c37bcdd86",
+      "bytes": 4442,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cambridge-prisms.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cambridge-prisms.html"
+    },
+    "sources/cambridge-research-directions.html": {
+      "sha256": "e1fd9dc13c6901e69af0549bc6b7708e110cad632e0363da24eb2f9edcb89b65",
+      "bytes": 4544,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cambridge-research-directions.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cambridge-research-directions.html"
+    },
+    "sources/cell-press-sneak-peek.html": {
+      "sha256": "a5b1c73ac4c0da048df4dfffd0a3e7b6519d1b73a449f806cea12b0a70482d78",
+      "bytes": 5378,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cell-press-sneak-peek.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cell-press-sneak-peek.html"
+    },
+    "sources/cern-document-server.html": {
+      "sha256": "742aaaf2fcb0790b1998ddf2294bc9bfdc77232f56505dbeaa16fdf00923f7eb",
+      "bytes": 5294,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cern-document-server.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cern-document-server.html"
+    },
+    "sources/chemical-science.html": {
+      "sha256": "81ed51eb4577275d6829ba48cbfc46fad3c96384333cea7f9fbb0ad340de8d6b",
+      "bytes": 5037,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/chemical-science.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/chemical-science.html"
+    },
+    "sources/chemrxiv.html": {
+      "sha256": "fd64e51beb61a0c2ab0ead9e81f96c069902c31c87e0142c2b1a32662295e98d",
+      "bytes": 4983,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/chemrxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/chemrxiv.html"
+    },
+    "sources/chinaxiv.html": {
+      "sha256": "6e54b7da8333d7f63b5b3b9ae455ad051f21f81675e768634bb803461e8f2d8e",
+      "bytes": 5241,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/chinaxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/chinaxiv.html"
+    },
+    "sources/clinicaltrials-gov.html": {
+      "sha256": "6654753911e84db967740a79cba0af51c07dd3cab791b7378808f7b561911d15",
+      "bytes": 5359,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/clinicaltrials-gov.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/clinicaltrials-gov.html"
+    },
+    "sources/cochrane-library.html": {
+      "sha256": "57d85d68bddaf15f24dbb37ce4ec2f791991fae2c920c834a0e33eb8d362dcc2",
+      "bytes": 5359,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cochrane-library.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cochrane-library.html"
+    },
+    "sources/columbia-library-journals.html": {
+      "sha256": "1be93a0a8cb56fe0b2b21de038bae4474b083dfe3136f2c3c28fc821e6e7a931",
+      "bytes": 4661,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/columbia-library-journals.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/columbia-library-journals.html"
+    },
+    "sources/computational-linguistics.html": {
+      "sha256": "b4b911e98ea0bca5a2a58d7ab964fb2d0cfd3e37f07e1457f197f9f69f87dc12",
+      "bytes": 4657,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/computational-linguistics.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/computational-linguistics.html"
+    },
+    "sources/conll.html": {
+      "sha256": "65ed4baed1876cf630eaf916b9c559be8cad146cf536bc1458d131a44fb1f87f",
+      "bytes": 4648,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/conll.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/conll.html"
+    },
+    "sources/contraception-and-reproductive-medicine.html": {
+      "sha256": "5ead2d557c29b5b132a31eb130f4fd04532577729e4afd9546e64a8fc7aa2ab4",
+      "bytes": 5311,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/contraception-and-reproductive-medicine.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/contraception-and-reproductive-medicine.html"
+    },
+    "sources/cop-preprints.html": {
+      "sha256": "872884564537f523be2047b259b67266ed148a7d5abf0f868d9baee59111b4de",
+      "bytes": 5125,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cop-preprints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cop-preprints.html"
+    },
+    "sources/copernicus-publications.html": {
+      "sha256": "aeff78df6a7274cc58b5bad45956ccd331fc8594bb6a72a23a9d09c629dbe548",
+      "bytes": 5442,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/copernicus-publications.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/copernicus-publications.html"
+    },
+    "sources/core.html": {
+      "sha256": "684d23d8bb98671477498a647e6a627c8ff0d2f8e3fb4da7757e0b2c316059f0",
+      "bytes": 4798,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/core.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/core.html"
+    },
+    "sources/cornell-ecommons.html": {
+      "sha256": "1fce8ae0d7e66b6290af920f7829e58a660048a02eb415208909bd73a7d6e15e",
+      "bytes": 4465,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cornell-ecommons.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cornell-ecommons.html"
+    },
+    "sources/cornell-undergraduate-research-journal.html": {
+      "sha256": "ffeaf4b34b46d310e8eebdd7319a56866acb194205767df950707d2650aad7be",
+      "bytes": 4713,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cornell-undergraduate-research-journal.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cornell-undergraduate-research-journal.html"
+    },
+    "sources/crimrxiv.html": {
+      "sha256": "03a7ed4b5f072b778875f6d736edb34370b10234f412b8089aa83a7a4987bbfa",
+      "bytes": 5175,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/crimrxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/crimrxiv.html"
+    },
+    "sources/crossasia-repository.html": {
+      "sha256": "9acf5daa40c57e57a8aa8ed2179a7cced7c789ac20a143747fbd54da12ed509d",
+      "bytes": 5258,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/crossasia-repository.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/crossasia-repository.html"
+    },
+    "sources/cryptology-eprint.html": {
+      "sha256": "e2df670ad0ea1c2f40d56ea3d52e2c8f6c99a134d08865e9504a93cbcdd35aed",
+      "bytes": 5199,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/cryptology-eprint.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/cryptology-eprint.html"
+    },
+    "sources/current-developments-nutrition.html": {
+      "sha256": "8708f1ba013feb4c49c57e9ebdbafe08177162680eb37e03e59c62264d72f5a3",
+      "bytes": 5527,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/current-developments-nutrition.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/current-developments-nutrition.html"
+    },
+    "sources/dartmouth-digital-publishing-journals.html": {
+      "sha256": "5024cee6155e62384e4c9546adb5a55a0a2118ec6ad672aa5ace17c462604570",
+      "bytes": 4822,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/dartmouth-digital-publishing-journals.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/dartmouth-digital-publishing-journals.html"
+    },
+    "sources/demography.html": {
+      "sha256": "49af65bc26a7f864a9b58d5e83544763bbff58811add51f6d50a98e20fffbac1",
+      "bytes": 5218,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/demography.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/demography.html"
+    },
+    "sources/doaj.html": {
+      "sha256": "2f142f28bbdce0fdc174cea1244a1e3c76011dbcfca8a81ed249779b60bffdc6",
+      "bytes": 4291,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/doaj.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/doaj.html"
+    },
+    "sources/doapr.html": {
+      "sha256": "4c8423b6c7c3ff9bed61d0f842ac48d92f8f3a35fb399f5c4b9c484871b15719",
+      "bytes": 5101,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/doapr.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/doapr.html"
+    },
+    "sources/dryad.html": {
+      "sha256": "b12915f81670d9f08999b75cc74a8c29d2abd36c565ee50ba09f2e70823bff08",
+      "bytes": 4997,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/dryad.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/dryad.html"
+    },
+    "sources/e-lis.html": {
+      "sha256": "0ad689d50c08bc3387d40fe026ee078dce9236e4444894adbe9fdb53c9af64cc",
+      "bytes": 5082,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/e-lis.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/e-lis.html"
+    },
+    "sources/eacl.html": {
+      "sha256": "b9e310aef2e364bbe4f36a19294f4b7f307ad9c99d507607a17d0b8318c7dec2",
+      "bytes": 4626,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/eacl.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/eacl.html"
+    },
+    "sources/earth-prints.html": {
+      "sha256": "1e1913ddcd1515672f13f78c93509b6ebdbc0d1643a1ae8989c58853d065c7dd",
+      "bytes": 5401,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/earth-prints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/earth-prints.html"
+    },
+    "sources/earth-system-science-data.html": {
+      "sha256": "5e86fa02a0f0a3743178b6393b141b172768b3f2fdd29de32b7decbc613ddc6c",
+      "bytes": 5130,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/earth-system-science-data.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/earth-system-science-data.html"
+    },
+    "sources/eartharxiv.html": {
+      "sha256": "841a349790a72003076baf3bd3002ed4b747bd2a6e6c3b3d524b7ae556a38655",
+      "bytes": 5117,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/eartharxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/eartharxiv.html"
+    },
+    "sources/easychair-preprints.html": {
+      "sha256": "7adef609062e3c72989d0fa5bbff6500b634841fc4d3a15ccd44cf52fa2a6093",
+      "bytes": 5202,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/easychair-preprints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/easychair-preprints.html"
+    },
+    "sources/ecb-working-paper-series.html": {
+      "sha256": "5290d903b7c4fb6be9c9c1f5beeb62f0d732562c05b94c5be2f023416beba57e",
+      "bytes": 5295,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/ecb-working-paper-series.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/ecb-working-paper-series.html"
+    },
+    "sources/eccc.html": {
+      "sha256": "6a49679ee71b545058cb53c2ae92bd6f777098ce7384b1034bc63ba6bf203902",
+      "bytes": 5112,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/eccc.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/eccc.html"
+    },
+    "sources/ecoevorxiv.html": {
+      "sha256": "c5c0514f5f5103bf4ed8a7a5f0872f4ff2a1f5b9376f734a2bf11b151ced5c09",
+      "bytes": 4530,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/ecoevorxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/ecoevorxiv.html"
+    },
+    "sources/ecological-solutions-and-evidence.html": {
+      "sha256": "edb3aa0cde6c6681e8a934923a799211d16fe7b0f10771c9543c1460fd7fd7ce",
+      "bytes": 4746,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/ecological-solutions-and-evidence.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/ecological-solutions-and-evidence.html"
+    },
+    "sources/econstor.html": {
+      "sha256": "9d1a7ce14106ad6dfc83da152015c473850e95e51ff1def2714ff36efa38e1be",
+      "bytes": 4961,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/econstor.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/econstor.html"
+    },
+    "sources/ecsarxiv.html": {
+      "sha256": "ce3d7bc5874181349b8cedccf6ddb7409f83009c06323250ee6c6950056905ca",
+      "bytes": 4992,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/ecsarxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/ecsarxiv.html"
+    },
+    "sources/edarxiv.html": {
+      "sha256": "2b426ea42f9b9c8779ef5a9e095bade9bb5a21f3ab9761708dfaba2f3b8d8907",
+      "bytes": 4995,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/edarxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/edarxiv.html"
+    },
+    "sources/elife-reviewed-preprints.html": {
+      "sha256": "bad58dad268eb586d649c0146f2d2024440a9f26406581b2a5f3dfddff320bbd",
+      "bytes": 5567,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/elife-reviewed-preprints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/elife-reviewed-preprints.html"
+    },
+    "sources/emnlp.html": {
+      "sha256": "bd3a38ac9c219c7cf68ed4269608904b9988e8e17db940bf8a9acabc54ce1836",
+      "bytes": 4792,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/emnlp.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/emnlp.html"
+    },
+    "sources/engrxiv.html": {
+      "sha256": "363f70cd35434724756bc4746c03f5f5a42d680ab2e46627d5d447b5dda2f627",
+      "bytes": 5142,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/engrxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/engrxiv.html"
+    },
+    "sources/eric.html": {
+      "sha256": "d49dc6c33ae75c3fa7cb317581c2c2916b6ab679bde6d235ef9ec3ed457cb22d",
+      "bytes": 5039,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/eric.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/eric.html"
+    },
+    "sources/ess-open-archive.html": {
+      "sha256": "7ca12b46c2f57d5c817273c2f940b45ae46a50f8b9ac53e5cc736a547f872ec8",
+      "bytes": 5094,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/ess-open-archive.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/ess-open-archive.html"
+    },
+    "sources/europe-pmc.html": {
+      "sha256": "a90f67de6be565c1655291610ec2a904e26296e5cc7f9e8a016a92e439414ee3",
+      "bytes": 5213,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/europe-pmc.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/europe-pmc.html"
+    },
+    "sources/f1000research.html": {
+      "sha256": "58a553d72d2a6e4b7238023e2842fcbcffc2e7f7cfa96ffbc5f0cf77fac8f9a1",
+      "bytes": 5297,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/f1000research.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/f1000research.html"
+    },
+    "sources/fao-agris.html": {
+      "sha256": "1a696e5a6448e12dc606810f6aa26e7508c211c13e959d5c535f677f9c60b24a",
+      "bytes": 4478,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/fao-agris.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/fao-agris.html"
+    },
+    "sources/federal-reserve-feds.html": {
+      "sha256": "c5b348b786a4d8544aeb495d801b257184c1ff5eb8aaeda29a4661aeef002dab",
+      "bytes": 5384,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/federal-reserve-feds.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/federal-reserve-feds.html"
+    },
+    "sources/federal-reserve-ifdp.html": {
+      "sha256": "87c40ec73ac87a0383cbde815fc20786177b681d3f043a9c9d40378deb03acb3",
+      "bytes": 5427,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/federal-reserve-ifdp.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/federal-reserve-ifdp.html"
+    },
+    "sources/figshare.html": {
+      "sha256": "e7d211af238fd5623f0fb701b0f20c01d6186f343668d51fa467098d2fc0b5a0",
+      "bytes": 5065,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/figshare.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/figshare.html"
+    },
+    "sources/focus-archive.html": {
+      "sha256": "88d24d1a104c650a2f4fdfcb3e36f86d45167e252e7fcd465cdb0a153e3d6697",
+      "bytes": 5045,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/focus-archive.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/focus-archive.html"
+    },
+    "sources/forest-ecosystems.html": {
+      "sha256": "7efe71e3c0590e0e77bef76ad29ebec83865dffdb8800806eb816fe302f23d09",
+      "bytes": 4597,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/forest-ecosystems.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/forest-ecosystems.html"
+    },
+    "sources/forum-of-mathematics-pi.html": {
+      "sha256": "ec5161f32224134d0352cc1c8dd0519216068d5c291a39ba9cfcd90940a73b07",
+      "bytes": 4889,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/forum-of-mathematics-pi.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/forum-of-mathematics-pi.html"
+    },
+    "sources/forum-of-mathematics-sigma.html": {
+      "sha256": "c6fb54b5cfdf483c84cc7278b1e253d9ffb97b110b828f394cddeed06a866222",
+      "bytes": 4897,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/forum-of-mathematics-sigma.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/forum-of-mathematics-sigma.html"
+    },
+    "sources/forum-of-mathematics.html": {
+      "sha256": "657d9296b01791eaf67b0853a1bd242c22c153822ceccc66bf5ef314aa63da38",
+      "bytes": 5084,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/forum-of-mathematics.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/forum-of-mathematics.html"
+    },
+    "sources/frenxiv.html": {
+      "sha256": "581d40482864f5eae7735a4cb5c03078dc42c68b25be1140acd72c7199a36df6",
+      "bytes": 5115,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/frenxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/frenxiv.html"
+    },
+    "sources/frontiers-psychology.html": {
+      "sha256": "c01c465d9cba4fb109697a5d17e8eaf9a4f196b753bd77c030c516a59ed83cb1",
+      "bytes": 5153,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/frontiers-psychology.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/frontiers-psychology.html"
+    },
+    "sources/frontiers-reproductive-health.html": {
+      "sha256": "9a852ebb4727e5492796e38bc9474c2e3a469e94962d2ddecc055c83acab9dbd",
+      "bytes": 5373,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/frontiers-reproductive-health.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/frontiers-reproductive-health.html"
+    },
+    "sources/frontiers-social-psychology.html": {
+      "sha256": "214499b399a418b00089469ed7ff847b69f74d2f76f5cf3d54c3177f4642101c",
+      "bytes": 5387,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/frontiers-social-psychology.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/frontiers-social-psychology.html"
+    },
+    "sources/gates-open-research.html": {
+      "sha256": "81c0c07b74c3d77f7ebe3a908fe8f69ae8366af59049bbb225f37d0c07a8d516",
+      "bytes": 5379,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/gates-open-research.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/gates-open-research.html"
+    },
+    "sources/geophysical-journal-international.html": {
+      "sha256": "f4f2db351c754de6d344c9d8ea31d7a3d5feeaef0d063a8dc2e149b5371bc1d5",
+      "bytes": 5242,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/geophysical-journal-international.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/geophysical-journal-international.html"
+    },
+    "sources/geoscientific-model-development.html": {
+      "sha256": "1811429520cd009029cf9d40ff4ba0c5f6a06a97fac3e7d7e6bec4b73cc045de",
+      "bytes": 5149,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/geoscientific-model-development.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/geoscientific-model-development.html"
+    },
+    "sources/global-index-medicus.html": {
+      "sha256": "9d9688cbdbc42f986e539a75cff01c579e4ec3cb5b2a444030e7250b6558b2b4",
+      "bytes": 5230,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/global-index-medicus.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/global-index-medicus.html"
+    },
+    "sources/hal.html": {
+      "sha256": "ba6819a8c206065a53f2cb73b008115001f98e38d65878f9ca085a6659fe95e2",
+      "bytes": 4955,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/hal.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/hal.html"
+    },
+    "sources/harvard-dash.html": {
+      "sha256": "291270b5cf7b8e36055654d3b96be757b6167fd45ecaf1a8556fedf0dd451a31",
+      "bytes": 4304,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/harvard-dash.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/harvard-dash.html"
+    },
+    "sources/horticulture-research.html": {
+      "sha256": "a4d2ffb06b66e8631bc7d5ca26d73ba5c276b57df5d72bc00ee0270927b1cf20",
+      "bytes": 4452,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/horticulture-research.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/horticulture-research.html"
+    },
+    "sources/human-reproduction-open.html": {
+      "sha256": "a5d4c9db381c3ecf24aa57e5e17ccd910c044f1925e01e5251344d8b4b26a99b",
+      "bytes": 5326,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/human-reproduction-open.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/human-reproduction-open.html"
+    },
+    "sources/hydrology-and-earth-system-sciences.html": {
+      "sha256": "bb9186b8d0575fae14666685b9c5c8f1512dbd4140d8fc1fc197a9468fe66c52",
+      "bytes": 5196,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/hydrology-and-earth-system-sciences.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/hydrology-and-earth-system-sciences.html"
+    },
+    "sources/iclr.html": {
+      "sha256": "12c6f633a60b983fd0b374dbcdbbe5ae3d06e8ac31698be047ba7afccfd22da8",
+      "bytes": 4811,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/iclr.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/iclr.html"
+    },
+    "sources/iforest.html": {
+      "sha256": "8a4a3bf91a64e857f725f7beca4fc4fc1288e57bac9231827537cc63fc2516cc",
+      "bytes": 4456,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/iforest.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/iforest.html"
+    },
+    "sources/imf-working-papers.html": {
+      "sha256": "8763843cb4ce16be01bc69acead936a23b2919150d480684f75526dee8d3839e",
+      "bytes": 5100,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/imf-working-papers.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/imf-working-papers.html"
+    },
+    "sources/index.html": {
+      "sha256": "eaaa12100917862d29464b9ba7ed934f9e6e8d86bc4559db4183090d3f794a52",
+      "bytes": 25828,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/index.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/index.html"
+    },
+    "sources/indiarxiv.html": {
+      "sha256": "2c7731af6ddc95e68af5fde9543f1ef5427c9562ac9bc95390ae5b33b1ab1c91",
+      "bytes": 5170,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/indiarxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/indiarxiv.html"
+    },
+    "sources/iza-discussion-papers.html": {
+      "sha256": "543798cd60e4d6466da9127fc4fd131f7caef4940644b2ce75a49915818f8716",
+      "bytes": 5226,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/iza-discussion-papers.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/iza-discussion-papers.html"
+    },
+    "sources/jama-network-open.html": {
+      "sha256": "e64fcd36d7635f0261fdd821263cd0c3e4432b7e78687776863a1cdd6f5a2119",
+      "bytes": 5060,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/jama-network-open.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/jama-network-open.html"
+    },
+    "sources/jmir-preprints.html": {
+      "sha256": "9dd041f4fd503c3acd0ac88ff4025d1311c1daac494b44156e20b590494768f9",
+      "bytes": 5239,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/jmir-preprints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/jmir-preprints.html"
+    },
+    "sources/jmlr.html": {
+      "sha256": "4aba740229b23b96bf4444ccef0bb6bf3aedc8482a1a0d6f0203d2b3318075f4",
+      "bytes": 4505,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/jmlr.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/jmlr.html"
+    },
+    "sources/journal-of-cosmology-and-astroparticle-physics.html": {
+      "sha256": "48e608d64ae46c454c891cc75026d495a06ee0e37753c02b8a045e9cbd0059d7",
+      "bytes": 5389,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/journal-of-cosmology-and-astroparticle-physics.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/journal-of-cosmology-and-astroparticle-physics.html"
+    },
+    "sources/journal-of-high-energy-physics.html": {
+      "sha256": "152a44c4ce45b6220475a952cc0ce072333449e467fde87fc0aaceaa61bf7595",
+      "bytes": 5102,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/journal-of-high-energy-physics.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/journal-of-high-energy-physics.html"
+    },
+    "sources/journal-of-legal-analysis.html": {
+      "sha256": "51c02e3027c70700a2553cc5b62d915addac3b1f9c164661377bb9b11da0c31e",
+      "bytes": 4980,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/journal-of-legal-analysis.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/journal-of-legal-analysis.html"
+    },
+    "sources/journal-of-ovarian-research.html": {
+      "sha256": "0f1c78fb4301f71f9a908e3405996a99cffd1b966cfa6366f604a138ae4f1866",
+      "bytes": 5223,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/journal-of-ovarian-research.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/journal-of-ovarian-research.html"
+    },
+    "sources/jxiv.html": {
+      "sha256": "51415059976a44d327f91459945a45b7092a2729280bc413cb9a7ad5056849c3",
+      "bytes": 5130,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/jxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/jxiv.html"
+    },
+    "sources/law-archive.html": {
+      "sha256": "d28abfb4e68937af5f33ae3d0fc3b2a3205e8ff49b48d47e060104b04f8849a5",
+      "bytes": 4981,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/law-archive.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/law-archive.html"
+    },
+    "sources/lens-scholarly-works.html": {
+      "sha256": "b472f4ac15814124e58264922d0aa895bbeb3af4c317ee6b28772b113c1bf8e7",
+      "bytes": 5074,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/lens-scholarly-works.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/lens-scholarly-works.html"
+    },
+    "sources/lingbuzz.html": {
+      "sha256": "428ae395236d1e264d30a075f01acc48ab0a6b8de610773509e55a4e0cc9ab26",
+      "bytes": 4799,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/lingbuzz.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/lingbuzz.html"
+    },
+    "sources/lse-research-online.html": {
+      "sha256": "093df9fb52b29e88e7921223f8f058e999e6444ae00f19cfd24dced6aba20de7",
+      "bytes": 5224,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/lse-research-online.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/lse-research-online.html"
+    },
+    "sources/marxiv.html": {
+      "sha256": "74d2280498e0326b877a26ceac6325e70df3b679c3991ae3964a3000b2997879",
+      "bytes": 4952,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/marxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/marxiv.html"
+    },
+    "sources/maternal-health-neonatology-perinatology.html": {
+      "sha256": "e1e6ddfe12b497150b5d435120f64ce01521ff0dbeaac1bcb40a5a9906e592ae",
+      "bytes": 5416,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/maternal-health-neonatology-perinatology.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/maternal-health-neonatology-perinatology.html"
+    },
+    "sources/mediarxiv.html": {
+      "sha256": "f5ed0a1f13e58b4b30c47c8ae3e8ded149bb454aaf3bb1ed881ce235176ee7cf",
+      "bytes": 4960,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/mediarxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/mediarxiv.html"
+    },
+    "sources/medrxiv.html": {
+      "sha256": "1ed0d19dc4726faed871ed7c517186dc17a5513d44a0bd66d4164290290ae251",
+      "bytes": 5063,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/medrxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/medrxiv.html"
+    },
+    "sources/metaarxiv.html": {
+      "sha256": "545d3acb7e0356408e53f56ab1564fc75aea4ce8632ef8c40b58459254366488",
+      "bytes": 5132,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/metaarxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/metaarxiv.html"
+    },
+    "sources/mindrxiv.html": {
+      "sha256": "c1e30272eacaacb6abd5cbf483ab043a1b88d30fc0e1ac1f3515396635107e55",
+      "bytes": 5205,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/mindrxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/mindrxiv.html"
+    },
+    "sources/mit-dspace.html": {
+      "sha256": "b4cbe8290fdb1de760e2e6d323e54a5a441a710374c37d6d7d0346a29cad5c47",
+      "bytes": 5159,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/mit-dspace.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/mit-dspace.html"
+    },
+    "sources/mitofit-preprints.html": {
+      "sha256": "3ca7b7fa1f69356d2fef67d9810f6ddb6b969c4efcd01003e1ae27854f8b88af",
+      "bytes": 5333,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/mitofit-preprints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/mitofit-preprints.html"
+    },
+    "sources/mnras-letters-archive.html": {
+      "sha256": "a16ca2bf58d00bc0a3966115869c536d248d0c7260c013a47c66f9d400e23f5e",
+      "bytes": 5342,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/mnras-letters-archive.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/mnras-letters-archive.html"
+    },
+    "sources/mnras.html": {
+      "sha256": "6213e7444738c4db35bbf18b85a04fd0caa1365a62b6fc1f64084579ee676fd8",
+      "bytes": 5103,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/mnras.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/mnras.html"
+    },
+    "sources/mp-arc.html": {
+      "sha256": "a54746316575e73e81df6cfc2f1237ac00a610a7cc53ca0c99fe04d59ea47def",
+      "bytes": 5341,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/mp-arc.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/mp-arc.html"
+    },
+    "sources/mpra.html": {
+      "sha256": "98fcc6fe9e1e5023d6e73dcdb0ac18883372948e72460611be152e6175171836",
+      "bytes": 5051,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/mpra.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/mpra.html"
+    },
+    "sources/naacl.html": {
+      "sha256": "632424336bd559ecaade9bfa1111b91cd242b02db87ab7f6c5691443d2f99228",
+      "bytes": 4622,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/naacl.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/naacl.html"
+    },
+    "sources/nar-cancer.html": {
+      "sha256": "56a3d8d46dd1eb44ab8a7807de160d2c1d80db78685ba9089e16a33b2b47c504",
+      "bytes": 4695,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/nar-cancer.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/nar-cancer.html"
+    },
+    "sources/nar-genomics-and-bioinformatics.html": {
+      "sha256": "5f5346d82b27d4c38bb7b630693bc197258881fb48abccf7235060aee178b308",
+      "bytes": 5019,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/nar-genomics-and-bioinformatics.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/nar-genomics-and-bioinformatics.html"
+    },
+    "sources/nar-journals.html": {
+      "sha256": "34308b36dc27451edd2c650566bf48cf951fd5a447b9218fcb92b38e3764db36",
+      "bytes": 5056,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/nar-journals.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/nar-journals.html"
+    },
+    "sources/nar-molecular-medicine.html": {
+      "sha256": "004bd0d1be6736279fd51114763ed27c09c07e3dc08c6c1f978c4090586c0a6d",
+      "bytes": 4789,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/nar-molecular-medicine.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/nar-molecular-medicine.html"
+    },
+    "sources/nature-communications.html": {
+      "sha256": "b32a83ccf7723063654f8b14278b8ea5450f8b59bf232ee3e887a09293ed4571",
+      "bytes": 5097,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/nature-communications.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/nature-communications.html"
+    },
+    "sources/nber-working-papers.html": {
+      "sha256": "b3c601fecdb910d483895c3f612b89603b4496715bb0727e3f5cc82e52165af9",
+      "bytes": 5227,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/nber-working-papers.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/nber-working-papers.html"
+    },
+    "sources/ndltd-taiwan.html": {
+      "sha256": "ef58a3ae3ca1fdf19be757956d86ec64e7e92c63f96384394066afbf83d260cc",
+      "bytes": 5623,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/ndltd-taiwan.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/ndltd-taiwan.html"
+    },
+    "sources/neurips-proceedings.html": {
+      "sha256": "82637e3587f28423a03e613fb0aefd66ca8339d8d0c4222745171f666ee6c09d",
+      "bytes": 4832,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/neurips-proceedings.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/neurips-proceedings.html"
+    },
+    "sources/newaddictionsx.html": {
+      "sha256": "cd20c44261ac59d2e776e2b6f3ce674dfb507884cbf05532d7fed6a55a6b2a93",
+      "bytes": 5104,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/newaddictionsx.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/newaddictionsx.html"
+    },
+    "sources/nuclear-physics-b-scoap3.html": {
+      "sha256": "33cbe46a058f11d69dd143393be59c46e2c97bc8327cf480127c5382f3d14ca1",
+      "bytes": 5162,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/nuclear-physics-b-scoap3.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/nuclear-physics-b-scoap3.html"
+    },
+    "sources/nucleic-acids-research.html": {
+      "sha256": "3cb0ad605f0fae966201aaaa08feae60a9c7bff14cc9fedfe854d35276d7ba7a",
+      "bytes": 5093,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/nucleic-acids-research.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/nucleic-acids-research.html"
+    },
+    "sources/nutrixiv.html": {
+      "sha256": "9197beed4bcf677363b21c580b5ca1899220f607a9a94ca3cedd54900f189c49",
+      "bytes": 5105,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/nutrixiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/nutrixiv.html"
+    },
+    "sources/open-anthropology-research-repository.html": {
+      "sha256": "e618f47564f237efa0b21e972df1f7545bc326daf6f32265bd77e005d6732a5e",
+      "bytes": 5361,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/open-anthropology-research-repository.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/open-anthropology-research-repository.html"
+    },
+    "sources/open-library-of-humanities.html": {
+      "sha256": "017fcca803741dbbaec50727c65e0541d0d0deeedd9ae89cc9298c49aea5cb74",
+      "bytes": 5413,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/open-library-of-humanities.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/open-library-of-humanities.html"
+    },
+    "sources/open-mind.html": {
+      "sha256": "586fbba6b5b4a98eb6b6a10a8145d5321340e853aa81681e2fe1153549b8198f",
+      "bytes": 5109,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/open-mind.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/open-mind.html"
+    },
+    "sources/openalex.html": {
+      "sha256": "ec69f6c24f31b2b9246eafa6627d4a9eb7d15f25e3b8bcd41df072396090d932",
+      "bytes": 4998,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/openalex.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/openalex.html"
+    },
+    "sources/openreview.html": {
+      "sha256": "d5c9b9e1deeb8ea51e4bcce4b9ec86ab0d997dd47fc68f3a9cc1e1a3897406af",
+      "bytes": 4732,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/openreview.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/openreview.html"
+    },
+    "sources/organic-eprints.html": {
+      "sha256": "7be2c55c95551a0f39f0d78ea68cd821a1fb12b136b020a250b4e988412bbbe9",
+      "bytes": 5207,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/organic-eprints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/organic-eprints.html"
+    },
+    "sources/osf-preprints.html": {
+      "sha256": "b8782dc2d392516c82bcef1a6d04b25ee21ba82b20b8d0d0d24d851553802e73",
+      "bytes": 5270,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/osf-preprints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/osf-preprints.html"
+    },
+    "sources/osf-registries.html": {
+      "sha256": "c70bd4473ead90d2788ac24b6e5000098b2894b91809a4db53b14cd6b3528a2e",
+      "bytes": 5134,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/osf-registries.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/osf-registries.html"
+    },
+    "sources/paleorxiv.html": {
+      "sha256": "c222e8708e5fbbbbc3fcf939a2f6c6e2c1e3bd337cd2ecf4a7357df7dad3bb07",
+      "bytes": 4944,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/paleorxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/paleorxiv.html"
+    },
+    "sources/peer-community-in.html": {
+      "sha256": "4be0f7ce785f54436d764ad9f181c16186e909a346ac301d99ed02e63e701f86",
+      "bytes": 5323,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/peer-community-in.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/peer-community-in.html"
+    },
+    "sources/penn-press-diamond-oa.html": {
+      "sha256": "c59ea69117bb43eed280627983e961081c3146fde3d101ec5a49adfc549cff09",
+      "bytes": 4762,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/penn-press-diamond-oa.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/penn-press-diamond-oa.html"
+    },
+    "sources/penn-press-subscribe-to-open.html": {
+      "sha256": "e0cc84d3e68a388b37be704998df13bd79d2c70ddf65b0eaf94b57fbaead3198",
+      "bytes": 4645,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/penn-press-subscribe-to-open.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/penn-press-subscribe-to-open.html"
+    },
+    "sources/philarchive.html": {
+      "sha256": "988a9cbcd0e3834a40286052696c97e5da3b3cfe39954b00881c82c3cfffe8c6",
+      "bytes": 4955,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/philarchive.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/philarchive.html"
+    },
+    "sources/philsci-archive.html": {
+      "sha256": "a42a29bb1967e27777b1c66b882b4e4e61efe4ea5c9075b51e7551e12d4aa41b",
+      "bytes": 5165,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/philsci-archive.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/philsci-archive.html"
+    },
+    "sources/physical-review-d-scoap3.html": {
+      "sha256": "e285476311c37ba9fb7c26afa6460dc7e747777aa9ba01f11e47c35fc64af069",
+      "bytes": 5133,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/physical-review-d-scoap3.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/physical-review-d-scoap3.html"
+    },
+    "sources/physical-review-letters-scoap3.html": {
+      "sha256": "27c5efe448d2fddd0035183dd10e6eb470c0ebc31ea13567256f6d050f0abdf8",
+      "bytes": 5140,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/physical-review-letters-scoap3.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/physical-review-letters-scoap3.html"
+    },
+    "sources/physical-review-x.html": {
+      "sha256": "72d12395e604042d1fd951aa4e05879141a1c373f172b249c3b3ea59cd781559",
+      "bytes": 4830,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/physical-review-x.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/physical-review-x.html"
+    },
+    "sources/physics-letters-b-scoap3.html": {
+      "sha256": "470824100d68bc79221555e51ad9035c4b396830c7e18a0567d135fd80987174",
+      "bytes": 5162,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/physics-letters-b-scoap3.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/physics-letters-b-scoap3.html"
+    },
+    "sources/phytokeys.html": {
+      "sha256": "00e849b10fa27dbe07f6e61d4b5364c29ac25579a9ea8b2558d30ed27716312c",
+      "bytes": 4368,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/phytokeys.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/phytokeys.html"
+    },
+    "sources/plant-direct.html": {
+      "sha256": "70fd50be34fc4141fcdf9559f86fa4cb11b8a71a7eb2de95e4369639aa66ee56",
+      "bytes": 4261,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/plant-direct.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/plant-direct.html"
+    },
+    "sources/plant-methods.html": {
+      "sha256": "7e207f7d5a044977406921eadd6a84942ac6c502ddb1c50e53ba083bb4bf5694",
+      "bytes": 4268,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/plant-methods.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/plant-methods.html"
+    },
+    "sources/plos-biology.html": {
+      "sha256": "58764e754c88bf6e3448b8504dd06afc60830c15415adc7fd2abd59c6efe5d8d",
+      "bytes": 4134,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/plos-biology.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/plos-biology.html"
+    },
+    "sources/plos-medicine.html": {
+      "sha256": "65e7a3dc150ebbd7971796bb86476d6221ec6026ac178c2a41fe6030ff38b6db",
+      "bytes": 5034,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/plos-medicine.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/plos-medicine.html"
+    },
+    "sources/pmlr.html": {
+      "sha256": "d08714bd0ba4d15f8c824c93bd6263c1bcb41551a38508ad2182b0c265a5c39f",
+      "bytes": 4651,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/pmlr.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/pmlr.html"
+    },
+    "sources/pnas-nexus.html": {
+      "sha256": "71b20402255bca10d2509ba70a6a3a8c3f7026a6eb1b67ad3d36db773791a94b",
+      "bytes": 5070,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/pnas-nexus.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/pnas-nexus.html"
+    },
+    "sources/preprints-org.html": {
+      "sha256": "73d3c06f6dd854c9776e6e0e844dee6a4822c7ccd4d481a816a1247b489bd2f8",
+      "bytes": 5021,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/preprints-org.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/preprints-org.html"
+    },
+    "sources/preprints-ru.html": {
+      "sha256": "5abc2abb38d9cd933d0a9b4a20dc03209e2e9486970751347bd00002a9031b91",
+      "bytes": 5007,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/preprints-ru.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/preprints-ru.html"
+    },
+    "sources/preprints-with-the-lancet.html": {
+      "sha256": "cf8322f251f3a97cc6e3091033aa147c9253d95333b761db4fee1e96470bcde4",
+      "bytes": 5270,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/preprints-with-the-lancet.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/preprints-with-the-lancet.html"
+    },
+    "sources/project-euclid.html": {
+      "sha256": "10a95bb7cb6c05cd765b9f3e2256152f165f6d68c76b5005939d9ba1bec74486",
+      "bytes": 4529,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/project-euclid.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/project-euclid.html"
+    },
+    "sources/propylaeumdok.html": {
+      "sha256": "fb763254ce00f6c34bdf489fe7eb284af7531bab816bbf5015b153ede582829e",
+      "bytes": 5139,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/propylaeumdok.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/propylaeumdok.html"
+    },
+    "sources/prospero.html": {
+      "sha256": "c02f1841eca01f5c8ab1b133edab5a676bb12719deb04b0f1b541cfff8c7f4e5",
+      "bytes": 5165,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/prospero.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/prospero.html"
+    },
+    "sources/psyarxiv.html": {
+      "sha256": "3bcfe0ae25f17e1447bad380d3e5d8262215bdb8b58ad0eda51d2e6ac2783a1c",
+      "bytes": 4943,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/psyarxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/psyarxiv.html"
+    },
+    "sources/pubmed-central.html": {
+      "sha256": "3ef2d9e623ab403db69f5de58306dfdc5d41125a73e54372a3800ffa62765b01",
+      "bytes": 5385,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/pubmed-central.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/pubmed-central.html"
+    },
+    "sources/pubmed.html": {
+      "sha256": "8fa9d62a5b2272e779daa752b8cb8f9ec3d454b6d3f4a2652d698c1d67eabe90",
+      "bytes": 5191,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/pubmed.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/pubmed.html"
+    },
+    "sources/ras-techniques-and-instruments.html": {
+      "sha256": "a359581fa7c168018a0551d39e6c2e5e58013bc2d85c3b586a5a67d444e59bd1",
+      "bytes": 5201,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/ras-techniques-and-instruments.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/ras-techniques-and-instruments.html"
+    },
+    "sources/repec.html": {
+      "sha256": "f77bbcd447b6da9d8d54a0b50d4cd67fb1e5b74eb991b1d7d25d7f54d7ec3997",
+      "bytes": 5064,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/repec.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/repec.html"
+    },
+    "sources/reproduction-and-fertility.html": {
+      "sha256": "1e17f471db103c30e64b333b73b6cd3a5c5e1b0a0e27e90c4b21600108ba7918",
+      "bytes": 5204,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/reproduction-and-fertility.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/reproduction-and-fertility.html"
+    },
+    "sources/reproductive-biology-and-endocrinology.html": {
+      "sha256": "5d08bdd4ace878e4c4c5e3c99ea4f942b5b1eb9735c9b365eba3c769383285d9",
+      "bytes": 5418,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/reproductive-biology-and-endocrinology.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/reproductive-biology-and-endocrinology.html"
+    },
+    "sources/reproductive-health.html": {
+      "sha256": "acecdba1d0c6703cbb625c32195011b326465ea9faa21507f9417ab75daee6fc",
+      "bytes": 5253,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/reproductive-health.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/reproductive-health.html"
+    },
+    "sources/reproductive-medicine-and-biology.html": {
+      "sha256": "945976e35bd1a07d30551b0466c82fbba3c6d439e93a5c3f1ad8b43f4da1d069",
+      "bytes": 5522,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/reproductive-medicine-and-biology.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/reproductive-medicine-and-biology.html"
+    },
+    "sources/research-square.html": {
+      "sha256": "80a0b9711bbb70c79859130aa315830a077f927066ad153676df8d497dd066eb",
+      "bytes": 5219,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/research-square.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/research-square.html"
+    },
+    "sources/retraction-watch-crossref.html": {
+      "sha256": "e5c8e6510796f219c472248d30f474091e0174917d38927d32b5c0a56f7d5d01",
+      "bytes": 5460,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/retraction-watch-crossref.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/retraction-watch-crossref.html"
+    },
+    "sources/rinarxiv.html": {
+      "sha256": "a4c1b11d8a474f7cd0eeca9833539f3b33490bb992e42c5be222c2393a8d3304",
+      "bytes": 5155,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/rinarxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/rinarxiv.html"
+    },
+    "sources/royal-astronomical-society-journals.html": {
+      "sha256": "53b74da6962e0f1d16bb34b14330f972d1b597cbdb69cc783f39cb1201a6cd67",
+      "bytes": 5481,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-astronomical-society-journals.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-astronomical-society-journals.html"
+    },
+    "sources/royal-society-biographical-memoirs.html": {
+      "sha256": "3f880629790f7242064864ced250e78f4ff94aa88c076caababf2fd5cbe1f503",
+      "bytes": 4998,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-biographical-memoirs.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-biographical-memoirs.html"
+    },
+    "sources/royal-society-biology-letters.html": {
+      "sha256": "0929c519c7b2c95e9d9b325db154daf58e0f395361ef65cb0b24838982773164",
+      "bytes": 5056,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-biology-letters.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-biology-letters.html"
+    },
+    "sources/royal-society-interface-focus.html": {
+      "sha256": "aa5e1ac65db9387c8d986d2317f932dee7f4ce1e351c515f78290c4d633c6748",
+      "bytes": 5190,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-interface-focus.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-interface-focus.html"
+    },
+    "sources/royal-society-interface.html": {
+      "sha256": "0486087937c800b9343542ad2ed5b762facf8dac45d0c6b797de8dadaf812cd3",
+      "bytes": 5316,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-interface.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-interface.html"
+    },
+    "sources/royal-society-notes-and-records.html": {
+      "sha256": "63e4db7fe2b1ab61b405ebb546bcd96d8fc92263a73919e23d119181905657a3",
+      "bytes": 5244,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-notes-and-records.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-notes-and-records.html"
+    },
+    "sources/royal-society-open-biology.html": {
+      "sha256": "5781f982573e3ce7d1c7367b123d2b95d29649a2073954935a4d820e286866dc",
+      "bytes": 4853,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-open-biology.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-open-biology.html"
+    },
+    "sources/royal-society-open-science.html": {
+      "sha256": "59a32021693840e243372ceb595ed146775740a7140ae0f8f317d7b956c8b823",
+      "bytes": 5106,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-open-science.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-open-science.html"
+    },
+    "sources/royal-society-philosophical-transactions-a.html": {
+      "sha256": "f71049993a7bd70fcd19286e8e4bb330e48ed69b6b8115765178b008e5ba3078",
+      "bytes": 5387,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-philosophical-transactions-a.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-philosophical-transactions-a.html"
+    },
+    "sources/royal-society-philosophical-transactions-b.html": {
+      "sha256": "b6b0bea02ee63e6d3b78f0a2e08ad81bd14e8b8793e356b310fcfb1ac53a6740",
+      "bytes": 5281,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-philosophical-transactions-b.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-philosophical-transactions-b.html"
+    },
+    "sources/royal-society-proceedings-a.html": {
+      "sha256": "dbc05cef7f574f00ccc00f0ea0cba0150cb069e45ce44e8de1ce41aee6a99967",
+      "bytes": 5227,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-proceedings-a.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-proceedings-a.html"
+    },
+    "sources/royal-society-proceedings-b.html": {
+      "sha256": "2c1e1da5ac3c359a484334f2b0a35b60e945bd62ccb394d4906f6d55a80a3487",
+      "bytes": 5092,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-proceedings-b.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-proceedings-b.html"
+    },
+    "sources/royal-society-publishing.html": {
+      "sha256": "c2ad883190db45393df2ceda2fefbd5be54c326576cd8f55c49ffbedc4b8bb48",
+      "bytes": 5385,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/royal-society-publishing.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/royal-society-publishing.html"
+    },
+    "sources/rutgers-optimality-archive.html": {
+      "sha256": "2de8646ca137ff75a5ae886e84b0a86499604d7370ea1975dbf143dd2d47dbdc",
+      "bytes": 5234,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/rutgers-optimality-archive.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/rutgers-optimality-archive.html"
+    },
+    "sources/sage-advance.html": {
+      "sha256": "e133ed8d1ea116389a5e8e9585b1b4361e290378fd46847c2d7d2304f7dd2515",
+      "bytes": 5117,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/sage-advance.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/sage-advance.html"
+    },
+    "sources/scielo-preprints.html": {
+      "sha256": "a53867dea6f7fa005fc87c7e7de92415331ff6f835e437666a7854eb506a2870",
+      "bytes": 5157,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/scielo-preprints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/scielo-preprints.html"
+    },
+    "sources/science-advances.html": {
+      "sha256": "c8ea0ef4a6908f2c06c6698be3025b6252dfb724b2e0eb42484bd3242198868b",
+      "bytes": 5101,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/science-advances.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/science-advances.html"
+    },
+    "sources/sciencepaper-online.html": {
+      "sha256": "fb2fb1e3da82369e1994abca17211117df159f174f7b95febeda06ed4b9d7089",
+      "bytes": 5284,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/sciencepaper-online.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/sciencepaper-online.html"
+    },
+    "sources/scipost-physics.html": {
+      "sha256": "f6177577381521c6842cf5757fb220951400df0559b49dacb5ff3239b3e47b61",
+      "bytes": 4913,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/scipost-physics.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/scipost-physics.html"
+    },
+    "sources/scoap3.html": {
+      "sha256": "f035c1b2483b832df7551d5db833dba85aea86cc7113fc7205e9270c869fb2aa",
+      "bytes": 5191,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/scoap3.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/scoap3.html"
+    },
+    "sources/semantic-scholar.html": {
+      "sha256": "c2b02d77feeeca0da07ad1c815182fab044ef2291ead73da82d34a61377af440",
+      "bytes": 5081,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/semantic-scholar.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/semantic-scholar.html"
+    },
+    "sources/sexes.html": {
+      "sha256": "caf41ed2d82b927d966ec2f645160606938fa099917386c294937fe1f8559bab",
+      "bytes": 4793,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/sexes.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/sexes.html"
+    },
+    "sources/sexual-and-reproductive-health-matters.html": {
+      "sha256": "683e191c8c0700e46c63913b6cb102e6c8fe07afb6b04d1b18b23ed9b20f51bc",
+      "bytes": 5683,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/sexual-and-reproductive-health-matters.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/sexual-and-reproductive-health-matters.html"
+    },
+    "sources/sexual-medicine.html": {
+      "sha256": "ba96759ae893e5024622f4b85c434888685a74cc5be304aebd8d9d4a5477d1c4",
+      "bytes": 5115,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/sexual-medicine.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/sexual-medicine.html"
+    },
+    "sources/silva-fennica.html": {
+      "sha256": "e3788a09880a6681a848f6bf53cb53c3e526efb59e0ce4b41c9506a970461c13",
+      "bytes": 4243,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/silva-fennica.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/silva-fennica.html"
+    },
+    "sources/socarxiv.html": {
+      "sha256": "6306cbf1965e759d33413ce02a036ea0ffc4181ea1615372fcd9d14fcd7c84f2",
+      "bytes": 4948,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/socarxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/socarxiv.html"
+    },
+    "sources/sportrxiv.html": {
+      "sha256": "2a5a56f2fa70bbe2d3bec17392246e28d878e5bec49dc5a0be52690c3af50a72",
+      "bytes": 5248,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/sportrxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/sportrxiv.html"
+    },
+    "sources/ssoar.html": {
+      "sha256": "7b2777d1e9cff35254927e8187e40c206d51f7db9a21cf89f065615e103a7c02",
+      "bytes": 5451,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/ssoar.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/ssoar.html"
+    },
+    "sources/ssrn.html": {
+      "sha256": "b9623c1828f0de4a98ffe20d50d9bbeba84f141b832b0a7c338887d3a1d1d53c",
+      "bytes": 5159,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/ssrn.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/ssrn.html"
+    },
+    "sources/tacl.html": {
+      "sha256": "7bce06789f793570caec4fa26ff2279d8b13c1cb527234b51f2ed8deb5d4813e",
+      "bytes": 4627,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/tacl.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/tacl.html"
+    },
+    "sources/techrxiv.html": {
+      "sha256": "4c46d81a86fcbf37422d4f05a9f310b9f757499ac87815c8fae01142781053f0",
+      "bytes": 5063,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/techrxiv.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/techrxiv.html"
+    },
+    "sources/the-cryosphere.html": {
+      "sha256": "9678b50f48941ea3c482e9e968abe3e3f65e7716ea23ab9493f10bb3899bb78c",
+      "bytes": 4936,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/the-cryosphere.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/the-cryosphere.html"
+    },
+    "sources/theoretical-economics.html": {
+      "sha256": "d4e14e79255e475c8f0d853f9443727ba52745e1c3723fd4ed9e860946cca590",
+      "bytes": 4939,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/theoretical-economics.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/theoretical-economics.html"
+    },
+    "sources/tmlr.html": {
+      "sha256": "2f531cb3e3281f5fb9481d512d352ec45f99d7ca9fdaf11d1b8db23adfd49ed2",
+      "bytes": 4667,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/tmlr.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/tmlr.html"
+    },
+    "sources/trees-forests-and-people.html": {
+      "sha256": "2324a13005dda6cf714d9c20d3b119009f54222974c5c765906748931b4c7def",
+      "bytes": 4645,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/trees-forests-and-people.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/trees-forests-and-people.html"
+    },
+    "sources/unpaywall.html": {
+      "sha256": "b46dd544f8ee9fec153d4d8d086e7f64ffdbc1761a6b8f2b6aa2bd0132d47429",
+      "bytes": 5010,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/unpaywall.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/unpaywall.html"
+    },
+    "sources/usda-forest-service-treesearch.html": {
+      "sha256": "698528c7687bd5da15c908e610f5900dbb4074d897392d16efd73fc7cf96d163",
+      "bytes": 4784,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/usda-forest-service-treesearch.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/usda-forest-service-treesearch.html"
+    },
+    "sources/usgs-publications-warehouse.html": {
+      "sha256": "97389d1775d35f693f51442628c81cd2bdad9a478de793c79313cfa420c2a1e2",
+      "bytes": 4618,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/usgs-publications-warehouse.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/usgs-publications-warehouse.html"
+    },
+    "sources/wellcome-open-research.html": {
+      "sha256": "405bcc7d5fb24befe0523ba8cf8982fe2a25a647c76835aede9e5404fc7dd1fe",
+      "bytes": 5231,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/wellcome-open-research.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/wellcome-open-research.html"
+    },
+    "sources/who-bigg-rec.html": {
+      "sha256": "b6c6f849c4e1fc1dd44c7f6c577cd4d9d644173fecbb7d15be87f8150b8e3e9c",
+      "bytes": 5272,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/who-bigg-rec.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/who-bigg-rec.html"
+    },
+    "sources/who-guidelines.html": {
+      "sha256": "04bb070b5e87e96673eba532edadae2e9900ed26302781209fe61a15d51878c9",
+      "bytes": 5242,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/who-guidelines.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/who-guidelines.html"
+    },
+    "sources/who-ictrp.html": {
+      "sha256": "87a7930e201f021a7bdb0aee57e99ec3361e6ef90d62237b936a0630688f9057",
+      "bytes": 5106,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/who-ictrp.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/who-ictrp.html"
+    },
+    "sources/who-iris.html": {
+      "sha256": "812a8709bcb08a7f38da1974cd0f69ed00e9067645b41e44859cf064d609160a",
+      "bytes": 5138,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/who-iris.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/who-iris.html"
+    },
+    "sources/wikijournal-preprints.html": {
+      "sha256": "a51c193fdfba72b64cbedae88ff1ee07a825ad56e55d5810cc5bc0ab434aabb2",
+      "bytes": 5228,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/wikijournal-preprints.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/wikijournal-preprints.html"
+    },
+    "sources/womens-health-sage.html": {
+      "sha256": "3ba897b2700e60438ca9263c11da5478fa771ad63010aedc56bf770920457e32",
+      "bytes": 5106,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/womens-health-sage.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/womens-health-sage.html"
+    },
+    "sources/world-bank-prwp.html": {
+      "sha256": "b2f0579d0cf612d6642c8c172418cdc944f6f36b612f7f48bbdc2846aa827744",
+      "bytes": 5235,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/world-bank-prwp.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/world-bank-prwp.html"
+    },
+    "sources/yale-journal-biology-medicine.html": {
+      "sha256": "bb689489d59db271a76cd07d93d9de5cc759fa609a32682b6b36b913bf53a416",
+      "bytes": 4493,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/yale-journal-biology-medicine.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/yale-journal-biology-medicine.html"
+    },
+    "sources/zenodo.html": {
+      "sha256": "29c3cb3ed61b107ee3ab73a144ea7051dd1ed29263ca10cbae6f01ae2aca3e21",
+      "bytes": 5008,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/sources/zenodo.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/sources/zenodo.html"
+    },
+    "profiles/index.html": {
+      "sha256": "8dd3d6107a9bb51a3aa94370daa46989427dde4cdae01d76354a5b7cfe315dfd",
+      "bytes": 199095,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/profiles/index.html",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/profiles/index.html"
+    },
+    "schemas/source.schema.json": {
+      "sha256": "2dfa61e6bd7c2b163a9df873f2f9e6cd19adfde465bb13579c7cb307e2d27d7c",
+      "bytes": 8617,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/schemas/source.schema.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/source.schema.json"
+    },
+    "schemas/source-profile.schema.json": {
+      "sha256": "6ac61561d1d5970a894a3604c316cf6e0d22a38ef020e4ae8439a4802e663df2",
+      "bytes": 4257,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/schemas/source-profile.schema.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/source-profile.schema.json"
+    },
+    "schemas/retrieval-routing-policy.schema.json": {
+      "sha256": "322f82b2b657345f387dfd1aaf5cbb4f1a7784edf39074a61a4e209ee12e289d",
+      "bytes": 10048,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/schemas/retrieval-routing-policy.schema.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/retrieval-routing-policy.schema.json"
+    },
+    "schemas/release-manifest.schema.json": {
+      "sha256": "6aed296337d44d60fad6f3e89fcdee5915ecccbac8fd9652b9989eb6a1ffa540",
+      "bytes": 3167,
+      "url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/bd6045baef480a9ac0806c46cf8576d60ec5a397/schemas/release-manifest.schema.json",
+      "mutable_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/release-manifest.schema.json"
+    }
+  },
+  "consistency_contract": {
+    "mutable_endpoints": "latest deployed convenience URLs; intermediary caches may temporarily return an older release",
+    "immutable_endpoints": "content for this release ID must not change; compare SHA-256 digests before trusting a conflicting copy",
+    "freshness_check": "compare commit_sha with repository_main_ref_api when current-main freshness matters",
+    "ndjson_identity": "pair registry.ndjson or source-profiles.ndjson with this manifest; NDJSON remains one record per line",
+    "routing_policy_identity": "pair retrieval-routing-policy.json with this manifest; verify its version, method and SHA-256 before claiming routing-policy compliance"
+  }
+}
