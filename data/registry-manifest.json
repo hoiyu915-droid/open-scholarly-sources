@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3.0",
-  "updated": "2026-08-16",
+  "updated": "2026-08-17",
   "source_shards": [
     "sources.json",
     "sources.ai-nlp.json",
@@ -10,6 +10,8 @@
     "sources.physical-earth.json",
     "sources.life-health.json",
     "sources.social-humanities.json",
+    "sources.sexuality-relationships.json",
+    "sources.reproductive-health.json",
     "sources.preprints-major.json",
     "sources.preprints-osf.json",
     "sources.preprints-community.json",
@@ -20,6 +22,8 @@
   "translation_shards": [
     "i18n.zh-TW.json",
     "i18n.zh-TW.cross-disciplinary.json",
+    "i18n.zh-TW.sexuality-relationships.json",
+    "i18n.zh-TW.reproductive-health.json",
     "i18n.zh-TW.preprints.json",
     "i18n.zh-TW.working-papers.json",
     "i18n.zh-TW.integrity-discovery.json"
