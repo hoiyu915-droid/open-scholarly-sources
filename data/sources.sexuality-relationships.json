@@ -1,0 +1,213 @@
+{
+  "schema_version": "0.2.0",
+  "updated": "2026-08-17",
+  "sources": [
+    {
+      "id": "sexual-medicine",
+      "name": "Sexual Medicine",
+      "organization": "International Society for Sexual Medicine / Oxford University Press",
+      "source_type": "journal",
+      "subjects": [
+        "sexual health",
+        "sexuality",
+        "medicine"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/smoa",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-17",
+        "evidence_url": "https://academic.oup.com/smoa/pages/general-instructions"
+      },
+      "notes": "Fully open access, peer-reviewed ISSM journal covering sexual function and dysfunction, epidemiology, psychosexual and interpersonal dimensions, and clinical sexual health.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": ""
+      }
+    },
+    {
+      "id": "sexes",
+      "name": "Sexes",
+      "organization": "MDPI",
+      "source_type": "journal",
+      "subjects": [
+        "sexuality",
+        "sexual health",
+        "sexual behavior",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.mdpi.com/journal/sexes",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-17",
+        "evidence_url": "https://www.mdpi.com/journal/sexes"
+      },
+      "notes": "Peer-reviewed fully OA interdisciplinary journal focused on sexuality, sexual health and sexual behavior.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": ""
+      }
+    },
+    {
+      "id": "frontiers-social-psychology",
+      "name": "Frontiers in Social Psychology",
+      "organization": "Frontiers",
+      "source_type": "journal",
+      "subjects": [
+        "psychology",
+        "social psychology",
+        "sexuality",
+        "relationships",
+        "gender studies"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.frontiersin.org/journals/social-psychology",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-17",
+        "evidence_url": "https://www.frontiersin.org/journals/social-psychology/about"
+      },
+      "notes": "Fully OA social-psychology journal with a dedicated Gender, Sexuality and Relationships specialty section; useful for relationship dynamics, gender and sexuality research.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": ""
+      }
+    },
+    {
+      "id": "frontiers-psychology",
+      "name": "Frontiers in Psychology",
+      "organization": "Frontiers",
+      "source_type": "journal",
+      "subjects": [
+        "psychology",
+        "social psychology",
+        "health psychology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.frontiersin.org/journals/psychology",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-17",
+        "evidence_url": "https://www.frontiersin.org/journals/psychology/about"
+      },
+      "notes": "Large fully OA psychology journal useful as a broad discovery and evidence source for intimacy, relationship satisfaction, attachment, sexuality and health psychology.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": ""
+      }
+    }
+  ]
+}
