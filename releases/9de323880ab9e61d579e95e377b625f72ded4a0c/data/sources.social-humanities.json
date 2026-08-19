@@ -1,0 +1,368 @@
+{
+  "schema_version": "0.2.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "forum-of-mathematics",
+      "name": "Forum of Mathematics",
+      "organization": "Cambridge University Press & Assessment",
+      "source_type": "journal_collection",
+      "subjects": [
+        "mathematics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.cambridge.org/core/publications/forum-of-mathematics",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/information/forum-of-mathematics-pi-and-forum-of-mathematics-sigma-information"
+      },
+      "notes": "Cambridge fully OA mathematics family comprising Pi for broadly significant work and Sigma for high-quality specialist research.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": ""
+      },
+      "members": [
+        "Forum of Mathematics, Pi",
+        "Forum of Mathematics, Sigma"
+      ]
+    },
+    {
+      "id": "forum-of-mathematics-pi",
+      "name": "Forum of Mathematics, Pi",
+      "organization": "Cambridge University Press & Assessment",
+      "source_type": "journal",
+      "subjects": [
+        "mathematics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi",
+      "parent_id": "forum-of-mathematics",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.cambridge.org/core/journals/forum-of-mathematics-pi/information/about-this-journal"
+      },
+      "notes": "Selective fully OA mathematics journal for work of broad significance across the discipline.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": ""
+      }
+    },
+    {
+      "id": "forum-of-mathematics-sigma",
+      "name": "Forum of Mathematics, Sigma",
+      "organization": "Cambridge University Press & Assessment",
+      "source_type": "journal",
+      "subjects": [
+        "mathematics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.cambridge.org/core/journals/forum-of-mathematics-sigma",
+      "parent_id": "forum-of-mathematics",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/information/about-this-journal"
+      },
+      "notes": "Fully OA mathematics journal publishing high-quality research across specialist fields.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": ""
+      }
+    },
+    {
+      "id": "theoretical-economics",
+      "name": "Theoretical Economics",
+      "organization": "Econometric Society",
+      "source_type": "journal",
+      "subjects": [
+        "economics",
+        "economic theory",
+        "game theory"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.econtheory.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://qe.ojs-es.econometricsociety.org/openaccess.php"
+      },
+      "notes": "Leading fully OA field journal of the Econometric Society for economic theory.",
+      "access_policy": {
+        "model": "diamond",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": "Free to read; current author-charge policy should be checked with the Society."
+      }
+    },
+    {
+      "id": "demography",
+      "name": "Demography",
+      "organization": "Population Association of America / Duke University Press",
+      "source_type": "journal",
+      "subjects": [
+        "demography",
+        "population studies",
+        "social sciences",
+        "public health"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://read.dukeupress.edu/demography",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.populationassociation.org/blogs/paa-web2/2026/05/04/demography-meets-subscription-funding-goalnow-open"
+      },
+      "notes": "Flagship population-science journal. The 2026 volume is permanently OA through Subscribe to Open; earlier recent volumes are not uniformly OA.",
+      "access_policy": {
+        "model": "subscribe_to_open",
+        "effective_from": null,
+        "open_years": [
+          "2026"
+        ],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "OA is volume/year-specific and must not be projected to other years."
+      }
+    },
+    {
+      "id": "open-mind",
+      "name": "Open Mind",
+      "organization": "MIT Press Direct",
+      "source_type": "journal",
+      "subjects": [
+        "cognitive science",
+        "neuroscience",
+        "psychology",
+        "linguistics",
+        "philosophy of mind",
+        "computational modeling"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://direct.mit.edu/opmi",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://direct.mit.edu/opmi/pages/submission-guidelines"
+      },
+      "notes": "Diamond OA cognitive-science journal spanning psychology, neuroscience, language, decision-making, philosophy and computational modelling.",
+      "access_policy": {
+        "model": "diamond",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "No author-facing APC."
+      }
+    },
+    {
+      "id": "journal-of-legal-analysis",
+      "name": "Journal of Legal Analysis",
+      "organization": "Harvard Law School / Oxford University Press",
+      "source_type": "journal",
+      "subjects": [
+        "law",
+        "legal studies",
+        "economics",
+        "political science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/jla",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://academic.oup.com/jla/pages/About"
+      },
+      "notes": "Peer-reviewed fully OA general law journal designed for rigorous interdisciplinary legal scholarship.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": ""
+      }
+    }
+  ]
+}

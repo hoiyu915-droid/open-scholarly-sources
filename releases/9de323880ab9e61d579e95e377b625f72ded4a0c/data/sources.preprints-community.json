@@ -1,0 +1,956 @@
+{
+  "schema_version": "0.2.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "africarxiv",
+      "name": "AfricArXiv",
+      "organization": "AfricArXiv / UbuntuNet Alliance",
+      "source_type": "subject_repository",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://africarxiv.ubuntunet.net/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://africarxiv.org/submission-guide/"
+      },
+      "notes": "Community-led African research repository supporting preprints and other scholarly outputs, with a current literature repository operated with regional infrastructure partners.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Pan-African discovery route; classify document type and review state per deposit."
+      }
+    },
+    {
+      "id": "agrirxiv",
+      "name": "agriRxiv",
+      "organization": "CABI",
+      "source_type": "preprint_server",
+      "subjects": [
+        "agriculture",
+        "plant science",
+        "food science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.cabidigitallibrary.org/journal/agrirxiv",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.cabi.org/what-we-do/publishing-products/"
+      },
+      "notes": "CABI's free open-access source of unpublished preprints across the agricultural sciences.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Agricultural frontier-discovery source; preprints remain distinct from CABI's peer-reviewed journals."
+      }
+    },
+    {
+      "id": "arpha-preprints",
+      "name": "ARPHA Preprints",
+      "organization": "Pensoft / ARPHA",
+      "source_type": "preprint_server",
+      "subjects": [
+        "life sciences",
+        "environmental science",
+        "biodiversity"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://preprints.arphahub.com/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://arphahub.com/about/preprints"
+      },
+      "notes": "Opt-in preprint service integrated with ARPHA-hosted journal submissions, exposing pre-review manuscripts before formal peer review.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Journal-integrated preprint route; later journal publication can be linked, but posting is not acceptance."
+      }
+    },
+    {
+      "id": "chinaxiv",
+      "name": "ChinaXiv",
+      "organization": "National Science Library, Chinese Academy of Sciences",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "mixed",
+      "canonical_url": "https://chinaxiv.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://chinaxiv.org/home.htm?locale=en"
+      },
+      "notes": "Chinese Academy of Sciences preprint dissemination platform. Items receive preliminary political/academic checks rather than strict peer review; the platform also conditionally accepts published articles and supports open post-publication commentary.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Publication state can be mixed; preserve preprint versus published-item distinction at record level."
+      }
+    },
+    {
+      "id": "crimrxiv",
+      "name": "CrimRxiv",
+      "organization": "CrimConsortium / University of Manchester / Knowledge Futures",
+      "source_type": "subject_repository",
+      "subjects": [
+        "criminology",
+        "social sciences",
+        "law"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://www.crimrxiv.com/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.crimrxiv.com/preprints-plus-working-papers"
+      },
+      "notes": "Global open criminology repository with dedicated preprint and working-paper collections. Submissions are moderated before posting; the repository also hosts other open criminology scholarship.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Use preprint/working-paper collection for frontier discovery; repository-wide content has mixed publication states."
+      }
+    },
+    {
+      "id": "engrxiv",
+      "name": "engrXiv — Engineering Archive",
+      "organization": "Open Engineering Inc.",
+      "source_type": "preprint_server",
+      "subjects": [
+        "engineering"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://engrxiv.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://engrxiv.org/about"
+      },
+      "notes": "Nonprofit engineering e-print server for working papers, preprints and related research outputs. Moderation controls posting but acceptance is not a statement of research quality; journal DOI links can connect later versions.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Primarily an early engineering dissemination route; content type can include more than preprints."
+      }
+    },
+    {
+      "id": "frenxiv",
+      "name": "Frenxiv",
+      "organization": "Frenxiv community / Center for Open Science infrastructure",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://frenxiv.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "partial",
+        "checked": "2026-08-16",
+        "evidence_url": "https://frenxiv.org/"
+      },
+      "notes": "French multidisciplinary preprint service with a live submission site. It is not in the current OSF-hosted-provider list, so platform/governance continuity is intentionally marked partial and should be reverified periodically.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Useful discovery source; provider governance/platform status should be periodically reverified."
+      }
+    },
+    {
+      "id": "indiarxiv",
+      "name": "IndiaRxiv",
+      "organization": "Open Access India / Society for Promotion of Horticulture",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://ops.iihr.res.in/index.php/IndiaRxiv",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://ops.iihr.res.in/index.php/IndiaRxiv"
+      },
+      "notes": "India-focused multidisciplinary preprint repository using Open Preprint Systems. Submissions are moderated and the site explicitly distinguishes preprints from peer-reviewed publication.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "The current site states open Creative Commons licensing but shows inconsistent licence wording; preserve licence as mixed until normalized."
+      }
+    },
+    {
+      "id": "jxiv",
+      "name": "Jxiv",
+      "organization": "Japan Science and Technology Agency (JST)",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://jxiv.jst.go.jp/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://jxiv.jst.go.jp/jxiv_docs/en/Jxiv_about_en.html"
+      },
+      "notes": "JST-operated Japanese preprint server accepting all research fields in Japanese or English. Records receive DOIs, are screened for format/ethics/legal/plagiarism issues, can be revised, and remain permanently accessible.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "All versions remain public; screening is not scholarly peer review. Authors set secondary-use conditions."
+      }
+    },
+    {
+      "id": "lingbuzz",
+      "name": "LingBuzz",
+      "organization": "LingBuzz",
+      "source_type": "subject_repository",
+      "subjects": [
+        "linguistics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://lingbuzz.net/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://lingbuzz.net/"
+      },
+      "notes": "Open linguistics article archive and community space containing preprints and other published/unpublished research versions.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "High-signal specialist repository; version and review status must be determined per paper."
+      }
+    },
+    {
+      "id": "marxiv",
+      "name": "MarXiv",
+      "organization": "MarXiv community / Zenodo",
+      "source_type": "subject_repository",
+      "subjects": [
+        "ocean science",
+        "climate science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://zenodo.org/communities/marxiv/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://zenodo.org/communities/marxiv/"
+      },
+      "notes": "Open repository community for ocean and marine-climate research, including preprints and other shareable manuscript versions.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Hosted as a Zenodo community; use record metadata to distinguish preprint, postprint and other output types."
+      }
+    },
+    {
+      "id": "mitofit-preprints",
+      "name": "MitoFit Preprints Archive",
+      "organization": "MitoFit / Oroboros Instruments",
+      "source_type": "preprint_server",
+      "subjects": [
+        "life sciences",
+        "cell biology",
+        "mitochondrial physiology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.mitofit.org/index.php/MitoFit_Preprints",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/mitofit-preprints-archive/"
+      },
+      "notes": "Specialized preprint server for mitochondrial physiology and bioenergetics. DOAPR records pre-moderation, versioning, DOI assignment and free public access.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Niche frontier server; moderation checks scope/completeness/ethics rather than substituting for journal peer review."
+      }
+    },
+    {
+      "id": "open-anthropology-research-repository",
+      "name": "Open Anthropology Research Repository (OARR)",
+      "organization": "American Anthropological Association",
+      "source_type": "subject_repository",
+      "subjects": [
+        "anthropology",
+        "archaeology",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://openanthroresearch.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": "https://openanthroresearch.org/index.php/oarr/oai",
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://openanthroresearch.org/index.php/oarr/about"
+      },
+      "notes": "AAA-managed open anthropology repository for preprints, teaching materials, conference papers and posters; current platform is PKP Open Preprint Systems.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Use document type to isolate preprints/working papers from conference and teaching materials."
+      }
+    },
+    {
+      "id": "organic-eprints",
+      "name": "Organic Eprints",
+      "organization": "International Centre for Research in Organic Food Systems (ICROFS) and partners",
+      "source_type": "subject_repository",
+      "subjects": [
+        "agriculture",
+        "food science",
+        "sustainability"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://orgprints.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/organic-eprints/"
+      },
+      "notes": "International open archive for research on organic food and farming, including preprints and other full-text scholarly outputs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Domain repository spanning early and published research; classify version per record."
+      }
+    },
+    {
+      "id": "philarchive",
+      "name": "PhilArchive",
+      "organization": "PhilPapers Foundation",
+      "source_type": "subject_repository",
+      "subjects": [
+        "philosophy",
+        "humanities"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://philarchive.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://philarchive.org/help/about.html"
+      },
+      "notes": "Large nonprofit open-access philosophy e-print archive integrated with PhilPapers, containing preprints and other scholarly versions.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Record-level version and peer-review state vary; useful for early philosophy discovery and author-deposited manuscripts."
+      }
+    },
+    {
+      "id": "philsci-archive",
+      "name": "PhilSci-Archive",
+      "organization": "Philosophy of Science Association / University of Pittsburgh Library System",
+      "source_type": "subject_repository",
+      "subjects": [
+        "philosophy",
+        "history of science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://philsci-archive.pitt.edu/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://philsci-archive.pitt.edu/"
+      },
+      "notes": "Official Philosophy of Science Association preprint archive for open pre-publication research; deposits undergo routine suitability checks rather than scholarly peer review.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Focused frontier source for philosophy of science; later journal/book publication must be resolved separately."
+      }
+    },
+    {
+      "id": "preprints-ru",
+      "name": "Preprints.ru",
+      "organization": "Preprints.ru",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://preprints.ru/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "partial",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/preprints-ru/"
+      },
+      "notes": "Russian interdisciplinary preprint server listed as open by the current COAR/CCSD DOAPR directory. Direct availability should be periodically rechecked.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "unknown",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Current status is supported by DOAPR; direct service availability should be health-checked because the site can be intermittently unreachable."
+      }
+    },
+    {
+      "id": "rinarxiv",
+      "name": "RINarXiv",
+      "organization": "Indonesia Open Science community / LIPI legacy host",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://rinarxiv.lipi.go.id/lipi",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "partial",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/rinarxiv/"
+      },
+      "notes": "Indonesian multidisciplinary preprint archive listed as open by DOAPR. The listed host remains under the legacy LIPI domain, so operational/governance continuity should be reverified periodically.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "DOAPR records versioning and public full text; current host/governance is marked for periodic re-verification."
+      }
+    },
+    {
+      "id": "sciencepaper-online",
+      "name": "Sciencepaper Online",
+      "organization": "Center for Scientific Research and Development in Higher Education Institutes, Ministry of Education of China",
+      "source_type": "preprint_server",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.paper.edu.cn/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "partial",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/sciencepaper-online/"
+      },
+      "notes": "Chinese multidisciplinary research-manuscript repository established for rapid scholarly sharing. DOAPR records free access, versioning, moderation and optional review services.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Preprints may optionally receive platform review; peer-review status must be read from the individual record rather than inferred from hosting."
+      }
+    }
+  ]
+}

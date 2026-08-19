@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/release-manifest.schema.json",
+  "title": "Open Scholarly Sources release manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "release_id",
+    "commit_sha",
+    "release_date",
+    "commit_url",
+    "repository_main_ref_api",
+    "mutable_base",
+    "immutable_base",
+    "manifest_url",
+    "mutable_manifest_url",
+    "source_count",
+    "profile_schema_version",
+    "profile_method",
+    "routing_policy_version",
+    "routing_policy_method",
+    "routing_policy_schema_version",
+    "chatbot_search_protocol_version",
+    "chatbot_search_method",
+    "chatbot_search_schema_version",
+    "chatbot_search_adapter_count",
+    "files",
+    "consistency_contract"
+  ],
+  "properties": {
+    "$schema": {"type": "string", "format": "uri", "pattern": "^https://"},
+    "schema_version": {"const": "3.0.0"},
+    "release_id": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "commit_sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "release_date": {"type": "string", "format": "date-time"},
+    "commit_url": {"type": "string", "format": "uri", "pattern": "^https://"},
+    "repository_main_ref_api": {"type": "string", "format": "uri", "pattern": "^https://"},
+    "mutable_base": {"type": "string", "format": "uri", "pattern": "^https://"},
+    "immutable_base": {"type": "string", "format": "uri", "pattern": "^https://"},
+    "manifest_url": {"type": "string", "format": "uri", "pattern": "^https://"},
+    "mutable_manifest_url": {"type": "string", "format": "uri", "pattern": "^https://"},
+    "source_count": {"type": "integer", "minimum": 1},
+    "profile_schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "profile_method": {"type": "string", "minLength": 1},
+    "routing_policy_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "routing_policy_method": {"type": "string", "minLength": 1},
+    "routing_policy_schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "chatbot_search_protocol_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "chatbot_search_method": {"type": "string", "minLength": 1},
+    "chatbot_search_schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "chatbot_search_adapter_count": {"type": "integer", "minimum": 1},
+    "files": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["sha256", "bytes", "url"],
+        "properties": {
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "bytes": {"type": "integer", "minimum": 0},
+          "url": {"type": "string", "format": "uri", "pattern": "^https://"},
+          "mutable_url": {"type": "string", "format": "uri", "pattern": "^https://"}
+        }
+      }
+    },
+    "consistency_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mutable_endpoints", "immutable_endpoints", "freshness_check", "ndjson_identity", "routing_policy_identity", "chatbot_search_identity"],
+      "properties": {
+        "mutable_endpoints": {"type": "string", "minLength": 1},
+        "immutable_endpoints": {"type": "string", "minLength": 1},
+        "freshness_check": {"type": "string", "minLength": 1},
+        "ndjson_identity": {"type": "string", "minLength": 1},
+        "routing_policy_identity": {"type": "string", "minLength": 1},
+        "chatbot_search_identity": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

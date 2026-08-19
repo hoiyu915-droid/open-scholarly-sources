@@ -1,0 +1,44 @@
+{
+  "locale": "zh-TW",
+  "updated": "2026-08-17",
+  "taxonomy": {
+    "subjects": {
+      "reproductive health": "生殖健康",
+      "reproductive medicine": "生殖醫學",
+      "public health": "公共衛生",
+      "gynecology": "婦科學",
+      "obstetrics": "產科學",
+      "fertility": "生育力",
+      "infertility": "不孕症",
+      "assisted reproduction": "輔助生殖",
+      "contraception": "避孕",
+      "reproductive biology": "生殖生物學",
+      "endocrinology": "內分泌學",
+      "pregnancy": "妊娠",
+      "childbirth": "分娩",
+      "maternal health": "孕產婦健康",
+      "women's health": "女性健康",
+      "neonatology": "新生兒學",
+      "perinatology": "周產期醫學",
+      "andrology": "男性學",
+      "ovarian biology": "卵巢生物學",
+      "human rights": "人權",
+      "mental health": "心理健康"
+    }
+  },
+  "sources": {
+    "frontiers-reproductive-health": {"name": "Frontiers in Reproductive Health 生殖健康", "summary": "全 OA 生殖健康期刊，涵蓋婦科、生育力、輔助生殖、HIV／STI、更年期、生殖流行病學、醫療可近性與政策。"},
+    "reproductive-health": {"name": "Reproductive Health 生殖健康", "summary": "BMC／Springer Nature 的生殖健康 OA 核心期刊，兼收性健康、性別與社會議題、服務提供、婦科與產科研究。"},
+    "human-reproduction-open": {"name": "Human Reproduction Open 人類生殖開放期刊", "summary": "ESHRE／牛津大學出版社的全 OA 生殖醫學期刊，涵蓋臨床、生物、環境、倫理與社會面向。"},
+    "contraception-and-reproductive-medicine": {"name": "Contraception and Reproductive Medicine 避孕與生殖醫學", "summary": "全 OA 期刊，聚焦避孕技術、效果、接受度、副作用以及女性與男性生殖醫學。"},
+    "reproductive-biology-and-endocrinology": {"name": "Reproductive Biology and Endocrinology 生殖生物學與內分泌學", "summary": "全 OA 人類生殖科學期刊，涵蓋配子、受精、胚胎發育、生殖內分泌、免疫與生育力。"},
+    "sexual-and-reproductive-health-matters": {"name": "Sexual and Reproductive Health Matters 性與生殖健康議題", "summary": "國際同儕審查 OA 期刊，聚焦 SRHR、避孕、墮胎、孕產健康、HIV／STI、暴力、人權、法律與政策。"},
+    "bmc-pregnancy-childbirth": {"name": "BMC Pregnancy and Childbirth 妊娠與分娩", "summary": "大型 OA 期刊，涵蓋妊娠、分娩、哺乳、孕產婦健康、產科照護、胎兒醫學與相關社會面向。"},
+    "bmc-womens-health": {"name": "BMC Women's Health 女性健康", "summary": "女性健康 OA 期刊，涵蓋婦科、生殖健康、健康行為、心理健康與公共衛生。"},
+    "womens-health-sage": {"name": "Women's Health 女性健康", "summary": "SAGE 的同儕審查 OA 女性健康期刊，涵蓋女性醫療、生殖健康與孕產健康等主題。"},
+    "maternal-health-neonatology-perinatology": {"name": "Maternal Health, Neonatology and Perinatology 孕產婦、新生兒與周產期健康", "summary": "全 OA 期刊，聚焦孕前、周產期、產後母體健康及其對胎兒、新生兒與嬰兒的影響。"},
+    "reproductive-medicine-and-biology": {"name": "Reproductive Medicine and Biology 生殖醫學與生物學", "summary": "日本生殖醫學相關學會的全 OA 官方期刊，涵蓋男性學、生育力、內分泌、著床、妊娠、避孕與不孕治療。"},
+    "reproduction-and-fertility": {"name": "Reproduction and Fertility 生殖與生育力", "summary": "Society for Reproduction and Fertility／Bioscientifica 的全 OA 期刊，涵蓋基礎、轉譯與臨床生殖及生育力研究。"},
+    "journal-of-ovarian-research": {"name": "Journal of Ovarian Research 卵巢研究期刊", "summary": "全 OA 卵巢研究期刊，涵蓋卵巢功能、卵巢疾病、生育力、卵巢儲備與生殖醫學。"}
+  }
+}

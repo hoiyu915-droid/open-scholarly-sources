@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/chatbot-search-routing.schema.json",
+  "title": "Open Scholarly Sources closed-registry chatbot search routing",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "method",
+    "updated",
+    "default_mode",
+    "runtime_enforcement",
+    "network_boundary",
+    "modes",
+    "selection",
+    "terminal_statuses",
+    "gap_statuses",
+    "trace_required_fields",
+    "adapters"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_version": {"const": "1.0.0"},
+    "method": {"const": "chatbot_closed_registry_oa_search_v1"},
+    "updated": {"type": "string", "format": "date"},
+    "default_mode": {"enum": ["registry_closed", "direct_only"]},
+    "runtime_enforcement": {"const": false},
+    "network_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["custom_server_required", "skill_required", "public_ocean_enabled", "arbitrary_url_fetch_enabled", "allowed_schemes", "redirect_policy"],
+      "properties": {
+        "custom_server_required": {"const": false},
+        "skill_required": {"const": false},
+        "public_ocean_enabled": {"const": false},
+        "arbitrary_url_fetch_enabled": {"const": false},
+        "allowed_schemes": {"const": ["https"]},
+        "redirect_policy": {"const": "same_host_only"}
+      }
+    },
+    "modes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["registry_closed", "direct_only"],
+      "properties": {
+        "registry_closed": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["provider_must_be_registered", "target_must_be_registered", "provider_target_may_differ_only_when_adapter_declares_target_source_ids"],
+          "properties": {
+            "provider_must_be_registered": {"const": true},
+            "target_must_be_registered": {"const": true},
+            "provider_target_may_differ_only_when_adapter_declares_target_source_ids": {"const": true}
+          }
+        },
+        "direct_only": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["provider_must_be_registered", "target_must_be_registered", "provider_must_equal_target"],
+          "properties": {
+            "provider_must_be_registered": {"const": true},
+            "target_must_be_registered": {"const": true},
+            "provider_must_equal_target": {"const": true}
+          }
+        }
+      }
+    },
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_source_count", "maximum_source_count", "source_status_required", "adapter_status_required", "semantic_match_fields", "no_adapter_status"],
+      "properties": {
+        "target_source_count": {"type": "integer", "minimum": 1},
+        "maximum_source_count": {"type": "integer", "minimum": 1},
+        "source_status_required": {"const": "active"},
+        "adapter_status_required": {"const": "searchable"},
+        "semantic_match_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "no_adapter_status": {"const": "NO_SEARCH_ADAPTER"}
+      }
+    },
+    "terminal_statuses": {"const": ["SUCCESS", "NO_RESULTS", "NO_SEARCH_ADAPTER", "SOURCE_FETCH_GAP", "CLOSED_WORLD_VIOLATION"]},
+    "gap_statuses": {"const": ["NO_SEARCH_ADAPTER", "SOURCE_FETCH_GAP", "REGISTRY_COVERAGE_GAP", "CLOSED_WORLD_VIOLATION"]},
+    "trace_required_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "adapters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/adapter"}
+    }
+  },
+  "$defs": {
+    "adapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "adapter_id", "source_id", "status", "capability", "method", "endpoint_template",
+        "query_encoding", "allowed_hosts", "redirect_policy", "response_format",
+        "accepted_content_types", "parser", "authentication", "default_limit", "maximum_limit",
+        "target_source_policy", "result_identity_fields", "oa_result_rule", "dedupe_key_order",
+        "verification", "notes"
+      ],
+      "properties": {
+        "adapter_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "source_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "status": {"const": "searchable"},
+        "capability": {"const": "topic_search"},
+        "method": {"const": "GET"},
+        "endpoint_template": {"type": "string", "pattern": "^https://"},
+        "query_encoding": {"enum": ["url_component_utf8", "url_path_segment_utf8"]},
+        "allowed_hosts": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9.-]+$"}},
+        "redirect_policy": {"const": "same_host_only"},
+        "response_format": {"enum": ["json", "atom"]},
+        "accepted_content_types": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "parser": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "authentication": {"const": "none"},
+        "default_limit": {"type": "integer", "minimum": 1},
+        "maximum_limit": {"type": "integer", "minimum": 1},
+        "target_source_policy": {"const": "same_as_provider"},
+        "result_identity_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "oa_result_rule": {"type": "string", "minLength": 1},
+        "dedupe_key_order": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["live_status", "checked", "observed_http_status", "observed_content_type", "evidence_url"],
+          "properties": {
+            "live_status": {"enum": ["verified", "blocked", "unavailable"]},
+            "checked": {"type": "string", "format": "date"},
+            "observed_http_status": {"type": "integer", "minimum": 100, "maximum": 599},
+            "observed_content_type": {"type": "string", "minLength": 1},
+            "evidence_url": {"type": "string", "format": "uri", "pattern": "^https://"}
+          }
+        },
+        "notes": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

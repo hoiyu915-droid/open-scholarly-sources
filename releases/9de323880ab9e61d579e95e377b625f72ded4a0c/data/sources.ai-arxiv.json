@@ -1,0 +1,54 @@
+{
+  "schema_version": "0.1.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "arxiv-cs-cl", "name": "arXiv cs.CL — Computation and Language", "organization": "arXiv", "source_type": "subject_repository",
+      "subjects": ["natural language processing", "computational linguistics", "large language models", "language modeling"], "oa_scope": "full", "peer_review_scope": "not_peer_reviewed", "publication_state": "mixed",
+      "canonical_url": "https://arxiv.org/list/cs.CL/recent", "parent_id": "arxiv", "access_roles": ["discovery", "metadata", "fulltext", "repository_copy"],
+      "machine_access": {"formats": ["html", "pdf", "xml"], "feed_url": null, "api_url": "https://export.arxiv.org/api/", "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://arxiv.org/list/cs.CL/recent"},
+      "notes": "Subject projection of arXiv category cs.CL. Treat records as repository/preprint signals unless a separate peer-reviewed version of record is verified."
+    },
+    {
+      "id": "arxiv-cs-lg", "name": "arXiv cs.LG — Machine Learning", "organization": "arXiv", "source_type": "subject_repository",
+      "subjects": ["machine learning", "deep learning", "large language models", "foundation models"], "oa_scope": "full", "peer_review_scope": "not_peer_reviewed", "publication_state": "mixed",
+      "canonical_url": "https://arxiv.org/list/cs.LG/recent", "parent_id": "arxiv", "access_roles": ["discovery", "metadata", "fulltext", "repository_copy"],
+      "machine_access": {"formats": ["html", "pdf", "xml"], "feed_url": null, "api_url": "https://export.arxiv.org/api/", "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://arxiv.org/list/cs.LG/recent"},
+      "notes": "Subject projection of arXiv category cs.LG. Treat records as repository/preprint signals unless a separate peer-reviewed version of record is verified."
+    },
+    {
+      "id": "arxiv-cs-ai", "name": "arXiv cs.AI — Artificial Intelligence", "organization": "arXiv", "source_type": "subject_repository",
+      "subjects": ["artificial intelligence", "ai agents", "large language models", "alignment and safety"], "oa_scope": "full", "peer_review_scope": "not_peer_reviewed", "publication_state": "mixed",
+      "canonical_url": "https://arxiv.org/list/cs.AI/recent", "parent_id": "arxiv", "access_roles": ["discovery", "metadata", "fulltext", "repository_copy"],
+      "machine_access": {"formats": ["html", "pdf", "xml"], "feed_url": null, "api_url": "https://export.arxiv.org/api/", "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://arxiv.org/list/cs.AI/recent"},
+      "notes": "Subject projection of arXiv category cs.AI. Treat records as repository/preprint signals unless a separate peer-reviewed version of record is verified."
+    },
+    {
+      "id": "arxiv-stat-ml", "name": "arXiv stat.ML — Machine Learning", "organization": "arXiv", "source_type": "subject_repository",
+      "subjects": ["machine learning", "statistics", "deep learning"], "oa_scope": "full", "peer_review_scope": "not_peer_reviewed", "publication_state": "mixed",
+      "canonical_url": "https://arxiv.org/list/stat.ML/recent", "parent_id": "arxiv", "access_roles": ["discovery", "metadata", "fulltext", "repository_copy"],
+      "machine_access": {"formats": ["html", "pdf", "xml"], "feed_url": null, "api_url": "https://export.arxiv.org/api/", "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://arxiv.org/list/stat.ML/recent"},
+      "notes": "Subject projection of arXiv category stat.ML. Treat records as repository/preprint signals unless a separate peer-reviewed version of record is verified."
+    },
+    {
+      "id": "arxiv-cs-cv", "name": "arXiv cs.CV — Computer Vision and Pattern Recognition", "organization": "arXiv", "source_type": "subject_repository",
+      "subjects": ["computer vision", "multimodal models", "deep learning", "foundation models"], "oa_scope": "full", "peer_review_scope": "not_peer_reviewed", "publication_state": "mixed",
+      "canonical_url": "https://arxiv.org/list/cs.CV/recent", "parent_id": "arxiv", "access_roles": ["discovery", "metadata", "fulltext", "repository_copy"],
+      "machine_access": {"formats": ["html", "pdf", "xml"], "feed_url": null, "api_url": "https://export.arxiv.org/api/", "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://arxiv.org/list/cs.CV/recent"},
+      "notes": "Subject projection of arXiv category cs.CV. Treat records as repository/preprint signals unless a separate peer-reviewed version of record is verified."
+    },
+    {
+      "id": "arxiv-cs-ma", "name": "arXiv cs.MA — Multiagent Systems", "organization": "arXiv", "source_type": "subject_repository",
+      "subjects": ["multi-agent systems", "ai agents", "artificial intelligence"], "oa_scope": "full", "peer_review_scope": "not_peer_reviewed", "publication_state": "mixed",
+      "canonical_url": "https://arxiv.org/list/cs.MA/recent", "parent_id": "arxiv", "access_roles": ["discovery", "metadata", "fulltext", "repository_copy"],
+      "machine_access": {"formats": ["html", "pdf", "xml"], "feed_url": null, "api_url": "https://export.arxiv.org/api/", "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://arxiv.org/list/cs.MA/recent"},
+      "notes": "Subject projection of arXiv category cs.MA. Treat records as repository/preprint signals unless a separate peer-reviewed version of record is verified."
+    }
+  ]
+}

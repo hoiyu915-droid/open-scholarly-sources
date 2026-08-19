@@ -1,0 +1,171 @@
+{
+  "schema_version": "2.0.0",
+  "policy_version": "2.0.0",
+  "method": "registry_source_navigation_opt_in_verification_v2",
+  "enforcement_scope": "consumer",
+  "repository_guarantee": "policy_publication_versioning_reference_implementation",
+  "runtime_enforcement": false,
+  "default_behavior": {
+    "mode": "source_navigation",
+    "purpose": "recommend_registered_scholarly_sources_for_literature_discovery",
+    "verification_enabled": false,
+    "public_ocean_enabled": false,
+    "suggested_source_count": {"target": 5, "maximum": 8},
+    "output_fields": ["source_id", "name", "organization", "source_type", "why_this_source", "canonical_url"],
+    "forbidden_default_actions": [
+      "resolve_documents",
+      "query_crossref",
+      "query_doaj",
+      "query_unpaywall",
+      "judge_document_admissibility",
+      "emit_resolution_attestations",
+      "open_public_ocean"
+    ],
+    "no_match_behavior": "report_registry_coverage_gap_without_auto_verification_or_public_ocean"
+  },
+  "navigation": {
+    "source_of_truth": "pinned_open_scholarly_sources_registry_release",
+    "selection_inputs": ["subjects", "access_roles", "source_profile.tier", "source_profile.archetypes", "source_type", "canonical_url"],
+    "llm_semantic_matching_allowed": true,
+    "llm_fact_boundary": "may_rank_or_explain_registered_sources_but_may_not_invent_or_upgrade_registry_facts",
+    "result_contract": "point_the_user_to_the_best_registered_places_to_dig_for_literature"
+  },
+  "verification_activation": {
+    "enabled_by_default": false,
+    "requires": "explicit_user_opt_in",
+    "llm_may_self_activate": false,
+    "activation_examples": ["核實這些文獻", "驗證來源", "啟動認證路由", "跑 verification gate", "做 source audit", "check these papers formally"],
+    "non_activation_examples": ["找這個題目的文獻", "用 OA repo 找來源", "有哪些期刊可以挖", "找最新研究", "recommend sources"],
+    "host_policy_note": "A host application may independently impose safety or compliance checks, but Open Scholarly Sources itself does not auto-enable verification."
+  },
+  "verification_profiles": {
+    "lite": {
+      "description": "When explicitly requested, reuse pinned registry source facts and resolve only the minimum document identity needed by the requested evidence check.",
+      "resolver_classes": ["registry", "crossref"],
+      "claim_boundary": "reduced_verification_never_increases_admissibility"
+    },
+    "verified": {
+      "description": "When explicitly requested, run the resolver set required by the evidence lane and preserve resolver observations or digests.",
+      "resolver_classes": ["registry", "crossref", "doaj", "unpaywall", "publisher", "disciplinary_authority"],
+      "claim_boundary": "admissibility_requires_all_lane_attestations"
+    }
+  },
+  "verification_constraints": {
+    "uncertainty_may_widen_routes": true,
+    "uncertainty_may_upgrade_evidence": false,
+    "uncertainty_may_close_required_lane": false,
+    "llm_may_set_verified": false,
+    "public_ocean_may_bypass_resolution": false,
+    "research_runtime_may_promote_registry": false
+  },
+  "verification_requirements": ["formal_evidence", "frontier_research", "frontier_challenge", "evidence_synthesis", "guideline", "integrity_check", "preregistration", "fulltext_recovery", "historical_archive", "broad_discovery"],
+  "verification_lanes": {
+    "formal_evidence": {
+      "preferred_tiers": ["R1", "R2"],
+      "default_companion_lanes": ["frontier_challenge"],
+      "admissibility_requires": ["document_identity", "registry_source_scope"],
+      "registry_source_scope_requires": ["verified_source", "peer_reviewed", "published", "canonical_vor"]
+    },
+    "frontier_research": {
+      "preferred_tiers": ["F1", "F2"],
+      "default_companion_lanes": ["formal_evidence"],
+      "admissibility_requires": ["document_identity", "publication_state"]
+    },
+    "frontier_challenge": {
+      "preferred_tiers": ["F1"],
+      "default_companion_lanes": [],
+      "admissibility_requires": ["document_identity", "publication_state"]
+    },
+    "evidence_synthesis": {
+      "preferred_archetypes": ["evidence_synthesis_anchor", "formal_anchor"],
+      "default_companion_lanes": ["formal_evidence"],
+      "admissibility_requires": ["document_identity", "registry_source_scope"]
+    },
+    "guideline": {
+      "preferred_archetypes": ["guideline_authority"],
+      "default_companion_lanes": [],
+      "admissibility_requires": ["document_identity", "registry_source_scope"]
+    },
+    "integrity_check": {
+      "preferred_archetypes": ["research_integrity_watch", "preregistration_registry", "trial_registry"],
+      "default_companion_lanes": ["formal_evidence"],
+      "admissibility_requires": ["document_identity"]
+    },
+    "preregistration": {
+      "preferred_archetypes": ["preregistration_registry", "trial_registry"],
+      "default_companion_lanes": ["formal_evidence"],
+      "admissibility_requires": ["document_identity"]
+    },
+    "fulltext_recovery": {
+      "preferred_archetypes": ["oa_resolver", "version_bridge", "archive_backbone"],
+      "default_companion_lanes": [],
+      "admissibility_requires": ["document_identity", "version"]
+    },
+    "historical_archive": {
+      "preferred_tiers": ["A1"],
+      "default_companion_lanes": [],
+      "admissibility_requires": ["document_identity"]
+    },
+    "broad_discovery": {
+      "preferred_tiers": ["D1"],
+      "default_companion_lanes": ["formal_evidence", "frontier_challenge"],
+      "admissibility_requires": ["document_identity"]
+    }
+  },
+  "verification_route_order": ["registry_direct", "registry_discovery", "public_ocean"],
+  "coverage_contract": {
+    "terminal_attempt_states": ["success_with_candidates", "success_empty", "failed_after_policy_budget", "not_applicable"],
+    "planned_route_accounting_required": true,
+    "registered_routes_exhausted_when": "every_planned_registered_route_has_one_terminal_attempt",
+    "coverage_unmet_when": "any_required_lane_has_fewer_admissible_documents_than_its_minimum",
+    "public_ocean_allowed_when": ["verification_enabled", "registered_routes_exhausted", "coverage_unmet"]
+  },
+  "resolution": {
+    "statuses": ["verified", "partial", "unknown", "failed", "not_applicable"],
+    "attestation_classes": ["document_identity", "container_identity", "publication_state", "peer_review_scope", "version", "oa_access", "registry_source_scope"],
+    "accepted_resolvers": {
+      "document_identity": ["crossref", "registry", "disciplinary_authority"],
+      "container_identity": ["crossref", "registry", "publisher", "disciplinary_authority"],
+      "publication_state": ["crossref", "registry", "publisher", "disciplinary_authority"],
+      "peer_review_scope": ["registry", "doaj", "human_reviewed_admission"],
+      "version": ["registry", "publisher", "unpaywall", "disciplinary_authority"],
+      "oa_access": ["registry", "doaj", "unpaywall", "publisher"],
+      "registry_source_scope": ["registry"]
+    },
+    "public_ocean_default": "untrusted_until_resolved",
+    "new_source_peer_review_default": "unknown",
+    "note": "Resolution applies only after explicit verification activation. A newly discovered source may remain discovery_only when formal source scope cannot be established."
+  },
+  "admissibility_classes": ["formal_evidence", "frontier_evidence", "repository_copy", "discovery_only", "unresolved"],
+  "promotion": {
+    "runtime_maximum_state": "registry_candidate",
+    "canonical_admission_requires_separate_process": true,
+    "observation_count_is_truth_evidence": false,
+    "evidence_quorum_principle": "independent_resolver_families_not_repeated_sessions"
+  },
+  "verification_trace_required_fields": [
+    "registry_release_id",
+    "routing_policy_version",
+    "routing_policy_sha256",
+    "source_profile_rule_version",
+    "verification",
+    "query_envelope",
+    "planned_registered_routes",
+    "route_attempts",
+    "fallback_depth",
+    "resolution_attestations"
+  ],
+  "reference_implementation": {
+    "path": "reference_consumer/verify.py",
+    "scope": "explicit_verification_formal_evidence_candidate_gate_v0_2",
+    "network_resolver": "crossref",
+    "activation_required": true,
+    "limitations": [
+      "does_not_implement_default_source_navigation",
+      "does_not_classify_natural_language_intent",
+      "does_not_auto_infer_peer_review_from_publisher_prose",
+      "does_not_auto_promote_registry_sources",
+      "does_not_implement_full_source_specific_discovery"
+    ]
+  }
+}
