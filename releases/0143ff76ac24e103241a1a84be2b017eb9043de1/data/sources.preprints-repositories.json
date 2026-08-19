@@ -1,0 +1,739 @@
+{
+  "schema_version": "0.2.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "art-dok",
+      "name": "ART-Dok",
+      "organization": "Heidelberg University Library",
+      "source_type": "subject_repository",
+      "subjects": [
+        "art history",
+        "history"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://archiv.ub.uni-heidelberg.de/artdok/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": "https://archiv.ub.uni-heidelberg.de/artdok/cgi/oai2",
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/art-dok/"
+      },
+      "notes": "Open full-text repository for art, photography and design scholarship; accepts preprints, postprints and other scholarly works.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Disciplinary repository with DOI/URN persistence; record-level version state should be preserved."
+      }
+    },
+    {
+      "id": "bepress-legal-repository",
+      "name": "Bepress Legal Repository",
+      "organization": "Berkeley Electronic Press (bepress)",
+      "source_type": "subject_repository",
+      "subjects": [
+        "law",
+        "legal studies"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://law.bepress.com/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": "https://law.bepress.com/do/oai/",
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/bepress-legal-repository/"
+      },
+      "notes": "Legal scholarship repository offering working papers and preprints from participating law-school scholars and professionals.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Working-paper/preprint repository; deposited versions can be replaced and do not imply peer review."
+      }
+    },
+    {
+      "id": "cern-document-server",
+      "name": "CERN Document Server (CDS)",
+      "organization": "CERN",
+      "source_type": "institutional_repository",
+      "subjects": [
+        "physics",
+        "high energy physics",
+        "engineering"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://cds.cern.ch/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": "https://cds.cern.ch/oai2d",
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/cern-document-server/"
+      },
+      "notes": "CERN institutional repository and catalogue containing CERN scientific output including preprints, reports, articles and theses. DOAPR records a substantial preprint corpus.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "CERN output spans multiple publication states; use document type and report metadata to resolve versions."
+      }
+    },
+    {
+      "id": "crossasia-repository",
+      "name": "CrossAsia Repository",
+      "organization": "Heidelberg University Library",
+      "source_type": "subject_repository",
+      "subjects": [
+        "humanities",
+        "history",
+        "asian studies"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://crossasia-repository.ub.uni-heidelberg.de/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": "https://crossasia-repository.ub.uni-heidelberg.de/cgi/oai2",
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/crossasia-repository/"
+      },
+      "notes": "Open full-text Asian Studies repository accepting preprints, postprints, books, chapters, theses and other research literature.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Asian Studies repository; version and document type must be classified per record."
+      }
+    },
+    {
+      "id": "e-lis",
+      "name": "E-LIS Repository",
+      "organization": "E-LIS",
+      "source_type": "subject_repository",
+      "subjects": [
+        "library and information science"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://eprints.rclis.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": "https://eprints.rclis.org/cgi/oai2",
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://eprints.rclis.org/"
+      },
+      "notes": "International open repository for Library and Information Science. The repository supports OAI-PMH and contains preprints, accepted versions and other LIS scholarly outputs.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Disciplinary repository; version and review state vary by deposited item."
+      }
+    },
+    {
+      "id": "earth-prints",
+      "name": "Earth-prints Repository",
+      "organization": "Istituto Nazionale di Geofisica e Vulcanologia (INGV)",
+      "source_type": "subject_repository",
+      "subjects": [
+        "geoscience",
+        "geophysics",
+        "atmospheric science"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://www.earth-prints.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.earth-prints.org/home"
+      },
+      "notes": "INGV open archive for atmosphere, cryosphere, hydrosphere and solid-Earth research, containing manuscripts, articles, theses and conference materials; some documents are restricted by policy.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Repository includes early research outputs and published material; some records may not expose full text."
+      }
+    },
+    {
+      "id": "eric",
+      "name": "ERIC",
+      "organization": "Institute of Education Sciences, U.S. Department of Education",
+      "source_type": "aggregator",
+      "subjects": [
+        "education"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://eric.ed.gov/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/eric/"
+      },
+      "notes": "Education research index and full-text collection that includes reports, working papers and other grey/prepublication research alongside published literature.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "preprint",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Discovery/full-text source for education research; publication and peer-review state vary by document type."
+      }
+    },
+    {
+      "id": "figshare",
+      "name": "Figshare",
+      "organization": "Digital Science",
+      "source_type": "digital_library",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://figshare.com/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://api.figshare.com/v2/",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/figshare/"
+      },
+      "notes": "General research-output repository that can host citable preprints alongside datasets, figures, software and other research objects.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "General-purpose repository; do not infer peer review or publication state from repository presence alone."
+      }
+    },
+    {
+      "id": "lse-research-online",
+      "name": "LSE Research Online",
+      "organization": "London School of Economics and Political Science",
+      "source_type": "institutional_repository",
+      "subjects": [
+        "social sciences",
+        "economics",
+        "political science"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://eprints.lse.ac.uk/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/lse-research-online/"
+      },
+      "notes": "LSE institutional repository containing working papers, articles and other research outputs in the social sciences.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Institutional repository; working-paper and manuscript versions should be distinguished from VORs."
+      }
+    },
+    {
+      "id": "mit-dspace",
+      "name": "DSpace@MIT",
+      "organization": "Massachusetts Institute of Technology Libraries",
+      "source_type": "institutional_repository",
+      "subjects": [
+        "multidisciplinary"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://dspace.mit.edu/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/dspace-mit/"
+      },
+      "notes": "MIT institutional repository for research outputs including peer-reviewed articles, technical reports, working papers and theses; access and version vary by item.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Institutional repository, not a preprint-only server; verify access and version per record."
+      }
+    },
+    {
+      "id": "mp-arc",
+      "name": "Mathematical Physics Preprint Archive (mp_arc)",
+      "organization": "University of Texas at Austin",
+      "source_type": "subject_repository",
+      "subjects": [
+        "mathematics",
+        "physics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://web.ma.utexas.edu/mp_arc/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "inactive",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://web.ma.utexas.edu/mp_arc/mp_arc-home.html"
+      },
+      "notes": "Historical mathematical-physics preprint archive. The primary site states that it accepted new preprints through December 2023; the archive remains publicly accessible but no new submissions are processed.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Read-only historical archive since the end of 2023; retain as an archival frontier source, not a current submission route."
+      }
+    },
+    {
+      "id": "propylaeumdok",
+      "name": "PropylaeumDok",
+      "organization": "Heidelberg University Library",
+      "source_type": "subject_repository",
+      "subjects": [
+        "archaeology",
+        "history",
+        "classical studies"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://archiv.ub.uni-heidelberg.de/propylaeumdok/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/propylaeumdok/"
+      },
+      "notes": "Open digital repository for Classical Studies and archaeology, including preprints and other scholarly publication types.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Disciplinary full-text repository; record-level version and peer-review state vary."
+      }
+    },
+    {
+      "id": "rutgers-optimality-archive",
+      "name": "Rutgers Optimality Archive (ROA)",
+      "organization": "Rutgers University",
+      "source_type": "subject_repository",
+      "subjects": [
+        "linguistics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://roa.rutgers.edu/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "csv"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "partial",
+        "checked": "2026-08-16",
+        "evidence_url": "https://roa.rutgers.edu/"
+      },
+      "notes": "Archive and distribution point for Optimality Theory and related linguistics research. The current site remains accessible but its visible recent postings stop in 2022.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Useful historical/niche preprint archive; freshness and new-submission status should not be assumed from archive availability."
+      }
+    },
+    {
+      "id": "ssoar",
+      "name": "Social Science Open Access Repository (SSOAR)",
+      "organization": "GESIS – Leibniz Institute for the Social Sciences",
+      "source_type": "subject_repository",
+      "subjects": [
+        "social sciences",
+        "political science",
+        "psychology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://www.ssoar.info/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.gesis.org/en/ssoar/publishing-in-ssoar"
+      },
+      "notes": "Open full-text social-science repository. GESIS states that SSOAR can archive preprints, postprints and publisher versions, and identifies first publications without prior review as non-peer-reviewed.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "accepted_manuscript",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Version-aware green-OA repository; metadata should be used to distinguish preprints from reviewed/published versions."
+      }
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/retrieval-routing-policy.schema.json",
+  "title": "Open Scholarly Sources retrieval routing policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "policy_version",
+    "method",
+    "enforcement_scope",
+    "repository_guarantee",
+    "runtime_enforcement",
+    "default_behavior",
+    "navigation",
+    "verification_activation",
+    "verification_profiles",
+    "verification_constraints",
+    "verification_requirements",
+    "verification_lanes",
+    "verification_route_order",
+    "coverage_contract",
+    "resolution",
+    "admissibility_classes",
+    "promotion",
+    "verification_trace_required_fields",
+    "reference_implementation"
+  ],
+  "properties": {
+    "schema_version": {"const": "2.0.0"},
+    "policy_version": {"const": "2.0.0"},
+    "method": {"const": "registry_source_navigation_opt_in_verification_v2"},
+    "enforcement_scope": {"const": "consumer"},
+    "repository_guarantee": {"const": "policy_publication_versioning_reference_implementation"},
+    "runtime_enforcement": {"const": false},
+    "default_behavior": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "purpose", "verification_enabled", "public_ocean_enabled", "suggested_source_count", "output_fields", "forbidden_default_actions", "no_match_behavior"],
+      "properties": {
+        "mode": {"const": "source_navigation"},
+        "purpose": {"const": "recommend_registered_scholarly_sources_for_literature_discovery"},
+        "verification_enabled": {"const": false},
+        "public_ocean_enabled": {"const": false},
+        "suggested_source_count": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["target", "maximum"],
+          "properties": {
+            "target": {"type": "integer", "minimum": 1},
+            "maximum": {"type": "integer", "minimum": 1}
+          }
+        },
+        "output_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "forbidden_default_actions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "no_match_behavior": {"const": "report_registry_coverage_gap_without_auto_verification_or_public_ocean"}
+      }
+    },
+    "navigation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_of_truth", "selection_inputs", "llm_semantic_matching_allowed", "llm_fact_boundary", "result_contract"],
+      "properties": {
+        "source_of_truth": {"const": "pinned_open_scholarly_sources_registry_release"},
+        "selection_inputs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "llm_semantic_matching_allowed": {"const": true},
+        "llm_fact_boundary": {"type": "string", "minLength": 1},
+        "result_contract": {"const": "point_the_user_to_the_best_registered_places_to_dig_for_literature"}
+      }
+    },
+    "verification_activation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled_by_default", "requires", "llm_may_self_activate", "activation_examples", "non_activation_examples", "host_policy_note"],
+      "properties": {
+        "enabled_by_default": {"const": false},
+        "requires": {"const": "explicit_user_opt_in"},
+        "llm_may_self_activate": {"const": false},
+        "activation_examples": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "non_activation_examples": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "host_policy_note": {"type": "string", "minLength": 1}
+      }
+    },
+    "verification_profiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lite", "verified"],
+      "properties": {
+        "lite": {"$ref": "#/$defs/profile"},
+        "verified": {"$ref": "#/$defs/profile"}
+      }
+    },
+    "verification_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uncertainty_may_widen_routes", "uncertainty_may_upgrade_evidence", "uncertainty_may_close_required_lane", "llm_may_set_verified", "public_ocean_may_bypass_resolution", "research_runtime_may_promote_registry"],
+      "properties": {
+        "uncertainty_may_widen_routes": {"const": true},
+        "uncertainty_may_upgrade_evidence": {"const": false},
+        "uncertainty_may_close_required_lane": {"const": false},
+        "llm_may_set_verified": {"const": false},
+        "public_ocean_may_bypass_resolution": {"const": false},
+        "research_runtime_may_promote_registry": {"const": false}
+      }
+    },
+    "verification_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/requirement"}
+    },
+    "verification_lanes": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/lane"}
+    },
+    "verification_route_order": {"const": ["registry_direct", "registry_discovery", "public_ocean"]},
+    "coverage_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["terminal_attempt_states", "planned_route_accounting_required", "registered_routes_exhausted_when", "coverage_unmet_when", "public_ocean_allowed_when"],
+      "properties": {
+        "terminal_attempt_states": {"const": ["success_with_candidates", "success_empty", "failed_after_policy_budget", "not_applicable"]},
+        "planned_route_accounting_required": {"const": true},
+        "registered_routes_exhausted_when": {"const": "every_planned_registered_route_has_one_terminal_attempt"},
+        "coverage_unmet_when": {"type": "string", "minLength": 1},
+        "public_ocean_allowed_when": {"const": ["verification_enabled", "registered_routes_exhausted", "coverage_unmet"]}
+      }
+    },
+    "resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statuses", "attestation_classes", "accepted_resolvers", "public_ocean_default", "new_source_peer_review_default", "note"],
+      "properties": {
+        "statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "attestation_classes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "accepted_resolvers": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}},
+        "public_ocean_default": {"const": "untrusted_until_resolved"},
+        "new_source_peer_review_default": {"const": "unknown"},
+        "note": {"type": "string", "minLength": 1}
+      }
+    },
+    "admissibility_classes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime_maximum_state", "canonical_admission_requires_separate_process", "observation_count_is_truth_evidence", "evidence_quorum_principle"],
+      "properties": {
+        "runtime_maximum_state": {"const": "registry_candidate"},
+        "canonical_admission_requires_separate_process": {"const": true},
+        "observation_count_is_truth_evidence": {"const": false},
+        "evidence_quorum_principle": {"const": "independent_resolver_families_not_repeated_sessions"}
+      }
+    },
+    "verification_trace_required_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "reference_implementation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "scope", "network_resolver", "activation_required", "limitations"],
+      "properties": {
+        "path": {"const": "reference_consumer/verify.py"},
+        "scope": {"const": "explicit_verification_formal_evidence_candidate_gate_v0_2"},
+        "network_resolver": {"const": "crossref"},
+        "activation_required": {"const": true},
+        "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  },
+  "$defs": {
+    "requirement": {
+      "enum": ["formal_evidence", "frontier_research", "frontier_challenge", "evidence_synthesis", "guideline", "integrity_check", "preregistration", "fulltext_recovery", "historical_archive", "broad_discovery"]
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "resolver_classes", "claim_boundary"],
+      "properties": {
+        "description": {"type": "string", "minLength": 1},
+        "resolver_classes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "claim_boundary": {"type": "string", "minLength": 1}
+      }
+    },
+    "lane": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["default_companion_lanes", "admissibility_requires"],
+      "properties": {
+        "preferred_tiers": {"type": "array", "uniqueItems": true, "items": {"enum": ["R1", "R2", "F1", "F2", "D1", "A1"]}},
+        "preferred_archetypes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "default_companion_lanes": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/requirement"}},
+        "admissibility_requires": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "registry_source_scope_requires": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "anyOf": [{"required": ["preferred_tiers"]}, {"required": ["preferred_archetypes"]}]
+    }
+  }
+}

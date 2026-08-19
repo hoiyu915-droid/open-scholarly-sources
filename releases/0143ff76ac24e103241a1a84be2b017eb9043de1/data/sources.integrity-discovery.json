@@ -1,0 +1,1336 @@
+{
+  "schema_version": "0.3.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "current-developments-nutrition",
+      "name": "Current Developments in Nutrition",
+      "organization": "American Society for Nutrition / Elsevier",
+      "source_type": "journal",
+      "subjects": [
+        "nutrition",
+        "nutritional epidemiology",
+        "dietetics",
+        "public health"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.sciencedirect.com/journal/current-developments-in-nutrition",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.sciencedirect.com/journal/current-developments-in-nutrition/publish/open-access-options"
+      },
+      "notes": "Peer-reviewed fully open-access nutrition journal spanning mechanistic, clinical, population, policy and methods research.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Peer-reviewed fully open-access nutrition journal spanning mechanistic, clinical, population, policy and methods research."
+      }
+    },
+    {
+      "id": "nutrixiv",
+      "name": "NutriXiv",
+      "organization": "Center for Open Science / NutriXiv community",
+      "source_type": "preprint_server",
+      "subjects": [
+        "nutrition",
+        "nutritional epidemiology",
+        "dietetics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://osf.io/preprints/nutrixiv",
+      "parent_id": "osf-preprints",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "inactive",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://doapr.coar-repositories.org/repositories/nutrixiv/"
+      },
+      "notes": "Historical nutrition-science preprint service hosted on OSF. DOAPR currently marks it closed to new submissions; retained for discovery and version history.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "mixed",
+        "notes": "Historical nutrition-science preprint service hosted on OSF. DOAPR currently marks it closed to new submissions; retained for discovery and version history."
+      }
+    },
+    {
+      "id": "retraction-watch-crossref",
+      "name": "Retraction Watch data via Crossref",
+      "organization": "Crossref / Center for Scientific Integrity",
+      "source_type": "aggregator",
+      "subjects": [
+        "research integrity",
+        "scholarly communication",
+        "multidisciplinary"
+      ],
+      "oa_scope": "metadata_only",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://www.crossref.org/documentation/retrieve-metadata/retraction-watch/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata"
+      ],
+      "machine_access": {
+        "formats": [
+          "json",
+          "csv"
+        ],
+        "feed_url": null,
+        "api_url": "https://api.crossref.org/works",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.crossref.org/documentation/retrieve-metadata/retraction-watch/"
+      },
+      "notes": "Retraction Watch retraction and correction metadata distributed through Crossref production services and a downloadable dataset; use to check post-publication status.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "unknown",
+        "notes": "Retraction Watch retraction and correction metadata distributed through Crossref production services and a downloadable dataset; use to check post-publication status."
+      }
+    },
+    {
+      "id": "pubmed",
+      "name": "PubMed",
+      "organization": "U.S. National Library of Medicine / NCBI",
+      "source_type": "aggregator",
+      "subjects": [
+        "clinical medicine",
+        "public health",
+        "life sciences",
+        "nutrition",
+        "research discovery"
+      ],
+      "oa_scope": "metadata_only",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://pubmed.ncbi.nlm.nih.gov/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "xml",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/about/"
+      },
+      "notes": "Free biomedical and life-sciences literature search service covering MEDLINE, PMC-linked citations and Bookshelf records; PubMed itself is not a full-text archive.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "unknown",
+        "notes": "Free biomedical and life-sciences literature search service covering MEDLINE, PMC-linked citations and Bookshelf records; PubMed itself is not a full-text archive."
+      }
+    },
+    {
+      "id": "cochrane-library",
+      "name": "Cochrane Library",
+      "organization": "Cochrane / Wiley",
+      "source_type": "journal_collection",
+      "subjects": [
+        "evidence synthesis",
+        "systematic reviews",
+        "clinical medicine",
+        "public health"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.cochranelibrary.com/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.cochrane.org/evidence"
+      },
+      "notes": "Cochrane systematic reviews and related evidence resources. Review abstracts are broadly discoverable, while full-text access varies by geography, subscription and open-access status.",
+      "access_policy": {
+        "model": "mixed",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Cochrane systematic reviews and related evidence resources. Review abstracts are broadly discoverable, while full-text access varies by geography, subscription and open-access status."
+      }
+    },
+    {
+      "id": "who-guidelines",
+      "name": "WHO Guidelines",
+      "organization": "World Health Organization",
+      "source_type": "directory",
+      "subjects": [
+        "clinical guidelines",
+        "public health",
+        "global health",
+        "health policy",
+        "evidence synthesis"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "published",
+      "canonical_url": "https://www.who.int/publications/who-guidelines",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "fulltext"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.who.int/publications/who-guidelines"
+      },
+      "notes": "Official WHO guideline gateway. Guidelines contain clinical or public-health recommendations and pass WHO Guidelines Review Committee quality-assurance processes.",
+      "access_policy": {
+        "model": "free_to_read_archive",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Official WHO guideline gateway. Guidelines contain clinical or public-health recommendations and pass WHO Guidelines Review Committee quality-assurance processes."
+      }
+    },
+    {
+      "id": "who-bigg-rec",
+      "name": "BIGG-REC",
+      "organization": "PAHO/WHO BIREME",
+      "source_type": "directory",
+      "subjects": [
+        "clinical guidelines",
+        "public health",
+        "global health",
+        "health policy",
+        "evidence synthesis"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "published",
+      "canonical_url": "https://bigg-rec.bvsalud.org/en",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract"
+      ],
+      "machine_access": {
+        "formats": [
+          "html"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.who.int/groups/guidelines-review-committee"
+      },
+      "notes": "Searchable repository of WHO/PAHO evidence-informed recommendations formulated using GRADE, intended for retrieval and adoption/adaptation of guideline recommendations.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "unknown",
+        "notes": "Searchable repository of WHO/PAHO evidence-informed recommendations formulated using GRADE, intended for retrieval and adoption/adaptation of guideline recommendations."
+      }
+    },
+    {
+      "id": "who-iris",
+      "name": "WHO IRIS",
+      "organization": "World Health Organization",
+      "source_type": "government_repository",
+      "subjects": [
+        "global health",
+        "public health",
+        "health policy",
+        "clinical guidelines"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "published",
+      "canonical_url": "https://iris.who.int/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf",
+          "xml"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": "https://iris.who.int/oai/request",
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.who.int/library/"
+      },
+      "notes": "WHO Institutional Repository for Information Sharing: full-text WHO publications and technical information, with multilingual coverage and durable repository access.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "WHO Institutional Repository for Information Sharing: full-text WHO publications and technical information, with multilingual coverage and durable repository access."
+      }
+    },
+    {
+      "id": "global-index-medicus",
+      "name": "Global Index Medicus",
+      "organization": "World Health Organization",
+      "source_type": "aggregator",
+      "subjects": [
+        "regional medicine",
+        "public health",
+        "global health",
+        "research discovery"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://www.globalindexmedicus.net/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract"
+      ],
+      "machine_access": {
+        "formats": [
+          "html"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.who.int/library/"
+      },
+      "notes": "WHO-led discovery index for biomedical and public-health literature produced in and about low- and middle-income regions, including regional and non-English sources.",
+      "access_policy": {
+        "model": "mixed",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "unknown",
+        "notes": "WHO-led discovery index for biomedical and public-health literature produced in and about low- and middle-income regions, including regional and non-English sources."
+      }
+    },
+    {
+      "id": "clinicaltrials-gov",
+      "name": "ClinicalTrials.gov",
+      "organization": "U.S. National Library of Medicine / NIH",
+      "source_type": "directory",
+      "subjects": [
+        "clinical trials",
+        "preregistration",
+        "clinical medicine",
+        "public health",
+        "nutrition"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://clinicaltrials.gov/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "json",
+          "csv"
+        ],
+        "feed_url": null,
+        "api_url": "https://clinicaltrials.gov/api/v2/studies",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://clinicaltrials.gov/about-site/about-ctg"
+      },
+      "notes": "Public registry and results database for clinical research studies. Version histories, prespecified outcomes and posted results make it useful for registration and outcome-switching checks.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "unknown",
+        "notes": "Public registry and results database for clinical research studies. Version histories, prespecified outcomes and posted results make it useful for registration and outcome-switching checks."
+      }
+    },
+    {
+      "id": "who-ictrp",
+      "name": "WHO ICTRP Search Portal",
+      "organization": "World Health Organization",
+      "source_type": "aggregator",
+      "subjects": [
+        "clinical trials",
+        "preregistration",
+        "global health",
+        "public health"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://trialsearch.who.int/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "xml"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.who.int/ictrp/en/"
+      },
+      "notes": "WHO meta-search and central trial-registration dataset combining records from ICTRP network registries and linking back to original registry records.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "unknown",
+        "notes": "WHO meta-search and central trial-registration dataset combining records from ICTRP network registries and linking back to original registry records."
+      }
+    },
+    {
+      "id": "prospero",
+      "name": "PROSPERO",
+      "organization": "University of York Centre for Reviews and Dissemination",
+      "source_type": "directory",
+      "subjects": [
+        "systematic reviews",
+        "evidence synthesis",
+        "preregistration",
+        "clinical medicine",
+        "public health"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://www.crd.york.ac.uk/prospero/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract"
+      ],
+      "machine_access": {
+        "formats": [
+          "html"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.crd.york.ac.uk/PROSPERO/"
+      },
+      "notes": "International prospective register of systematic reviews; useful for comparing a published review with its preregistered question, scope and methods.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "unknown",
+        "notes": "International prospective register of systematic reviews; useful for comparing a published review with its preregistered question, scope and methods."
+      }
+    },
+    {
+      "id": "osf-registries",
+      "name": "OSF Registries",
+      "organization": "Center for Open Science",
+      "source_type": "directory",
+      "subjects": [
+        "preregistration",
+        "open science",
+        "multidisciplinary",
+        "research integrity"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://osf.io/registries",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://api.osf.io/v2/registrations/",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://help.osf.io/article/330-welcome-to-registrations"
+      },
+      "notes": "General registration and preregistration infrastructure across disciplines. Public registrations are time-stamped, persistent records and may receive DOIs.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "General registration and preregistration infrastructure across disciplines. Public registrations are time-stamped, persistent records and may receive DOIs."
+      }
+    },
+    {
+      "id": "elife-reviewed-preprints",
+      "name": "eLife Reviewed Preprints",
+      "organization": "eLife Sciences Publications",
+      "source_type": "review_platform",
+      "subjects": [
+        "life sciences",
+        "open peer review",
+        "scholarly communication"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "mixed",
+      "canonical_url": "https://elifesciences.org/reviewed-preprints",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://elifesciences.org/reviewed-preprints"
+      },
+      "notes": "Publish-review-curate model: preprints selected for eLife review are published with public peer reviews and an eLife Assessment; authors may revise and later declare a Version of Record.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "review_material",
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Publish-review-curate model: preprints selected for eLife review are published with public peer reviews and an eLife Assessment; authors may revise and later declare a Version of Record."
+      }
+    },
+    {
+      "id": "f1000research",
+      "name": "F1000Research",
+      "organization": "F1000 / Taylor & Francis",
+      "source_type": "review_platform",
+      "subjects": [
+        "multidisciplinary",
+        "open peer review",
+        "scholarly communication"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "published",
+      "canonical_url": "https://f1000research.com/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://f1000research.com/about"
+      },
+      "notes": "Open research publishing venue using rapid publication followed by transparent post-publication peer review; article review status remains visible and versions can be updated.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record",
+          "review_material",
+          "mixed"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Open research publishing venue using rapid publication followed by transparent post-publication peer review; article review status remains visible and versions can be updated."
+      }
+    },
+    {
+      "id": "wellcome-open-research",
+      "name": "Wellcome Open Research",
+      "organization": "Wellcome / F1000",
+      "source_type": "review_platform",
+      "subjects": [
+        "multidisciplinary",
+        "open peer review",
+        "scholarly communication",
+        "global health"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "published",
+      "canonical_url": "https://wellcomeopenresearch.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://think.f1000research.com/wellcome-open-research/"
+      },
+      "notes": "Wellcome-funded open research platform using post-publication open peer review and explicit article versioning.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record",
+          "review_material",
+          "mixed"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Wellcome-funded open research platform using post-publication open peer review and explicit article versioning."
+      }
+    },
+    {
+      "id": "gates-open-research",
+      "name": "Gates Open Research",
+      "organization": "Gates Foundation / F1000",
+      "source_type": "review_platform",
+      "subjects": [
+        "global health",
+        "public health",
+        "open peer review",
+        "scholarly communication"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "mixed",
+      "publication_state": "mixed",
+      "canonical_url": "https://gatesopenresearch.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://gatesopenresearch.org/about"
+      },
+      "notes": "Open research route for Gates-funded work with transparent review and version status; current workflow uses associated early-publication infrastructure before peer-reviewed VOR status.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "review_material",
+          "version_of_record",
+          "mixed"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Open research route for Gates-funded work with transparent review and version status; current workflow uses associated early-publication infrastructure before peer-reviewed VOR status."
+      }
+    },
+    {
+      "id": "peer-community-in",
+      "name": "Peer Community In",
+      "organization": "Peer Community In",
+      "source_type": "review_platform",
+      "subjects": [
+        "multidisciplinary",
+        "open peer review",
+        "scholarly communication"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://peercommunityin.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://peercommunityin.org/about/"
+      },
+      "notes": "Non-profit overlay peer-review communities review and recommend preprints deposited in open repositories; recommendations and reviews sit on top of the preprint rather than replacing it.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "preprint",
+          "review_material"
+        ],
+        "license_scope": "uniform_open",
+        "notes": "Non-profit overlay peer-review communities review and recommend preprints deposited in open repositories; recommendations and reviews sit on top of the preprint rather than replacing it."
+      }
+    },
+    {
+      "id": "nber-working-papers",
+      "name": "NBER Working Papers",
+      "organization": "National Bureau of Economic Research",
+      "source_type": "subject_repository",
+      "subjects": [
+        "economics",
+        "economic theory",
+        "public policy"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "not_peer_reviewed",
+      "publication_state": "preprint",
+      "canonical_url": "https://www.nber.org/papers",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.nber.org/papers"
+      },
+      "notes": "Major economics working-paper series circulating new NBER-affiliate research before peer review. Full-text access is not uniformly open for every user or paper.",
+      "access_policy": {
+        "model": "mixed",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "preprint"
+        ],
+        "license_scope": "unknown",
+        "notes": "Major economics working-paper series circulating new NBER-affiliate research before peer review. Full-text access is not uniformly open for every user or paper."
+      }
+    },
+    {
+      "id": "openalex",
+      "name": "OpenAlex",
+      "organization": "OurResearch",
+      "source_type": "aggregator",
+      "subjects": [
+        "multidisciplinary",
+        "research discovery",
+        "bibliometrics"
+      ],
+      "oa_scope": "metadata_only",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://openalex.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://api.openalex.org/works",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://developers.openalex.org/"
+      },
+      "notes": "Open scholarly knowledge graph covering works, authors, sources, institutions, topics and relationships, with API and snapshot-oriented machine access.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "unknown",
+        "notes": "Open scholarly knowledge graph covering works, authors, sources, institutions, topics and relationships, with API and snapshot-oriented machine access."
+      }
+    },
+    {
+      "id": "core",
+      "name": "CORE",
+      "organization": "The Open University / CORE",
+      "source_type": "aggregator",
+      "subjects": [
+        "multidisciplinary",
+        "research discovery",
+        "open access"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://core.ac.uk/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "json",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": "https://api.core.ac.uk/",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://core.ac.uk/services/api"
+      },
+      "notes": "Aggregator of repository and journal metadata with machine access to a large corpus of open-access full texts.",
+      "access_policy": {
+        "model": "mixed",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Aggregator of repository and journal metadata with machine access to a large corpus of open-access full texts."
+      }
+    },
+    {
+      "id": "semantic-scholar",
+      "name": "Semantic Scholar",
+      "organization": "Allen Institute for AI (Ai2)",
+      "source_type": "aggregator",
+      "subjects": [
+        "multidisciplinary",
+        "research discovery",
+        "bibliometrics"
+      ],
+      "oa_scope": "metadata_only",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://www.semanticscholar.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://api.semanticscholar.org/graph/v1/",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.semanticscholar.org/product/api"
+      },
+      "notes": "Scholarly graph and discovery system exposing papers, authors, references, citations, embeddings and downloadable datasets through public APIs.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "unknown",
+        "notes": "Scholarly graph and discovery system exposing papers, authors, references, citations, embeddings and downloadable datasets through public APIs."
+      }
+    },
+    {
+      "id": "lens-scholarly-works",
+      "name": "Lens Scholarly Works",
+      "organization": "Cambia / The Lens",
+      "source_type": "aggregator",
+      "subjects": [
+        "multidisciplinary",
+        "research discovery",
+        "bibliometrics"
+      ],
+      "oa_scope": "metadata_only",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://www.lens.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": "https://api.lens.org/scholarly/search",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://docs.api.lens.org/"
+      },
+      "notes": "Scholarly works and citation discovery graph linked to patent literature; programmatic scholarly API access is available subject to Lens access controls.",
+      "access_policy": {
+        "model": "mixed",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "unknown",
+        "notes": "Scholarly works and citation discovery graph linked to patent literature; programmatic scholarly API access is available subject to Lens access controls."
+      }
+    },
+    {
+      "id": "unpaywall",
+      "name": "Unpaywall",
+      "organization": "OurResearch",
+      "source_type": "aggregator",
+      "subjects": [
+        "open access",
+        "research discovery",
+        "scholarly communication"
+      ],
+      "oa_scope": "metadata_only",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://unpaywall.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata"
+      ],
+      "machine_access": {
+        "formats": [
+          "json",
+          "csv"
+        ],
+        "feed_url": null,
+        "api_url": "https://api.unpaywall.org/v2/",
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://unpaywall.org/products/api"
+      },
+      "notes": "OA-location and bibliographic service for DOI-identified research outputs; useful for locating legal open-access versions rather than judging research quality.",
+      "access_policy": {
+        "model": "fully_open_platform",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "unknown",
+        "notes": "OA-location and bibliographic service for DOI-identified research outputs; useful for locating legal open-access versions rather than judging research quality."
+      }
+    },
+    {
+      "id": "dryad",
+      "name": "Dryad",
+      "organization": "Dryad",
+      "source_type": "digital_library",
+      "subjects": [
+        "research data",
+        "ecology",
+        "evolutionary biology",
+        "multidisciplinary"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "not_applicable",
+      "canonical_url": "https://datadryad.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "json"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://datadryad.org/api"
+      },
+      "notes": "General-purpose research-data repository with DOI-based datasets, publisher integrations and open API access; especially common in ecology and life sciences.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "General-purpose research-data repository with DOI-based datasets, publisher integrations and open API access; especially common in ecology and life sciences."
+      }
+    },
+    {
+      "id": "ndltd-taiwan",
+      "name": "National Digital Library of Theses and Dissertations in Taiwan",
+      "organization": "National Central Library, Taiwan",
+      "source_type": "institutional_repository",
+      "subjects": [
+        "theses and dissertations",
+        "Taiwan studies",
+        "nutrition",
+        "clinical medicine",
+        "multidisciplinary"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "not_applicable",
+      "publication_state": "published",
+      "canonical_url": "https://ndltd.ncl.edu.tw/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "repository_copy"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://ndltd.ncl.edu.tw/"
+      },
+      "notes": "Taiwan national theses/dissertations discovery service. Bibliographic records and abstracts are broad; full text is available when authors have granted authorization, so access is mixed at item level.",
+      "access_policy": {
+        "model": "repository",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "mixed"
+        ],
+        "license_scope": "mixed",
+        "notes": "Taiwan national theses/dissertations discovery service. Bibliographic records and abstracts are broad; full text is available when authors have granted authorization, so access is mixed at item level."
+      }
+    }
+  ]
+}

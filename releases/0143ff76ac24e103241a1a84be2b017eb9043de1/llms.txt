@@ -1,0 +1,249 @@
+# Open Scholarly Sources
+
+Release identity: 0143ff76ac24e103241a1a84be2b017eb9043de1
+Repository commit: https://github.com/hoiyu915-droid/open-scholarly-sources/commit/0143ff76ac24e103241a1a84be2b017eb9043de1
+Immutable snapshot: https://hoiyu915-droid.github.io/open-scholarly-sources/releases/0143ff76ac24e103241a1a84be2b017eb9043de1/
+Release manifest: https://hoiyu915-droid.github.io/open-scholarly-sources/releases/0143ff76ac24e103241a1a84be2b017eb9043de1/release-manifest.json
+Release history: https://hoiyu915-droid.github.io/open-scholarly-sources/releases/index.json
+Routing policy: https://hoiyu915-droid.github.io/open-scholarly-sources/retrieval-routing-policy.json
+Closed-registry chatbot search: https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-entry.txt
+Freshness note: mutable endpoints may be temporarily stale because of intermediary caching or propagation. Compare the release identity with the repository main ref when freshness matters.
+
+
+> Evidence-backed bilingual registry of open scholarly journals, proceedings, platforms, repositories, directories, aggregators and preprint sources.
+> 具證據、英繁中對照的開放學術來源登錄表。
+
+Updated: 2026-08-19
+Registered source entities: 244
+
+## Preferred machine-readable resources
+- [Consolidated registry JSON](https://hoiyu915-droid.github.io/open-scholarly-sources/registry.json): all source records with zh-TW translations embedded.
+- [NDJSON](https://hoiyu915-droid.github.io/open-scholarly-sources/registry.ndjson): one complete source record per line.
+- [JSON-LD catalog](https://hoiyu915-droid.github.io/open-scholarly-sources/registry.jsonld): Schema.org DataCatalog/Dataset representation.
+- [Full LLM text](https://hoiyu915-droid.github.io/open-scholarly-sources/llms-full.txt): complete bilingual source descriptions and access semantics.
+- [Registry manifest](https://hoiyu915-droid.github.io/open-scholarly-sources/data/registry-manifest.json): canonical shard list.
+- [Source schema](https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/source.schema.json): field contract.
+- [Closed-search chatbot entry](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-entry.txt): minimal static bootstrap with no Skill or custom server.
+- [Closed-search routing JSON](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-search-routing.json): exact source adapters and host allowlist.
+- [Closed-search protocol](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-search-protocol.md): fail-closed OA literature search procedure.
+
+## Human-readable resources
+- [Searchable bilingual registry](https://hoiyu915-droid.github.io/open-scholarly-sources/)
+- [Per-source HTML index](https://hoiyu915-droid.github.io/open-scholarly-sources/sources/)
+
+## Interpretation rules
+- `oa_scope=full` means registered content is intended to be openly accessible; it does not guarantee a single reuse licence.
+- `oa_scope=mixed` requires title/article/year-level verification.
+- `publication_state`, `peer_review_scope`, `version_scope`, and `license_scope` are separate claims.
+- Subscribe-to-Open records list only verified `open_years`; do not project those years forward.
+- Repository records may mix versions of record, accepted manuscripts and preprints.
+
+## Subject coverage
+- Taiwan studies
+- agriculture
+- ai agents
+- algorithms
+- alignment and safety
+- andrology
+- anthropology
+- applied mathematics
+- archaeology
+- art history
+- artificial intelligence
+- asian studies
+- assisted reproduction
+- astronomy
+- astroparticle physics
+- astrophysics
+- atmospheric science
+- bibliometrics
+- biodiversity
+- biogeosciences
+- biography
+- bioinformatics
+- biology
+- botany
+- cancer research
+- cell biology
+- chemistry
+- childbirth
+- classical studies
+- climate science
+- clinical guidelines
+- clinical medicine
+- clinical trials
+- cognitive science
+- computational biology
+- computational linguistics
+- computational modeling
+- computer networks
+- computer science
+- computer vision
+- conservation
+- contraception
+- cosmology
+- criminology
+- crop science
+- cryosphere
+- cultural studies
+- cybersecurity
+- data science
+- deep learning
+- demography
+- dietetics
+- earth science
+- earth system science
+- ecology
+- economic theory
+- economics
+- education
+- electrical engineering
+- endocrinology
+- energy science
+- engineering
+- environmental science
+- evaluation and benchmarking
+- evidence synthesis
+- evolution
+- evolutionary biology
+- fertility
+- food science
+- forest ecology
+- forest management
+- forestry
+- foundation models
+- game theory
+- gender studies
+- generative ai
+- genomics
+- geophysics
+- geoscience
+- global challenges
+- global health
+- gynecology
+- health policy
+- health psychology
+- high energy physics
+- history
+- history of science
+- horticulture
+- human dimensions
+- human rights
+- human-computer interaction
+- humanities
+- hydrology
+- infertility
+- information systems
+- instrumentation
+- interdisciplinary science
+- language modeling
+- large language models
+- law
+- legal studies
+- library and information science
+- life sciences
+- linguistics
+- literature
+- machine learning
+- materials science
+- maternal health
+- mathematics
+- media studies
+- medicine
+- mental health
+- methods
+- mitochondrial physiology
+- molecular biology
+- molecular medicine
+- multi-agent systems
+- multidisciplinary
+- multimodal models
+- natural history
+- natural language processing
+- natural resource management
+- neonatology
+- neuroscience
+- nuclear physics
+- nutrition
+- nutritional epidemiology
+- obstetrics
+- ocean science
+- open access
+- open peer review
+- open science
+- ovarian biology
+- particle physics
+- perinatology
+- philosophy
+- philosophy of mind
+- physical sciences
+- physics
+- plant biology
+- plant evolution
+- plant science
+- political science
+- population studies
+- pregnancy
+- preregistration
+- psychology
+- public health
+- public policy
+- quantitative biology
+- regional medicine
+- relationships
+- reproductive biology
+- reproductive health
+- reproductive medicine
+- research data
+- research discovery
+- research integrity
+- scholarly communication
+- scientific data
+- scientific software
+- seismology
+- sexual behavior
+- sexual health
+- sexuality
+- silviculture
+- social psychology
+- social sciences
+- software engineering
+- speech
+- sports science
+- statistics
+- sustainability
+- systematic reviews
+- taxonomy
+- theses and dissertations
+- tree biology
+- wildfire
+- women's health
+- wood science
+- zoology
+
+## Source-use profiles / 來源分級與性格
+- [Profiles JSON](https://hoiyu915-droid.github.io/open-scholarly-sources/source-profiles.json)
+- [Profiles NDJSON](https://hoiyu915-droid.github.io/open-scholarly-sources/source-profiles.ndjson)
+- [Browsable profiles](https://hoiyu915-droid.github.io/open-scholarly-sources/profiles/)
+- Profiles are deterministic routing heuristics with per-source provenance: rule version, source verification evidence/date, automatic result, and explicit override state.
+- They are not prestige or article-quality rankings; high `noise_risk` means more filtering.
+
+## Default Open Scholarly Sources agent behavior
+
+- Default mode is **source navigation only**: use the registry to point the user to a small number of relevant registered scholarly sources and explain where to dig for literature.
+- Ordinary find/search/recommend-literature requests do **not** activate document verification.
+- By default do not call Crossref, DOAJ or Unpaywall for verification, do not emit resolution attestations, do not judge document admissibility, and do not open public-ocean fallback.
+- Verification is optional and requires **explicit user opt-in** such as asking to verify papers, validate sources, run the verification gate, or perform a source audit.
+- When verification is explicitly enabled, follow the pinned retrieval-routing policy and `RETRIEVAL_ROUTING.md`.
+
+中文：預設只用本 registry 指出去幾個最適合「挖文獻」的學術來源；使用者沒有明確要求核實／驗證／認證時，不要自行啟動 resolution gate。
+
+## Closed-registry OA search for chatbots
+
+- When the user explicitly asks to search only Open Scholarly Sources, read `chatbot-entry.txt`, pin one immutable release, and follow `chatbot-search-protocol.md`.
+- Select only active registry sources and call only the exact adapters and hosts in `chatbot-search-routing.json` from the same release.
+- Do not use general web search, arbitrary URLs, public-ocean fallback, unregistered APIs or links returned by results.
+- Preserve `NO_SEARCH_ADAPTER`, `SOURCE_FETCH_GAP`, `REGISTRY_COVERAGE_GAP` and `CLOSED_WORLD_VIOLATION`; none means “no literature exists.”
+- This static protocol requires no Skill, MCP or custom server and does not claim runtime firewall enforcement.
+
+中文：只有使用者明確要求「只用本 registry 搜尋」時才啟動封閉式 OA 搜尋；所有 request 必須來自同一 immutable release 的 adapter 與 exact-host allowlist，不可改用一般網搜或未登錄資料源。

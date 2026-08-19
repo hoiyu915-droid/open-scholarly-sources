@@ -1,0 +1,922 @@
+{
+  "schema_version": "0.2.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "royal-society-publishing",
+      "name": "Royal Society Publishing",
+      "organization": "The Royal Society",
+      "source_type": "publisher_platform",
+      "subjects": [
+        "multidisciplinary",
+        "biology",
+        "physics",
+        "mathematics",
+        "engineering",
+        "history of science"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/librarians/purchasing/subscribe-to-open/"
+      },
+      "notes": "The 2026 portfolio combines eight Subscribe-to-Open journals, two born-open gold OA journals and one diamond OA journal. Historical access and licensing vary by title and year.",
+      "access_policy": {
+        "model": "mixed",
+        "effective_from": null,
+        "open_years": [
+          "2026"
+        ],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "All 2026 research content is OA; the eight S2O titles are renewed year by year."
+      }
+    },
+    {
+      "id": "royal-society-proceedings-a",
+      "name": "Proceedings of the Royal Society A",
+      "organization": "The Royal Society",
+      "source_type": "journal",
+      "subjects": [
+        "physics",
+        "mathematics",
+        "engineering",
+        "applied mathematics"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/journal/rspa",
+      "parent_id": "royal-society-publishing",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/librarians/purchasing/subscribe-to-open/"
+      },
+      "notes": "Physical, mathematical and engineering sciences journal; 2026 content is CC BY OA through Subscribe to Open.",
+      "access_policy": {
+        "model": "subscribe_to_open",
+        "effective_from": null,
+        "open_years": [
+          "2026"
+        ],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "2026 is permanently OA under CC BY; future years depend on renewed S2O support. Older access and licences vary."
+      }
+    },
+    {
+      "id": "royal-society-proceedings-b",
+      "name": "Proceedings of the Royal Society B",
+      "organization": "The Royal Society",
+      "source_type": "journal",
+      "subjects": [
+        "biology",
+        "ecology",
+        "evolution"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/journal/rspb",
+      "parent_id": "royal-society-publishing",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/librarians/purchasing/subscribe-to-open/"
+      },
+      "notes": "Broad biological-sciences journal; 2026 content is CC BY OA through Subscribe to Open.",
+      "access_policy": {
+        "model": "subscribe_to_open",
+        "effective_from": null,
+        "open_years": [
+          "2026"
+        ],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "2026 is permanently OA under CC BY; future years depend on renewed S2O support. Older access and licences vary."
+      }
+    },
+    {
+      "id": "royal-society-philosophical-transactions-a",
+      "name": "Philosophical Transactions of the Royal Society A",
+      "organization": "The Royal Society",
+      "source_type": "journal",
+      "subjects": [
+        "physics",
+        "mathematics",
+        "engineering",
+        "earth science"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/journal/rsta",
+      "parent_id": "royal-society-publishing",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/librarians/purchasing/subscribe-to-open/"
+      },
+      "notes": "Theme-issue journal in physical, mathematical and engineering sciences; 2026 content is CC BY OA through Subscribe to Open.",
+      "access_policy": {
+        "model": "subscribe_to_open",
+        "effective_from": null,
+        "open_years": [
+          "2026"
+        ],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "2026 is permanently OA under CC BY; future years depend on renewed S2O support. Older access and licences vary."
+      }
+    },
+    {
+      "id": "royal-society-philosophical-transactions-b",
+      "name": "Philosophical Transactions of the Royal Society B",
+      "organization": "The Royal Society",
+      "source_type": "journal",
+      "subjects": [
+        "biology",
+        "ecology",
+        "evolution",
+        "neuroscience"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/journal/rstb",
+      "parent_id": "royal-society-publishing",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/librarians/purchasing/subscribe-to-open/"
+      },
+      "notes": "Theme-issue journal in biological sciences; 2026 content is CC BY OA through Subscribe to Open.",
+      "access_policy": {
+        "model": "subscribe_to_open",
+        "effective_from": null,
+        "open_years": [
+          "2026"
+        ],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "2026 is permanently OA under CC BY; future years depend on renewed S2O support. Older access and licences vary."
+      }
+    },
+    {
+      "id": "royal-society-interface",
+      "name": "Journal of the Royal Society Interface",
+      "organization": "The Royal Society",
+      "source_type": "journal",
+      "subjects": [
+        "biology",
+        "physics",
+        "mathematics",
+        "engineering",
+        "interdisciplinary science"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/journal/rsif",
+      "parent_id": "royal-society-publishing",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/librarians/purchasing/subscribe-to-open/"
+      },
+      "notes": "Interdisciplinary journal at the physical–life-science interface; 2026 content is CC BY OA through Subscribe to Open.",
+      "access_policy": {
+        "model": "subscribe_to_open",
+        "effective_from": null,
+        "open_years": [
+          "2026"
+        ],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "2026 is permanently OA under CC BY; future years depend on renewed S2O support. Older access and licences vary."
+      }
+    },
+    {
+      "id": "royal-society-biology-letters",
+      "name": "Biology Letters",
+      "organization": "The Royal Society",
+      "source_type": "journal",
+      "subjects": [
+        "biology",
+        "ecology",
+        "evolution"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/journal/rsbl",
+      "parent_id": "royal-society-publishing",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/librarians/purchasing/subscribe-to-open/"
+      },
+      "notes": "Rapid-publication biological-sciences journal; 2026 content is CC BY OA through Subscribe to Open.",
+      "access_policy": {
+        "model": "subscribe_to_open",
+        "effective_from": null,
+        "open_years": [
+          "2026"
+        ],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "2026 is permanently OA under CC BY; future years depend on renewed S2O support. Older access and licences vary."
+      }
+    },
+    {
+      "id": "royal-society-interface-focus",
+      "name": "Interface Focus",
+      "organization": "The Royal Society",
+      "source_type": "journal",
+      "subjects": [
+        "biology",
+        "physics",
+        "engineering",
+        "interdisciplinary science"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/journal/rsfs",
+      "parent_id": "royal-society-publishing",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/librarians/purchasing/subscribe-to-open/"
+      },
+      "notes": "Theme-issue journal at the physical–life-science interface; 2026 content is CC BY OA through Subscribe to Open.",
+      "access_policy": {
+        "model": "subscribe_to_open",
+        "effective_from": null,
+        "open_years": [
+          "2026"
+        ],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "2026 is permanently OA under CC BY; future years depend on renewed S2O support. Older access and licences vary."
+      }
+    },
+    {
+      "id": "royal-society-notes-and-records",
+      "name": "Notes and Records: The Royal Society Journal of the History of Science",
+      "organization": "The Royal Society",
+      "source_type": "journal",
+      "subjects": [
+        "history of science",
+        "history"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/journal/rsnr",
+      "parent_id": "royal-society-publishing",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/librarians/purchasing/subscribe-to-open/"
+      },
+      "notes": "Peer-reviewed history-of-science journal; 2026 content is CC BY OA through Subscribe to Open.",
+      "access_policy": {
+        "model": "subscribe_to_open",
+        "effective_from": null,
+        "open_years": [
+          "2026"
+        ],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "2026 is permanently OA under CC BY; future years depend on renewed S2O support. Older access and licences vary."
+      }
+    },
+    {
+      "id": "royal-society-open-biology",
+      "name": "Open Biology",
+      "organization": "The Royal Society",
+      "source_type": "journal",
+      "subjects": [
+        "biology",
+        "molecular biology",
+        "cell biology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/journal/rsob",
+      "parent_id": "royal-society-publishing",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/open-access/"
+      },
+      "notes": "Born-open gold OA journal covering cellular and molecular biology.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Born-open journal; APCs may apply."
+      }
+    },
+    {
+      "id": "royal-society-open-science",
+      "name": "Royal Society Open Science",
+      "organization": "The Royal Society",
+      "source_type": "journal",
+      "subjects": [
+        "multidisciplinary",
+        "biology",
+        "physics",
+        "chemistry",
+        "mathematics",
+        "engineering"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/journal/rsos",
+      "parent_id": "royal-society-publishing",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/open-access/"
+      },
+      "notes": "Broad-scope, peer-reviewed gold OA journal across science, engineering and mathematics.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Born-open journal; APCs may apply."
+      }
+    },
+    {
+      "id": "royal-society-biographical-memoirs",
+      "name": "Biographical Memoirs of Fellows of the Royal Society",
+      "organization": "The Royal Society",
+      "source_type": "journal",
+      "subjects": [
+        "history of science",
+        "biography"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://royalsocietypublishing.org/journal/rsbm",
+      "parent_id": "royal-society-publishing",
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://royalsociety.org/journals/open-access/"
+      },
+      "notes": "Diamond OA journal publishing scholarly biographical memoirs of Royal Society Fellows.",
+      "access_policy": {
+        "model": "diamond",
+        "effective_from": "2022-01-01",
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": "No author-facing APC."
+      }
+    },
+    {
+      "id": "acm-digital-library",
+      "name": "ACM Digital Library",
+      "organization": "Association for Computing Machinery (ACM)",
+      "source_type": "publisher_platform",
+      "subjects": [
+        "computer science",
+        "software engineering",
+        "human-computer interaction",
+        "information systems",
+        "cybersecurity",
+        "computer networks",
+        "algorithms"
+      ],
+      "oa_scope": "mixed",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://dl.acm.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.acm.org/diversity-inclusion/equity-through-oa"
+      },
+      "notes": "ACM journals, magazines and ACM-sponsored conference proceedings publish OA from 1 January 2026. Earlier holdings and non-ACM content require item-level access checks.",
+      "access_policy": {
+        "model": "platform_transition",
+        "effective_from": "2026-01-01",
+        "open_years": [],
+        "backfile_scope": "mixed",
+        "version_scope": [
+          "version_of_record",
+          "conference_proceeding"
+        ],
+        "license_scope": "mixed",
+        "notes": "New ACM publications are OA from 2026; historical and third-party content may differ."
+      }
+    },
+    {
+      "id": "nature-communications",
+      "name": "Nature Communications",
+      "organization": "Springer Nature",
+      "source_type": "journal",
+      "subjects": [
+        "multidisciplinary",
+        "biology",
+        "medicine",
+        "physics",
+        "chemistry",
+        "earth science",
+        "engineering"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.nature.com/ncomms/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.nature.com/ncomms/aims"
+      },
+      "notes": "Selective, broad-scope fully OA journal publishing significant advances across the natural, clinical and applied sciences.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_cc_by",
+        "notes": "Fully OA; APCs and waiver policies are publisher-managed."
+      }
+    },
+    {
+      "id": "pnas-nexus",
+      "name": "PNAS Nexus",
+      "organization": "National Academy of Sciences / Oxford University Press",
+      "source_type": "journal",
+      "subjects": [
+        "multidisciplinary",
+        "biology",
+        "medicine",
+        "physical sciences",
+        "social sciences",
+        "engineering",
+        "mathematics"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://academic.oup.com/pnasnexus",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://academic.oup.com/pnasnexus/pages/About"
+      },
+      "notes": "Fully OA sibling journal to PNAS, covering broad and interdisciplinary research across science, engineering and medicine.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "uniform_open",
+        "notes": "Fully OA; APCs and waiver policies apply."
+      }
+    },
+    {
+      "id": "science-advances",
+      "name": "Science Advances",
+      "organization": "American Association for the Advancement of Science (AAAS)",
+      "source_type": "journal",
+      "subjects": [
+        "multidisciplinary",
+        "biology",
+        "medicine",
+        "physics",
+        "chemistry",
+        "earth science",
+        "engineering",
+        "social sciences"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.science.org/journal/sciadv",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.science.org/journal/sciadv"
+      },
+      "notes": "AAAS's selective, peer-reviewed fully OA journal spanning science and interdisciplinary research.",
+      "access_policy": {
+        "model": "gold",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "Fully OA; article licences may vary among approved open licences."
+      }
+    },
+    {
+      "id": "open-library-of-humanities",
+      "name": "Open Library of Humanities",
+      "organization": "Open Library of Humanities / Birkbeck, University of London",
+      "source_type": "publisher_platform",
+      "subjects": [
+        "humanities",
+        "literature",
+        "history",
+        "cultural studies",
+        "art history",
+        "archaeology"
+      ],
+      "oa_scope": "full",
+      "peer_review_scope": "peer_reviewed",
+      "publication_state": "published",
+      "canonical_url": "https://www.openlibhums.org/",
+      "parent_id": null,
+      "access_roles": [
+        "discovery",
+        "metadata",
+        "abstract",
+        "fulltext",
+        "canonical_vor"
+      ],
+      "machine_access": {
+        "formats": [
+          "html",
+          "pdf"
+        ],
+        "feed_url": null,
+        "api_url": null,
+        "oai_pmh_url": null,
+        "bulk_metadata_url": null
+      },
+      "status": "active",
+      "verification": {
+        "status": "verified",
+        "checked": "2026-08-16",
+        "evidence_url": "https://www.openlibhums.org/news/659/"
+      },
+      "notes": "Academic-led diamond OA publisher and platform for peer-reviewed humanities journals, funded by an international library consortium rather than author fees.",
+      "access_policy": {
+        "model": "diamond",
+        "effective_from": null,
+        "open_years": [],
+        "backfile_scope": "full",
+        "version_scope": [
+          "version_of_record"
+        ],
+        "license_scope": "mixed",
+        "notes": "No reader or author charges; journal licences and migrated backfiles should still be checked per title."
+      }
+    }
+  ]
+}

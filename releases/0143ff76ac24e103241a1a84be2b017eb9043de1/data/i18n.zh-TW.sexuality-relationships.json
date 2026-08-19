@@ -1,0 +1,22 @@
+{
+  "locale": "zh-TW",
+  "updated": "2026-08-17",
+  "taxonomy": {
+    "subjects": {
+      "sexuality": "性研究",
+      "sexual health": "性健康",
+      "sexual behavior": "性行為",
+      "relationships": "親密關係",
+      "gender studies": "性別研究",
+      "social psychology": "社會心理學",
+      "health psychology": "健康心理學",
+      "psychology": "心理學"
+    }
+  },
+  "sources": {
+    "sexual-medicine": {"name": "Sexual Medicine 性醫學", "summary": "ISSM／牛津大學出版社的全 OA 同儕審查期刊，涵蓋性功能、性功能障礙、流行病學、心理性學與人際面向。"},
+    "sexes": {"name": "Sexes 性研究", "summary": "跨學科性研究全 OA 期刊，聚焦性健康、性行為、性教育、性別與社會文化議題。"},
+    "frontiers-social-psychology": {"name": "Frontiers in Social Psychology 社會心理學", "summary": "全 OA 社會心理學期刊；其中 Gender, Sexuality and Relationships 專區可直接追蹤性別、性研究與親密關係實證。"},
+    "frontiers-psychology": {"name": "Frontiers in Psychology 心理學", "summary": "大型全 OA 心理學期刊，可作為依附、親密、關係滿意、性心理與健康心理研究的廣域來源。"}
+  }
+}
