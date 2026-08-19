@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.2.0",
-  "current_release_id": "9de323880ab9e61d579e95e377b625f72ded4a0c",
+  "schema_version": "1.3.0",
+  "current_release_id": "04627ad2f4560e7e1075a4dc4af8b05c9fb91e87",
   "releases": [
     {
       "release_id": "63d29d13647cb04ed37a1e209322730020258831",
@@ -104,6 +104,27 @@
       "chatbot_search_adapter_count": 12,
       "manifest_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/9de323880ab9e61d579e95e377b625f72ded4a0c/release-manifest.json",
       "immutable_base": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/9de323880ab9e61d579e95e377b625f72ded4a0c/"
+    },
+    {
+      "release_id": "04627ad2f4560e7e1075a4dc4af8b05c9fb91e87",
+      "commit_sha": "04627ad2f4560e7e1075a4dc4af8b05c9fb91e87",
+      "release_date": "2026-08-19T21:56:52+08:00",
+      "source_count": 244,
+      "profile_schema_version": "0.2.2",
+      "profile_method": "deterministic_source_use_profile_v2_2",
+      "routing_policy_version": "2.0.0",
+      "routing_policy_method": "registry_source_navigation_opt_in_verification_v2",
+      "routing_policy_schema_version": "2.0.0",
+      "chatbot_search_protocol_version": "2.0.0",
+      "chatbot_search_method": "chatbot_registry_brokered_oa_search_v2",
+      "chatbot_search_schema_version": "2.0.0",
+      "chatbot_search_adapter_count": 12,
+      "chatbot_search_brokered_source_count": 241,
+      "chatbot_search_default_mode": "registry_brokered",
+      "manifest_sha256": "ec2523c2d63c3657e4b35aa6cc50b4f2e9c1795febf50101fca81d6ba3f615e5",
+      "manifest_git_blob_sha1": "34a9ddd40f8db6ef6fd8c8ec7a7360b5e8e4b9df",
+      "manifest_url": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/04627ad2f4560e7e1075a4dc4af8b05c9fb91e87/release-manifest.json",
+      "immutable_base": "https://hoiyu915-droid.github.io/open-scholarly-sources/releases/04627ad2f4560e7e1075a4dc4af8b05c9fb91e87/"
     }
   ]
 }

@@ -1,0 +1,587 @@
+{
+  "schema_version": "2.0.0",
+  "protocol_version": "2.0.0",
+  "method": "chatbot_registry_brokered_oa_search_v2",
+  "updated": "2026-08-19",
+  "default_mode": "registry_brokered",
+  "runtime_enforcement": false,
+  "network_boundary": {
+    "custom_server_required": false,
+    "skill_required": false,
+    "radar_required": false,
+    "public_ocean_evidence_enabled": false,
+    "arbitrary_url_fetch_enabled": false,
+    "domain_restricted_discovery_broker_enabled": true,
+    "broker_result_content_is_evidence": false,
+    "allowed_schemes": [
+      "https"
+    ],
+    "redirect_policy": "allowlisted_hosts_only"
+  },
+  "modes": {
+    "registry_brokered": {
+      "target_must_be_registered": true,
+      "source_route_derived_from_registry": true,
+      "broker_may_be_external": true,
+      "broker_is_evidence_source": false,
+      "origin_must_equal_target_source": true
+    },
+    "registry_closed": {
+      "provider_must_be_registered": true,
+      "target_must_be_registered": true,
+      "provider_target_may_differ_only_when_adapter_declares_target_source_ids": true
+    },
+    "direct_only": {
+      "provider_must_be_registered": true,
+      "target_must_be_registered": true,
+      "provider_must_equal_target": true
+    }
+  },
+  "selection": {
+    "target_source_count": 5,
+    "maximum_source_count": 8,
+    "source_status_required": "active",
+    "direct_adapter_status_required": "searchable",
+    "semantic_match_fields": [
+      "name",
+      "subjects",
+      "source_type",
+      "access_roles",
+      "oa_scope",
+      "notes",
+      "translation.zh-TW"
+    ],
+    "direct_no_adapter_status": "NO_SEARCH_ADAPTER"
+  },
+  "terminal_statuses": [
+    "SUCCESS",
+    "NO_RESULTS",
+    "NO_CANONICAL_SEARCH_ROUTE",
+    "NO_SEARCH_ADAPTER",
+    "SEARCH_BROKER_GAP",
+    "SOURCE_IDENTITY_GAP",
+    "ORIGINAL_FETCH_GAP",
+    "FULLTEXT_NOT_AUTHORIZED",
+    "SOURCE_FETCH_GAP",
+    "CLOSED_WORLD_VIOLATION"
+  ],
+  "gap_statuses": [
+    "NO_CANONICAL_SEARCH_ROUTE",
+    "NO_SEARCH_ADAPTER",
+    "SEARCH_BROKER_GAP",
+    "SOURCE_IDENTITY_GAP",
+    "ORIGINAL_FETCH_GAP",
+    "FULLTEXT_NOT_AUTHORIZED",
+    "SOURCE_FETCH_GAP",
+    "REGISTRY_COVERAGE_GAP",
+    "CLOSED_WORLD_VIOLATION"
+  ],
+  "trace_required_fields": [
+    "registry_release_id",
+    "main_ref_commit_sha",
+    "routing_sha256",
+    "mode",
+    "discovery_method",
+    "broker_id",
+    "broker_operation",
+    "broker_query",
+    "broker_domains",
+    "broker_result_count",
+    "source_route_id",
+    "adapter_id",
+    "provider_source_id",
+    "target_source_id",
+    "candidate_url",
+    "candidate_identity_status",
+    "request_url",
+    "observed_url",
+    "redirect_chain",
+    "http_status",
+    "content_type",
+    "parser",
+    "source_identity_verified",
+    "original_record_observed",
+    "evidence_class",
+    "observed_at",
+    "dedupe_key",
+    "status"
+  ],
+  "bootstrap": {
+    "kind": "github_connector",
+    "repository": "hoiyu915-droid/open-scholarly-sources",
+    "main_ref": "main",
+    "main_ref_api": "https://api.github.com/repos/hoiyu915-droid/open-scholarly-sources/branches/main",
+    "snapshot_ref": "release-snapshots",
+    "release_index_path": "releases/index.json",
+    "snapshot_path_template": "releases/{release_id}/{path}",
+    "required_files": [
+      "release-manifest.json",
+      "registry.json",
+      "chatbot-search-routing.json",
+      "chatbot-search-protocol.md",
+      "chatbot-entry.txt",
+      "schemas/chatbot-search-routing.schema.json"
+    ],
+    "file_identity": "manifest_sha256_and_git_blob_sha1",
+    "freshness_rule": "release_index.current_release_id_equals_main_ref_commit_sha",
+    "pages_fallback_enabled": false
+  },
+  "brokered_discovery": {
+    "broker_id": "host-web-search",
+    "status": "enabled",
+    "operation": "search_query",
+    "supported_tool_names": [
+      "web.run",
+      "web_search"
+    ],
+    "domain_filter_required": true,
+    "domain_match": "exact_declared_domain",
+    "unrestricted_search_enabled": false,
+    "snippets_are_evidence": false,
+    "original_source_fetch_required_for_content_claims": true,
+    "maximum_results_per_source": 10,
+    "direct_adapter_role": "secondary_optional",
+    "runtime_failure_reuse": {
+      "same_task_retry_failed_host": false,
+      "cross_task_reuse_without_reprobe": false,
+      "observed_at_required": true
+    },
+    "eligible_source_count": 241,
+    "source_route_derivation": {
+      "method": "selected_registry_source_v1",
+      "required_source_status": "active",
+      "required_access_role": "discovery",
+      "required_canonical_url_scheme": "https",
+      "search_domain_rule": "exact_canonical_url_hostname",
+      "search_query_rule": "topic_plus_exact_registered_source_name",
+      "candidate_host_rule": "exact_canonical_url_hostname",
+      "origin_host_rule": "exact_canonical_url_hostname",
+      "canonical_path_role": "identity_hint_not_sufficient_proof",
+      "shared_host_rule": "require_original_container_identity_before_acceptance",
+      "origin_identity_fields": [
+        "registered_source_name",
+        "container_title",
+        "issn_when_available",
+        "repository_record_id_when_available",
+        "doi_or_source_prefix_when_available"
+      ],
+      "metadata_only_rule": "may_support_registry_metadata_only_never_fulltext_claims",
+      "returned_link_rule": "never_follow_cross_host_or_unregistered_target",
+      "identity_failure_status": "SOURCE_IDENTITY_GAP"
+    }
+  },
+  "adapters": [
+    {
+      "adapter_id": "europe-pmc-topic-search",
+      "source_id": "europe-pmc",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28{query}%29%20AND%20OPEN_ACCESS%3AY&resultType=core&format=json&pageSize={limit}",
+      "query_encoding": "url_component_utf8",
+      "allowed_hosts": [
+        "www.ebi.ac.uk"
+      ],
+      "redirect_policy": "same_host_only",
+      "response_format": "json",
+      "accepted_content_types": [
+        "application/json"
+      ],
+      "parser": "europe_pmc_search_v6",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 100,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": [
+        "doi",
+        "pmid",
+        "pmcid",
+        "id"
+      ],
+      "oa_result_rule": "server_query_requires_OPEN_ACCESS_Y_and_each_result_remains_record_level_evidence",
+      "dedupe_key_order": [
+        "doi",
+        "pmcid",
+        "pmid",
+        "normalized_title_year"
+      ],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/json;charset=UTF-8",
+        "evidence_url": "https://europepmc.org/RestfulWebService"
+      },
+      "notes": "The OPEN_ACCESS:Y clause is part of the fixed template; the chatbot may substitute only the encoded topic and bounded limit."
+    },
+    {
+      "adapter_id": "openalex-oa-topic-search",
+      "source_id": "openalex",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://api.openalex.org/works?search={query}&filter=open_access.is_oa%3Atrue&select=id,doi,title,publication_year,open_access,primary_location&per-page={limit}",
+      "query_encoding": "url_component_utf8",
+      "allowed_hosts": [
+        "api.openalex.org"
+      ],
+      "redirect_policy": "same_host_only",
+      "response_format": "json",
+      "accepted_content_types": [
+        "application/json"
+      ],
+      "parser": "openalex_works_v1",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 100,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": [
+        "id",
+        "doi"
+      ],
+      "oa_result_rule": "server_filter_requires_open_access_is_oa_true_but_fulltext_and_licence_claims_remain_record_level",
+      "dedupe_key_order": [
+        "doi",
+        "id",
+        "normalized_title_year"
+      ],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/json",
+        "evidence_url": "https://docs.openalex.org/api-entities/works/search-works"
+      },
+      "notes": "OpenAlex is a registered metadata discovery source. Do not fetch returned publisher or DOI URLs unless a separate registered adapter authorizes them."
+    },
+    {
+      "adapter_id": "pubmed-central-topic-search",
+      "source_id": "pubmed-central",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pmc&term={query}&retmode=json&retmax={limit}",
+      "query_encoding": "url_component_utf8",
+      "allowed_hosts": [
+        "eutils.ncbi.nlm.nih.gov"
+      ],
+      "redirect_policy": "same_host_only",
+      "response_format": "json",
+      "accepted_content_types": [
+        "application/json"
+      ],
+      "parser": "ncbi_eutils_esearch_json_v1",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 100,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": [
+        "pmcid"
+      ],
+      "oa_result_rule": "database_is_pmc_but_version_and_reuse_licence_must_be_resolved_per_record",
+      "dedupe_key_order": [
+        "pmcid"
+      ],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/json; charset=UTF-8",
+        "evidence_url": "https://www.ncbi.nlm.nih.gov/books/NBK25499/"
+      },
+      "notes": "This route searches the PMC database only. Returned IDs do not by themselves prove a uniform reuse licence or publication version."
+    },
+    {
+      "adapter_id": "doaj-article-topic-search",
+      "source_id": "doaj",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://doaj.org/api/v4/search/articles/{query}?page=1&pageSize={limit}",
+      "query_encoding": "url_path_segment_utf8",
+      "allowed_hosts": [
+        "doaj.org"
+      ],
+      "redirect_policy": "same_host_only",
+      "response_format": "json",
+      "accepted_content_types": [
+        "application/json"
+      ],
+      "parser": "doaj_article_search_v4",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 100,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": [
+        "id",
+        "bibjson.identifier"
+      ],
+      "oa_result_rule": "results_are_doaj_article_records_but_article_level_licence_and_fulltext_links_remain_record_level",
+      "dedupe_key_order": [
+        "doi",
+        "id",
+        "normalized_title_year"
+      ],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/json",
+        "evidence_url": "https://doaj.org/api/docs"
+      },
+      "notes": "The path placeholder must be encoded as one URL path segment. Result links are data until another registered adapter authorizes a fetch."
+    },
+    {
+      "adapter_id": "zenodo-publication-topic-search",
+      "source_id": "zenodo",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://zenodo.org/api/records?q={query}%20AND%20resource_type.type%3Apublication&size={limit}",
+      "query_encoding": "url_component_utf8",
+      "allowed_hosts": [
+        "zenodo.org"
+      ],
+      "redirect_policy": "same_host_only",
+      "response_format": "json",
+      "accepted_content_types": [
+        "application/json"
+      ],
+      "parser": "zenodo_records_v1",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 25,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": [
+        "id",
+        "doi"
+      ],
+      "oa_result_rule": "server_query_limits_resource_type_to_publication_but_each_file_access_and_licence_remain_record_level",
+      "dedupe_key_order": [
+        "doi",
+        "id",
+        "normalized_title_year"
+      ],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/json",
+        "evidence_url": "https://developers.zenodo.org/"
+      },
+      "notes": "The fixed query suffix restricts results to publication records. Do not follow links to unregistered hosts."
+    },
+    {
+      "adapter_id": "arxiv-topic-search",
+      "source_id": "arxiv",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://export.arxiv.org/api/query?search_query=all%3A{query}&start=0&max_results={limit}",
+      "query_encoding": "url_component_utf8",
+      "allowed_hosts": [
+        "export.arxiv.org"
+      ],
+      "redirect_policy": "same_host_only",
+      "response_format": "atom",
+      "accepted_content_types": [
+        "application/atom+xml"
+      ],
+      "parser": "arxiv_atom_v1",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 100,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": [
+        "entry.id"
+      ],
+      "oa_result_rule": "records_are_open_repository_items_but_peer_review_and_version_of_record_must_not_be_inferred",
+      "dedupe_key_order": [
+        "entry.id",
+        "normalized_title_year"
+      ],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/atom+xml; charset=utf-8",
+        "evidence_url": "https://info.arxiv.org/help/api/user-manual.html"
+      },
+      "notes": "General arXiv topic search. Serialize the shared endpoint with at least three seconds between requests; a timeout or 429 is SOURCE_FETCH_GAP, never NO_RESULTS."
+    },
+    {
+      "adapter_id": "arxiv-cs-cl-topic-search",
+      "source_id": "arxiv-cs-cl",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://export.arxiv.org/api/query?search_query=cat%3Acs.CL%20AND%20all%3A{query}&start=0&max_results={limit}",
+      "query_encoding": "url_component_utf8",
+      "allowed_hosts": ["export.arxiv.org"],
+      "redirect_policy": "same_host_only",
+      "response_format": "atom",
+      "accepted_content_types": ["application/atom+xml"],
+      "parser": "arxiv_atom_v1",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 100,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": ["entry.id"],
+      "oa_result_rule": "records_are_open_repository_items_in_cs_CL_but_peer_review_and_version_of_record_must_not_be_inferred",
+      "dedupe_key_order": ["entry.id", "normalized_title_year"],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/atom+xml; charset=utf-8",
+        "evidence_url": "https://info.arxiv.org/help/api/user-manual.html"
+      },
+      "notes": "Category-locked computation and language search; share the serialized three-second arXiv request budget."
+    },
+    {
+      "adapter_id": "arxiv-cs-lg-topic-search",
+      "source_id": "arxiv-cs-lg",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://export.arxiv.org/api/query?search_query=cat%3Acs.LG%20AND%20all%3A{query}&start=0&max_results={limit}",
+      "query_encoding": "url_component_utf8",
+      "allowed_hosts": ["export.arxiv.org"],
+      "redirect_policy": "same_host_only",
+      "response_format": "atom",
+      "accepted_content_types": ["application/atom+xml"],
+      "parser": "arxiv_atom_v1",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 100,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": ["entry.id"],
+      "oa_result_rule": "records_are_open_repository_items_in_cs_LG_but_peer_review_and_version_of_record_must_not_be_inferred",
+      "dedupe_key_order": ["entry.id", "normalized_title_year"],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/atom+xml; charset=utf-8",
+        "evidence_url": "https://info.arxiv.org/help/api/user-manual.html"
+      },
+      "notes": "Category-locked machine learning search; share the serialized three-second arXiv request budget."
+    },
+    {
+      "adapter_id": "arxiv-cs-ai-topic-search",
+      "source_id": "arxiv-cs-ai",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://export.arxiv.org/api/query?search_query=cat%3Acs.AI%20AND%20all%3A{query}&start=0&max_results={limit}",
+      "query_encoding": "url_component_utf8",
+      "allowed_hosts": ["export.arxiv.org"],
+      "redirect_policy": "same_host_only",
+      "response_format": "atom",
+      "accepted_content_types": ["application/atom+xml"],
+      "parser": "arxiv_atom_v1",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 100,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": ["entry.id"],
+      "oa_result_rule": "records_are_open_repository_items_in_cs_AI_but_peer_review_and_version_of_record_must_not_be_inferred",
+      "dedupe_key_order": ["entry.id", "normalized_title_year"],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/atom+xml; charset=utf-8",
+        "evidence_url": "https://info.arxiv.org/help/api/user-manual.html"
+      },
+      "notes": "Category-locked artificial intelligence search; share the serialized three-second arXiv request budget."
+    },
+    {
+      "adapter_id": "arxiv-stat-ml-topic-search",
+      "source_id": "arxiv-stat-ml",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://export.arxiv.org/api/query?search_query=cat%3Astat.ML%20AND%20all%3A{query}&start=0&max_results={limit}",
+      "query_encoding": "url_component_utf8",
+      "allowed_hosts": ["export.arxiv.org"],
+      "redirect_policy": "same_host_only",
+      "response_format": "atom",
+      "accepted_content_types": ["application/atom+xml"],
+      "parser": "arxiv_atom_v1",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 100,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": ["entry.id"],
+      "oa_result_rule": "records_are_open_repository_items_in_stat_ML_but_peer_review_and_version_of_record_must_not_be_inferred",
+      "dedupe_key_order": ["entry.id", "normalized_title_year"],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/atom+xml; charset=utf-8",
+        "evidence_url": "https://info.arxiv.org/help/api/user-manual.html"
+      },
+      "notes": "Category-locked statistical machine learning search; share the serialized three-second arXiv request budget."
+    },
+    {
+      "adapter_id": "arxiv-cs-cv-topic-search",
+      "source_id": "arxiv-cs-cv",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://export.arxiv.org/api/query?search_query=cat%3Acs.CV%20AND%20all%3A{query}&start=0&max_results={limit}",
+      "query_encoding": "url_component_utf8",
+      "allowed_hosts": ["export.arxiv.org"],
+      "redirect_policy": "same_host_only",
+      "response_format": "atom",
+      "accepted_content_types": ["application/atom+xml"],
+      "parser": "arxiv_atom_v1",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 100,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": ["entry.id"],
+      "oa_result_rule": "records_are_open_repository_items_in_cs_CV_but_peer_review_and_version_of_record_must_not_be_inferred",
+      "dedupe_key_order": ["entry.id", "normalized_title_year"],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/atom+xml; charset=utf-8",
+        "evidence_url": "https://info.arxiv.org/help/api/user-manual.html"
+      },
+      "notes": "Category-locked computer vision search; share the serialized three-second arXiv request budget."
+    },
+    {
+      "adapter_id": "arxiv-cs-ma-topic-search",
+      "source_id": "arxiv-cs-ma",
+      "status": "searchable",
+      "capability": "topic_search",
+      "method": "GET",
+      "endpoint_template": "https://export.arxiv.org/api/query?search_query=cat%3Acs.MA%20AND%20all%3A{query}&start=0&max_results={limit}",
+      "query_encoding": "url_component_utf8",
+      "allowed_hosts": ["export.arxiv.org"],
+      "redirect_policy": "same_host_only",
+      "response_format": "atom",
+      "accepted_content_types": ["application/atom+xml"],
+      "parser": "arxiv_atom_v1",
+      "authentication": "none",
+      "default_limit": 10,
+      "maximum_limit": 100,
+      "target_source_policy": "same_as_provider",
+      "result_identity_fields": ["entry.id"],
+      "oa_result_rule": "records_are_open_repository_items_in_cs_MA_but_peer_review_and_version_of_record_must_not_be_inferred",
+      "dedupe_key_order": ["entry.id", "normalized_title_year"],
+      "verification": {
+        "live_status": "verified",
+        "checked": "2026-08-19",
+        "observed_http_status": 200,
+        "observed_content_type": "application/atom+xml; charset=utf-8",
+        "evidence_url": "https://info.arxiv.org/help/api/user-manual.html"
+      },
+      "notes": "Category-locked multiagent systems search; share the serialized three-second arXiv request budget."
+    }
+  ]
+}

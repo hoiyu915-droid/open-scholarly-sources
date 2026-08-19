@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "updated": "2026-08-16",
+  "sources": [
+    {
+      "id": "acl-anthology", "name": "ACL Anthology", "organization": "Association for Computational Linguistics", "source_type": "digital_library",
+      "subjects": ["natural language processing", "computational linguistics", "large language models", "speech"], "oa_scope": "full", "peer_review_scope": "mixed", "publication_state": "published",
+      "canonical_url": "https://aclanthology.org/", "parent_id": null, "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf", "xml"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://aclanthology.org/"},
+      "notes": "Open digital library for computational linguistics, speech and NLP publications from ACL and other venues. It includes journals, conferences, workshops and other published materials; peer-review status therefore varies by venue."
+    },
+    {
+      "id": "acl", "name": "Annual Meeting of the Association for Computational Linguistics (ACL)", "organization": "Association for Computational Linguistics", "source_type": "proceedings_series",
+      "subjects": ["natural language processing", "computational linguistics", "large language models", "generative ai"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://aclanthology.org/venues/acl/", "parent_id": "acl-anthology", "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://aclanthology.org/venues/acl/"},
+      "notes": "Major peer-reviewed ACL conference series with openly accessible proceedings in the ACL Anthology."
+    },
+    {
+      "id": "emnlp", "name": "Conference on Empirical Methods in Natural Language Processing (EMNLP)", "organization": "Association for Computational Linguistics / SIGDAT", "source_type": "proceedings_series",
+      "subjects": ["natural language processing", "large language models", "language modeling", "evaluation and benchmarking"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://aclanthology.org/venues/emnlp/", "parent_id": "acl-anthology", "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://aclanthology.org/venues/emnlp/"},
+      "notes": "Major peer-reviewed empirical NLP conference series and a high-volume source for current LLM research."
+    },
+    {
+      "id": "naacl", "name": "Nations of the Americas Chapter of the ACL Conference (NAACL)", "organization": "Association for Computational Linguistics", "source_type": "proceedings_series",
+      "subjects": ["natural language processing", "computational linguistics", "large language models"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://aclanthology.org/venues/naacl/", "parent_id": "acl-anthology", "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://aclanthology.org/venues/naacl/"},
+      "notes": "Major peer-reviewed ACL chapter conference series for NLP and human language technologies."
+    },
+    {
+      "id": "eacl", "name": "European Chapter of the Association for Computational Linguistics (EACL)", "organization": "Association for Computational Linguistics", "source_type": "proceedings_series",
+      "subjects": ["natural language processing", "computational linguistics", "large language models"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://aclanthology.org/venues/eacl/", "parent_id": "acl-anthology", "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://aclanthology.org/venues/eacl/"},
+      "notes": "Peer-reviewed European ACL chapter conference series with open proceedings in the ACL Anthology."
+    },
+    {
+      "id": "aacl", "name": "Asia-Pacific Chapter of the Association for Computational Linguistics (AACL)", "organization": "Association for Computational Linguistics", "source_type": "proceedings_series",
+      "subjects": ["natural language processing", "computational linguistics", "large language models"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://aclanthology.org/venues/aacl/", "parent_id": "acl-anthology", "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://aclanthology.org/venues/aacl/"},
+      "notes": "Peer-reviewed Asia-Pacific ACL chapter conference series, useful for multilingual and regional NLP coverage."
+    },
+    {
+      "id": "conll", "name": "Conference on Computational Natural Language Learning (CoNLL)", "organization": "Association for Computational Linguistics / SIGNLL", "source_type": "proceedings_series",
+      "subjects": ["natural language processing", "computational linguistics", "machine learning"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://aclanthology.org/venues/conll/", "parent_id": "acl-anthology", "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://aclanthology.org/venues/conll/"},
+      "notes": "Peer-reviewed conference series at the intersection of computational linguistics and machine learning."
+    },
+    {
+      "id": "acl-findings", "name": "Findings of the Association for Computational Linguistics", "organization": "Association for Computational Linguistics", "source_type": "proceedings_series",
+      "subjects": ["natural language processing", "large language models", "generative ai", "evaluation and benchmarking"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://aclanthology.org/venues/findings/", "parent_id": "acl-anthology", "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://aclanthology.org/venues/findings/"},
+      "notes": "Peer-reviewed Findings series associated with ACL-family conferences; high-volume source for contemporary NLP and LLM work."
+    },
+    {
+      "id": "tacl", "name": "Transactions of the Association for Computational Linguistics (TACL)", "organization": "Association for Computational Linguistics", "source_type": "journal",
+      "subjects": ["natural language processing", "computational linguistics", "large language models"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://aclanthology.org/venues/tacl/", "parent_id": "acl-anthology", "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://aclanthology.org/venues/tacl/"},
+      "notes": "Peer-reviewed journal of the ACL with openly accessible papers indexed in the ACL Anthology."
+    },
+    {
+      "id": "computational-linguistics", "name": "Computational Linguistics", "organization": "Association for Computational Linguistics / MIT Press", "source_type": "journal",
+      "subjects": ["computational linguistics", "natural language processing"], "oa_scope": "full", "peer_review_scope": "peer_reviewed", "publication_state": "published",
+      "canonical_url": "https://aclanthology.org/venues/cl/", "parent_id": "acl-anthology", "access_roles": ["discovery", "metadata", "abstract", "fulltext", "canonical_vor"],
+      "machine_access": {"formats": ["html", "pdf"], "feed_url": null, "api_url": null, "oai_pmh_url": null, "bulk_metadata_url": null},
+      "status": "active", "verification": {"status": "verified", "checked": "2026-08-16", "evidence_url": "https://aclanthology.org/venues/cl/"},
+      "notes": "Long-running peer-reviewed journal in computational linguistics, with open full text available through the ACL Anthology."
+    }
+  ]
+}
