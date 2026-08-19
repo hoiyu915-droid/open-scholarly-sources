@@ -60,6 +60,22 @@ class ChatbotSearchRoutingTests(unittest.TestCase):
         result = self.plan("tacl")
         self.assertEqual(result["status"], "NO_SEARCH_ADAPTER")
         self.assertEqual(result["target_source_id"], "tacl")
+        validate_trace(result, self.contract)
+
+    def test_no_adapter_trace_cannot_claim_external_network_receipts(self):
+        for field, value in {
+            "observed_url": "https://example.com/escape",
+            "redirect_chain": ["https://example.com/escape"],
+            "http_status": 200,
+            "content_type": "text/html",
+            "observed_at": "2026-08-19T12:00:00Z",
+            "dedupe_key": "forged",
+        }.items():
+            with self.subTest(field=field):
+                trace = self.plan("tacl")
+                trace[field] = value
+                with self.assertRaises(ClosedWorldViolation):
+                    validate_trace(trace, self.contract)
 
     def test_query_is_encoded_and_provider_equals_target(self):
         plan = self.plan()
