@@ -1,0 +1,20 @@
+# Open Scholarly Sources connector-first chatbot entry
+
+Protocol version: 2.0.0
+Method: chatbot_registry_brokered_oa_search_v2
+Default mode: registry_brokered
+
+No Skill, MCP server, custom backend, Radar or GitHub Pages bootstrap is required.
+
+1. GitHub.fetch https://api.github.com/repos/hoiyu915-droid/open-scholarly-sources/branches/main and record commit.sha.
+2. GitHub.fetch_file repository=hoiyu915-droid/open-scholarly-sources ref=release-snapshots path=releases/index.json; require current_release_id == commit.sha and retain the matching entry's manifest SHA-256 and Git blob SHA-1.
+3. From ref=release-snapshots read releases/<commit.sha>/release-manifest.json; require its connector blob sha to equal the release-index entry. Then read every required file under that same directory.
+4. For every other fetched file, compare the GitHub connector blob sha with the manifest git_blob_sha1 and preserve the manifest SHA-256.
+5. Select relevant active sources from that registry; do not use a hard-coded source list.
+6. For each selected source, derive the broker domain from its exact HTTPS canonical_url hostname and search <topic> plus the exact registered source name with that domain filter.
+7. Treat search results and snippets as discovery only. Open only an exact-canonical-host candidate, verify original container/source identity, then use only the evidence scope allowed by the source record.
+8. Report release ID, selected sources, broker domains, accepted/rejected candidates, original-source receipts and every gap.
+
+Strict direct adapters remain optional secondary checks. A same-task failure receipt may prevent repeated retries, but network failure state must not be carried into another task without a fresh probe.
+
+Never use an unrestricted search, arbitrary URL, cross-host redirect, returned DOI/publisher link, search snippet, or unregistered source as evidence.

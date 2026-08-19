@@ -26,7 +26,7 @@ jobs:
       - name: Validate retrieval routing policy invariants
         run: python3 scripts/validate_routing_policy.py
 
-      - name: Validate closed-registry chatbot search routing
+      - name: Validate registry-brokered chatbot search routing
         run: python3 scripts/validate_chatbot_search.py
 
       - name: Run reference-consumer conformance tests
@@ -91,7 +91,7 @@ jobs:
           grep -q "$GITHUB_SHA" "$site/index.html"
           grep -q "Release identity: $GITHUB_SHA" "$site/llms.txt"
           grep -q "Routing policy:" "$site/llms.txt"
-          grep -q "Closed-registry OA search for chatbots" "$site/llms.txt"
+          grep -q "Registry-brokered OA search for chatbots" "$site/llms.txt"
 
           # Re-running the release finalizer for the same SHA must be idempotent.
           python3 scripts/build_release_snapshot.py \
@@ -123,11 +123,33 @@ jobs:
           routing=json.loads((site/'retrieval-routing-policy.json').read_text())
           chatbot=json.loads((site/'chatbot-search-routing.json').read_text())
           history=json.loads((site/'releases/index.json').read_text())
-          assert manifest['schema_version']=='3.0.0'
+          snapshot=site/'releases'/sha
+          assert manifest['schema_version']=='4.0.0'
           assert manifest['release_id']==sha==manifest['commit_sha']
           assert registry['release']['release_id']==sha
           assert profiles['release']['release_id']==sha
           assert history['current_release_id']==sha
+          current_release_entries = [
+            entry for entry in history.get("releases", []) if entry.get("release_id") == sha
+          ]
+          assert len(current_release_entries) == 1
+          current_release = current_release_entries[0]
+          assert "manifest_sha256" in current_release
+          assert "manifest_git_blob_sha1" in current_release
+          assert re.fullmatch(r"^[0-9a-f]{64}$", current_release["manifest_sha256"])
+          assert re.fullmatch(r"^[0-9a-f]{40}$", current_release["manifest_git_blob_sha1"])
+          snapshot_manifest = (snapshot / "release-manifest.json").read_bytes()
+          snapshot_manifest_sha256 = hashlib.sha256(snapshot_manifest).hexdigest()
+          snapshot_manifest_git_blob_sha1 = hashlib.sha1(
+            b"blob " + str(len(snapshot_manifest)).encode("ascii") + b"\0" + snapshot_manifest
+          ).hexdigest()
+          assert snapshot_manifest_sha256 == current_release["manifest_sha256"]
+          assert snapshot_manifest_git_blob_sha1 == current_release["manifest_git_blob_sha1"]
+          assert "release-manifest.json" not in manifest["files"]
+          assert chatbot["method"] == "chatbot_registry_brokered_oa_search_v2"
+          assert chatbot["default_mode"] == "registry_brokered"
+          assert manifest["chatbot_search_brokered_source_count"] == chatbot["brokered_discovery"]["eligible_source_count"]
+          assert manifest["chatbot_search_default_mode"] == chatbot["default_mode"]
           assert manifest['source_count']==len(registry['sources'])
           assert manifest['profile_schema_version']==profiles['schema_version']
           assert manifest['routing_policy_version']==routing['policy_version']
@@ -137,6 +159,7 @@ jobs:
           assert manifest['chatbot_search_method']==chatbot['method']
           assert manifest['chatbot_search_schema_version']==chatbot['schema_version']
           assert manifest['chatbot_search_adapter_count']==len(chatbot['adapters'])
+          assert chatbot["brokered_discovery"]["eligible_source_count"] >= len(chatbot["adapters"])
           assert 'retrieval-routing-policy.json' in manifest['files']
           assert 'schemas/retrieval-routing-policy.schema.json' in manifest['files']
           assert 'chatbot-search-routing.json' in manifest['files']
@@ -145,7 +168,6 @@ jobs:
           assert 'schemas/chatbot-search-routing.schema.json' in manifest['files']
           assert 'rendered-homepage.html' in manifest['files']
           assert 'rendered-source-index.html' in manifest['files']
-          snapshot=site/'releases'/sha
           page=(snapshot/'rendered-homepage.html').read_text(encoding='utf-8')
           source_ids=set(re.findall(r'href="\./sources/([a-z0-9-]+)\.html"', page))
           assert len(source_ids)==manifest['source_count'], (len(source_ids), manifest['source_count'])
@@ -159,28 +181,21 @@ jobs:
           for filename in bootstrap.get('translation_shards', []):
               assert (snapshot/'data'/filename).is_file(), filename
           assert (snapshot/'profiles'/'index.html').is_file()
-          for required in (
-              'index.html',
-              'retrieval-routing-policy.json',
-              'chatbot-search-routing.json',
-              'chatbot-search-protocol.md',
-              'chatbot-entry.txt',
-              'schemas/retrieval-routing-policy.schema.json',
-              'schemas/chatbot-search-routing.schema.json',
-              'data/registry-manifest.json',
-              'data/source-profile-rules.json',
-              'data/retrieval-routing-policy.json',
-              'data/chatbot-search-routing.json',
-              'sources/index.html',
-              'profiles/index.html',
-          ):
-              assert required in manifest['files'], required
+          for required in chatbot["bootstrap"]["required_files"]:
+              assert (snapshot / required).is_file(), required
+              if required != "release-manifest.json":
+                  assert required in manifest["files"], required
           assert 'Static source index / 無 JavaScript 來源索引' in page
           assert '<!-- STATIC_FALLBACK -->' not in page
           for name, meta in manifest['files'].items():
               data=(snapshot/name).read_bytes()
+              assert "git_blob_sha1" in meta
+              assert re.fullmatch(r"^[0-9a-f]{40}$", meta["git_blob_sha1"])
               assert hashlib.sha256(data).hexdigest()==meta['sha256'], name
               assert len(data)==meta['bytes'], name
+              assert hashlib.sha1(
+                  b"blob " + str(len(data)).encode("ascii") + b"\0" + data
+              ).hexdigest()==meta['git_blob_sha1'], name
           print(
               f'Release self-contained assertions OK: files={len(manifest["files"])} '
               f'sources={len(source_ids)} routing={manifest["routing_policy_version"]} '

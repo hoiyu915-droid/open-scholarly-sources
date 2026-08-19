@@ -39,7 +39,7 @@ jobs:
       - name: Validate retrieval routing policy invariants
         run: python3 scripts/validate_routing_policy.py
 
-      - name: Validate closed-registry chatbot search routing
+      - name: Validate registry-brokered chatbot search routing
         run: python3 scripts/validate_chatbot_search.py
 
       - name: Run reference-consumer conformance tests
@@ -73,7 +73,7 @@ jobs:
           grep -q "$GITHUB_SHA" site/index.html
           grep -q "Release identity: $GITHUB_SHA" site/llms.txt
           grep -q "Routing policy:" site/llms.txt
-          grep -q "Closed-registry OA search for chatbots" site/llms.txt
+          grep -q "Registry-brokered OA search for chatbots" site/llms.txt
           test -s site/retrieval-routing-policy.json
           test -s site/chatbot-search-routing.json
           test -s site/chatbot-search-protocol.md
@@ -99,6 +99,71 @@ jobs:
           cmp site/chatbot-entry.txt "$snapshot/chatbot-entry.txt"
           test -s site/release-manifest.json
           test -s site/releases/index.json
+
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import re
+          from pathlib import Path
+
+          site = Path("site")
+          sha = "${{ github.sha }}"
+          manifest = json.loads((site / "release-manifest.json").read_text())
+          registry = json.loads((site / "registry.json").read_text())
+          profiles = json.loads((site / "source-profiles.json").read_text())
+          routing = json.loads((site / "retrieval-routing-policy.json").read_text())
+          chatbot = json.loads((site / "chatbot-search-routing.json").read_text())
+          releases = json.loads((site / "releases" / "index.json").read_text())
+          snapshot = Path("site/releases") / sha
+
+          assert manifest["schema_version"] == "4.0.0"
+          assert manifest["release_id"] == sha == manifest["commit_sha"]
+          assert registry["release"]["release_id"] == sha
+          assert profiles["release"]["release_id"] == sha
+          assert releases["current_release_id"] == sha
+
+          current_release_entries = [
+            entry for entry in releases.get("releases", []) if entry.get("release_id") == sha
+          ]
+          assert len(current_release_entries) == 1
+          current_release = current_release_entries[0]
+          assert re.fullmatch(r"^[0-9a-f]{64}$", current_release["manifest_sha256"])
+          assert re.fullmatch(r"^[0-9a-f]{40}$", current_release["manifest_git_blob_sha1"])
+          snapshot_manifest = (snapshot / "release-manifest.json").read_bytes()
+          snapshot_manifest_sha256 = hashlib.sha256(snapshot_manifest).hexdigest()
+          snapshot_manifest_git_blob_sha1 = hashlib.sha1(
+              b"blob " + str(len(snapshot_manifest)).encode("ascii") + b"\0" + snapshot_manifest
+          ).hexdigest()
+          assert snapshot_manifest_sha256 == current_release["manifest_sha256"]
+          assert snapshot_manifest_git_blob_sha1 == current_release["manifest_git_blob_sha1"]
+          assert "release-manifest.json" not in manifest["files"]
+
+          assert chatbot["method"] == "chatbot_registry_brokered_oa_search_v2"
+          assert chatbot["default_mode"] == "registry_brokered"
+          assert manifest["chatbot_search_brokered_source_count"] == chatbot["brokered_discovery"]["eligible_source_count"]
+          assert manifest["chatbot_search_default_mode"] == chatbot["default_mode"]
+          assert manifest["chatbot_search_adapter_count"] == len(chatbot["adapters"])
+
+          for required_file in chatbot["bootstrap"]["required_files"]:
+            assert (snapshot / required_file).is_file(), required_file
+            if required_file != "release-manifest.json":
+              assert required_file in manifest["files"], required_file
+
+          for name, meta in manifest["files"].items():
+              data = (snapshot / name).read_bytes()
+              assert "sha256" in meta
+              assert "bytes" in meta
+              assert "git_blob_sha1" in meta
+              assert re.fullmatch(r"^[0-9a-f]{64}$", meta["sha256"])
+              assert re.fullmatch(r"^[0-9a-f]{40}$", meta["git_blob_sha1"])
+              assert hashlib.sha256(data).hexdigest() == meta["sha256"], name
+              assert len(data) == meta["bytes"], name
+              assert hashlib.sha1(
+                  b"blob " + str(len(data)).encode("ascii") + b"\0" + data
+              ).hexdigest() == meta["git_blob_sha1"], name
+          print("pages bootstrap artifact assertions OK")
+          PY
+
           touch site/.nojekyll
 
       - name: Upload immutable snapshot for post-deploy archive

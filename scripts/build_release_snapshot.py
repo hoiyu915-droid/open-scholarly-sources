@@ -45,15 +45,38 @@ def write_json(path: Path, value) -> None:
 
 
 def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
+    return file_digests(path)["sha256"]
+
+
+def file_digests(path: Path) -> dict[str, int | str]:
+    """Return the release identities for one file.
+
+    ``git_blob_sha1`` is the SHA-1 Git computes for a blob, including the
+    ``blob <byte-count>\\0`` header.  It is retained as a transport identity
+    for GitHub connector reads; SHA-256 remains the release integrity digest.
+    """
+    size = path.stat().st_size
+    sha256_digest = hashlib.sha256()
+    blob_digest = hashlib.sha1()
+    blob_digest.update(f"blob {size}\0".encode("ascii"))
     with path.open("rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+            sha256_digest.update(chunk)
+            blob_digest.update(chunk)
+    return {
+        "sha256": sha256_digest.hexdigest(),
+        "bytes": size,
+        "git_blob_sha1": blob_digest.hexdigest(),
+    }
+
+
+def git_blob_sha1(path: Path) -> str:
+    """Return the Git blob SHA-1 for ``path`` (header plus raw bytes)."""
+    return str(file_digests(path)["git_blob_sha1"])
 
 
 def file_meta(path: Path, url: str, mutable_url: str | None = None):
-    out = {"sha256": sha256(path), "bytes": path.stat().st_size, "url": url}
+    out = {**file_digests(path), "url": url}
     if mutable_url:
         out["mutable_url"] = mutable_url
     return out
@@ -68,12 +91,12 @@ def release_identity(
 ):
     immutable_base = f"{base_url}/releases/{release_id}"
     return {
-        "schema_version": "3.0.0",
+        "schema_version": "4.0.0",
         "release_id": release_id,
         "commit_sha": commit_sha,
         "release_date": release_date,
         "commit_url": f"https://github.com/{repository}/commit/{commit_sha}",
-        "repository_main_ref_api": f"https://api.github.com/repos/{repository}/git/ref/heads/main",
+        "repository_main_ref_api": f"https://api.github.com/repos/{repository}/branches/main",
         "mutable_base": base_url + "/",
         "immutable_base": immutable_base + "/",
         "manifest_url": f"{immutable_base}/release-manifest.json",
@@ -233,7 +256,17 @@ def stage_snapshot(
     chatbot_method = chatbot.get("method")
     chatbot_schema_version = chatbot.get("schema_version")
     chatbot_adapter_count = len(chatbot.get("adapters", []))
-    if not all((chatbot_protocol_version, chatbot_method, chatbot_schema_version)) or chatbot_adapter_count < 1:
+    brokered_discovery = chatbot.get("brokered_discovery", {})
+    chatbot_brokered_source_count = brokered_discovery.get("eligible_source_count")
+    chatbot_default_mode = chatbot.get("default_mode")
+    if (
+        not all((chatbot_protocol_version, chatbot_method, chatbot_schema_version))
+        or chatbot_adapter_count < 1
+        or not isinstance(chatbot_brokered_source_count, int)
+        or chatbot_brokered_source_count < 1
+        or not isinstance(chatbot_default_mode, str)
+        or not chatbot_default_mode
+    ):
         raise SystemExit("chatbot search identity incomplete before release snapshot")
 
     if snapshot.exists():
@@ -340,6 +373,8 @@ def stage_snapshot(
         "chatbot_search_method": chatbot_method,
         "chatbot_search_schema_version": chatbot_schema_version,
         "chatbot_search_adapter_count": chatbot_adapter_count,
+        "chatbot_search_brokered_source_count": chatbot_brokered_source_count,
+        "chatbot_search_default_mode": chatbot_default_mode,
         "files": files,
         "consistency_contract": {
             "mutable_endpoints": "latest deployed convenience URLs; intermediary caches may temporarily return an older release",
@@ -347,7 +382,7 @@ def stage_snapshot(
             "freshness_check": "compare commit_sha with repository_main_ref_api when current-main freshness matters",
             "ndjson_identity": "pair registry.ndjson or source-profiles.ndjson with this manifest; NDJSON remains one record per line",
             "routing_policy_identity": "pair retrieval-routing-policy.json with this manifest; verify its version, method and SHA-256 before claiming routing-policy compliance",
-            "chatbot_search_identity": "pair chatbot-search-routing.json and chatbot-search-protocol.md with this manifest; use only adapters and hosts from this exact release",
+            "chatbot_search_identity": "pair chatbot-search-routing.json and chatbot-search-protocol.md with this manifest; use the registry-brokered default mode and source count from this exact release, with strict adapters remaining optional secondary routes",
         },
     }
     write_json(snapshot / "release-manifest.json", manifest)
@@ -365,6 +400,10 @@ def update_release_index(site: Path, manifest: dict) -> None:
 
     by_id = {entry["release_id"]: entry for entry in entries if "release_id" in entry}
     release_id = manifest["release_id"]
+    snapshot_manifest = releases / release_id / "release-manifest.json"
+    if not snapshot_manifest.is_file():
+        raise SystemExit(f"release index cannot identify missing manifest: {snapshot_manifest}")
+    snapshot_manifest_digests = file_digests(snapshot_manifest)
     by_id[release_id] = {
         "release_id": release_id,
         "commit_sha": manifest["commit_sha"],
@@ -379,6 +418,13 @@ def update_release_index(site: Path, manifest: dict) -> None:
         "chatbot_search_method": manifest["chatbot_search_method"],
         "chatbot_search_schema_version": manifest["chatbot_search_schema_version"],
         "chatbot_search_adapter_count": manifest["chatbot_search_adapter_count"],
+        "chatbot_search_brokered_source_count": manifest["chatbot_search_brokered_source_count"],
+        "chatbot_search_default_mode": manifest["chatbot_search_default_mode"],
+        # release-manifest.json cannot list its own digest without creating a
+        # self-referential hash.  The release index is the external anchor for
+        # the manifest bytes used by the GitHub connector bootstrap.
+        "manifest_sha256": snapshot_manifest_digests["sha256"],
+        "manifest_git_blob_sha1": snapshot_manifest_digests["git_blob_sha1"],
         "manifest_url": manifest["manifest_url"],
         "immutable_base": manifest["immutable_base"],
     }
@@ -386,31 +432,65 @@ def update_release_index(site: Path, manifest: dict) -> None:
     write_json(
         index_path,
         {
-            "schema_version": "1.2.0",
+            "schema_version": "1.3.0",
             "current_release_id": release_id,
             "releases": ordered,
         },
     )
 
 
-def verify_manifest(site: Path, manifest: dict) -> None:
+def _mutable_path(site: Path, name: str) -> Path:
+    """Map an immutable evidence name to its mutable Pages counterpart."""
+    if name in {"index.html", "rendered-homepage.html"}:
+        return site / "index.html"
+    if name == "rendered-source-index.html":
+        return site / "sources" / "index.html"
+    return site / name
+
+
+def _assert_file_identity(path: Path, metadata: dict, label: str) -> None:
+    if not path.is_file():
+        raise SystemExit(f"release snapshot missing file: {label}")
+    actual = file_digests(path)
+    for field in ("sha256", "bytes", "git_blob_sha1"):
+        expected = metadata.get(field)
+        if actual[field] != expected:
+            raise SystemExit(
+                f"{label} {field} mismatch: {actual[field]} != {expected}"
+            )
+
+
+def verify_release(site: Path, manifest: dict) -> None:
+    """Verify immutable release files using SHA-256, size and Git blob identity."""
     snapshot = site / "releases" / manifest["release_id"]
     for name, metadata in manifest["files"].items():
         path = snapshot / name
-        if not path.is_file():
-            raise SystemExit(f"release snapshot missing file: {name}")
-        actual = sha256(path)
-        if actual != metadata["sha256"]:
-            raise SystemExit(
-                f"release digest mismatch for {name}: {actual} != {metadata['sha256']}"
-            )
-        if path.stat().st_size != metadata["bytes"]:
-            raise SystemExit(f"release byte-size mismatch for {name}")
+        _assert_file_identity(path, metadata, f"release {name}")
+
+
+def verify_mutable(site: Path, manifest: dict) -> None:
+    """Verify mutable Pages files against the same immutable release metadata."""
+    for name, metadata in manifest["files"].items():
+        if "mutable_url" not in metadata:
+            continue
+        _assert_file_identity(_mutable_path(site, name), metadata, f"mutable {name}")
+
+
+def verify_manifest(site: Path, manifest: dict) -> None:
+    verify_release(site, manifest)
+    verify_mutable(site, manifest)
 
     registry_release = read_json(site / "registry.json")["release"]["release_id"]
     profile_release = read_json(site / "source-profiles.json")["release"]["release_id"]
     if registry_release != manifest["release_id"] or profile_release != manifest["release_id"]:
         raise SystemExit("mutable machine output release identity mismatch")
+
+    mutable_manifest = site / "release-manifest.json"
+    snapshot_manifest = site / "releases" / manifest["release_id"] / "release-manifest.json"
+    if not mutable_manifest.is_file() or not snapshot_manifest.is_file():
+        raise SystemExit("mutable or immutable release manifest is missing")
+    if mutable_manifest.read_bytes() != snapshot_manifest.read_bytes():
+        raise SystemExit("mutable release manifest differs from immutable release manifest")
 
     routing_policy = read_json(site / "retrieval-routing-policy.json")
     if routing_policy.get("policy_version") != manifest.get("routing_policy_version"):
@@ -429,10 +509,41 @@ def verify_manifest(site: Path, manifest: dict) -> None:
         raise SystemExit("mutable chatbot search schema mismatch")
     if len(chatbot.get("adapters", [])) != manifest.get("chatbot_search_adapter_count"):
         raise SystemExit("mutable chatbot search adapter count mismatch")
+    brokered_source_count = chatbot.get("brokered_discovery", {}).get("eligible_source_count")
+    if brokered_source_count != manifest.get("chatbot_search_brokered_source_count"):
+        raise SystemExit("mutable chatbot brokered source count mismatch")
+    if chatbot.get("default_mode") != manifest.get("chatbot_search_default_mode"):
+        raise SystemExit("mutable chatbot default mode mismatch")
 
     homepage = (site / "index.html").read_text(encoding="utf-8")
     if manifest["release_id"] not in homepage or "release-manifest.json" not in homepage:
         raise SystemExit("homepage release identity missing")
+
+    history = read_json(site / "releases" / "index.json")
+    if history.get("schema_version") != "1.3.0":
+        raise SystemExit("release index schema mismatch")
+    if history.get("current_release_id") != manifest["release_id"]:
+        raise SystemExit("release index current release mismatch")
+    matching_entries = [
+        entry for entry in history.get("releases", [])
+        if entry.get("release_id") == manifest["release_id"]
+    ]
+    if len(matching_entries) != 1:
+        raise SystemExit("release index lacks one current-release entry")
+    current_entry = matching_entries[0]
+    if current_entry.get("commit_sha") != manifest["commit_sha"]:
+        raise SystemExit("release index commit identity mismatch")
+    for field in (
+        "chatbot_search_brokered_source_count",
+        "chatbot_search_default_mode",
+    ):
+        if current_entry.get(field) != manifest.get(field):
+            raise SystemExit(f"release index {field} mismatch")
+    snapshot_manifest_digests = file_digests(snapshot_manifest)
+    if current_entry.get("manifest_sha256") != snapshot_manifest_digests["sha256"]:
+        raise SystemExit("release index manifest SHA-256 mismatch")
+    if current_entry.get("manifest_git_blob_sha1") != snapshot_manifest_digests["git_blob_sha1"]:
+        raise SystemExit("release index manifest Git blob SHA-1 mismatch")
 
 
 def build(
