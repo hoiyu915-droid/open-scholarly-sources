@@ -251,7 +251,10 @@ def main() -> int:
     load(SCHEMA_PATH)
     manifest = load(MANIFEST_PATH)
 
-    expected_manifest_keys = {"schema_version", "updated", "source_shards", "translation_shards"}
+    expected_manifest_keys = {
+        "schema_version", "updated", "chatbot_search_routing_file",
+        "source_shards", "translation_shards",
+    }
     if not isinstance(manifest, dict) or set(manifest) != expected_manifest_keys:
         errors.append("manifest: invalid root keys")
         manifest = {}
@@ -259,6 +262,9 @@ def main() -> int:
         errors.append("manifest: invalid schema_version")
     if not valid_date(manifest.get("updated")):
         errors.append("manifest: invalid updated date")
+    routing_filename = manifest.get("chatbot_search_routing_file")
+    if routing_filename != "chatbot-search-routing.json" or not (DATA / str(routing_filename)).is_file():
+        errors.append("manifest: chatbot_search_routing_file must name the canonical routing file")
 
     shard_names = manifest.get("source_shards")
     if not unique_strings(shard_names) or not shard_names:

@@ -52,6 +52,32 @@ canonical URL
 
 The LLM may semantically rank registered sources using the query, but it must not invent source facts or silently upgrade OA / peer-review / publication claims beyond the pinned registry record.
 
+## Explicit closed-registry OA search / 明確啟動封閉式 OA 搜尋
+
+The user may ask the chatbot to go beyond navigation and actually search, while
+still forbidding every source outside this registry. That activates the separate
+`chatbot_closed_registry_oa_search_v1` protocol—not verification and not public ocean.
+
+```text
+explicit “only use this OA registry” request
+→ pin one immutable release
+→ select active registered sources
+→ resolve each source's published topic-search adapter
+→ exact-host HTTPS fetch
+→ Content-Type + parser + redirect receipt
+→ dedupe and report SUCCESS / NO_RESULTS / gaps
+```
+
+The canonical contract is `data/chatbot-search-routing.json`; the complete
+instructions are in `CHATBOT_OA_SEARCH_PROTOCOL.md`. A registered source without
+an adapter returns `NO_SEARCH_ADAPTER`. A timeout, 429, HTTP error, wrong
+Content-Type or parse failure returns `SOURCE_FETCH_GAP`. Neither means that the
+topic has no literature, and neither permits general web search as fallback.
+
+This mode needs no Skill, MCP or custom server. Its allowlist is a published,
+auditable consumer contract rather than a network firewall, so
+`runtime_enforcement=false` remains truthful.
+
 ## Example / 使用例
 
 User:

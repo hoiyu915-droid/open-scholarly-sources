@@ -26,8 +26,11 @@ jobs:
       - name: Validate retrieval routing policy invariants
         run: python3 scripts/validate_routing_policy.py
 
+      - name: Validate closed-registry chatbot search routing
+        run: python3 scripts/validate_chatbot_search.py
+
       - name: Run reference-consumer conformance tests
-        run: python3 -m unittest -v tests.test_reference_consumer
+        run: python3 -m unittest -v tests.test_reference_consumer tests.test_chatbot_search
 
       - name: Build machine, LLM, profile, homepage and release indexes
         run: |
@@ -42,6 +45,7 @@ jobs:
           python3 scripts/build_source_profiles.py --output "$site"
           python3 scripts/build_static_homepage.py --site "$site"
           python3 scripts/publish_routing_policy.py --output "$site"
+          python3 scripts/publish_chatbot_search.py --output "$site"
 
           release_date="$(git show -s --format=%cI "$GITHUB_SHA")"
           python3 scripts/build_release_snapshot.py \
@@ -54,28 +58,40 @@ jobs:
           test -s "$site/source-profiles.json"
           test -s "$site/source-profiles.ndjson"
           test -s "$site/retrieval-routing-policy.json"
+          test -s "$site/chatbot-search-routing.json"
+          test -s "$site/chatbot-search-protocol.md"
+          test -s "$site/chatbot-entry.txt"
           test -s "$site/profiles/index.html"
           test -s "$site/release-manifest.json"
           test -s "$site/releases/index.json"
           test -s "$snapshot/release-manifest.json"
           test -s "$snapshot/retrieval-routing-policy.json"
+          test -s "$snapshot/chatbot-search-routing.json"
+          test -s "$snapshot/chatbot-search-protocol.md"
+          test -s "$snapshot/chatbot-entry.txt"
           test -s "$snapshot/schemas/retrieval-routing-policy.schema.json"
+          test -s "$snapshot/schemas/chatbot-search-routing.schema.json"
           test -s "$snapshot/rendered-homepage.html"
           test -s "$snapshot/rendered-source-index.html"
           test -s "$snapshot/index.html"
           test -s "$snapshot/data/registry-manifest.json"
           test -s "$snapshot/data/source-profile-rules.json"
           test -s "$snapshot/data/retrieval-routing-policy.json"
+          test -s "$snapshot/data/chatbot-search-routing.json"
           test -s "$snapshot/sources/index.html"
           test -s "$snapshot/profiles/index.html"
           cmp "$site/index.html" "$snapshot/rendered-homepage.html"
           cmp "$site/index.html" "$snapshot/index.html"
           cmp "$site/retrieval-routing-policy.json" "$snapshot/retrieval-routing-policy.json"
+          cmp "$site/chatbot-search-routing.json" "$snapshot/chatbot-search-routing.json"
+          cmp "$site/chatbot-search-protocol.md" "$snapshot/chatbot-search-protocol.md"
+          cmp "$site/chatbot-entry.txt" "$snapshot/chatbot-entry.txt"
           grep -q "Static source index / 無 JavaScript 來源索引" "$site/index.html"
           ! grep -q "<!-- STATIC_FALLBACK -->" "$site/index.html"
           grep -q "$GITHUB_SHA" "$site/index.html"
           grep -q "Release identity: $GITHUB_SHA" "$site/llms.txt"
           grep -q "Routing policy:" "$site/llms.txt"
+          grep -q "Closed-registry OA search for chatbots" "$site/llms.txt"
 
           # Re-running the release finalizer for the same SHA must be idempotent.
           python3 scripts/build_release_snapshot.py \
@@ -83,6 +99,19 @@ jobs:
             --release-id "$GITHUB_SHA" \
             --commit-sha "$GITHUB_SHA" \
             --release-date "$release_date"
+
+          # Reusing the same release ID with different staged bytes must fail closed.
+          cp "$site/chatbot-entry.txt" "$site/chatbot-entry.txt.clean"
+          printf '\nmutation-test\n' >> "$site/chatbot-entry.txt"
+          if python3 scripts/build_release_snapshot.py \
+            --site "$site" \
+            --release-id "$GITHUB_SHA" \
+            --commit-sha "$GITHUB_SHA" \
+            --release-date "$release_date"; then
+            echo "release finalizer accepted mutated bytes for an existing SHA" >&2
+            exit 1
+          fi
+          mv "$site/chatbot-entry.txt.clean" "$site/chatbot-entry.txt"
 
           python3 - "$site" "$GITHUB_SHA" <<'PY'
           import hashlib, json, re, sys
@@ -92,8 +121,9 @@ jobs:
           registry=json.loads((site/'registry.json').read_text())
           profiles=json.loads((site/'source-profiles.json').read_text())
           routing=json.loads((site/'retrieval-routing-policy.json').read_text())
+          chatbot=json.loads((site/'chatbot-search-routing.json').read_text())
           history=json.loads((site/'releases/index.json').read_text())
-          assert manifest['schema_version']=='2.0.0'
+          assert manifest['schema_version']=='3.0.0'
           assert manifest['release_id']==sha==manifest['commit_sha']
           assert registry['release']['release_id']==sha
           assert profiles['release']['release_id']==sha
@@ -103,8 +133,16 @@ jobs:
           assert manifest['routing_policy_version']==routing['policy_version']
           assert manifest['routing_policy_method']==routing['method']
           assert manifest['routing_policy_schema_version']==routing['schema_version']
+          assert manifest['chatbot_search_protocol_version']==chatbot['protocol_version']
+          assert manifest['chatbot_search_method']==chatbot['method']
+          assert manifest['chatbot_search_schema_version']==chatbot['schema_version']
+          assert manifest['chatbot_search_adapter_count']==len(chatbot['adapters'])
           assert 'retrieval-routing-policy.json' in manifest['files']
           assert 'schemas/retrieval-routing-policy.schema.json' in manifest['files']
+          assert 'chatbot-search-routing.json' in manifest['files']
+          assert 'chatbot-search-protocol.md' in manifest['files']
+          assert 'chatbot-entry.txt' in manifest['files']
+          assert 'schemas/chatbot-search-routing.schema.json' in manifest['files']
           assert 'rendered-homepage.html' in manifest['files']
           assert 'rendered-source-index.html' in manifest['files']
           snapshot=site/'releases'/sha
@@ -117,16 +155,22 @@ jobs:
           bootstrap=json.loads((snapshot/'data'/'registry-manifest.json').read_text())
           assert (snapshot/'data'/'source-profile-rules.json').is_file()
           assert (snapshot/'data'/'retrieval-routing-policy.json').is_file()
+          assert (snapshot/'data'/'chatbot-search-routing.json').is_file()
           for filename in bootstrap.get('translation_shards', []):
               assert (snapshot/'data'/filename).is_file(), filename
           assert (snapshot/'profiles'/'index.html').is_file()
           for required in (
               'index.html',
               'retrieval-routing-policy.json',
+              'chatbot-search-routing.json',
+              'chatbot-search-protocol.md',
+              'chatbot-entry.txt',
               'schemas/retrieval-routing-policy.schema.json',
+              'schemas/chatbot-search-routing.schema.json',
               'data/registry-manifest.json',
               'data/source-profile-rules.json',
               'data/retrieval-routing-policy.json',
+              'data/chatbot-search-routing.json',
               'sources/index.html',
               'profiles/index.html',
           ):
@@ -136,8 +180,10 @@ jobs:
           for name, meta in manifest['files'].items():
               data=(snapshot/name).read_bytes()
               assert hashlib.sha256(data).hexdigest()==meta['sha256'], name
+              assert len(data)==meta['bytes'], name
           print(
               f'Release self-contained assertions OK: files={len(manifest["files"])} '
-              f'sources={len(source_ids)} routing={manifest["routing_policy_version"]}'
+              f'sources={len(source_ids)} routing={manifest["routing_policy_version"]} '
+              f'chatbot={manifest["chatbot_search_protocol_version"]}'
           )
           PY

@@ -12,7 +12,7 @@ The registry deliberately separates journals, proceedings, review platforms, rep
 
 ## Current coverage / 目前規模
 
-The current canonical registry contains **227 source entities** across 14 source shards, with **227/227 Traditional Chinese display/search coverage**.
+The current canonical registry contains **244 source entities** across 16 source shards, with **244/244 Traditional Chinese display/search coverage**.
 
 Coverage includes:
 
@@ -57,6 +57,36 @@ By default the repo policy does **not** require Crossref, DOAJ, Unpaywall, docum
 
 See [RETRIEVAL_ROUTING.md](RETRIEVAL_ROUTING.md) and [AGENTS.md](AGENTS.md).
 
+## Chatbot closed-registry OA search / Chatbot 封閉式 OA 搜尋
+
+A user can explicitly ask a network-capable chatbot to search a topic using
+**only this registry**. The repository now publishes a static, versioned search
+protocol and exact-host adapter allowlist:
+
+```text
+topic
+→ pin one immutable Open Scholarly Sources release
+→ choose active registered sources
+→ fetch only each selected source's published adapter
+→ validate HTTP / Content-Type / parser / redirect receipts
+→ deduplicate and report results plus every gap
+```
+
+Start at [`chatbot-entry.txt`](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-entry.txt), then follow
+[`chatbot-search-protocol.md`](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-search-protocol.md) and
+[`chatbot-search-routing.json`](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-search-routing.json) from the same release.
+
+The v1 release has 12 live-checked, unauthenticated topic-search adapters across
+Europe PMC, OpenAlex, PubMed Central, DOAJ, Zenodo, general arXiv and six arXiv
+subject lanes. A registered source without an adapter returns
+`NO_SEARCH_ADAPTER`; fetch/parse/rate-limit failures return `SOURCE_FETCH_GAP`.
+No status silently opens Google, general web search, arbitrary URLs, unregistered
+APIs or public-ocean fallback.
+
+No Skill, MCP, custom server or Radar integration is required. This is an
+auditable chatbot protocol, not a firewall: the host must follow the pinned
+allowlist and expose a truthful trace (`runtime_enforcement=false`).
+
 ## Verification is optional and user-activated / 認證按需啟動
 
 The stricter resolution/admissibility route remains available, but it is **off by default** and must not be self-activated by an LLM.
@@ -86,6 +116,9 @@ Every Pages deployment generates:
 - `/registry.jsonld` — Schema.org catalog
 - `/source-profiles.json` and `/source-profiles.ndjson`
 - `/retrieval-routing-policy.json` — versioned source-navigation / optional-verification contract
+- `/chatbot-entry.txt` — smallest bootstrap prompt for registry-only OA search
+- `/chatbot-search-routing.json` — versioned source-to-endpoint adapter allowlist
+- `/chatbot-search-protocol.md` — complete no-Skill/no-server chatbot procedure
 - `/llms.txt` and `/llms-full.txt`
 - `/sources/<id>.html` and `/sources/index.html`
 - `/profiles/`
@@ -103,10 +136,13 @@ Every deployment therefore stamps the public machine outputs with a full Git com
 - `/releases/<full-commit-sha>/...` — immutable machine snapshot
 - `/releases/<full-commit-sha>/release-manifest.json` — SHA-256 digests and release metadata
 - `/releases/<full-commit-sha>/retrieval-routing-policy.json` — immutable routing policy used by that release
+- `/releases/<full-commit-sha>/chatbot-entry.txt`
+- `/releases/<full-commit-sha>/chatbot-search-routing.json`
+- `/releases/<full-commit-sha>/chatbot-search-protocol.md`
 - `/releases/<full-commit-sha>/schemas/retrieval-routing-policy.schema.json`
 - `/releases/index.json` — release history/pointers retained from deployed releases
 
-The release manifest records routing-policy version, method and schema version in addition to profile-rule identity. The immutable snapshots are persisted on the dedicated `release-snapshots` branch **only after the Pages deployment succeeds**. Reusing an existing release SHA with different bytes is a release failure.
+The release manifest records routing-policy identity and chatbot-search protocol/method/schema/adapter count in addition to profile-rule identity. The immutable snapshots are persisted on the dedicated `release-snapshots` branch **only after the Pages deployment succeeds**. Reusing an existing release SHA with different bytes is a release failure.
 
 The repository copy of `docs/index.html` is only a build template; each immutable release preserves the exact rendered homepage and generated static source index for independent crawler-facing verification.
 
@@ -122,7 +158,8 @@ No third-party Python package is required for the core build:
 python3 scripts/validate_registry.py
 python3 scripts/validate_extensions.py
 python3 scripts/validate_routing_policy.py
-python3 -m unittest -v tests.test_reference_consumer
+python3 scripts/validate_chatbot_search.py
+python3 -m unittest -v tests.test_reference_consumer tests.test_chatbot_search
 rm -rf /tmp/open-scholarly-sources-site
 mkdir -p /tmp/open-scholarly-sources-site/data /tmp/open-scholarly-sources-site/schemas
 cp docs/index.html /tmp/open-scholarly-sources-site/index.html
@@ -132,6 +169,7 @@ python3 scripts/build_machine_index.py --output /tmp/open-scholarly-sources-site
 python3 scripts/build_source_profiles.py --output /tmp/open-scholarly-sources-site
 python3 scripts/build_static_homepage.py --site /tmp/open-scholarly-sources-site
 python3 scripts/publish_routing_policy.py --output /tmp/open-scholarly-sources-site
+python3 scripts/publish_chatbot_search.py --output /tmp/open-scholarly-sources-site
 ```
 
 CI additionally builds a commit-addressed release snapshot, verifies its SHA-256 digests, checks routing-policy identity, checks the no-JavaScript homepage fallback and ensures release finalization is idempotent for the same commit SHA.

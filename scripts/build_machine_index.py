@@ -134,6 +134,11 @@ def build_jsonld(manifest, records, base_url):
                 "encodingFormat": "application/ld+json",
                 "contentUrl": base_url + "/registry.jsonld",
             },
+            {
+                "@type": "DataDownload",
+                "encodingFormat": "application/json",
+                "contentUrl": base_url + "/chatbot-search-routing.json",
+            },
         ],
         "dataset": {
             "@type": "Dataset",
@@ -273,6 +278,9 @@ def llms_text(manifest, records, base_url):
         f"- [Full LLM text]({base_url}/llms-full.txt): complete bilingual source descriptions and access semantics.",
         f"- [Registry manifest]({base_url}/data/registry-manifest.json): canonical shard list.",
         f"- [Source schema]({base_url}/schemas/source.schema.json): field contract.",
+        f"- [Closed-search chatbot entry]({base_url}/chatbot-entry.txt): minimal static bootstrap with no Skill or custom server.",
+        f"- [Closed-search routing JSON]({base_url}/chatbot-search-routing.json): exact source adapters and host allowlist.",
+        f"- [Closed-search protocol]({base_url}/chatbot-search-protocol.md): fail-closed OA literature search procedure.",
         "",
         "## Human-readable resources",
         f"- [Searchable bilingual registry]({base_url}/)",

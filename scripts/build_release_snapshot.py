@@ -20,6 +20,9 @@ SNAPSHOT_FILES = (
     "source-profiles.json",
     "source-profiles.ndjson",
     "retrieval-routing-policy.json",
+    "chatbot-search-routing.json",
+    "chatbot-search-protocol.md",
+    "chatbot-entry.txt",
     "llms.txt",
     "llms-full.txt",
 )
@@ -27,6 +30,7 @@ SCHEMA_FILES = (
     "source.schema.json",
     "source-profile.schema.json",
     "retrieval-routing-policy.schema.json",
+    "chatbot-search-routing.schema.json",
     "release-manifest.schema.json",
 )
 
@@ -64,7 +68,7 @@ def release_identity(
 ):
     immutable_base = f"{base_url}/releases/{release_id}"
     return {
-        "schema_version": "2.0.0",
+        "schema_version": "3.0.0",
         "release_id": release_id,
         "commit_sha": commit_sha,
         "release_date": release_date,
@@ -139,6 +143,7 @@ def inject_identity(site: Path, identity: dict) -> tuple[int, str, str]:
         f"Release manifest: {identity['manifest_url']}\n"
         f"Release history: {identity['mutable_base']}releases/index.json\n"
         f"Routing policy: {identity['mutable_base']}retrieval-routing-policy.json\n"
+        f"Closed-registry chatbot search: {identity['mutable_base']}chatbot-entry.txt\n"
         "Freshness note: mutable endpoints may be temporarily stale because of intermediary caching or propagation. "
         "Compare the release identity with the repository main ref when freshness matters.\n"
     )
@@ -172,6 +177,32 @@ def copy_existing_archive(site: Path, archive_root: Path | None) -> None:
             shutil.copy2(child, destination)
 
 
+def assert_existing_snapshot_matches_site(site: Path, snapshot: Path) -> None:
+    """Fail if a repeated release ID is paired with different staged bytes."""
+    pairs = [(site / name, snapshot / name, name) for name in SNAPSHOT_FILES]
+    pairs.extend(
+        [
+            (site / "index.html", snapshot / "rendered-homepage.html", "rendered-homepage.html"),
+            (site / "index.html", snapshot / "index.html", "index.html"),
+            (site / "sources" / "index.html", snapshot / "rendered-source-index.html", "rendered-source-index.html"),
+        ]
+    )
+    for dirname in ("data", "sources", "profiles"):
+        current_root = site / dirname
+        archived_root = snapshot / dirname
+        current = {path.relative_to(current_root) for path in current_root.rglob("*") if path.is_file()}
+        archived = {path.relative_to(archived_root) for path in archived_root.rglob("*") if path.is_file()}
+        if current != archived:
+            raise SystemExit(f"immutable release file-set conflict under {dirname}: {snapshot.name}")
+        pairs.extend((current_root / rel, archived_root / rel, f"{dirname}/{rel.as_posix()}") for rel in current)
+    for name in SCHEMA_FILES:
+        pairs.append((site / "schemas" / name, snapshot / "schemas" / name, f"schemas/{name}"))
+
+    for current, archived, label in pairs:
+        if not current.is_file() or not archived.is_file() or sha256(current) != sha256(archived):
+            raise SystemExit(f"immutable release byte conflict for {label}: {snapshot.name}")
+
+
 def stage_snapshot(
     site: Path,
     identity: dict,
@@ -184,15 +215,6 @@ def stage_snapshot(
     snapshot = releases / release_id
     immutable_base = identity["immutable_base"].rstrip("/")
 
-    if snapshot.exists():
-        existing_path = snapshot / "release-manifest.json"
-        if not existing_path.exists():
-            raise SystemExit(f"existing release directory lacks manifest: {snapshot}")
-        existing = read_json(existing_path)
-        if existing.get("release_id") != release_id or existing.get("commit_sha") != identity["commit_sha"]:
-            raise SystemExit(f"immutable release conflict: {release_id}")
-        return existing
-
     routing_policy_path = site / "retrieval-routing-policy.json"
     if not routing_policy_path.is_file():
         raise SystemExit("routing policy missing before release snapshot")
@@ -202,6 +224,27 @@ def stage_snapshot(
     routing_policy_schema_version = routing_policy.get("schema_version")
     if not all((routing_policy_version, routing_policy_method, routing_policy_schema_version)):
         raise SystemExit("routing policy identity incomplete before release snapshot")
+
+    chatbot_path = site / "chatbot-search-routing.json"
+    if not chatbot_path.is_file():
+        raise SystemExit("chatbot search routing missing before release snapshot")
+    chatbot = read_json(chatbot_path)
+    chatbot_protocol_version = chatbot.get("protocol_version")
+    chatbot_method = chatbot.get("method")
+    chatbot_schema_version = chatbot.get("schema_version")
+    chatbot_adapter_count = len(chatbot.get("adapters", []))
+    if not all((chatbot_protocol_version, chatbot_method, chatbot_schema_version)) or chatbot_adapter_count < 1:
+        raise SystemExit("chatbot search identity incomplete before release snapshot")
+
+    if snapshot.exists():
+        existing_path = snapshot / "release-manifest.json"
+        if not existing_path.exists():
+            raise SystemExit(f"existing release directory lacks manifest: {snapshot}")
+        existing = read_json(existing_path)
+        if existing.get("release_id") != release_id or existing.get("commit_sha") != identity["commit_sha"]:
+            raise SystemExit(f"immutable release conflict: {release_id}")
+        assert_existing_snapshot_matches_site(site, snapshot)
+        return existing
 
     snapshot.mkdir(parents=True)
     files = {}
@@ -293,6 +336,10 @@ def stage_snapshot(
         "routing_policy_version": routing_policy_version,
         "routing_policy_method": routing_policy_method,
         "routing_policy_schema_version": routing_policy_schema_version,
+        "chatbot_search_protocol_version": chatbot_protocol_version,
+        "chatbot_search_method": chatbot_method,
+        "chatbot_search_schema_version": chatbot_schema_version,
+        "chatbot_search_adapter_count": chatbot_adapter_count,
         "files": files,
         "consistency_contract": {
             "mutable_endpoints": "latest deployed convenience URLs; intermediary caches may temporarily return an older release",
@@ -300,6 +347,7 @@ def stage_snapshot(
             "freshness_check": "compare commit_sha with repository_main_ref_api when current-main freshness matters",
             "ndjson_identity": "pair registry.ndjson or source-profiles.ndjson with this manifest; NDJSON remains one record per line",
             "routing_policy_identity": "pair retrieval-routing-policy.json with this manifest; verify its version, method and SHA-256 before claiming routing-policy compliance",
+            "chatbot_search_identity": "pair chatbot-search-routing.json and chatbot-search-protocol.md with this manifest; use only adapters and hosts from this exact release",
         },
     }
     write_json(snapshot / "release-manifest.json", manifest)
@@ -327,6 +375,10 @@ def update_release_index(site: Path, manifest: dict) -> None:
         "routing_policy_version": manifest["routing_policy_version"],
         "routing_policy_method": manifest["routing_policy_method"],
         "routing_policy_schema_version": manifest["routing_policy_schema_version"],
+        "chatbot_search_protocol_version": manifest["chatbot_search_protocol_version"],
+        "chatbot_search_method": manifest["chatbot_search_method"],
+        "chatbot_search_schema_version": manifest["chatbot_search_schema_version"],
+        "chatbot_search_adapter_count": manifest["chatbot_search_adapter_count"],
         "manifest_url": manifest["manifest_url"],
         "immutable_base": manifest["immutable_base"],
     }
@@ -334,7 +386,7 @@ def update_release_index(site: Path, manifest: dict) -> None:
     write_json(
         index_path,
         {
-            "schema_version": "1.1.0",
+            "schema_version": "1.2.0",
             "current_release_id": release_id,
             "releases": ordered,
         },
@@ -352,6 +404,8 @@ def verify_manifest(site: Path, manifest: dict) -> None:
             raise SystemExit(
                 f"release digest mismatch for {name}: {actual} != {metadata['sha256']}"
             )
+        if path.stat().st_size != metadata["bytes"]:
+            raise SystemExit(f"release byte-size mismatch for {name}")
 
     registry_release = read_json(site / "registry.json")["release"]["release_id"]
     profile_release = read_json(site / "source-profiles.json")["release"]["release_id"]
@@ -365,6 +419,16 @@ def verify_manifest(site: Path, manifest: dict) -> None:
         raise SystemExit("mutable routing policy method mismatch")
     if routing_policy.get("schema_version") != manifest.get("routing_policy_schema_version"):
         raise SystemExit("mutable routing policy schema mismatch")
+
+    chatbot = read_json(site / "chatbot-search-routing.json")
+    if chatbot.get("protocol_version") != manifest.get("chatbot_search_protocol_version"):
+        raise SystemExit("mutable chatbot search protocol version mismatch")
+    if chatbot.get("method") != manifest.get("chatbot_search_method"):
+        raise SystemExit("mutable chatbot search method mismatch")
+    if chatbot.get("schema_version") != manifest.get("chatbot_search_schema_version"):
+        raise SystemExit("mutable chatbot search schema mismatch")
+    if len(chatbot.get("adapters", [])) != manifest.get("chatbot_search_adapter_count"):
+        raise SystemExit("mutable chatbot search adapter count mismatch")
 
     homepage = (site / "index.html").read_text(encoding="utf-8")
     if manifest["release_id"] not in homepage or "release-manifest.json" not in homepage:
@@ -402,6 +466,7 @@ def build(
     print(
         f"Release snapshot OK: release={release_id}, sources={source_count}, "
         f"profile_rules={profile_schema}, routing={manifest['routing_policy_version']}, "
+        f"chatbot_search={manifest['chatbot_search_protocol_version']}, "
         f"files={len(manifest['files'])}"
     )
 
