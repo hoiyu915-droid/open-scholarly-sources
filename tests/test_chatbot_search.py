@@ -82,6 +82,12 @@ class ChatbotSearchRoutingTests(unittest.TestCase):
         bad["adapters"][0]["endpoint_template"] = "https://example.com/search?q={query}&limit={limit}"
         self.assertTrue(any("outside allowed_hosts" in error for error in validate(bad, self.sources, self.schema)))
 
+    def test_declared_endpoint_path_uses_a_real_boundary(self):
+        bad = copy.deepcopy(self.contract)
+        doaj = next(item for item in bad["adapters"] if item["source_id"] == "doaj")
+        doaj["endpoint_template"] = "https://doaj.org/api-evil/search/articles/{query}?page=1&pageSize={limit}"
+        self.assertTrue(any("not declared in source.machine_access" in error for error in validate(bad, self.sources, self.schema)))
+
     def test_wildcard_host_is_rejected_by_validator(self):
         bad = copy.deepcopy(self.contract)
         bad["adapters"][0]["allowed_hosts"] = ["*.ebi.ac.uk"]
@@ -124,6 +130,40 @@ class ChatbotSearchRoutingTests(unittest.TestCase):
         trace.pop("registry_release_id")
         with self.assertRaises(ClosedWorldViolation):
             validate_trace(trace, self.contract)
+
+    def test_trace_revalidates_observed_urls_and_redirects(self):
+        trace = self.receipt(self.plan())
+        trace["observed_url"] = "https://example.com/search"
+        trace["redirect_chain"] = ["https://example.com/search"]
+        with self.assertRaises(ClosedWorldViolation):
+            validate_trace(trace, self.contract)
+
+    def test_trace_revalidates_mode_provider_target_parser_and_digests(self):
+        mutations = {
+            "mode": "other",
+            "provider_source_id": "doaj",
+            "target_source_id": "doaj",
+            "parser": "forged_parser",
+            "registry_release_id": "x" * 40,
+            "routing_sha256": "0" * 64,
+        }
+        for field, value in mutations.items():
+            with self.subTest(field=field):
+                trace = self.receipt(self.plan())
+                trace[field] = value
+                with self.assertRaises(ClosedWorldViolation):
+                    validate_trace(trace, self.contract)
+
+    def test_trace_request_must_match_adapter_template(self):
+        trace = self.receipt(self.plan())
+        trace["request_url"] = "https://api.openalex.org/arbitrary"
+        trace["observed_url"] = trace["request_url"]
+        with self.assertRaises(ClosedWorldViolation):
+            validate_trace(trace, self.contract)
+
+    def test_plan_rejects_non_hex_release_identity(self):
+        with self.assertRaises(ClosedWorldViolation):
+            plan_request("topic", "openalex", "x" * 40, contract=self.contract, sources=self.sources)
 
     def test_metadata_source_is_not_upgraded_to_fulltext(self):
         self.assertEqual(self.sources["openalex"]["oa_scope"], "metadata_only")

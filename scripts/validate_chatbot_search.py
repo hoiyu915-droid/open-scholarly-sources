@@ -87,6 +87,26 @@ def endpoint_bases(source: dict) -> list[str]:
     ]
 
 
+def matches_declared_endpoint(url: str, bases: list[str]) -> bool:
+    candidate = urlparse(url)
+    for value in bases:
+        declared = urlparse(value)
+        if candidate.scheme != declared.scheme or candidate.hostname != declared.hostname:
+            continue
+        try:
+            if candidate.port != declared.port:
+                continue
+        except ValueError:
+            continue
+        boundary = declared.path or "/"
+        if boundary.endswith("/"):
+            if candidate.path.startswith(boundary):
+                return True
+        elif candidate.path == boundary or candidate.path.startswith(boundary + "/"):
+            return True
+    return False
+
+
 def validate(policy: dict, sources: dict[str, dict], schema: dict) -> list[str]:
     errors: list[str] = []
 
@@ -235,7 +255,7 @@ def validate(policy: dict, sources: dict[str, dict], schema: dict) -> list[str]:
             errors.append(f"{label}: explicit endpoint ports are forbidden")
 
         bases = endpoint_bases(source)
-        if not any(materialized.startswith(base) for base in bases):
+        if not matches_declared_endpoint(materialized, bases):
             errors.append(f"{label}: endpoint is not declared in source.machine_access")
 
         accepted = adapter.get("accepted_content_types")
