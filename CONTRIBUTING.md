@@ -64,13 +64,45 @@ New subject labels and access-policy values need zh-TW taxonomy entries. CI merg
 
 ## Validate and build / 驗證與建置
 
-Run all three commands:
+### Chatbot search adapters
+
+Add an adapter only when the endpoint supports real topic search and has a live
+receipt. A feed, OAI-PMH harvest endpoint, bulk dump, DOI resolver or merely
+non-null `machine_access` field is not automatically a topic-search adapter.
+
+Every searchable adapter in `data/chatbot-search-routing.json` must:
+
+- refer to an active registered source and a declared `machine_access` base;
+- use unauthenticated HTTPS GET in protocol v1;
+- expose only `{query}` and `{limit}` substitutions;
+- declare exact lowercase hosts, never wildcards;
+- keep redirects on the same declared host;
+- declare accepted Content-Types, parser, bounded result limits, OA guard and dedupe keys;
+- store a dated live HTTP/Content-Type receipt and primary evidence URL.
+
+If an endpoint needs a key, POST body, browser session or unregistered redirect,
+do not mark it searchable in the server-free v1 contract. Preserve the gap.
+
+### Commands
+
+Run the complete validation set:
 
 ```bash
 python3 scripts/validate_registry.py
 python3 scripts/validate_extensions.py
+python3 scripts/validate_routing_policy.py
+python3 scripts/validate_chatbot_search.py
+python3 -m unittest -v tests.test_reference_consumer tests.test_chatbot_search
 rm -rf /tmp/open-scholarly-sources-site
+mkdir -p /tmp/open-scholarly-sources-site/data /tmp/open-scholarly-sources-site/schemas
+cp docs/index.html /tmp/open-scholarly-sources-site/index.html
+cp data/*.json /tmp/open-scholarly-sources-site/data/
+cp schemas/*.json /tmp/open-scholarly-sources-site/schemas/
 python3 scripts/build_machine_index.py --output /tmp/open-scholarly-sources-site
+python3 scripts/build_source_profiles.py --output /tmp/open-scholarly-sources-site
+python3 scripts/build_static_homepage.py --site /tmp/open-scholarly-sources-site
+python3 scripts/publish_routing_policy.py --output /tmp/open-scholarly-sources-site
+python3 scripts/publish_chatbot_search.py --output /tmp/open-scholarly-sources-site
 ```
 
 Do not commit generated copies of `registry.json`, `llms.txt`, per-source HTML or files under `docs/data/`. The Pages workflow regenerates them from canonical data. Only `docs/index.html` is maintained directly.

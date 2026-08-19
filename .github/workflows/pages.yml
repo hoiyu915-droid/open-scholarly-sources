@@ -39,8 +39,11 @@ jobs:
       - name: Validate retrieval routing policy invariants
         run: python3 scripts/validate_routing_policy.py
 
+      - name: Validate closed-registry chatbot search routing
+        run: python3 scripts/validate_chatbot_search.py
+
       - name: Run reference-consumer conformance tests
-        run: python3 -m unittest -v tests.test_reference_consumer
+        run: python3 -m unittest -v tests.test_reference_consumer tests.test_chatbot_search
 
       - name: Stage Pages site and immutable release snapshot
         run: |
@@ -54,6 +57,7 @@ jobs:
           python3 scripts/build_source_profiles.py --output site
           python3 scripts/build_static_homepage.py --site site
           python3 scripts/publish_routing_policy.py --output site
+          python3 scripts/publish_chatbot_search.py --output site
 
           release_date="$(git show -s --format=%cI "$GITHUB_SHA")"
           python3 scripts/build_release_snapshot.py \
@@ -69,18 +73,30 @@ jobs:
           grep -q "$GITHUB_SHA" site/index.html
           grep -q "Release identity: $GITHUB_SHA" site/llms.txt
           grep -q "Routing policy:" site/llms.txt
+          grep -q "Closed-registry OA search for chatbots" site/llms.txt
           test -s site/retrieval-routing-policy.json
+          test -s site/chatbot-search-routing.json
+          test -s site/chatbot-search-protocol.md
+          test -s site/chatbot-entry.txt
           test -s "$snapshot/release-manifest.json"
           test -s "$snapshot/retrieval-routing-policy.json"
+          test -s "$snapshot/chatbot-search-routing.json"
+          test -s "$snapshot/chatbot-search-protocol.md"
+          test -s "$snapshot/chatbot-entry.txt"
           test -s "$snapshot/schemas/retrieval-routing-policy.schema.json"
+          test -s "$snapshot/schemas/chatbot-search-routing.schema.json"
           test -s "$snapshot/index.html"
           test -s "$snapshot/data/registry-manifest.json"
           test -s "$snapshot/data/source-profile-rules.json"
           test -s "$snapshot/data/retrieval-routing-policy.json"
+          test -s "$snapshot/data/chatbot-search-routing.json"
           test -s "$snapshot/sources/index.html"
           test -s "$snapshot/profiles/index.html"
           cmp site/index.html "$snapshot/index.html"
           cmp site/retrieval-routing-policy.json "$snapshot/retrieval-routing-policy.json"
+          cmp site/chatbot-search-routing.json "$snapshot/chatbot-search-routing.json"
+          cmp site/chatbot-search-protocol.md "$snapshot/chatbot-search-protocol.md"
+          cmp site/chatbot-entry.txt "$snapshot/chatbot-entry.txt"
           test -s site/release-manifest.json
           test -s site/releases/index.json
           touch site/.nojekyll
@@ -140,7 +156,11 @@ jobs:
           archive_release="archive/releases/$release"
           test -s "$incoming_release/release-manifest.json"
           test -s "$incoming_release/retrieval-routing-policy.json"
+          test -s "$incoming_release/chatbot-search-routing.json"
+          test -s "$incoming_release/chatbot-search-protocol.md"
+          test -s "$incoming_release/chatbot-entry.txt"
           test -s "$incoming_release/schemas/retrieval-routing-policy.schema.json"
+          test -s "$incoming_release/schemas/chatbot-search-routing.schema.json"
           test -s "$incoming_release/index.html"
           test -s "$incoming_release/data/registry-manifest.json"
           test -s "$incoming_release/sources/index.html"

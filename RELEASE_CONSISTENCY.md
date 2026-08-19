@@ -28,13 +28,16 @@ These are convenient latest-release URLs:
 - `/source-profiles.json`
 - `/source-profiles.ndjson`
 - `/retrieval-routing-policy.json`
+- `/chatbot-search-routing.json`
+- `/chatbot-search-protocol.md`
+- `/chatbot-entry.txt`
 - `/llms.txt`
 - `/llms-full.txt`
 - `/release-manifest.json`
 
 They track the latest deployed site, but intermediaries may cache an older response. Machine consumers must therefore read the release identity rather than assume that a successful HTTP response is current.
 
-`registry.json`, `source-profiles.json`, the homepage and both LLM text files are stamped with the full release commit SHA. NDJSON remains one source record per line and is paired with the release manifest instead of inserting a metadata line. The routing-policy file carries its own `policy_version`, `schema_version` and `method`; its immutable file digest is recorded by the same release manifest.
+`registry.json`, `source-profiles.json`, the homepage and both LLM text files are stamped with the full release commit SHA. NDJSON remains one source record per line and is paired with the release manifest instead of inserting a metadata line. The routing-policy and chatbot-search files carry their own version/method identity; their immutable digests are recorded by the same release manifest.
 
 ## Immutable release endpoints
 
@@ -48,19 +51,23 @@ For each successfully deployed commit `<sha>` after routing-policy activation:
 /releases/<sha>/source-profiles.json
 /releases/<sha>/source-profiles.ndjson
 /releases/<sha>/retrieval-routing-policy.json
+/releases/<sha>/chatbot-search-routing.json
+/releases/<sha>/chatbot-search-protocol.md
+/releases/<sha>/chatbot-entry.txt
 /releases/<sha>/llms.txt
 /releases/<sha>/llms-full.txt
 /releases/<sha>/schemas/source.schema.json
 /releases/<sha>/schemas/source-profile.schema.json
 /releases/<sha>/schemas/retrieval-routing-policy.schema.json
+/releases/<sha>/schemas/chatbot-search-routing.schema.json
 /releases/<sha>/schemas/release-manifest.schema.json
 ```
 
 Earlier Pages deployments remain recoverable from Git history and retained Actions artifacts where available, but they are not promised to contain routing-policy files retroactively.
 
-The release manifest records the commit identity, source count, profile-rule version/method, routing-policy version/method/schema version, and SHA-256 digest/byte size for every immutable file.
+The release manifest records the commit identity, source count, profile-rule identity, routing-policy identity, chatbot-search protocol/method/schema/adapter count, and SHA-256 digest/byte size for every immutable file.
 
-The release-manifest schema is `2.0.0` for releases carrying routing-policy identity. This is an intentional breaking schema bump: a manifest that adds required routing-policy identity fields is not valid under the previous `1.0.0` schema, so the repository does not pretend the change is backward-compatible merely because the new fields are additive in JSON syntax.
+The release-manifest schema is `3.0.0` for releases carrying required chatbot-search identity. This is an intentional breaking schema bump from `2.0.0`: the new identity fields are required, so the repository does not pretend the contract is backward-compatible merely because they are additive in JSON syntax.
 
 A release directory is append-only by identity. If a future deployment tries to reuse an existing commit SHA with different bytes, the archive step fails instead of overwriting the old release.
 
@@ -74,10 +81,20 @@ routing_policy_version
 routing_policy_method
 routing_policy_schema_version
 SHA-256 of retrieval-routing-policy.json
+chatbot_search_protocol_version
+chatbot_search_method
+chatbot_search_schema_version
+chatbot_search_adapter_count
+SHA-256 of chatbot-search-routing.json and chatbot-search-protocol.md
 source-profile rule version
 ```
 
 The mutable `/retrieval-routing-policy.json` is convenient but not sufficient for historical reproducibility by itself. Use the policy copy under `/releases/<sha>/` and verify its digest against that release's manifest when exact replay matters.
+
+The same rule applies to closed-registry chatbot search: registry, adapter file,
+schema, protocol and entry must come from one immutable release. Mixing a latest
+registry with an older adapter allowlist is non-compliant even if every fetch
+returns HTTP 200.
 
 This versioning contract does **not** imply runtime enforcement. `open-scholarly-sources` can publish and identify the routing policy; an external consumer can still ignore it. Compliance requires the consumer to preserve a trace showing which release and policy it actually followed. See [RETRIEVAL_ROUTING.md](RETRIEVAL_ROUTING.md).
 
