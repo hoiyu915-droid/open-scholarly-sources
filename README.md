@@ -57,35 +57,52 @@ By default the repo policy does **not** require Crossref, DOAJ, Unpaywall, docum
 
 See [RETRIEVAL_ROUTING.md](RETRIEVAL_ROUTING.md) and [AGENTS.md](AGENTS.md).
 
-## Chatbot closed-registry OA search / Chatbot 封閉式 OA 搜尋
+## Chatbot registry-brokered OA search / Chatbot Registry 限定 OA 搜尋
 
 A user can explicitly ask a network-capable chatbot to search a topic using
-**only this registry**. The repository now publishes a static, versioned search
-protocol and exact-host adapter allowlist:
+**only sources selected from this registry**. The published v2 protocol makes
+the registry the source-policy authority while a domain-restricted web-search
+broker is used only for discovery. Its machine method is
+`chatbot_registry_brokered_oa_search_v2`:
 
 ```text
 topic
-→ pin one immutable Open Scholarly Sources release
-→ choose active registered sources
-→ fetch only each selected source's published adapter
-→ validate HTTP / Content-Type / parser / redirect receipts
-→ deduplicate and report results plus every gap
+→ GitHub connector reads main and pins one immutable release
+→ dynamically select active registered sources from that release
+→ derive each exact search domain from the selected source's canonical_url
+→ domain-restricted broker discovers candidate URLs
+→ open the original OA record and verify source identity / evidence scope
+→ deduplicate and report results, evidence class and every gap
 ```
 
-Start at [`chatbot-entry.txt`](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-entry.txt), then follow
-[`chatbot-search-protocol.md`](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-search-protocol.md) and
-[`chatbot-search-routing.json`](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-search-routing.json) from the same release.
+The Pages copies of [`chatbot-entry.txt`](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-entry.txt),
+[`chatbot-search-protocol.md`](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-search-protocol.md)
+and [`chatbot-search-routing.json`](https://hoiyu915-droid.github.io/open-scholarly-sources/chatbot-search-routing.json)
+are convenient human-readable references. The v2 chatbot bootstrap begins with
+the GitHub connector: pin the `main` commit and read the matching
+`release-snapshots` files. It does not combine mutable, cached or cross-release
+policy files.
 
-The v1 release has 12 live-checked, unauthenticated topic-search adapters across
-Europe PMC, OpenAlex, PubMed Central, DOAJ, Zenodo, general arXiv and six arXiv
-subject lanes. A registered source without an adapter returns
-`NO_SEARCH_ADAPTER`; fetch/parse/rate-limit failures return `SOURCE_FETCH_GAP`.
-No status silently opens Google, general web search, arbitrary URLs, unregistered
-APIs or public-ocean fallback.
+The broker's domain filter is a source boundary, not evidence. Search snippets,
+rankings, cached text and generated summaries cannot support research claims.
+The chatbot must open the original result on the exact canonical hostname,
+verify the registered container/repository identity, and reject ambiguous
+results on shared publisher hosts. A `metadata_only` source stays metadata-only;
+it cannot be upgraded to full-text evidence. Returned DOI, publisher and
+download links do not authorize a new host.
 
-No Skill, MCP, custom server or Radar integration is required. This is an
-auditable chatbot protocol, not a firewall: the host must follow the pinned
-allowlist and expose a truthful trace (`runtime_enforcement=false`).
+The published direct topic-search adapters remain an optional secondary route.
+`registry_closed` and `direct_only` preserve the strict adapter-only behavior;
+missing adapters remain `NO_SEARCH_ADAPTER` there. In brokered mode, preserve
+`NO_CANONICAL_SEARCH_ROUTE`, `SEARCH_BROKER_GAP`, `SOURCE_IDENTITY_GAP`,
+`ORIGINAL_FETCH_GAP`, `FULLTEXT_NOT_AUTHORIZED`, `REGISTRY_COVERAGE_GAP` and
+`CLOSED_WORLD_VIOLATION` rather than silently substituting unrestricted search
+or public-ocean fallback.
+
+No Skill, MCP, custom server, Radar integration or API credential is required.
+This is an auditable chatbot contract, not a firewall: the host must follow the
+pinned release, exact domain/path checks and truthful trace
+(`runtime_enforcement=false`).
 
 ## Verification is optional and user-activated / 認證按需啟動
 
@@ -116,9 +133,9 @@ Every Pages deployment generates:
 - `/registry.jsonld` — Schema.org catalog
 - `/source-profiles.json` and `/source-profiles.ndjson`
 - `/retrieval-routing-policy.json` — versioned source-navigation / optional-verification contract
-- `/chatbot-entry.txt` — smallest bootstrap prompt for registry-only OA search
-- `/chatbot-search-routing.json` — versioned source-to-endpoint adapter allowlist
-- `/chatbot-search-protocol.md` — complete no-Skill/no-server chatbot procedure
+- `/chatbot-entry.txt` — smallest bootstrap prompt for registry-brokered OA search
+- `/chatbot-search-routing.json` — versioned registry-derived broker/direct routing contract
+- `/chatbot-search-protocol.md` — complete no-Skill/no-server/Radar chatbot procedure
 - `/llms.txt` and `/llms-full.txt`
 - `/sources/<id>.html` and `/sources/index.html`
 - `/profiles/`
@@ -142,7 +159,7 @@ Every deployment therefore stamps the public machine outputs with a full Git com
 - `/releases/<full-commit-sha>/schemas/retrieval-routing-policy.schema.json`
 - `/releases/index.json` — release history/pointers retained from deployed releases
 
-The release manifest records routing-policy identity and chatbot-search protocol/method/schema/adapter count in addition to profile-rule identity. The immutable snapshots are persisted on the dedicated `release-snapshots` branch **only after the Pages deployment succeeds**. Reusing an existing release SHA with different bytes is a release failure.
+The release manifest records routing-policy identity and chatbot-search protocol/method/schema/adapter count in addition to profile-rule identity. The chatbot's GitHub connector bootstrap uses the `main` ref and the matching immutable snapshot under the dedicated `release-snapshots` branch; snapshots are persisted **only after the Pages deployment succeeds**. Reusing an existing release SHA with different bytes is a release failure.
 
 The repository copy of `docs/index.html` is only a build template; each immutable release preserves the exact rendered homepage and generated static source index for independent crawler-facing verification.
 

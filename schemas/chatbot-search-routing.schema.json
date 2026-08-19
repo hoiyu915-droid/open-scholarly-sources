@@ -1,49 +1,60 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://hoiyu915-droid.github.io/open-scholarly-sources/schemas/chatbot-search-routing.schema.json",
-  "title": "Open Scholarly Sources closed-registry chatbot search routing",
+  "title": "Open Scholarly Sources registry-brokered chatbot search routing",
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "schema_version",
-    "protocol_version",
-    "method",
-    "updated",
-    "default_mode",
-    "runtime_enforcement",
-    "network_boundary",
-    "modes",
-    "selection",
-    "terminal_statuses",
-    "gap_statuses",
-    "trace_required_fields",
-    "adapters"
+    "schema_version", "protocol_version", "method", "updated", "default_mode",
+    "runtime_enforcement", "network_boundary", "modes", "selection",
+    "terminal_statuses", "gap_statuses", "trace_required_fields", "bootstrap",
+    "brokered_discovery", "adapters"
   ],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
-    "protocol_version": {"const": "1.0.0"},
-    "method": {"const": "chatbot_closed_registry_oa_search_v1"},
+    "schema_version": {"const": "2.0.0"},
+    "protocol_version": {"const": "2.0.0"},
+    "method": {"const": "chatbot_registry_brokered_oa_search_v2"},
     "updated": {"type": "string", "format": "date"},
-    "default_mode": {"enum": ["registry_closed", "direct_only"]},
+    "default_mode": {"const": "registry_brokered"},
     "runtime_enforcement": {"const": false},
     "network_boundary": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["custom_server_required", "skill_required", "public_ocean_enabled", "arbitrary_url_fetch_enabled", "allowed_schemes", "redirect_policy"],
+      "required": [
+        "custom_server_required", "skill_required", "radar_required",
+        "public_ocean_evidence_enabled", "arbitrary_url_fetch_enabled",
+        "domain_restricted_discovery_broker_enabled", "broker_result_content_is_evidence",
+        "allowed_schemes", "redirect_policy"
+      ],
       "properties": {
         "custom_server_required": {"const": false},
         "skill_required": {"const": false},
-        "public_ocean_enabled": {"const": false},
+        "radar_required": {"const": false},
+        "public_ocean_evidence_enabled": {"const": false},
         "arbitrary_url_fetch_enabled": {"const": false},
+        "domain_restricted_discovery_broker_enabled": {"const": true},
+        "broker_result_content_is_evidence": {"const": false},
         "allowed_schemes": {"const": ["https"]},
-        "redirect_policy": {"const": "same_host_only"}
+        "redirect_policy": {"const": "allowlisted_hosts_only"}
       }
     },
     "modes": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["registry_closed", "direct_only"],
+      "required": ["registry_brokered", "registry_closed", "direct_only"],
       "properties": {
+        "registry_brokered": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["target_must_be_registered", "source_route_derived_from_registry", "broker_may_be_external", "broker_is_evidence_source", "origin_must_equal_target_source"],
+          "properties": {
+            "target_must_be_registered": {"const": true},
+            "source_route_derived_from_registry": {"const": true},
+            "broker_may_be_external": {"const": true},
+            "broker_is_evidence_source": {"const": false},
+            "origin_must_equal_target_source": {"const": true}
+          }
+        },
         "registry_closed": {
           "type": "object",
           "additionalProperties": false,
@@ -69,26 +80,120 @@
     "selection": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["target_source_count", "maximum_source_count", "source_status_required", "adapter_status_required", "semantic_match_fields", "no_adapter_status"],
+      "required": [
+        "target_source_count", "maximum_source_count", "source_status_required",
+        "direct_adapter_status_required", "semantic_match_fields", "direct_no_adapter_status"
+      ],
       "properties": {
         "target_source_count": {"type": "integer", "minimum": 1},
         "maximum_source_count": {"type": "integer", "minimum": 1},
         "source_status_required": {"const": "active"},
-        "adapter_status_required": {"const": "searchable"},
+        "direct_adapter_status_required": {"const": "searchable"},
         "semantic_match_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-        "no_adapter_status": {"const": "NO_SEARCH_ADAPTER"}
+        "direct_no_adapter_status": {"const": "NO_SEARCH_ADAPTER"}
       }
     },
-    "terminal_statuses": {"const": ["SUCCESS", "NO_RESULTS", "NO_SEARCH_ADAPTER", "SOURCE_FETCH_GAP", "CLOSED_WORLD_VIOLATION"]},
-    "gap_statuses": {"const": ["NO_SEARCH_ADAPTER", "SOURCE_FETCH_GAP", "REGISTRY_COVERAGE_GAP", "CLOSED_WORLD_VIOLATION"]},
+    "terminal_statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "gap_statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
     "trace_required_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-    "adapters": {
-      "type": "array",
-      "minItems": 1,
-      "items": {"$ref": "#/$defs/adapter"}
-    }
+    "bootstrap": {"$ref": "#/$defs/bootstrap"},
+    "brokered_discovery": {"$ref": "#/$defs/brokeredDiscovery"},
+    "adapters": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/adapter"}}
   },
   "$defs": {
+    "bootstrap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind", "repository", "main_ref", "main_ref_api", "snapshot_ref",
+        "release_index_path", "snapshot_path_template", "required_files",
+        "file_identity", "freshness_rule", "pages_fallback_enabled"
+      ],
+      "properties": {
+        "kind": {"const": "github_connector"},
+        "repository": {"const": "hoiyu915-droid/open-scholarly-sources"},
+        "main_ref": {"const": "main"},
+        "main_ref_api": {"const": "https://api.github.com/repos/hoiyu915-droid/open-scholarly-sources/branches/main"},
+        "snapshot_ref": {"const": "release-snapshots"},
+        "release_index_path": {"const": "releases/index.json"},
+        "snapshot_path_template": {"const": "releases/{release_id}/{path}"},
+        "required_files": {"type": "array", "minItems": 6, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "file_identity": {"const": "manifest_sha256_and_git_blob_sha1"},
+        "freshness_rule": {"const": "release_index.current_release_id_equals_main_ref_commit_sha"},
+        "pages_fallback_enabled": {"const": false}
+      }
+    },
+    "brokeredDiscovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "broker_id", "status", "operation", "supported_tool_names", "domain_filter_required",
+        "domain_match", "unrestricted_search_enabled", "snippets_are_evidence",
+        "original_source_fetch_required_for_content_claims", "maximum_results_per_source",
+        "direct_adapter_role", "runtime_failure_reuse", "eligible_source_count", "source_route_derivation"
+      ],
+      "properties": {
+        "broker_id": {"const": "host-web-search"},
+        "status": {"const": "enabled"},
+        "operation": {"const": "search_query"},
+        "supported_tool_names": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "domain_filter_required": {"const": true},
+        "domain_match": {"const": "exact_declared_domain"},
+        "unrestricted_search_enabled": {"const": false},
+        "snippets_are_evidence": {"const": false},
+        "original_source_fetch_required_for_content_claims": {"const": true},
+        "maximum_results_per_source": {"type": "integer", "minimum": 1, "maximum": 20},
+        "direct_adapter_role": {"const": "secondary_optional"},
+        "runtime_failure_reuse": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["same_task_retry_failed_host", "cross_task_reuse_without_reprobe", "observed_at_required"],
+          "properties": {
+            "same_task_retry_failed_host": {"const": false},
+            "cross_task_reuse_without_reprobe": {"const": false},
+            "observed_at_required": {"const": true}
+          }
+        },
+        "eligible_source_count": {"type": "integer", "minimum": 1},
+        "source_route_derivation": {"$ref": "#/$defs/sourceRouteDerivation"}
+      }
+    },
+    "sourceRouteDerivation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method", "required_source_status", "required_access_role",
+        "required_canonical_url_scheme", "search_domain_rule", "search_query_rule",
+        "candidate_host_rule", "origin_host_rule", "canonical_path_role",
+        "shared_host_rule", "origin_identity_fields", "metadata_only_rule",
+        "returned_link_rule", "identity_failure_status"
+      ],
+      "properties": {
+        "method": {"const": "selected_registry_source_v1"},
+        "required_source_status": {"const": "active"},
+        "required_access_role": {"const": "discovery"},
+        "required_canonical_url_scheme": {"const": "https"},
+        "search_domain_rule": {"const": "exact_canonical_url_hostname"},
+        "search_query_rule": {"const": "topic_plus_exact_registered_source_name"},
+        "candidate_host_rule": {"const": "exact_canonical_url_hostname"},
+        "origin_host_rule": {"const": "exact_canonical_url_hostname"},
+        "canonical_path_role": {"const": "identity_hint_not_sufficient_proof"},
+        "shared_host_rule": {"const": "require_original_container_identity_before_acceptance"},
+        "origin_identity_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "metadata_only_rule": {"const": "may_support_registry_metadata_only_never_fulltext_claims"},
+        "returned_link_rule": {"const": "never_follow_cross_host_or_unregistered_target"},
+        "identity_failure_status": {"const": "SOURCE_IDENTITY_GAP"}
+      }
+    },
+    "hosts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)*[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$"
+      }
+    },
     "adapter": {
       "type": "object",
       "additionalProperties": false,
@@ -107,7 +212,7 @@
         "method": {"const": "GET"},
         "endpoint_template": {"type": "string", "pattern": "^https://"},
         "query_encoding": {"enum": ["url_component_utf8", "url_path_segment_utf8"]},
-        "allowed_hosts": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9.-]+$"}},
+        "allowed_hosts": {"$ref": "#/$defs/hosts"},
         "redirect_policy": {"const": "same_host_only"},
         "response_format": {"enum": ["json", "atom"]},
         "accepted_content_types": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},

@@ -37,7 +37,7 @@ These are convenient latest-release URLs:
 
 They track the latest deployed site, but intermediaries may cache an older response. Machine consumers must therefore read the release identity rather than assume that a successful HTTP response is current.
 
-`registry.json`, `source-profiles.json`, the homepage and both LLM text files are stamped with the full release commit SHA. NDJSON remains one source record per line and is paired with the release manifest instead of inserting a metadata line. The routing-policy and chatbot-search files carry their own version/method identity; their immutable digests are recorded by the same release manifest.
+`registry.json`, `source-profiles.json`, the homepage and both LLM text files are stamped with the full release commit SHA. NDJSON remains one source record per line and is paired with the release manifest instead of inserting a metadata line. The routing-policy and chatbot-search files carry their own version/method identity; their immutable SHA-256, byte-size and Git blob SHA-1 identities are recorded by the same release manifest.
 
 ## Immutable release endpoints
 
@@ -65,11 +65,38 @@ For each successfully deployed commit `<sha>` after routing-policy activation:
 
 Earlier Pages deployments remain recoverable from Git history and retained Actions artifacts where available, but they are not promised to contain routing-policy files retroactively.
 
-The release manifest records the commit identity, source count, profile-rule identity, routing-policy identity, chatbot-search protocol/method/schema/adapter count, and SHA-256 digest/byte size for every immutable file.
+The release manifest records the commit identity, source count, profile-rule identity, routing-policy identity, chatbot-search protocol/method/schema/adapter count, the registry-brokered source count and default mode, and SHA-256, byte-size and Git blob SHA-1 identity for every immutable file. `release-manifest.json` is intentionally not listed in its own `files` map because that would be self-referential; its identities are anchored by the matching entry in `/releases/index.json`.
 
-The release-manifest schema is `3.0.0` for releases carrying required chatbot-search identity. This is an intentional breaking schema bump from `2.0.0`: the new identity fields are required, so the repository does not pretend the contract is backward-compatible merely because they are additive in JSON syntax.
+The release-manifest schema is `4.0.0` for releases carrying the GitHub connector and registry-brokered chatbot identity. This is an intentional breaking schema bump from `3.0.0`: Git blob identity, brokered source count, default mode and the connector-compatible main-ref API are required, so the repository does not pretend the contract is backward-compatible merely because they are additive in JSON syntax.
+
+The release index schema is `1.3.0`. Its current-release entry carries `manifest_sha256` and `manifest_git_blob_sha1` so a GitHub connector can authenticate the manifest before using that manifest to authenticate the remaining immutable files. The same entry also carries `chatbot_search_brokered_source_count` and `chatbot_search_default_mode`. Older retained entries may lack fields introduced after their original publication and remain historical records.
 
 A release directory is append-only by identity. If a future deployment tries to reuse an existing commit SHA with different bytes, the archive step fails instead of overwriting the old release.
+
+## Registry-brokered chatbot identity
+
+The default chatbot route is the generic registry-brokered v2 flow: a Chatbot
+uses the GitHub connector to pin one immutable release, selects active registry
+sources, uses a domain-restricted web search only as a discovery broker, and
+opens the selected registered source before making content claims. The broker's
+snippets are not evidence. The strict topic-search adapters remain optional
+secondary routes for consumers that explicitly choose `registry_closed` or
+`direct_only`; they are not the default release identity.
+
+The release identity for this flow includes:
+
+```text
+chatbot_search_protocol_version
+chatbot_search_method
+chatbot_search_schema_version
+chatbot_search_adapter_count
+chatbot_search_brokered_source_count
+chatbot_search_default_mode
+```
+
+The release manifest and the current release-index entry must agree on the two
+brokered fields. A consumer must not infer the brokered source count from a
+different release's routing file.
 
 ## Routing-policy identity
 
@@ -91,10 +118,10 @@ source-profile rule version
 
 The mutable `/retrieval-routing-policy.json` is convenient but not sufficient for historical reproducibility by itself. Use the policy copy under `/releases/<sha>/` and verify its digest against that release's manifest when exact replay matters.
 
-The same rule applies to closed-registry chatbot search: registry, adapter file,
-schema, protocol and entry must come from one immutable release. Mixing a latest
-registry with an older adapter allowlist is non-compliant even if every fetch
-returns HTTP 200.
+The same rule applies to registry-brokered chatbot search: registry, routing
+file, schema, protocol and entry must come from one immutable release. Mixing a
+latest registry with an older broker/default-mode declaration or strict-adapter
+allowlist is non-compliant even if every fetch returns HTTP 200.
 
 This versioning contract does **not** imply runtime enforcement. `open-scholarly-sources` can publish and identify the routing policy; an external consumer can still ignore it. Compliance requires the consumer to preserve a trace showing which release and policy it actually followed. See [RETRIEVAL_ROUTING.md](RETRIEVAL_ROUTING.md).
 
@@ -110,18 +137,19 @@ Pages artifacts are rebuilt from scratch, so old versioned directories would dis
 
 The archive write happens **after** the Pages deployment succeeds. A failed deployment is not promoted into durable release history.
 
-`/releases/index.json` lists the retained releases and the current release ID represented by that deployed site. New entries also carry routing-policy identity; older retained entries remain historical records and are not rewritten merely to add fields that did not exist at the time.
+`/releases/index.json` lists the retained releases and the current release ID represented by that deployed site. New entries carry routing-policy identity, brokered source/default-mode identity and manifest SHA-256/Git blob anchors; older retained entries remain historical records and are not rewritten merely to add fields that did not exist at the time.
 
-## Freshness algorithm for agents
+## GitHub connector freshness algorithm
 
-When current-main freshness matters:
+When current-main freshness matters, a connector-capable consumer should use
+the repository's `/branches/main` endpoint recorded in the release manifest:
 
-1. Fetch `/release-manifest.json` with the machine output you are using.
-2. Read `commit_sha` / `release_id`.
-3. Query `repository_main_ref_api` from the manifest.
-4. If the SHAs match, the fetched release represents current `main` at the time of the comparison.
-5. If they differ, treat the mutable response as stale. Fetch `/releases/<main-sha>/release-manifest.json` if that release has already propagated, or retry later/fetch through a different path.
-6. For a specific historical release, verify the file SHA-256 against its immutable release manifest.
-7. If routing decisions must be reproduced, verify the routing-policy digest and use the policy version/method recorded by that same release; do not silently substitute the mutable latest policy.
+1. Read `releases/index.json` from the `release-snapshots` branch through the GitHub connector.
+2. Query `repository_main_ref_api`, which must be `https://api.github.com/repos/<owner>/<repo>/branches/main`, and read the resolved main commit SHA.
+3. Select the one index entry whose `release_id` and `commit_sha` equal that main SHA.
+4. Fetch that entry's immutable `releases/<sha>/release-manifest.json` and compare its SHA-256 and Git blob SHA-1 with the index entry.
+5. Verify every required immutable file's SHA-256, byte count and Git blob SHA-1 against that manifest. Do not use a mutable Pages response as a substitute.
+6. For a specific historical release, perform the same manifest/index identity checks for the requested commit-addressed directory.
+7. If the index and main branch disagree, stop with a publication/freshness gap; do not silently substitute the mutable latest policy or routing file.
 
 This contract does not claim that every CDN, crawler or proxy invalidates immediately. It makes staleness **detectable, attributable and reproducible** instead of silently ambiguous.

@@ -64,11 +64,44 @@ New subject labels and access-policy values need zh-TW taxonomy entries. CI merg
 
 ## Validate and build / 驗證與建置
 
-### Chatbot search adapters
+### Registry-brokered chatbot search
+
+The default explicit chatbot search contract is the generic
+`chatbot_registry_brokered_oa_search_v2` route. It must work from the pinned
+registry rather than from a hard-coded list of source IDs. For every selected
+source, derive the route from its canonical record:
+
+- require `status=active`, a `discovery` access role, and a safe HTTPS
+  `canonical_url` with an exact hostname; reject userinfo, fragments, explicit
+  ports, wildcard expansion and unsafe schemes;
+- use that exact canonical hostname as the web-search domain restriction and
+  as the permitted original-fetch host; a canonical path is an identity hint,
+  not permission to invent a broader path rule;
+- treat snippets, rankings, cached text and generated summaries as discovery
+  data only; the original OA record must be opened before content claims are
+  accepted;
+- verify the original container/repository identity using the registered name
+  and any available title, ISSN, repository ID, DOI or source-prefix evidence;
+  a shared publisher hostname alone is insufficient;
+- keep `metadata_only` records at metadata scope. They may discover records but
+  cannot provide full-text evidence;
+- never follow a returned DOI, publisher or download URL to an unregistered
+  host. Record `SOURCE_IDENTITY_GAP`, `ORIGINAL_FETCH_GAP` or
+  `FULLTEXT_NOT_AUTHORIZED` when the boundary cannot be proven.
+
+This route uses no Skill, MCP, custom server, Radar integration or API
+credential. The external web-search service is a discovery broker, not an
+evidence source.
+
+### Direct chatbot search adapters
 
 Add an adapter only when the endpoint supports real topic search and has a live
 receipt. A feed, OAI-PMH harvest endpoint, bulk dump, DOI resolver or merely
 non-null `machine_access` field is not automatically a topic-search adapter.
+
+Direct adapters are optional secondary routes in brokered v2 and remain the
+strict route for `registry_closed` / `direct_only` requests. Do not make the
+brokered route depend on a fixed adapter list.
 
 Every searchable adapter in `data/chatbot-search-routing.json` must:
 

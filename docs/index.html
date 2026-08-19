@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://hoiyu915-droid.github.io/open-scholarly-sources/">
   <link rel="alternate" type="application/json" href="./registry.json" title="Consolidated registry JSON">
   <link rel="alternate" type="application/json" href="./source-profiles.json" title="Source-use profiles JSON">
-  <link rel="alternate" type="application/json" href="./chatbot-search-routing.json" title="Closed-registry chatbot search routing">
+  <link rel="alternate" type="application/json" href="./chatbot-search-routing.json" title="Registry-brokered chatbot OA search routing">
   <link rel="alternate" type="application/ld+json" href="./registry.jsonld" title="Schema.org catalog">
   <link rel="alternate" type="text/plain" href="./llms.txt" title="LLM discovery file">
   <script>document.documentElement.classList.add("js")</script>
@@ -106,14 +106,14 @@
   <div class="eyebrow">Open-source scholarly registry · 開放學術來源登錄表</div>
   <h1>Open Scholarly Sources</h1>
   <div class="zh-title">開放學術來源</div>
-  <p class="lede">A bilingual, evidence-backed scholarly source map for people, search engines and research agents — now with explicit source-use tiers and archetypes.</p>
-  <p class="lede">英繁中對照的學術來源地圖；除了 OA、版本與審查狀態，也直接顯示 R1／F1 等用途 tier 與來源「性格」，方便人與 LLM 選對入口。</p>
+  <p class="lede">A bilingual, evidence-backed scholarly source map for people, search engines and research agents — now with explicit source-use tiers, archetypes and registry-brokered OA search.</p>
+  <p class="lede">英繁中對照的學術來源地圖；除了 OA、版本與審查狀態，也直接顯示 R1／F1 等用途 tier 與來源「性格」，方便人與 LLM 選對入口；Chatbot 可不經 server、Skill 或 Radar，依 immutable registry 選來源搜尋 OA。</p>
   <div class="links">
     <a href="./registry.json">Consolidated JSON / 合併 JSON</a>
     <a href="./source-profiles.json">Source profiles JSON / 來源剖面</a>
     <a href="./chatbot-entry.txt">Chatbot OA search / Chatbot OA 搜尋</a>
-    <a href="./chatbot-search-protocol.md">Closed-search protocol / 封閉搜尋協定</a>
-    <a href="./chatbot-search-routing.json">Search adapters / 搜尋轉接表</a>
+    <a href="./chatbot-search-protocol.md">Registry-brokered protocol / Registry 限定協定</a>
+    <a href="./chatbot-search-routing.json">Search routing / 搜尋 routing</a>
     <a href="./profiles/">Profiles / 分級與性格</a>
     <a href="./registry.ndjson">NDJSON</a>
     <a href="./registry.jsonld">JSON-LD</a>
@@ -134,6 +134,12 @@
   <div class="notice"><strong>OA semantics / OA 語義：</strong>
     <em>full</em> 是可公開取得的範圍，不保證所有年代、版本與授權一致；<em>mixed</em> 必須依期刊、文章或年份驗證。
     Subscribe to Open 只承認資料中明列的 <code>open_years</code>。
+  </div>
+  <div class="notice"><strong>Chatbot registry-brokered search / Chatbot Registry 限定搜尋：</strong>
+    GitHub connector 先鎖定 <code>main</code> 對應的 immutable release；再由 active registry source 的安全
+    <code>canonical_url</code> hostname 推導精確 domain restriction。搜尋 broker 的 snippet、排名與摘要只是 discovery，
+    不能當 evidence；Chatbot 必須開啟原始 OA record、核對 source identity。<code>metadata_only</code> 不得升級成全文證據，
+    shared publisher host 也不足以證明期刊身分。
   </div>
 
   <!-- DEPLOY-TIME TEMPLATE NOTICE:
@@ -187,7 +193,7 @@
   <div id="error" class="error" hidden></div>
 </main>
 
-<footer class="wrap">Canonical source facts remain separate from the derived source-use profile layer. Registry JSON, source profiles, static pages, sitemap and LLM text are generated together during deployment. ／ 來源事實與用途剖面分層保存，但部署時一起生成給人與機器使用。</footer>
+<footer class="wrap">Canonical source facts remain separate from the derived source-use profile layer. Registry JSON, source profiles, static pages, sitemap and LLM text are generated together during deployment. The no-server chatbot route uses a GitHub-connector-pinned immutable registry; broker output remains discovery-only until the original source identity is verified. ／ 來源事實與用途剖面分層保存，但部署時一起生成給人與機器使用；Chatbot 不需 server，先由 GitHub connector 鎖定 immutable registry，broker 結果須待原始來源身分核對後才可作為證據。</footer>
 
 <script>
 const $=id=>document.getElementById(id);

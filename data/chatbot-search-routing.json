@@ -1,21 +1,31 @@
 {
-  "schema_version": "1.0.0",
-  "protocol_version": "1.0.0",
-  "method": "chatbot_closed_registry_oa_search_v1",
+  "schema_version": "2.0.0",
+  "protocol_version": "2.0.0",
+  "method": "chatbot_registry_brokered_oa_search_v2",
   "updated": "2026-08-19",
-  "default_mode": "registry_closed",
+  "default_mode": "registry_brokered",
   "runtime_enforcement": false,
   "network_boundary": {
     "custom_server_required": false,
     "skill_required": false,
-    "public_ocean_enabled": false,
+    "radar_required": false,
+    "public_ocean_evidence_enabled": false,
     "arbitrary_url_fetch_enabled": false,
+    "domain_restricted_discovery_broker_enabled": true,
+    "broker_result_content_is_evidence": false,
     "allowed_schemes": [
       "https"
     ],
-    "redirect_policy": "same_host_only"
+    "redirect_policy": "allowlisted_hosts_only"
   },
   "modes": {
+    "registry_brokered": {
+      "target_must_be_registered": true,
+      "source_route_derived_from_registry": true,
+      "broker_may_be_external": true,
+      "broker_is_evidence_source": false,
+      "origin_must_equal_target_source": true
+    },
     "registry_closed": {
       "provider_must_be_registered": true,
       "target_must_be_registered": true,
@@ -31,7 +41,7 @@
     "target_source_count": 5,
     "maximum_source_count": 8,
     "source_status_required": "active",
-    "adapter_status_required": "searchable",
+    "direct_adapter_status_required": "searchable",
     "semantic_match_fields": [
       "name",
       "subjects",
@@ -41,38 +51,125 @@
       "notes",
       "translation.zh-TW"
     ],
-    "no_adapter_status": "NO_SEARCH_ADAPTER"
+    "direct_no_adapter_status": "NO_SEARCH_ADAPTER"
   },
   "terminal_statuses": [
     "SUCCESS",
     "NO_RESULTS",
+    "NO_CANONICAL_SEARCH_ROUTE",
     "NO_SEARCH_ADAPTER",
+    "SEARCH_BROKER_GAP",
+    "SOURCE_IDENTITY_GAP",
+    "ORIGINAL_FETCH_GAP",
+    "FULLTEXT_NOT_AUTHORIZED",
     "SOURCE_FETCH_GAP",
     "CLOSED_WORLD_VIOLATION"
   ],
   "gap_statuses": [
+    "NO_CANONICAL_SEARCH_ROUTE",
     "NO_SEARCH_ADAPTER",
+    "SEARCH_BROKER_GAP",
+    "SOURCE_IDENTITY_GAP",
+    "ORIGINAL_FETCH_GAP",
+    "FULLTEXT_NOT_AUTHORIZED",
     "SOURCE_FETCH_GAP",
     "REGISTRY_COVERAGE_GAP",
     "CLOSED_WORLD_VIOLATION"
   ],
   "trace_required_fields": [
     "registry_release_id",
+    "main_ref_commit_sha",
     "routing_sha256",
     "mode",
+    "discovery_method",
+    "broker_id",
+    "broker_operation",
+    "broker_query",
+    "broker_domains",
+    "broker_result_count",
+    "source_route_id",
     "adapter_id",
     "provider_source_id",
     "target_source_id",
+    "candidate_url",
+    "candidate_identity_status",
     "request_url",
     "observed_url",
     "redirect_chain",
     "http_status",
     "content_type",
     "parser",
+    "source_identity_verified",
+    "original_record_observed",
+    "evidence_class",
     "observed_at",
     "dedupe_key",
     "status"
   ],
+  "bootstrap": {
+    "kind": "github_connector",
+    "repository": "hoiyu915-droid/open-scholarly-sources",
+    "main_ref": "main",
+    "main_ref_api": "https://api.github.com/repos/hoiyu915-droid/open-scholarly-sources/branches/main",
+    "snapshot_ref": "release-snapshots",
+    "release_index_path": "releases/index.json",
+    "snapshot_path_template": "releases/{release_id}/{path}",
+    "required_files": [
+      "release-manifest.json",
+      "registry.json",
+      "chatbot-search-routing.json",
+      "chatbot-search-protocol.md",
+      "chatbot-entry.txt",
+      "schemas/chatbot-search-routing.schema.json"
+    ],
+    "file_identity": "manifest_sha256_and_git_blob_sha1",
+    "freshness_rule": "release_index.current_release_id_equals_main_ref_commit_sha",
+    "pages_fallback_enabled": false
+  },
+  "brokered_discovery": {
+    "broker_id": "host-web-search",
+    "status": "enabled",
+    "operation": "search_query",
+    "supported_tool_names": [
+      "web.run",
+      "web_search"
+    ],
+    "domain_filter_required": true,
+    "domain_match": "exact_declared_domain",
+    "unrestricted_search_enabled": false,
+    "snippets_are_evidence": false,
+    "original_source_fetch_required_for_content_claims": true,
+    "maximum_results_per_source": 10,
+    "direct_adapter_role": "secondary_optional",
+    "runtime_failure_reuse": {
+      "same_task_retry_failed_host": false,
+      "cross_task_reuse_without_reprobe": false,
+      "observed_at_required": true
+    },
+    "eligible_source_count": 241,
+    "source_route_derivation": {
+      "method": "selected_registry_source_v1",
+      "required_source_status": "active",
+      "required_access_role": "discovery",
+      "required_canonical_url_scheme": "https",
+      "search_domain_rule": "exact_canonical_url_hostname",
+      "search_query_rule": "topic_plus_exact_registered_source_name",
+      "candidate_host_rule": "exact_canonical_url_hostname",
+      "origin_host_rule": "exact_canonical_url_hostname",
+      "canonical_path_role": "identity_hint_not_sufficient_proof",
+      "shared_host_rule": "require_original_container_identity_before_acceptance",
+      "origin_identity_fields": [
+        "registered_source_name",
+        "container_title",
+        "issn_when_available",
+        "repository_record_id_when_available",
+        "doi_or_source_prefix_when_available"
+      ],
+      "metadata_only_rule": "may_support_registry_metadata_only_never_fulltext_claims",
+      "returned_link_rule": "never_follow_cross_host_or_unregistered_target",
+      "identity_failure_status": "SOURCE_IDENTITY_GAP"
+    }
+  },
   "adapters": [
     {
       "adapter_id": "europe-pmc-topic-search",

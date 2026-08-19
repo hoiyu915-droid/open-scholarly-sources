@@ -52,31 +52,52 @@ canonical URL
 
 The LLM may semantically rank registered sources using the query, but it must not invent source facts or silently upgrade OA / peer-review / publication claims beyond the pinned registry record.
 
-## Explicit closed-registry OA search / 明確啟動封閉式 OA 搜尋
+## Explicit registry-brokered OA search / 明確啟動 Registry 限定 OA 搜尋
 
-The user may ask the chatbot to go beyond navigation and actually search, while
-still forbidding every source outside this registry. That activates the separate
-`chatbot_closed_registry_oa_search_v1` protocol—not verification and not public ocean.
+The user may ask the chatbot to go beyond navigation and actually search while
+still restricting usable evidence to sources selected from this registry. That
+activates `chatbot_registry_brokered_oa_search_v2`—not verification and not
+public-ocean fallback.
 
 ```text
-explicit “only use this OA registry” request
-→ pin one immutable release
-→ select active registered sources
-→ resolve each source's published topic-search adapter
-→ exact-host HTTPS fetch
-→ Content-Type + parser + redirect receipt
-→ dedupe and report SUCCESS / NO_RESULTS / gaps
+explicit “use this OA registry” request
+→ GitHub connector reads main and pins one immutable release
+→ dynamically select active registered sources with discovery access
+→ derive exact canonical hostname for domain-restricted broker discovery
+→ open each candidate's original OA record and verify source identity
+→ apply metadata/full-text scope and shared-host rules
+→ dedupe and report evidence classes plus all gaps
 ```
 
 The canonical contract is `data/chatbot-search-routing.json`; the complete
-instructions are in `CHATBOT_OA_SEARCH_PROTOCOL.md`. A registered source without
-an adapter returns `NO_SEARCH_ADAPTER`. A timeout, 429, HTTP error, wrong
-Content-Type or parse failure returns `SOURCE_FETCH_GAP`. Neither means that the
-topic has no literature, and neither permits general web search as fallback.
+instructions are in `CHATBOT_OA_SEARCH_PROTOCOL.md`. The connector reads the
+matching `release-snapshots` directory and verifies manifest/file identity
+before using the registry. Do not combine mutable Pages content, local cache or
+different releases.
 
-This mode needs no Skill, MCP or custom server. Its allowlist is a published,
-auditable consumer contract rather than a network firewall, so
-`runtime_enforcement=false` remains truthful.
+The broker is discovery-only: snippets, rankings, cached text and generated
+summaries are not evidence. The original URL must use the exact canonical
+hostname, and the original record must confirm the registered source's
+container/repository identity. A shared publisher host is not sufficient.
+`metadata_only` sources remain metadata-only and cannot support full-text
+claims. Returned DOI, publisher and download links do not authorize another
+host. Preserve `NO_CANONICAL_SEARCH_ROUTE`, `SEARCH_BROKER_GAP`,
+`SOURCE_IDENTITY_GAP`, `ORIGINAL_FETCH_GAP`, `FULLTEXT_NOT_AUTHORIZED` and
+`REGISTRY_COVERAGE_GAP`; none means that the topic has no literature.
+
+This mode needs no Skill, MCP, custom server, Radar integration or API
+credential. Its policy is a published, auditable consumer contract rather than
+a network firewall, so `runtime_enforcement=false` remains truthful.
+
+### Optional strict direct-adapter mode / 可選嚴格 adapter 模式
+
+`registry_closed` and `direct_only` preserve the direct topic-search adapter
+route for users who explicitly require it. A source without a published direct
+adapter returns `NO_SEARCH_ADAPTER`; a timeout, 429, HTTP error, wrong
+Content-Type or parse failure returns `SOURCE_FETCH_GAP`. These statuses do not
+mean that the topic has no literature and do not permit unrestricted web search.
+Direct adapters are an optional secondary route in brokered v2, not a fixed
+source list or a prerequisite for dynamic registry selection.
 
 ## Example / 使用例
 
