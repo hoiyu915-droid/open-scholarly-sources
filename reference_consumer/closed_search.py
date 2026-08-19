@@ -235,8 +235,14 @@ def validate_trace(
         raise ClosedWorldViolation("trace target is not an active registered source")
 
     if trace["status"] == "NO_SEARCH_ADAPTER":
-        if any(trace.get(field) is not None for field in ("adapter_id", "provider_source_id", "request_url", "parser")):
+        empty_fields = (
+            "adapter_id", "provider_source_id", "request_url", "observed_url",
+            "http_status", "content_type", "parser", "observed_at", "dedupe_key",
+        )
+        if any(trace.get(field) is not None for field in empty_fields):
             raise ClosedWorldViolation("NO_SEARCH_ADAPTER trace must not claim a provider request")
+        if trace.get("redirect_chain") != []:
+            raise ClosedWorldViolation("NO_SEARCH_ADAPTER trace must not claim observed redirects")
         if target_source_id in _adapter_map(contract):
             raise ClosedWorldViolation("NO_SEARCH_ADAPTER trace contradicts a published adapter")
         return
